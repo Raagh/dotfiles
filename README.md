@@ -1,2 +1,7 @@
 # dotfiles
- personal configuration files
+
+Personal configuration files
+
+### .doom.d
+
+Doom Emacs config files
