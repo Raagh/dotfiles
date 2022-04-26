@@ -1,16 +1,17 @@
 ## Dotfiles
 
-This are the dotfiles for my current setup.
+The dotfiles for my current setup.
 
-Axyl OS - Tokyonight Theme
+Nix OS (for now) - tokyonight
 
 - bspwm
-  - polybar
-  - alacritty
-  - feh
-  - picom
-  - dunst
-- fish
+- polybar
+- alacritty
+- feh
+- rofi
+- picom
+- dunst
+- zsh
 - neofetch
 - nvim
 - ranger
