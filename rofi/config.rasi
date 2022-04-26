@@ -1,0 +1,51 @@
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+
+    /* theme dark colors */
+    theme-bg0:          #2e3440;
+    theme-bg0-soft:     #3b4252;
+    theme-bg3:          #4c566a;
+    theme-fg0:          #eceff4;
+    theme-fg1:          #e5e9f0;
+    theme-color1-dark:     #5e81ac;
+    theme-color1-light:    #81a1c1;
+    theme-color2-dark:  #88c0d0;
+    theme-color2-light: #8fbcbb;
+    theme-gray:         #d8dee9;
+
+    /* Theme colors */
+    background:                  @theme-bg0;
+    background-color:            @background;
+    foreground:                  @theme-fg1;
+    border-color:                @theme-bg3;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+    colorful-bg:                 @theme-color1-dark;
+
+    prompt-background:           @colorful-bg;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @theme-bg0-soft;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @colorful-bg;
+    selected-normal-foreground:  @theme-fg0;
+
+    active-background:           @theme-color2-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @theme-color2-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @theme-color1-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @theme-color1-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+@import "theme-common.rasi"
