@@ -1,0 +1,2 @@
+alias switch-to-1920='xrandr -S 1920x1080'
+alias switch-to-3440='xrandr -S 3440x1440'

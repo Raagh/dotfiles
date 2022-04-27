@@ -1,10 +1,3 @@
-#
-# wm independent hotkeys
-#
-
-super + r
-    rofi -show run
-
 # reloads sxhkd configuration:
 super + Escape
     pkill -USR1 -x sxhkd
@@ -26,8 +19,8 @@ alt + F1
     j4-dmenu
 
 # Launch Menus
-super + {x,n,d,s}
-    {powermenu,def-nmdmenu,def-dmenu,def-ssdmenu}
+super + {r,x,n}
+    {rofi -show drun,rofi -modi PowerMenu:$HOME/.config/rofi/custom-scripts/my-scripts -show PowerMenu, $HOME/.config/rofi/custom-scripts/rofi-wifi}
 
 # Lock Screen
 ctrl + alt + l

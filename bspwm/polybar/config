@@ -47,13 +47,13 @@ module-margin-right = 0
 wm-restack = bspwm
 
 font-0 = "Source Code Pro Medium:size=10;3"
-font-1 = "Iosevka Nerd Font:size=12;3"
+font-1 = "Iosevka Nerd Font Mono:size=20;5"
 font-2 = "Iosevka Nerd Font:size=16;4"
 font-3 = "Iosevka Nerd Font:size=18;4"
 font-4 = "Source Code Pro Bold:size=13;3"
 
 # Default
-modules-left = spacing BLD launcher BRD sep bspwm sep spacing MLD mod GMPL network GRD
+modules-left = launcher sep bspwm sep spacing MLD mod GMPL network GRD
 modules-center = 
 modules-right = BLD battery MPL volume RPL xkeyboard RRD sep GLD cpu YPL memory CPL filesystem CRD sep BLD time BRD spacing
 

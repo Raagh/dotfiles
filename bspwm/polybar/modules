@@ -83,7 +83,7 @@ ramp-foreground = ${color.background}
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/volume]
-type = internal/pulseaudio
+type = internal/alsa
 
 use-ui-max = false
 
@@ -93,12 +93,12 @@ format-volume = <ramp-volume><label-volume>
 
 format-muted = <label-muted>
 format-muted-prefix = "  "
-format-muted-prefix-font = 2
+format-muted-prefix-font = 1
 format-muted-prefix-foreground = ${color.background}
 format-muted-prefix-background = ${color.magenta}
 
 label-volume = "%percentage%% "
-label-muted = "Mute"
+label-muted = "Mute "
 
 label-volume-background = ${color.magenta}
 label-muted-background = ${color.magenta}
@@ -116,7 +116,7 @@ ramp-volume-6 = "  "
 ramp-volume-7 = "  "
 ramp-volume-8 = "  "
 ramp-volume-9 = "  "
-ramp-volume-font = 2
+ramp-volume-font = 1
 ramp-volume-foreground = ${color.background}
 ramp-volume-background = ${color.magenta}
 
@@ -202,7 +202,7 @@ ws-icon-6=VII;漣
 ws-icon-default = 
 
 format = <label-state>
-format-font = 2
+format-font = 1
 
 label-monitor = %name%
 
@@ -330,11 +330,11 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 
 [module/launcher]
 type=custom/text
-content = 
+content = "  " 
 content-font = 4
-content-foreground= ${color.background}
-content-background = ${color.blue} 
-content-padding = 1
+content-foreground= ${color.blue}
+content-background = ${color.background} 
+content-padding = 0 
 click-left="rofi -show run"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -372,11 +372,11 @@ label-disconnected-foreground = ${color.background}
 label-connected-background = ${color.green}
 label-disconnected-background = ${color.green}
 
-ramp-signal-0 = "  "
-ramp-signal-1 = "  "
-ramp-signal-2 = "  "
-ramp-signal-3 = "  "
-ramp-signal-4 = "  "
+ramp-signal-0 = "   "
+ramp-signal-1 = "   "
+ramp-signal-2 = "   "
+ramp-signal-3 = "   "
+ramp-signal-4 = "   "
 ramp-signal-foreground = ${color.background}
 ramp-signal-background = ${color.green}
-ramp-signal-font = 2
+ramp-signal-font = 3
