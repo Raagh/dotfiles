@@ -265,7 +265,7 @@ format-padding = 0
 format-prefix-foreground = ${color.background}
 format-foreground = ${color.background}
 format-background = ${color.green}
-label = "%{A1:terminal -e gtop &:}%percentage%% %{A}"
+label = "%percentage%% %{A}"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -304,7 +304,7 @@ format-unmounted-prefix = " "
 format-unmounted-prefix-foreground = ${color.background}
 format-unmounted-prefix-background = ${color.cyan}
 
-label-mounted = "%{A1:terminal -e ncdu &:} %free%%{A} "
+label-mounted = " %free%%{A} "
 label-unmounted = " %mountpoint%: NA"
 label-mounted-foreground = ${color.background}
 
@@ -324,7 +324,7 @@ format-prefix-foreground = ${color.background}
 format-foreground = ${color.background}
 format-background = ${color.yellow}
 
-label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
+label = " %mb_used% %{A}"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -335,7 +335,7 @@ content-font = 4
 content-foreground= ${color.blue}
 content-background = ${color.background} 
 content-padding = 0 
-click-left="rofi -show run"
+click-left="rofi -show drun"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

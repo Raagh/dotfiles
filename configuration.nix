@@ -15,12 +15,13 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "rmx-nix"; # Define your hostname.
-
-  virtualisation.vmware.guest.enable = true;
-
-  # Enable networking
+  # Networking
   networking.networkmanager.enable = true;
+  networking.hostName = "rmx-nix"; 
+
+  # Enable Some Hardware 
+  hardware.video.hidpi.enable = true;
+  # hardware.bluetooth.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -31,7 +32,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "es_ES.utf8";
     LC_IDENTIFICATION = "es_ES.utf8";
@@ -44,11 +44,9 @@
     LC_TIME = "es_ES.utf8";
   };
 
-  # Enable the X11 windowing system.
+  # Enable the desktop environment.
   services.xserver.enable = true;
-  
   services.xserver.windowManager.bspwm.enable = true;
-
   services.xserver.displayManager = { 
     defaultSession = "none+bspwm"; 
     lightdm = { 
@@ -56,13 +54,7 @@
       greeter.enable = true; 
     }; 
   };
-
-  # Support Dell XPS 9310 screen
-  hardware.video.hidpi.enable = true;
-
-  # Enable bluetooth  
-  # hardware.bluetooth.enable = true;
-  
+    
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -100,7 +92,6 @@
     };
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
     isNormalUser = true;
@@ -110,6 +101,9 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "raagh";
+
+  # VM
+  virtualisation.vmware.guest.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -133,8 +127,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages 
   environment.systemPackages = with pkgs; [
     # Dependencies
     cargo
@@ -143,22 +136,23 @@
 
     open-vm-tools
     
-    # xorg
+    # Xorg
     xorg.xbacklight
 
     # Global Tools
     wget
     google-chrome
     neovim
+    sumneko-lua-language-server
     geany
-    feh
     git
     lazygit
     neofetch
     bat
     exa
+    htop
 
-    # Should be Local (Home Manager)
+    # Should be Local 
     polybar
     alacritty
     sxhkd
@@ -169,7 +163,9 @@
     rofi
     dunst
     zathura
-    sumneko-lua-language-server
+    portfolio
+    flameshot
+    feh
 
     # Theming
     qogir-theme
@@ -196,14 +192,6 @@
       nlSupport = true;
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 

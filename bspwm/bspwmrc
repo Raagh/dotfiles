@@ -11,7 +11,7 @@ else
 fi
 
 # Toggle keyboard layouts
-setxkbmap -option grp:rctrl_rshift_toggle us,es &
+setxkbmap -option grp:win_space_toggle us,es &
 
 # Restore wallpaper
 bash $HOME/.config/bspwm/.fehbg &

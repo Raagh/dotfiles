@@ -37,7 +37,7 @@ content-background = ${color.background}
 content-foreground = ${color.red}
 
 [module/RRD]
-type = custom/text
+type = custom/text 
 content = "%{T3}%{T-}"
 content-font = 3
 content-background = ${color.background}

@@ -31,8 +31,8 @@ alt + {e,l}
     {edit-configs, quick-links}
 
 # Launch Applications
-super + shift + {f,w,r,g}
-    {thunar,google-chrome-stable,alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml" -e ranger,geany}
+super + shift + {s,f,w,r,g}
+    {flameshot gui,thunar,google-chrome-stable,alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml" -e ranger,geany}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
@@ -67,10 +67,6 @@ ctrl + shift + {q,r}
 # close and kill
 super + c
     bspc node -c
-
-# alternate between the tiled and monocle layout
-super + space
-	bspc node -t "~"{floating,tiled}
 
 # send the newest marked node to the newest preselected node
 super + y
