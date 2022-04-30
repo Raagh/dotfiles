@@ -22,7 +22,7 @@ $HOME/.config/bspwm/polybar/launch.sh
 workspaces() {
 	name=1
 	for monitor in `bspc query -M`; do
-		bspc monitor ${monitor} -n "$name" -d '' '' '' '漣'
+		bspc monitor ${monitor} -n "$name" -d 'I' 'II' 'III' '漣'
 		let name++
 	done
 }
@@ -48,34 +48,18 @@ xsetroot -cursor_name left_ptr
 # Zathura should be tiled
 bspc rule -a Zathura state=tiled
 
-# workspace 3 (Files)
-declare -a filem=(Thunar Pcmanfm qBittorrent)
-for i in ${filem[@]}; do
-    bspc rule -a $i desktop='^2' follow=on focus=on; done
-
-# workspace 5 (Media)
-declare -a media=(vlc obs mpv mplayer lxmusic Gimp Gimp-2.10 \
-"VirtualBox Manager")
-for i in ${media[@]}; do
-    bspc rule -a $i desktop='^3' follow=on focus=on; done
-
-# workspace 7 (Settings)
-declare -a settings=(GParted Lxappearance Lxtask Lxrandr Arandr \
-Pavucontrol Xfce4-settings-manager)
+# workspace 4 (Settings)
+declare -a settings=(GParted Pavucontrol Xfce4-settings-manager blueberry)
 for i in ${settings[@]}; do
     bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 ## Autostart
 
 # Kill if already running
-killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey eww
+killall -9 picom sxhkd dunst xfce4-power-manager 
 
 # Launch notification daemon
 dunst -config $HOME/.config/bspwm/dunstrc &
-
-# Enable Super Keys For Menu
-ksuperkey -e 'Super_L=Alt_L|F1' &
-ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then

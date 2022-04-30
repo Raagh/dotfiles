@@ -36,11 +36,11 @@ super + shift + {s,f,w,r,g}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    volume{ --up, --down, --toggle}
+    amixer -q set Master {10%+,10%-,toggle}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-    brightness{ --up, --down}
+    xbacklight {-inc 10, -dec 10}
 
 # screenshot
 Print

@@ -13,7 +13,7 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown screenshot fullhd widescreen reboot logout lockscreen)
+all=(shutdown reboot logout screenshot fullhd widescreen lockscreen)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")

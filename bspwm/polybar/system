@@ -7,4 +7,4 @@
 adapter = ACAD
 battery = BAT0
 graphics_card = intel_backlight
-network_interface = ens33
+network_interface = wlp114s0

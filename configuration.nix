@@ -7,13 +7,21 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/dell/xps/13-9310>
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.devices = ["nodev"];
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.gfxmodeEfi = "1024x768";
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  
+  # Make time compatible for dualbooting Windows
+  time.hardwareClockInLocalTime = true;
 
   # Networking
   networking.networkmanager.enable = true;
@@ -21,7 +29,7 @@
 
   # Enable Some Hardware 
   hardware.video.hidpi.enable = true;
-  # hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -49,6 +57,14 @@
   services.xserver.windowManager.bspwm.enable = true;
   services.xserver.displayManager = { 
     defaultSession = "none+bspwm"; 
+    setupCommands = ''
+    my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep 'DP-3 connected')
+    if [[ $my_laptop_external_monitor = *connected* ]]; then
+      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-3 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
+    else
+      ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --rate 60
+    fi
+    '';
     lightdm = { 
       enable = true; 
       greeter.enable = true; 
@@ -102,9 +118,6 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "raagh";
 
-  # VM
-  virtualisation.vmware.guest.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
@@ -133,11 +146,13 @@
     cargo
     gcc
     ripgrep
-
-    open-vm-tools
     
     # Xorg
     xorg.xbacklight
+    
+    # Dev Tools
+    # nodejs
+    # nodePackages.npm
 
     # Global Tools
     wget
