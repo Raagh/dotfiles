@@ -38,7 +38,7 @@ icons[shutdown]="\uf011"
 icons[cancel]="\u00d7"
 
 declare -A actions
-actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+actions[lockscreen]="i3lock-color --blur 5 --ringver-color ""#61C766"" --ringwrong-color ""#EC7875"" --ring-color ""#4DD0E1"" --insidever-color ""#61C766"" --noinput-text ""Empty"" --indicator --clock --time-color ""#4DD0E1"" --date-color ""#4DD0E1"" --wrong-text ""Error"" --inside-color ""#1a1b26D9"""
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[reboot]="systemctl reboot"
 actions[widescreen]="xrandr --output DP-3 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off"
