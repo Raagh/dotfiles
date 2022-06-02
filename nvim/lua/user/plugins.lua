@@ -63,7 +63,6 @@ return packer.startup(function(use)
   use "moll/vim-bbye" -- prevents bufferline to quit nvim when closing buffer
   use "folke/which-key.nvim" -- popup that shows keybindings
   use "glepnir/dashboard-nvim" -- Greeter when you start nvim
-  -- use "andweeb/presence.nvim" -- Discord Rich Presense
   use "nvim-lualine/lualine.nvim" -- Status bar
   use "romgrk/barbar.nvim" -- Tabs support
   use "andymass/vim-matchup" -- Allows to move between code better than default vim
