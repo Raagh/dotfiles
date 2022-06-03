@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim" -- Status bar
   use "romgrk/barbar.nvim" -- Tabs support
   use "andymass/vim-matchup" -- Allows to move between code better than default vim
+  use "akinsho/toggleterm.nvim" --open terminales inside nvim
 
   -- Colorschemes
   use "folke/tokyonight.nvim"

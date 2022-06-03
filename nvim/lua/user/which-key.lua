@@ -140,14 +140,17 @@ local mappings = {
     },
   },
 
+  t = {
+    name = "Terminal",
+    f = {"<cmd>ToggleTerm direction=float<cr>", "Toggle Floating"},
+    h = {"<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Toggle Horizontal"},
+    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical"},
+  },
+
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-    w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
+    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
     i = { "<cmd>LspInfo<cr>", "Info" },
@@ -161,21 +164,14 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    o = { "<cmd>SymbolsOutline<cr>", "Outline" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+    R = { "<cmd>Telescope lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
-  },
-
-  T = {
-    name = "Treesitter",
-    h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
-    p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
   },
 }
 
