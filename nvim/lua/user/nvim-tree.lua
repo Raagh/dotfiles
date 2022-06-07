@@ -10,6 +10,23 @@ if not config_status_ok then
 end
 
 nvim_tree.setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {}
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
+  actions = {
+    open_file = {
+      resize_window = false,
+    }
+  },
 }
 
 vim.api.nvim_create_autocmd('BufEnter', {
