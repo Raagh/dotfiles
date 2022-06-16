@@ -6,8 +6,12 @@ end
 local actions = require "telescope.actions"
 
 telescope.setup {
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  },
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
