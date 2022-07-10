@@ -24,7 +24,7 @@ super + {r,x,n}
 
 # Lock Screen
 ctrl + alt + l
-    lock
+    i3lock-color --blur 5 --ringver-color "#61C766" --ringwrong-color "#EC7875" --ring-color "#4DD0E1" --insidever-color "#61C766" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9"
 
 # custom dmenu scripts
 alt + {e,l}
@@ -32,15 +32,15 @@ alt + {e,l}
 
 # Launch Applications
 super + shift + {s,f,w,r,g}
-    {flameshot gui,thunar,google-chrome-stable,alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml" -e ranger,geany}
+    {flameshot gui,thunar,firefox,alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml" -e ranger,geany}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    amixer -q set Master {10%+,10%-,toggle}
+    amixer -q set Master {5%+,5%-,toggle}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-    xbacklight {-inc 10, -dec 10}
+    xbacklight {-inc 5, -dec 5}
 
 # screenshot
 Print

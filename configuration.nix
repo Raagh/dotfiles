@@ -142,7 +142,7 @@
 
   # Packages 
   environment.systemPackages = with pkgs; [
-    # Dependencies
+    # App Dependencies
     cargo
     gcc
     ripgrep
@@ -151,12 +151,14 @@
     xorg.xbacklight
     
     # Dev Tools
-    # nodejs
-    # nodePackages.npm
+    nodejs
+    nodePackages.npm
+    purescript
+    spago
 
     # Global Tools
     wget
-    google-chrome
+    firefox
     neovim
     sumneko-lua-language-server
     geany
@@ -166,6 +168,9 @@
     bat
     exa
     htop
+    nix-prefetch
+    galculator
+    xfce.xfce4-power-manager
 
     # Should be Local 
     polybar
@@ -213,6 +218,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  # Enable Trezor Hardware wallet support
+  services.trezord.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
