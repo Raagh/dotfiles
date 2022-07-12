@@ -1,15 +1,25 @@
-vim.g.dashboard_default_executive = 'telescope'
-vim.g.dashboard_custom_section = {
-    a = {description = {"  Find File                 SPC f f"}, command = "Telescope find_files"},
-    b = {description = {"  Recents                   SPC f h"}, command = "Telescope oldfiles"},
-    c = {description = {"  Find Word                 SPC f g"}, command = "Telescope live_grep"},
-    d = {description = {"  New Buffer                SPC b n"}, command = "DashboardNewFile"},
-    g = {description = {"  Update Plugins            SPC p u"}, command = "PackerUpdate"},
-    h = {description = {"  Settings                         "}, command = "edit $MYVIMRC"},
-    i = {description = {"  Exit                      SPC q  "}, command = "exit"}
+local status_ok, dashboard = pcall(require, 'dashboard')
+if not status_ok then
+  return
+end
+
+dashboard.custom_center = {
+    {desc = "  Find File                 SPC f f", action = "Telescope find_files"},
+    {desc = "  Recents                   SPC f h", action = "Telescope oldfiles"},
+    {desc = "  Find Word                 SPC f g", action = "Telescope live_grep"},
+    {desc = "  New Buffer                SPC b n", action = "DashboardNewFile"},
+    {desc = "  Update Plugins            SPC p u", action = "PackerUpdate"},
+    {desc = "  Settings                         ", action = "edit $MYVIMRC"},
+    {desc = "  Exit                      SPC q  ", action = "exit"}
 }
 
-vim.g.dashboard_custom_header = {
+-- dashboard.custom_center = {
+--   { icon = 'some icon', desc = 'some description here' }, --correct if you don't action filed
+--   { desc = 'some description here' },                    --correct if you don't action and icon filed
+--   { desc = 'some description here', action = 'Telescope find files'}, --correct if you don't icon filed
+-- }
+
+dashboard.custom_header = {
        "            :h-                                  Nhy`               ",
        "           -mh.                           h.    `Ndho               ",
        "           hmh+                          oNm.   oNdhh               ",
