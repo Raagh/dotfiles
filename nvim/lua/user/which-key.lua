@@ -143,7 +143,7 @@ local mappings = {
   t = {
     name = "Terminal",
     f = {"<cmd>ToggleTerm direction=float<cr>", "Toggle Floating"},
-    h = {"<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Toggle Horizontal"},
+    h = {"<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal"},
     v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical"},
   },
 

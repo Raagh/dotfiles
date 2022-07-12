@@ -55,4 +55,6 @@ dashboard.custom_header = {
        "                           yNh/..------..`                          ",
        "                                                                    ",
        "                              N E O V I M                           ",
+       "                                                                    ",
+       "                                                                    ",
        }
