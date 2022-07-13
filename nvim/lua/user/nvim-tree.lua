@@ -27,6 +27,9 @@ nvim_tree.setup {
       resize_window = false,
     }
   },
+  view = {
+    adaptive_size = true
+  }
 }
 
 vim.api.nvim_create_autocmd('BufEnter', {
