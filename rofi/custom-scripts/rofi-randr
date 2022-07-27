@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 #
 # Setup outputs with xrandr as a backend and dmenu as a frontend
 #

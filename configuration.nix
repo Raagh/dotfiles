@@ -149,12 +149,6 @@
     
     # Xorg
     xorg.xbacklight
-    
-    # Dev Tools
-    nodejs
-    nodePackages.npm
-    purescript
-    spago
 
     # Global Tools
     wget
