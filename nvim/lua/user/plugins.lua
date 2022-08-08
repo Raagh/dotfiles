@@ -68,6 +68,19 @@ return packer.startup(function(use)
   use "andymass/vim-matchup" -- Allows to move between code better than default vim
   use "akinsho/toggleterm.nvim" --open terminales inside nvim
 
+  -- Copilot
+  use {"github/copilot.vim"}
+  use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require "user.copilot"
+      end, 100)
+    end,
+  }
+  use "zbirenbaum/copilot-cmp"
+
   -- Colorschemes
   use "folke/tokyonight.nvim"
 
@@ -119,7 +132,6 @@ return packer.startup(function(use)
   use "FrigoEU/psc-ide-vim" -- Adds IDE error diagnostics
   use "vmchale/dhall-vim" -- Adds dhall config fils highlighting
   -- use "neoclide/coc.nvim" -- allows using some language plugins that only exist for vscode 
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
