@@ -105,6 +105,7 @@
     enable = true;
     touchpad = {
       disableWhileTyping = true;
+      sendEventsMode = "disabled-on-external-mouse";
     };
   };
 
