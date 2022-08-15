@@ -13,41 +13,38 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot logout screenshot fullhd widescreen lockscreen)
+all=(shutdown reboot suspend logout lockscreen screenshot) 
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
 
 declare -A texts
-texts[lockscreen]="lock screen"
+texts[lockscreen]="lock"
 texts[logout]="log out"
 texts[reboot]="reboot"
-texts[widescreen]="switch to 3440x1440"
-texts[fullhd]="switch to 1920x1200"
 texts[screenshot]="take screenshot"
 texts[shutdown]="shut down"
+texts[suspend]="suspend"
 
 declare -A icons
 icons[lockscreen]="\uf023"
 icons[logout]="\uf842"
 icons[reboot]="\ufc07"
-icons[widescreen]="\uf26c"
-icons[fullhd]="\uf26c"
 icons[screenshot]="\uf030"
 icons[shutdown]="\uf011"
+icons[suspend]="鈴"
 icons[cancel]="\u00d7"
 
 declare -A actions
 actions[lockscreen]="i3lock-color --blur 5 --ringver-color ""#61C766"" --ringwrong-color ""#EC7875"" --ring-color ""#4DD0E1"" --insidever-color ""#61C766"" --noinput-text ""Empty"" --indicator --clock --time-color ""#4DD0E1"" --date-color ""#4DD0E1"" --wrong-text ""Error"" --inside-color ""#1a1b26D9"""
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[reboot]="systemctl reboot"
-actions[widescreen]="xrandr --output DP-3 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off"
-actions[fullhd]="xrandr --output eDP-1 --mode 1920x1200 --rate 60"
 actions[screenshot]="flameshot gui"
 actions[shutdown]="systemctl poweroff"
+actions[suspend]="systemctl suspend"
 
 # By default, ask for confirmation for actions that are irreversible
-confirmations=(reboot shutdown logout)
+confirmations=(reboot shutdown logout suspend)
 
 # By default, no dry run
 dryrun=false

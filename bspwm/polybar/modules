@@ -83,7 +83,7 @@ ramp-foreground = ${color.background}
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
 use-ui-max = false
 

@@ -77,7 +77,7 @@
     xkbVariant = "euro";
   };
 
-  # Configure console keymap
+  # Configure coneclole keymap
   console.keyMap = "us";
 
   # Enable CUPS to print documents.
@@ -86,6 +86,7 @@
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  nixpkgs.config.pulseaudio = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -196,6 +197,8 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
   ];
+
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   nixpkgs.config.packagesOverrides = pkgs: {
     polybar = pkgs.polybar.override {

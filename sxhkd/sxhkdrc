@@ -4,15 +4,15 @@ super + Escape
 
 # Launch Terminal
 super + Return
-    alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml"
+    alacritty
 
 # Floating Alacritty Terminal
 super + shift + Return
-    alacritty --class 'Alafloat,Alafloat' --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml"
+    alacritty --class 'Alafloat,Alafloat'
 
 # Fullscreen Alacritty Terminal
 super + shift + t
-    alacritty --class 'Alamax,Alamax' --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml"
+    alacritty --class 'Alamax,Alamax'
 
 # j4 dmenu
 alt + F1
@@ -32,7 +32,7 @@ alt + {e,l}
 
 # Launch Applications
 super + shift + {s,f,w,r,g}
-    {flameshot gui,thunar,firefox,alacritty --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml" -e ranger,geany}
+    {flameshot gui,thunar,firefox,alacritty -e ranger,geany}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
@@ -81,8 +81,8 @@ super + g
 #
 
 # set the window state
-super + {t,ctrl + t,f}
-	bspc node -t {tiled,pseudo_tiled,fullscreen}
+super + {t,ctrl + t,ctrl + f,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}

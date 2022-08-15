@@ -30,7 +30,7 @@ set_values() {
 	fi
 }
 
-## Launch Polybar with selected style
+## Launch Polybar 
 launch_bar() {
 	CARD=$(basename "$(find /sys/class/backlight/* | head -n 1)")
 	if [[ "$CARD" != *"intel_"* ]]; then
