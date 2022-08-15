@@ -98,8 +98,9 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- easily install new language servers
   use "jose-elias-alvarez/null-ls.nvim" -- Formatting and Linting per language support
   use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
     config = function()
