@@ -17,5 +17,4 @@ Nix OS (for now) - tokyonight
 - ranger
 - zathura
 
-![environment](https://user-images.githubusercontent.com/8405459/165586454-70b57dfe-4242-43bb-a37b-b5f0bea510de.png)
-
+![nix-updated](https://user-images.githubusercontent.com/8405459/184720509-418519d0-6025-4035-9bb1-93da6ed6dc82.png)
