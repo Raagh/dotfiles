@@ -88,24 +88,38 @@ local mappings = {
   b = {
     name = "Buffer",
     a = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Active",
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Active",
     },
     n = { "<cmd>DashboardNewFile<CR>", "New" },
   },
 
+  d = {
+    name = "Debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+  },
+
   f = {
     name = "Files",
-    f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find" },
+    f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+      "Find" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-    h = { "<cmd>Telescope oldfiles<CR>", "Recents"}
+    h = { "<cmd>Telescope oldfiles<CR>", "Recents" }
   },
 
   p = {
     name = "PureScript",
-    c = {"<cmd>!spago build<CR>", "Compile" },
-    r = {"<cmd>!spago run<CR>", "Run" },
-    t = {"<cmd>!spago test<CR>", "Test" }
+    c = { "<cmd>!spago build<CR>", "Compile" },
+    r = { "<cmd>!spago run<CR>", "Run" },
+    t = { "<cmd>!spago test<CR>", "Test" }
   },
 
   P = {
@@ -142,9 +156,9 @@ local mappings = {
 
   t = {
     name = "Terminal",
-    f = {"<cmd>ToggleTerm direction=float<cr>", "Toggle Floating"},
-    h = {"<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal"},
-    v = {"<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical"},
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Floating" },
+    h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical" },
   },
 
   l = {
