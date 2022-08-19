@@ -4,5 +4,6 @@ if not status_ok then
 end
 
 lualine.setup({
-  extensions = {'nvim-tree', 'toggleterm'}
+  extensions = {'nvim-tree', 'toggleterm'},
+  theme = 'tokyonight'
 })

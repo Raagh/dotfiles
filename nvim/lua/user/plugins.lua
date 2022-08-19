@@ -81,12 +81,8 @@ return packer.startup(function(use)
   }
   use "zbirenbaum/copilot-cmp"
 
-  -- Colorschemes
+  -- Colorscheme
   use "folke/tokyonight.nvim"
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
 
   -- Completion
   use "hrsh7th/nvim-cmp" -- The completion plugin
