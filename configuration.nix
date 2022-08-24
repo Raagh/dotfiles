@@ -164,7 +164,6 @@
     bat
     exa
     htop
-    nix-prefetch
     galculator
     xfce.xfce4-power-manager
 
