@@ -115,6 +115,13 @@ local mappings = {
     h = { "<cmd>Telescope oldfiles<CR>", "Recents" }
   },
 
+  p = {
+    name = "PureScript",
+    c = { "<cmd>!spago build<CR>", "Compile" },
+    r = { "<cmd>!spago run<CR>", "Run" },
+    t = { "<cmd>!spago test<CR>", "Test" }
+  },
+
   P = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
