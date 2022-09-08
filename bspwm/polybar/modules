@@ -17,7 +17,7 @@ label-layout = %icon%
 label-layout-foreground = ${color.background}
 
 label-indicator-padding = 2
-label-indicator-margin = 1
+label-indicator-margin = 0
 label-indicator-background = ${color.red}
 
 format-background = ${color.red}

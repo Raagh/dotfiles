@@ -33,6 +33,8 @@ alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 alias rm='rm -i'
+alias update-system="sudo nixos-rebuild switch"
+alias edit-config="sudo -E -s nvim /etc/nixos/configuration.nix"
 # alias sxiv='devour sxiv'
 # alias updatefonts='sudo fc-cache -fv'
 # alias vlc='devour vlc'

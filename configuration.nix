@@ -93,7 +93,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -129,11 +128,10 @@
     enable = true;
     ohMyZsh.enable = true;
     ohMyZsh.plugins = [ "git" "npm" "vi-mode" ];
-    ohMyZsh.theme = "frisk";
     syntaxHighlighting.enable = true;
     autosuggestions.enable = true;
   };
-
+   
   fonts.fonts = with pkgs; [
     noto-fonts-emoji
     dejavu_fonts
@@ -198,6 +196,16 @@
   ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
+
+  environment.variables.EDITOR = "nvim";
+  nixpkgs.overlays = [
+    (self: super: {
+      neovim = super.neovim.override {
+        viAlias = true;
+        vimAlias = true;
+      };
+    })
+  ];
 
   nixpkgs.config.packagesOverrides = pkgs: {
     polybar = pkgs.polybar.override {
