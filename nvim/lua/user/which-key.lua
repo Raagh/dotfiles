@@ -83,7 +83,7 @@ local mappings = {
   ["Q"] = { "<cmd>q!<CR>", "Quit" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
-  ["q"] = { "<cmd>BufferClose<CR>", "Close" },
+  ["q"] = { "<cmd>Bdelete!<CR>", "Close" },
 
   b = {
     name = "Buffer",

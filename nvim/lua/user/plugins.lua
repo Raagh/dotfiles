@@ -64,6 +64,7 @@ return packer.startup(function(use)
   -- use("nathom/filetype.nvim")
   use 'lewis6991/impatient.nvim'
 
+  use "moll/vim-bbye" -- prevents bufferline to quit nvim when closing buffer
   use "folke/which-key.nvim" -- popup that shows keybindings
   use "glepnir/dashboard-nvim" -- Greeter when you start nvim
   use "nvim-lualine/lualine.nvim" -- Status bar
