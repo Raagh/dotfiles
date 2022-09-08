@@ -40,7 +40,7 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- Base plugins 
+  -- Base plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use {
     'numToStr/Comment.nvim', -- Allows for commenting code easily
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
   use {
@@ -60,6 +60,10 @@ return packer.startup(function(use)
     },
   }
 
+  -- Improve performance
+  -- use("nathom/filetype.nvim")
+  use 'lewis6991/impatient.nvim'
+
   use "folke/which-key.nvim" -- popup that shows keybindings
   use "glepnir/dashboard-nvim" -- Greeter when you start nvim
   use "nvim-lualine/lualine.nvim" -- Status bar
@@ -68,7 +72,7 @@ return packer.startup(function(use)
   use "akinsho/toggleterm.nvim" --open terminales inside nvim
 
   -- Copilot
-  use {"github/copilot.vim"}
+  use { "github/copilot.vim" }
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -104,11 +108,11 @@ return packer.startup(function(use)
   use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
-          bind = true, -- This is mandatory, otherwise border config won't get registered.
-          handler_opts = {
-            border = "rounded"
-          }
-       }
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+      }
       )
     end
   }
@@ -125,11 +129,11 @@ return packer.startup(function(use)
   -- Debugging
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
-  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   use {
     "microsoft/vscode-js-debug",
     opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile" 
+    run = "npm install --legacy-peer-deps && npm run compile"
   }
 
   -- Git
@@ -137,11 +141,11 @@ return packer.startup(function(use)
   use "f-person/git-blame.nvim"
   use "kdheepak/lazygit.nvim"
 
-  -- Extra language support
-  use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
-  use "FrigoEU/psc-ide-vim" -- Adds IDE error diagnostics
-  use "vmchale/dhall-vim" -- Adds dhall config fils highlighting
-  -- use "neoclide/coc.nvim" -- allows using some language plugins that only exist for vscode 
+  -- Extra language support, enable when needed
+  -- use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
+  -- use "FrigoEU/psc-ide-vim" -- Adds IDE error diagnostics
+  -- use "vmchale/dhall-vim" -- Adds dhall config fils highlighting
+  -- use "neoclide/coc.nvim" -- allows using some language plugins that only exist for vscode
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
