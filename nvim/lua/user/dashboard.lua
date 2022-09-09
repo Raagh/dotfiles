@@ -20,6 +20,10 @@ dashboard.custom_center = {
 -- }
 
 dashboard.custom_header = {
+       "                                                                    ",
+       "                                                                    ",
+       "                                                                    ",
+       "                                                                    ",
        "            :h-                                  Nhy`               ",
        "           -mh.                           h.    `Ndho               ",
        "           hmh+                          oNm.   oNdhh               ",
