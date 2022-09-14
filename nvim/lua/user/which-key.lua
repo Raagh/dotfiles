@@ -115,13 +115,6 @@ local mappings = {
     h = { "<cmd>Telescope oldfiles<CR>", "Recents" }
   },
 
-  p = {
-    name = "PureScript",
-    c = { "<cmd>!spago build<CR>", "Compile" },
-    r = { "<cmd>!spago run<CR>", "Run" },
-    t = { "<cmd>!spago test<CR>", "Test" }
-  },
-
   P = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -152,6 +145,11 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+  },
+
+  n = {
+    name = "Neovim",
+    e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
   },
 
   t = {

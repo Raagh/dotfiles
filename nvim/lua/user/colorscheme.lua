@@ -6,7 +6,7 @@ if not colorscheme_ok then
 end
 
 tokyo.setup({
-  style = "night"
+  style = "night";
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

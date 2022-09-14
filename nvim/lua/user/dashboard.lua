@@ -13,12 +13,6 @@ dashboard.custom_center = {
     {desc = "  Exit                      SPC q  ", action = "exit"}
 }
 
--- dashboard.custom_center = {
---   { icon = 'some icon', desc = 'some description here' }, --correct if you don't action filed
---   { desc = 'some description here' },                    --correct if you don't action and icon filed
---   { desc = 'some description here', action = 'Telescope find files'}, --correct if you don't icon filed
--- }
-
 dashboard.custom_header = {
        "                                                                    ",
        "                                                                    ",
