@@ -59,9 +59,10 @@ return packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
+  use "anuvyklack/pretty-fold.nvim"
 
   -- Improve performance
-  -- use("nathom/filetype.nvim")
+  use("nathom/filetype.nvim")
   use 'lewis6991/impatient.nvim'
 
   use "moll/vim-bbye" -- prevents bufferline to quit nvim when closing buffer
@@ -130,6 +131,7 @@ return packer.startup(function(use)
   -- Debugging
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   use {
     "microsoft/vscode-js-debug",
@@ -142,7 +144,6 @@ return packer.startup(function(use)
   use "f-person/git-blame.nvim"
   -- use "kdheepak/lazygit.nvim"
   use "TimUntersberger/neogit"
-  use "theHamsta/nvim-dap-virtual-text"
 
   -- Extra language support, enable when needed
   -- use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
