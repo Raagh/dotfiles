@@ -8,6 +8,13 @@ if not dap_ui_status_ok then
   return
 end
 
+local dap_ui_virtual_text_ok, dapuivirtualtext = pcall(require, "nvim-dap-virtual-text")
+if not dap_ui_virtual_text_ok then
+  return
+end
+
+dapuivirtualtext.setup()
+
 dapui.setup {
   mappings = {
     -- Use a table to apply multiple mappings
