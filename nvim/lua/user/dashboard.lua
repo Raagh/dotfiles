@@ -9,7 +9,7 @@ dashboard.custom_center = {
     {desc = "  Find Word                 SPC f g", action = "Telescope live_grep"},
     {desc = "  New Buffer                SPC b n", action = "DashboardNewFile"},
     {desc = "  Update Plugins            SPC p u", action = "PackerUpdate"},
-    {desc = "  Settings                         ", action = "edit $MYVIMRC"},
+    {desc = "  Settings                  SPC n e", action = "edit $MYVIMRC"},
     {desc = "  Exit                      SPC q  ", action = "exit"}
 }
 

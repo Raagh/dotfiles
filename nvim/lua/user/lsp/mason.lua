@@ -8,11 +8,6 @@ if not mason_lspconfig_status_ok then
   return
 end
 
-local servers = {
-  "sumneko_lua",
-  "jsonls",
-}
-
 local settings = {
   ui = {
     border = "rounded",
@@ -28,7 +23,7 @@ local settings = {
 
 mason.setup(settings)
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua", "jsonls" }
+  ensure_installed = { "sumneko_lua" }
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -54,5 +49,15 @@ mason_lspconfig.setup_handlers({
     local jsonls_opts = require("user.lsp.settings.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     lspconfig.jsonls.setup(opts)
+  end,
+  ["tsserver"] = function()
+    local tsserver_opts = require("user.lsp.settings.tsserver")
+    opts = vim.tbl_deep_extend("force",tsserver_opts, opts)
+    lspconfig.tsserver.setup(opts)
+  end,
+  ["eslint"] = function()
+    local eslint_opts = require("user.lsp.settings.eslint")
+    opts = vim.tbl_deep_extend("force",eslint_opts, opts)
+    lspconfig.eslint.setup(opts)
   end,
 })
