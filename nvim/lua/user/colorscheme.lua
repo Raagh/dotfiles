@@ -7,6 +7,12 @@ end
 
 tokyo.setup({
   style = "night";
+  on_highlights = function(hl, c)
+    hl.TelescopeBorder = {
+      bg = c.bg_dark,
+      fg = c.bg_dark
+    }
+  end
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
@@ -16,7 +22,7 @@ if not status_ok then
 end
 
 function CreateDAPHighlights()
-  vim.highlight.create('DapBreakpoint', { ctermbg = 0, guifg = '#993939', guibg = '#31353f' }, false)
-  vim.highlight.create('DapLogPoint', { ctermbg = 0, guifg = '#61afef', guibg = '#31353f' }, false)
-  vim.highlight.create('DapStopped', { ctermbg = 0, guifg = '#98c379', guibg = '#31353f' }, false)
+  vim.highlight.create('DapBreakpoint', { ctermbg = 0, guifg = '#f7768e', guibg = '#1a1b26' }, false)
+  vim.highlight.create('DapLogPoint', { ctermbg = 0, guifg = '#449dab', guibg = '#1a1b26' }, false)
+  vim.highlight.create('DapStopped', { ctermbg = 0, guifg = '#e0af68', guibg = '#1a1b26' }, false)
 end

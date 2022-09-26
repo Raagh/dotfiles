@@ -45,33 +45,19 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-  -- Extras
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
-  use {
-    'numToStr/Comment.nvim', -- Allows for commenting code easily
-    config = function()
-      require('Comment').setup()
-    end
-  }
-  use {
+  -- Editor UI
+  use {  -- File tree navigation
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "anuvyklack/pretty-fold.nvim"
-
-  -- Improve performance
-  use("nathom/filetype.nvim")
-  use 'lewis6991/impatient.nvim'
-
-  use "moll/vim-bbye" -- prevents bufferline to quit nvim when closing buffer
-  use "folke/which-key.nvim" -- popup that shows keybindings
-  use "glepnir/dashboard-nvim" -- Greeter when you start nvim
+  use "folke/which-key.nvim" -- Keybindings information
+  use "glepnir/dashboard-nvim" -- Greeter
   use "nvim-lualine/lualine.nvim" -- Status bar
   use "romgrk/barbar.nvim" -- Tabs support
-  use "andymass/vim-matchup" -- Allows to move between code better than default vim
-  use "akinsho/toggleterm.nvim" --open terminales inside nvim
+  use "akinsho/toggleterm.nvim" -- Terminal support
+  use "nvim-telescope/telescope.nvim" -- Search functionality
 
   -- Copilot
   use { "github/copilot.vim" }
@@ -98,7 +84,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
 
-  -- Snippets
+  -- Code Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
@@ -119,10 +105,7 @@ return packer.startup(function(use)
     end
   }
 
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-
-  -- Treesitter
+  -- Syntax highlighting
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -144,6 +127,22 @@ return packer.startup(function(use)
   use "f-person/git-blame.nvim"
   -- use "kdheepak/lazygit.nvim"
   use "TimUntersberger/neogit"
+
+  -- Extra quality of life improvements
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
+  use {
+    'numToStr/Comment.nvim', -- Allows for commenting code easily
+    config = function()
+      require('Comment').setup()
+    end
+  }
+  use "anuvyklack/pretty-fold.nvim"
+  use "andymass/vim-matchup" -- Allows to move between code better than default vim
+  use "moll/vim-bbye" -- prevents barbar to quit nvim when closing buffer
+
+  -- Improve performance
+  use("nathom/filetype.nvim")
+  use 'lewis6991/impatient.nvim'
 
   -- Extra language support, enable when needed
   -- use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
