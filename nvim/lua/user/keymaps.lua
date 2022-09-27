@@ -70,8 +70,9 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
+keymap('t', '<esc>', [[<C-\><C-n>]], term_opts)
+keymap('t', 'jk', [[<C-\><C-n>]], term_opts)
+keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opts)
+keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opts)
+keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opts)
+keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opts)
