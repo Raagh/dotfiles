@@ -43,7 +43,7 @@ local setup = {
     scroll_up = "<c-u>", -- binding to scroll up inside the popup
   },
   window = {
-    border = "none", -- none, single, double, shadow
+    border = "single", -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -126,7 +126,6 @@ local mappings = {
 
   g = {
     name = "Git",
-    -- g = { "<cmd>LazyGit<CR>", "Lazygit" },
     g = { "<cmd>lua require 'neogit'.open()<CR>", "Neogit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
