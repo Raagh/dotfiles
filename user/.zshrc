@@ -8,16 +8,21 @@ fi
 
 autoload -U promptinit; promptinit
 autoload -U colors && colors
-export PWD=/home/$USER
-export OLDPWD=/home/$USER
-export BAT_THEME="ansi"
-
-export KEYTIMEOUT=1
-export ZSH=/usr/share/oh-my-zsh
-
 # Load Version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
+
+export PWD=/home/$USER
+export OLDPWD=/home/$USER
+export BAT_THEME="ansi"
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export KEYTIMEOUT=1
+export ZSH=/usr/share/oh-my-zsh
+
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats "%b"
@@ -32,20 +37,13 @@ ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
 ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 setopt prompt_subst
 PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
 
 RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
 
-#ZSH_THEME=random
-#ZSH_THEME_RANDOM_CANDIDATES=( "agnoster" "crunch" "fino-time" "funky" "jonathan" "junkfood" )
-
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 HISTSIZE=50000
 SAVEHIST=50000
@@ -55,7 +53,3 @@ compinit
 _comp_options+=(globdots) # lets you tab complete hidden files by default
 
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
-# colorscript -r
-# neofetch

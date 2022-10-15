@@ -1,4 +1,3 @@
-#aliases
 alias cat='bat'
 alias cd..='cd ..'
 alias clock='tty-clock -sct -C 4'
@@ -7,27 +6,15 @@ alias df='df -h'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias g='gotop'
 alias gpgexportprivkey="gpg --export-secret-keys --armor"
 alias gpgimportkey="gpg --import"
 alias gpglistkeys="gpg --list-keys --keyid-format LONG"
 alias grep='grep --color=auto'
 alias jctl="journalctl -p 3 -xb" #get the error messages from journalctl
-alias killp='killprocess'
-alias kp='killprocess'
 alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
-alias less='bat'
 alias ls='exa -lhF --color=always --icons --sort=size --group-directories-first'
 alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
-alias m='mocp'
-alias matrix='unimatrix -f -l ocCgGkS -s 96'
-alias mem="ps axch -o cmd:15,%mem --sort=-%mem | head"
-alias merge="xrdb -merge ~/.Xresources"
-alias mpv='devour mpv'
 alias mv='mv -i'
-alias p='devour pcmanfm .'
-alias pdw="pwd"
-alias pipes='pipes -R -t 1'
 alias q='exit'
 alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
@@ -35,11 +22,7 @@ alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | n
 alias rm='rm -i'
 alias update-system="sudo nixos-rebuild switch"
 alias edit-config="sudo -E -s nvim /etc/nixos/configuration.nix"
-# alias sxiv='devour sxiv'
-# alias updatefonts='sudo fc-cache -fv'
-# alias vlc='devour vlc'
 alias wget="wget -c" # continue the download
-# alias zathura='devour zathura'
 
 # required functions
 

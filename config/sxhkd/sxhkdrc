@@ -20,7 +20,7 @@ alt + F1
 
 # Launch Menus
 super + {r,x,n,s}
-    {rofi -show drun,rofi -modi PowerMenu:$HOME/.config/rofi/custom-scripts/my-scripts -show PowerMenu, $HOME/.config/rofi/custom-scripts/rofi-wifi, $HOME/.config/rofi/custom-scripts/rofi-randr}
+    {rofi -show drun,rofi -modi PowerMenu:$HOME/.config/rofi/custom-scripts/rofi-powermenu -show PowerMenu, $HOME/.config/rofi/custom-scripts/rofi-wifi, $HOME/.config/rofi/custom-scripts/rofi-randr}
 
 # Lock Screen
 ctrl + alt + l
