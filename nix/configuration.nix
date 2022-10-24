@@ -28,7 +28,6 @@
   networking.hostName = "rmx-nix"; 
 
   # Enable Some Hardware 
-  hardware.video.hidpi.enable = true;
   hardware.bluetooth.enable = true;
 
   # Configure network proxy if necessary
@@ -150,7 +149,7 @@
     # Xorg
     xorg.xbacklight
 
-    # Global Tools
+    # Global Apps
     wget
     firefox
     neovim
@@ -163,9 +162,11 @@
     exa
     htop
     galculator
+    vlc
+    stow
     xfce.xfce4-power-manager
 
-    # Should be Local 
+    # Desktop Environment
     polybar
     alacritty
     sxhkd
