@@ -10,17 +10,17 @@ blacklist-2 = caps lock
 layout-icon-0 = us;US
 layout-icon-1 = es;ES
 
-format-prefix = "  "
-format-prefix-foreground = ${color.background}
+format-prefix = " "
+format-prefix-foreground = ${color.red}
 
 label-layout = %icon%
-label-layout-foreground = ${color.background}
+label-layout-foreground = ${color.red}
 
-label-indicator-padding = 2
+label-indicator-padding = 1
 label-indicator-margin = 0
-label-indicator-background = ${color.red}
+label-indicator-background = ${color.background}
 
-format-background = ${color.red}
+format-background = ${color.background}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -33,10 +33,10 @@ type = internal/xbacklight
 card = intel_backlight
 
 format = <ramp> <label>
-format-background = ${color.yellow}
+format-background = ${color.background}
 
 label = %percentage%%
-label-foreground = ${color.background}
+label-foreground = ${color.yellow}
 
 ramp-0 = 
 ramp-1 = 
@@ -49,7 +49,7 @@ ramp-7 = 
 ramp-8 = 
 ramp-9 = 
 ramp-font = 2
-ramp-foreground = ${color.background}
+ramp-foreground = ${color.yellow}
 
 [module/brightness]
 type = internal/backlight
@@ -61,11 +61,11 @@ card = ${system.graphics_card}
 enable-scroll = true
 
 format = <ramp> <label>
-format-background = ${color.red}
+format-background = ${color.background}
 format-padding = 1
 
 label = %percentage%%
-label-foreground = ${color.background}
+label-foreground = ${color.red}
 
 ramp-0 = 
 ramp-1 = 
@@ -78,7 +78,7 @@ ramp-7 = 
 ramp-8 = 
 ramp-9 = 
 ramp-font = 2
-ramp-foreground = ${color.background}
+ramp-foreground = ${color.red}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -94,17 +94,17 @@ format-volume = <ramp-volume><label-volume>
 format-muted = <label-muted>
 format-muted-prefix = "  "
 format-muted-prefix-font = 1
-format-muted-prefix-foreground = ${color.background}
-format-muted-prefix-background = ${color.magenta}
+format-muted-prefix-foreground = ${color.magenta}
+format-muted-prefix-background = ${color.background}
 
 label-volume = "%percentage%% "
 label-muted = "Mute "
 
-label-volume-background = ${color.magenta}
-label-muted-background = ${color.magenta}
+label-volume-background = ${color.background}
+label-muted-background = ${color.background}
 
-label-volume-foreground = ${color.background}
-label-muted-foreground = ${color.background}
+label-volume-foreground = ${color.magenta}
+label-muted-foreground = ${color.magenta}
 
 ramp-volume-0 = "  "
 ramp-volume-1 = "  "
@@ -117,8 +117,8 @@ ramp-volume-7 = "  "
 ramp-volume-8 = "  "
 ramp-volume-9 = "  "
 ramp-volume-font = 1
-ramp-volume-foreground = ${color.background}
-ramp-volume-background = ${color.magenta}
+ramp-volume-foreground = ${color.magenta}
+ramp-volume-background = ${color.background}
 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
@@ -144,20 +144,20 @@ format-discharging = <ramp-capacity><label-discharging>
 format-full = <label-full>
 format-full-prefix = " "
 format-full-prefix-font = 2
-format-full-prefix-foreground = ${color.background}
-format-full-prefix-background = ${color.blue}
+format-full-prefix-foreground = ${color.blue}
+format-full-prefix-background = ${color.background}
 
-label-charging = "%percentage%% "
-label-discharging = "%percentage%% "
-label-full = "%percentage%% "
+label-charging = "%percentage%%"
+label-discharging = "%percentage%%"
+label-full = "%percentage%%"
 
-label-charging-background = ${color.blue}
-label-discharging-background = ${color.blue}
-label-full-background = ${color.blue}
+label-charging-background = ${color.background}
+label-discharging-background = ${color.background}
+label-full-background = ${color.background}
 
-label-charging-foreground = ${color.background}
-label-discharging-foreground = ${color.background}
-label-full-foreground = ${color.background}
+label-charging-foreground = ${color.blue}
+label-discharging-foreground = ${color.blue}
+label-full-foreground = ${color.blue}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -165,8 +165,8 @@ ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
 ramp-capacity-font = 2
-ramp-capacity-foreground = ${color.background}
-ramp-capacity-background = ${color.blue}
+ramp-capacity-foreground = ${color.blue}
+ramp-capacity-background = ${color.background}
 
 animation-charging-0 = " "
 animation-charging-1 = " "
@@ -174,8 +174,8 @@ animation-charging-2 = " "
 animation-charging-3 = " "
 animation-charging-4 = " "
 animation-charging-font = 2
-animation-charging-foreground = ${color.background}
-animation-charging-background = ${color.blue}
+animation-charging-foreground = ${color.blue}
+animation-charging-background = ${color.background}
 animation-charging-framerate = 750
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -192,7 +192,7 @@ reverse-scroll = true
 
 fuzzy-match = true
 
-ws-icon-0=I;
+ws-icon-0=I; 
 ws-icon-1=II;
 ws-icon-2=III;
 ws-icon-3=VII;漣
@@ -204,13 +204,13 @@ format-font = 5
 label-monitor = %name%
 
 label-focused = %name%
-label-focused-foreground = ${color.blue}
+label-focused-foreground = ${color.green}
 label-focused-background = ${color.background}
-label-focused-underline =  ${color.blue}
+label-focused-underline =  ${color.background}
 label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-foreground = ${color.green}
+label-occupied-foreground = ${color.blue}
 label-occupied-background = ${color.background}
 ;label-occupied-underline = 
 label-occupied-padding = 1
@@ -236,8 +236,8 @@ label-separator-foreground = ${color.altblack}
 type = internal/bspwm
 
 format = <label-mode>
-format-background = ${color.magenta}
-format-foreground = ${color.background}
+format-background = ${color.background}
+format-foreground = ${color.magenta}
 format-padding = 1
 format-font = 5
 
@@ -259,9 +259,9 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-padding = 0
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
-format-background = ${color.green}
+format-prefix-foreground = ${color.green}
+format-foreground = ${color.green}
+format-background = ${color.background}
 label = "%percentage%% %{A}"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -270,16 +270,16 @@ label = "%percentage%% %{A}"
 type = internal/date
 interval = 1
 format-margin = 0
-time = "%I:%M %p"
+time = "%A, %m/%d/%y"
 time-alt = "%A, %m/%d/%y"
 
-format-prefix = 
-format-prefix-foreground = ${color.background}
-format-prefix-background = ${color.blue}
+format-prefix = " "
+format-prefix-foreground = ${color.blue}
+format-prefix-background = ${color.background}
 
 label = %time%
-label-foreground = ${color.background}
-label-background = ${color.blue}
+label-foreground = ${color.blue}
+label-background = ${color.background}
 label-padding = 1
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -293,20 +293,20 @@ fixed-values = true
 
 format-mounted = <label-mounted>
 format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${color.background}
-format-mounted-prefix-background = ${color.cyan}
+format-mounted-prefix-foreground = ${color.cyan}
+format-mounted-prefix-background = ${color.background}
 
 format-unmounted = <label-unmounted>
 format-unmounted-prefix = " "
-format-unmounted-prefix-foreground = ${color.background}
-format-unmounted-prefix-background = ${color.cyan}
+format-unmounted-prefix-foreground = ${color.cyan}
+format-unmounted-prefix-background = ${color.background}
 
 label-mounted = " %free%%{A} "
 label-unmounted = " %mountpoint%: NA"
-label-mounted-foreground = ${color.background}
+label-mounted-foreground = ${color.cyan}
 
-label-mounted-background = ${color.cyan}
-label-unmounted-background = ${color.cyan}
+label-mounted-background = ${color.background}
+label-unmounted-background = ${color.background}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -316,10 +316,10 @@ type = internal/memory
 interval = 1
 
 format = <label>
-format-prefix = " "
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
-format-background = ${color.yellow}
+format-prefix = ""
+format-prefix-foreground = ${color.yellow}
+format-foreground = ${color.yellow}
+format-background = ${color.background}
 
 label = " %mb_used% %{A}"
 
@@ -363,17 +363,17 @@ format-disconnected-background = ${color.green}
 label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
 label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A}"
 
-label-connected-foreground = ${color.background}
-label-disconnected-foreground = ${color.background}
+label-connected-foreground = ${color.green}
+label-disconnected-foreground = ${color.green}
 
-label-connected-background = ${color.green}
-label-disconnected-background = ${color.green}
+label-connected-background = ${color.background}
+label-disconnected-background = ${color.background}
 
 ramp-signal-0 = "   "
 ramp-signal-1 = "   "
 ramp-signal-2 = "   "
 ramp-signal-3 = "   "
 ramp-signal-4 = "   "
-ramp-signal-foreground = ${color.background}
-ramp-signal-background = ${color.green}
+ramp-signal-foreground = ${color.green}
+ramp-signal-background = ${color.background}
 ramp-signal-font = 3
