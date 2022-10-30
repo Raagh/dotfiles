@@ -19,12 +19,12 @@ monitor-strict = false
 override-redirect = false
 
 bottom = false
-fixed-center = true
+fixed-center = false
 
-width = 28% 
+width = 35% 
 height = 25
 
-offset-x = 71%
+offset-x = 64%
 offset-y = 1%
 
 background = ${color.background}
@@ -53,20 +53,10 @@ font-3 = "Iosevka Nerd Font:size=18;4"
 font-4 = "Source Code Pro Bold:size=13;3"
 
 # Default
-modules-right = cpu spacing memory spacing battery spacing volume spacing xkeyboard spacing time spacing
+modules-right =network spacing cpu spacing memory spacing battery spacing volume spacing xkeyboard spacing time spacing
 
 spacing = 0
 dim-value = 1.0
-
-tray-position = right
-tray-detached = false
-tray-maxsize = 16
-tray-background = ${color.background}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 0
-tray-scale = 1.0
-
 enable-ipc = true
 
 cursor-click = 
@@ -82,7 +72,7 @@ monitor-strict = false
 override-redirect = false
 
 bottom = false
-fixed-center = true
+fixed-center = false
 
 width = 10% 
 height = 25
@@ -116,19 +106,10 @@ font-3 = "Iosevka Nerd Font:size=18;4"
 font-4 = "Source Code Pro Bold:size=13;3"
 
 # Default
-modules-left = launcher spacing bspwm spacing network 
+modules-left = launcher spacing bspwm 
 
 spacing = 0
 dim-value = 1.0
-
-tray-position = right
-tray-detached = false
-tray-maxsize = 16
-tray-background = ${color.background}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 0
-tray-scale = 1.0
 
 enable-ipc = true
 
