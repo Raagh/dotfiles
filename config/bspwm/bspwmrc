@@ -14,7 +14,7 @@ fi
 setxkbmap -option grp:win_space_toggle us,es &
 
 # Restore wallpaper
-bash $HOME/.config/bspwm/.fehbg &
+nitrogen --restore &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/bspwm/polybar/launch.sh
@@ -45,11 +45,12 @@ bspc config focus_follows_pointer true
 # fix pointer
 xsetroot -cursor_name left_ptr
 
-# Zathura should be tiled
+# State rules for specific apps
 bspc rule -a Zathura state=tiled
+bspc rule -a Nitrogen state=floating
 
 # workspace 4 (Settings)
-declare -a settings=(GParted Pavucontrol Xfce4-settings-manager blueberry)
+declare -a settings=(Pavucontrol Xfce4-settings-manager blueberry)
 for i in ${settings[@]}; do
     bspc rule -a $i desktop='^4' follow=on focus=on; done
 

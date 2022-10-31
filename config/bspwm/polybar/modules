@@ -1,4 +1,7 @@
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/empty-space]
+type = custom/text
+content = " "
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -270,8 +273,7 @@ label = "%percentage%% %{A}"
 type = internal/date
 interval = 1
 format-margin = 0
-time = "%A, %m/%d/%y"
-time-alt = "%A, %m/%d/%y"
+time = "%A %d/%m/%y %H:%M"
 
 format-prefix = " "
 format-prefix-foreground = ${color.blue}
@@ -357,8 +359,8 @@ format-connected = <ramp-signal><label-connected>
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = " 睊 "
 format-disconnected-prefix-font = 2
-format-disconnected-foreground = ${color.background}
-format-disconnected-background = ${color.green}
+format-disconnected-foreground = ${color.green}
+format-disconnected-background = ${color.background}
 
 label-connected = "%{A1:def-nmdmenu &:}%essid%%{A} "
 label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A} "

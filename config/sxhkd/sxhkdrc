@@ -14,10 +14,6 @@ super + shift + Return
 super + shift + t
     alacritty --class 'Alamax,Alamax'
 
-# j4 dmenu
-alt + F1
-    j4-dmenu
-
 # Launch Menus
 super + {r,x,n,s}
     {rofi -show drun,rofi -modi PowerMenu:$HOME/.config/rofi/custom-scripts/rofi-powermenu -show PowerMenu, $HOME/.config/rofi/custom-scripts/rofi-wifi, $HOME/.config/rofi/custom-scripts/rofi-randr}
@@ -25,10 +21,6 @@ super + {r,x,n,s}
 # Lock Screen
 ctrl + alt + l
     i3lock-color --blur 5 --ringver-color "#61C766" --ringwrong-color "#EC7875" --ring-color "#4DD0E1" --insidever-color "#61C766" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9"
-
-# custom dmenu scripts
-alt + {e,l}
-    {edit-configs, quick-links}
 
 # Launch Applications
 super + shift + {s,f,w,r,g}

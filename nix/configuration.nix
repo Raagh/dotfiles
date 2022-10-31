@@ -179,7 +179,7 @@
     zathura
     portfolio
     flameshot
-    feh
+    nitrogen
     i3lock-color
 
     # Theming
