@@ -129,8 +129,6 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "f-person/git-blame.nvim"
-  use "TimUntersberger/neogit"
-  use "kdheepak/lazygit.nvim"
 
   -- Extra quality of life improvements
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
