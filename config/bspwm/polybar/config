@@ -12,9 +12,9 @@ include-file = ~/.config/bspwm/polybar/system
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [bar/bar-right]
-width = 37% 
+width = 22% 
 height = 25
-offset-x = 62%
+offset-x = 77%
 offset-y = 1%
 override-redirect = false
 bottom = false
@@ -34,12 +34,12 @@ font-4 = "Source Code Pro Bold:size=13;3"
 dim-value = 1.0
 enable-ipc = true
 
-modules-right =network spacing cpu spacing memory spacing battery spacing volume spacing xkeyboard spacing time spacing
+modules-right = network spacing cpu spacing memory spacing battery spacing volume spacing xkeyboard spacing time spacing
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [bar/bar-left]
-width = 10% 
+width = 06% 
 height = 25
 offset-x = 1%
 offset-y = 1%
