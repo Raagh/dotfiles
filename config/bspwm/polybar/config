@@ -12,9 +12,14 @@ include-file = ~/.config/bspwm/polybar/system
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [bar/bar-right]
-width = 22% 
+
+width = 37% 
+offset-x = 62%
+
+# width = 21% 
+# offset-x = 78%
+
 height = 25
-offset-x = 77%
 offset-y = 1%
 override-redirect = false
 bottom = false
@@ -39,11 +44,13 @@ modules-right = network spacing cpu spacing memory spacing battery spacing volum
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [bar/bar-left]
-width = 06% 
-height = 25
-offset-x = 1%
-offset-y = 1%
+width = 10% 
 
+# width = 06% 
+
+offset-x = 1%
+height = 25
+offset-y = 1%
 override-redirect = false
 bottom = false
 fixed-center = false
