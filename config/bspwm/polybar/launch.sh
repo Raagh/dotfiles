@@ -41,8 +41,15 @@ launch_bar() {
 	fi
 		
 	if [[ ! $(pidof polybar) ]]; then
-		polybar -q bar-left -c "$DIR"/config &
-		polybar -q bar-right -c "$DIR"/config &
+    my_laptop_external_monitor=$(xrandr --query | grep 'DP-3 connected')
+    echo my_laptop_external_monitor
+    if [[ $my_laptop_external_monitor = *connected* ]]; then
+      polybar -q bar-left -c "$DIR"/config-widescreen &
+      polybar -q bar-right -c "$DIR"/config-widescreen &
+    else
+      polybar -q bar-left -c "$DIR"/config-laptop &
+      polybar -q bar-right -c "$DIR"/config-laptop &
+    fi
 	else
 		polybar-msg cmd restart
 	fi
