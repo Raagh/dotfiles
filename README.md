@@ -7,7 +7,7 @@ Nix OS (for now) - tokyonight
 - bspwm
 - polybar
 - alacritty
-- feh
+- nitrogen
 - rofi
 - picom
 - dunst

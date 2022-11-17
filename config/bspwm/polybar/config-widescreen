@@ -1,0 +1,82 @@
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+include-file = ~/.config/bspwm/polybar/colors
+include-file = ~/.config/bspwm/polybar/modules
+include-file = ~/.config/bspwm/polybar/decor
+include-file = ~/.config/bspwm/polybar/system
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[bar/bar-right]
+width = 21% 
+offset-x = 78%
+height = 25
+offset-y = 1%
+override-redirect = false
+bottom = false
+fixed-center = false
+background = ${color.background}
+foreground = ${color.foreground}
+line-size = 2
+line-color = ${color.blue}
+border-size = 6
+border-color = ${color.background}
+wm-restack = bspwm
+font-0 = "Source Code Pro Medium:size=10;3"
+font-1 = "Iosevka Nerd Font Mono:size=20;5"
+font-2 = "Iosevka Nerd Font:size=16;4"
+font-3 = "Iosevka Nerd Font:size=18;4"
+font-4 = "Source Code Pro Bold:size=13;3"
+dim-value = 1.0
+enable-ipc = true
+
+modules-right = network spacing cpu spacing memory spacing battery spacing volume spacing xkeyboard spacing time spacing
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[bar/bar-left]
+width = 06% 
+offset-x = 1%
+height = 25
+offset-y = 1%
+override-redirect = false
+bottom = false
+fixed-center = false
+background = ${color.background}
+foreground = ${color.foreground}
+line-size = 2
+line-color = ${color.blue}
+border-size = 6
+border-color = ${color.background}
+wm-restack = bspwm
+font-0 = "Source Code Pro Medium:size=10;3"
+font-1 = "Iosevka Nerd Font Mono:size=20;5"
+font-2 = "Iosevka Nerd Font:size=16;4"
+font-3 = "Iosevka Nerd Font:size=18;4"
+font-4 = "Source Code Pro Bold:size=13;3"
+dim-value = 1.0
+enable-ipc = true
+
+modules-left = launcher spacing bspwm 
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+
+screenchange-reload = false
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+pseudo-transparency = false
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
