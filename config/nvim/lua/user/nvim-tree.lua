@@ -36,3 +36,30 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
     nested = true,
 })
+
+
+local events, nvim_tree_events = pcall(require, "nvim-tree.events")
+if not events then
+  return
+end
+
+local bufferapi, bufferline_api = pcall(require, "bufferline.api")
+if not bufferapi then
+  return
+end
+
+local function get_tree_size()
+  return require'nvim-tree.view'.View.width + 1
+end
+
+nvim_tree_events.subscribe('TreeOpen', function()
+  bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('Resize', function()
+  bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('TreeClose', function()
+  bufferline_api.set_offset(0)
+end)
