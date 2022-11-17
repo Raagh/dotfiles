@@ -33,8 +33,8 @@ nvim_tree.setup {
 }
 
 vim.api.nvim_create_autocmd('BufEnter', {
-    command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
-    nested = true,
+  command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
+  nested = true,
 })
 
 
@@ -49,7 +49,7 @@ if not bufferapi then
 end
 
 local function get_tree_size()
-  return require'nvim-tree.view'.View.width + 1
+  return require 'nvim-tree.view'.View.width
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()
