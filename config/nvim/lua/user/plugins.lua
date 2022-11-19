@@ -46,7 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Editor UI
-  use {  -- File tree navigation
+  use { -- File tree navigation
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
@@ -74,10 +74,6 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use "folke/tokyonight.nvim"
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
 
   -- Completion
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -117,7 +113,11 @@ return packer.startup(function(use)
 
   -- Debugging
   use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
+  use {
+    "rcarriga/nvim-dap-ui",
+    commit = "72ac47537690d1a01878bdadc143b487b26c34ca"
+  }
+
   use "theHamsta/nvim-dap-virtual-text"
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   use {
