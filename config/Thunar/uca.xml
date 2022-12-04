@@ -4,7 +4,7 @@
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
 	<unique-id>1651182313226009-1</unique-id>
-  <command>alacritty --working-directory %f --class "Alamax,Alamax" --config-file "$HOME/.config/bspwm/alacritty/alacritty.yml"</command>
+  <command>alacritty --working-directory %f --class "Alamax,Alamax" --config-file "$HOME/.config/alacritty/alacritty.yml"</command>
 	<description>Open Terminal Here</description>
 	<patterns>*</patterns>
 	<startup-notify/>

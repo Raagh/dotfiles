@@ -165,6 +165,8 @@
     vlc
     stow
     xfce.xfce4-power-manager
+    arandr 
+
 
     # Desktop Environment
     polybar
