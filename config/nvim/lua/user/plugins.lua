@@ -58,6 +58,8 @@ return packer.startup(function(use)
   use "romgrk/barbar.nvim" -- Tabs support
   use "akinsho/toggleterm.nvim" -- Terminal support
   use "nvim-telescope/telescope.nvim" -- Search functionality
+  use "lukas-reineke/indent-blankline.nvim" -- indentation guides
+  use "anuvyklack/pretty-fold.nvim" -- folding code
 
   -- Copilot
   use { "github/copilot.vim" }
@@ -139,7 +141,6 @@ return packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  use "anuvyklack/pretty-fold.nvim"
   use "andymass/vim-matchup" -- Allows to move between code better than default vim
 
   -- Improve performance
