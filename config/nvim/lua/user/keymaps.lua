@@ -75,8 +75,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
--- keymap('t', '<esc>', [[<C-\><C-n>]], term_opts)
-keymap('t', 'jk', [[<C-\><C-n>]], term_opts)
 keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opts)
 keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opts)
 keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opts)
