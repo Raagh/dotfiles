@@ -1,17 +1,35 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-	return
+  return
 end
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 -- local diagnostics = null_ls.builtins.diagnostics
+local organize_import_action = {
+  method = null_ls.methods.CODE_ACTION,
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  generator = {
+    fn = function(_)
+      return {
+        {
+          title = "Organize Imports",
+          action = function()
+            vim.cmd [[OrganizeImports]]
+          end
+        }
+      }
+    end
+  }
+}
+
+null_ls.register(organize_import_action)
 
 null_ls.setup({
-	debug = false,
-	sources = {
-		formatting.prettier,
-		formatting.stylua,
-	},
+  debug = false,
+  sources = {
+    formatting.prettier,
+    -- formatting.stylua,
+  },
 })
