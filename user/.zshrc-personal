@@ -18,6 +18,7 @@ alias rm='rm -i'
 alias update-system="sudo nixos-rebuild switch"
 alias edit-config="sudo -E -s nvim /etc/nixos/configuration.nix"
 alias wget="wget -c" # continue the download
+alias fetch="pfetch"
 
 # required functions
 

@@ -157,7 +157,7 @@
     geany
     git
     lazygit
-    neofetch
+    pfetch
     bat
     exa
     htop

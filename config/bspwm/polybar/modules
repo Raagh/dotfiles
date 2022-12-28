@@ -273,7 +273,7 @@ label = "%percentage%% %{A}"
 type = internal/date
 interval = 1
 format-margin = 0
-time = "%A %d/%m/%y %H:%M"
+time = "%d/%m/%y %H:%M"
 
 format-prefix = " "
 format-prefix-foreground = ${color.blue}
