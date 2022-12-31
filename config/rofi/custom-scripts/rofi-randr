@@ -155,7 +155,7 @@ function select_mode() {
     | grep x \
     | cat <(echo auto) -)"
 
-  echo "${menu}" | rofi -dmenu -l 10 -p "Select mode for $1:" | read selection
+  echo "${menu}" | rofi -dmenu -l 10 -p "Select mode for $1" | read selection
 
   case "${selection}" in
     'auto') echo '--auto' ;;
