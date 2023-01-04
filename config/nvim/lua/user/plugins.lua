@@ -115,10 +115,6 @@ return packer.startup(function(use)
 
   -- Debugging
   use "mfussenegger/nvim-dap"
-  -- use {
-  --   "rcarriga/nvim-dap-ui",
-  --   commit = "72ac47537690d1a01878bdadc143b487b26c34ca"
-  -- }
   use "rcarriga/nvim-dap-ui"
 
   use "theHamsta/nvim-dap-virtual-text"
@@ -144,7 +140,7 @@ return packer.startup(function(use)
   use "andymass/vim-matchup" -- Allows to move between code better than default vim
 
   -- Improve performance
-  -- use("nathom/filetype.nvim")
+  use("nathom/filetype.nvim")
   use 'lewis6991/impatient.nvim'
 
   -- Extra language support, enable when needed
