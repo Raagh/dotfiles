@@ -13,8 +13,8 @@ include-file = ~/.config/bspwm/polybar/system
 
 [bar/bar-right]
 
-width = 36% 
-offset-x = 63%
+width = 34.3% 
+offset-x = 64.6%
 height = 25
 offset-y = 1%
 override-redirect = false
