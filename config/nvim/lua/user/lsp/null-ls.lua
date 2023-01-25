@@ -14,7 +14,7 @@ local organize_import_action = {
     fn = function(_)
       return {
         {
-          title = "Organize Imports",
+          title = "Organize imports",
           action = function()
             vim.cmd [[OrganizeImports]]
           end
