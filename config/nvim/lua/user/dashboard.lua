@@ -50,13 +50,13 @@ dashboard.setup({
       "                                                                    ",
     },
     center = {
-      { desc = "  Find File               ", action = "Telescope find_files", key = 'SPC f f', desc_hi = "DashboardCenter" },
-      { desc = "  Recents                 ", action = "Telescope oldfiles", key = 'SPC f h' , desc_hi = "DashboardCenter"},
-      { desc = "  Find Word               ", action = "Telescope live_grep" , key = 'SPC f g' , desc_hi = "DashboardCenter"},
-      { desc = "  New Buffer              ", action = "DashboardNewFile" , key = 'SPC b n' , desc_hi = "DashboardCenter"},
-      { desc = "  Update Plugins          ", action = "PackerUpdate" , key = 'SPC P u' , desc_hi = "DashboardCenter"},
-      { desc = "  Settings                ", action = "edit $MYVIMRC" , key = 'SPC n e' , desc_hi = "DashboardCenter"},
-      { desc = "  Exit                    ", action = "exit" , key = 'SPC q' , desc_hi = "DashboardCenter"}
+      { desc = "  Find File               ", action = "Telescope find_files", key = 'SPC f f', desc_hl = "DashboardCenter" },
+      { desc = "  Recents                 ", action = "Telescope oldfiles", key = 'SPC f h' , desc_hl = "DashboardCenter"},
+      { desc = "  Find Word               ", action = "Telescope live_grep" , key = 'SPC f g' , desc_hl = "DashboardCenter"},
+      { desc = "  New Buffer              ", action = "<cmd>enew<CR>" , key = 'SPC b n' , desc_hl = "DashboardCenter"},
+      { desc = "  Update Plugins          ", action = "PackerUpdate" , key = 'SPC P u' , desc_hl = "DashboardCenter"},
+      { desc = "  Settings                ", action = "edit $MYVIMRC" , key = 'SPC n e' , desc_hl = "DashboardCenter"},
+      { desc = "  Exit                    ", action = "exit" , key = 'SPC q' , desc_hl = "DashboardCenter"}
     }
   },
 })

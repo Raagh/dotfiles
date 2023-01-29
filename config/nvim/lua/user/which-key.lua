@@ -36,7 +36,7 @@ local mappings = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Active",
     },
-    n = { "<cmd>DashboardNewFile<CR>", "New" },
+    n = { "<cmd>enew<CR>", "New" },
   },
 
   d = {
