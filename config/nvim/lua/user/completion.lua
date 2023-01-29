@@ -8,7 +8,12 @@ if not snip_status_ok then
   return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+local lua_vs_code_ok, lua_vscode = pcall(require, "luasnip/loaders/from_vscode")
+if not lua_vs_code_ok then
+  return
+end
+
+lua_vscode.lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
