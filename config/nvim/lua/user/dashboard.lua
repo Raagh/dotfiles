@@ -56,7 +56,7 @@ dashboard.setup({
       { desc = "  New Buffer              ", action = "<cmd>enew<CR>" , key = 'SPC b n' , desc_hl = "DashboardCenter"},
       { desc = "  Update Plugins          ", action = "PackerUpdate" , key = 'SPC P u' , desc_hl = "DashboardCenter"},
       { desc = "  Settings                ", action = "edit $MYVIMRC" , key = 'SPC n e' , desc_hl = "DashboardCenter"},
-      { desc = "  Exit                    ", action = "exit" , key = 'SPC q' , desc_hl = "DashboardCenter"}
+      { desc = "  Exit                    ", action = "exit" , key = 'SPC Q' , desc_hl = "DashboardCenter"}
     }
   },
 })

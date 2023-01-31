@@ -17,8 +17,16 @@ toggleterm.setup({
   },
 })
 
-local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit  = Terminal:new({
+  cmd = "lazygit",
+  hidden = true,
+  float_opts = {
+    border = "none",
+    width = 100000,
+    height = 100000,
+  },
+})
 
 function LazygitToggle()
   lazygit:toggle()

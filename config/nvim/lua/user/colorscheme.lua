@@ -1,7 +1,6 @@
 local colorscheme = "tokyonight"
 local colorscheme_ok, tokyo = pcall(require, colorscheme)
 if not colorscheme_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
   return
 end
 
