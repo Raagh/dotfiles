@@ -19,7 +19,8 @@ configs.setup {
     "nix",
     "go",
     "help",
-    "vim"
+    "vim",
+    "rasi"
   },
   matchup = {
     enable = true,
