@@ -164,9 +164,8 @@
     galculator
     vlc
     stow
-    xfce.xfce4-power-manager
-    arandr 
-
+    zathura
+    portfolio
 
     # Desktop Environment
     polybar
@@ -178,11 +177,11 @@
     xclip
     rofi
     dunst
-    zathura
-    portfolio
     flameshot
     nitrogen
     i3lock-color
+    arandr
+    xfce.xfce4-power-manager
 
     # Theming
     qogir-theme
