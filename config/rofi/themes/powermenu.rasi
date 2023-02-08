@@ -1,9 +1,9 @@
 configuration {
     font:                           "Iosevka 10";
-    show-icons:                     true;
-  	icon-theme: 					"Hybrid";
+    show-icons:                     false;
+	icon-theme: 					"Papirus-Dark";
     display-drun: 					":";
-    drun-display-format:            "{icon} {name}";
+    drun-display-format:            "{name}";
     threads:                        0;
     scroll-method:                  0;
     disable-history:                false;
@@ -14,14 +14,20 @@ configuration {
 
 @import "colors.rasi"
 
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border:							3px;
+	border:							3px;
     border-radius:                  0px;
     border-color:					@sbackground;
-    width:                          15%;
+    width:                          286px;
+  padding: 0px 0px 3px 3px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -29,45 +35,34 @@ window {
 }
 
 prompt {
-  enabled: 						true;
-	padding: 						4px 4px 6px 6px;
+    enabled: 						false;
 	background-color: 				@background;
 	text-color: 					@foreground;
 }
 
-textbox-prompt-colon {
-	expand: 						false;
-	str: 							" ";
-  background-color:               @background;
-  text-color:                     @urgent;
-  padding:                        5px 0px 0px 6px;
-	font:							"JetBrainsMono Nerd Font Medium 12";
-}
-
 inputbar {
-	children: 						[ textbox-prompt-colon, entry ];
+	children: 						[ prompt ];
     background-color:               @background;
     text-color:                     @foreground;
     expand:                         false;
-    border:                  		0px 0px 1px 0px;
+    border:                  		0px 0px 0px 0px;
     border-radius:                  0px;
     border-color:                  	@selected;
     margin:                         0px 0px 0px 0px;
-    padding:                        0px 0px 4px 0px;
+    padding:                        0px 0px 0px 0px;
     position:                       center;
 }
 
 
 entry {
-    font:							"Inter Regular 12";
     background-color:               @background;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search Applications";
+    placeholder:                    "Search";
     blink:                          true;
-    padding:                        4px 0px 0px 4px;
+    padding:                        4px 0px 0px 0px;
 }
 
 case-indicator {
@@ -76,15 +71,14 @@ case-indicator {
     spacing:                        0;
 }
 
-
 listview {
     background-color:               @background;
     columns:                        1;
     lines:							5;
-    spacing:                        4px;
-    cycle:                          false;
+    spacing:                        5px;
+    cycle:                          true;
     dynamic:                        true;
-    layout:                         vertical;
+    layout:                         horizontal;
 }
 
 mainbox {
@@ -98,22 +92,20 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    horizontal;
-    border-radius:                  4px;
-    padding:                        6px 6px 6px 6px;
-}
-
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+	font:							"Inter Bold 22";
+	border:							1px;
+    border-radius:                  0px;
+    border-color:					@selected;
+    padding:                        15px 15px 15px 15px;
 }
 
 element-icon {
-    size:                           16px;
+    size:                           24px;
     border:                         0px;
 }
 
 element-text {
-    font:							"Inter Bold 12";
+	  font:							"Inter Bold 22";
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0;
@@ -134,7 +126,7 @@ element alternate.active {
 }
 
 element selected {
-    background-color:               @yellow;
+    background-color:               @selected;
     text-color:                     @background;
     border:                  		0px;
     border-radius:                  0px;
