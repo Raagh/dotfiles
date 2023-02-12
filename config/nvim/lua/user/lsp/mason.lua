@@ -24,7 +24,7 @@ local settings = {
 
 mason.setup(settings)
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua" }
+  ensure_installed = { "lua_ls" }
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -41,10 +41,10 @@ mason_lspconfig.setup_handlers({
   function(server_name) -- default handler (optional)
     lspconfig[server_name].setup(opts)
   end,
-  ["sumneko_lua"] = function()
-    local sumneko_opts = require("user.lsp.settings.sumneko_lua")
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    lspconfig.sumneko_lua.setup(opts)
+  ["lua_ls"] = function()
+    local lua_ls = require("user.lsp.settings.lua_ls")
+    opts = vim.tbl_deep_extend("force", lua_ls, opts)
+    lspconfig.lua_ls.setup(opts)
   end,
   ["jsonls"] = function()
     local jsonls_opts = require("user.lsp.settings.jsonls")

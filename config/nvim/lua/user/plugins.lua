@@ -54,7 +54,7 @@ packer.startup(function(use)
   use "anuvyklack/pretty-fold.nvim" -- folding code
 
   -- Copilot
-  use { "github/copilot.vim" }
+  -- use { "github/copilot.vim" }
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -64,8 +64,13 @@ packer.startup(function(use)
       end, 100)
     end,
   }
-  use "zbirenbaum/copilot-cmp"
-
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
   -- Colorscheme
   use "folke/tokyonight.nvim"
 
@@ -117,12 +122,6 @@ packer.startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "theHamsta/nvim-dap-virtual-text"
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile",
-    tag = 'v1.74.1'
-  }
 
   -- Git
   use "lewis6991/gitsigns.nvim"

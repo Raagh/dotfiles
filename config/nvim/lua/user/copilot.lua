@@ -4,12 +4,9 @@ if not status_ok then
 end
 
 copilot.setup {
-  cmp = {
-    enabled = true,
-    method = "getPanelCompletions",
-  },
-  panel = { -- no config options yet
-    enabled = true,
-  },
+  method = "getCompletionsCycling",
+  cmp = { enabled = true },
+  suggestion = { enabled = false },
+  panel = { enabled = false },
   ft_disable = { "markdown" },
 }
