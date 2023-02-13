@@ -135,8 +135,14 @@ packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  use "andymass/vim-matchup" -- Allows to move between code better than default vim
-
+  -- use "andymass/vim-matchup" -- Allows to move between code better than default vim
+  use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+        require("nvim-surround").setup()
+      end
+  })
   -- Improve performance
   use("nathom/filetype.nvim")
   use 'lewis6991/impatient.nvim'
