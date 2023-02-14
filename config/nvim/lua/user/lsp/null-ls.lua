@@ -30,6 +30,5 @@ null_ls.setup({
   debug = false,
   sources = {
     formatting.prettier,
-    -- formatting.stylua,
   },
 })
