@@ -40,6 +40,7 @@ packer.startup(function(use)
   -- Editor UI
   use { -- File tree navigation
     'kyazdani42/nvim-tree.lua',
+    commit = 'e14989c0eaa6f9c299d48f7e45ce1ed04b21180f',
     requires = {
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
