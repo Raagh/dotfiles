@@ -28,7 +28,13 @@ nvim_tree.setup {
     }
   },
   view = {
-    adaptive_size = true
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "e",  action = "" },
+        { key = "<S-r>",  action = "rename_basename" },
+      }
+    }
   }
 }
 
