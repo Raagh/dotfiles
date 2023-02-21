@@ -44,15 +44,20 @@ local mappings = {
 
   d = {
     name = "Debug",
-    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
     c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+    d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+    g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-    u = { "<cmd>lua require'dapui'.toggle({ reset = true })<cr>", "Toggle UI" },
-    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+    s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
+    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+    U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
   },
 
   f = {
@@ -60,7 +65,8 @@ local mappings = {
     f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
       "Find" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-    h = { "<cmd>Telescope oldfiles<CR>", "Recents" }
+    h = { "<cmd>Telescope oldfiles<CR>", "Recents" },
+    l = { "<cmd>Telescope resume<cr>", "Resume last search" },
   },
 
   P = {
@@ -98,6 +104,7 @@ local mappings = {
   n = {
     name = "Neovim",
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
   },
 
   t = {
