@@ -1,3 +1,13 @@
+export ZSH="//$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -6,22 +16,16 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+export BAT_THEME="ansi"
+export NVM_DIR="$HOME/.nvm"
+
 autoload -U promptinit; promptinit
 autoload -U colors && colors
-# Load Version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-export PWD=/home/$USER
-export OLDPWD=/home/$USER
-export BAT_THEME="ansi"
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export KEYTIMEOUT=1
-export ZSH=/usr/share/oh-my-zsh
 
 
 # Format the vcs_info_msg_0_ variable
@@ -52,4 +56,8 @@ HIST_STAMPS="dd/mm/yyyy"
 compinit
 _comp_options+=(globdots) # lets you tab complete hidden files by default
 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
