@@ -7,7 +7,6 @@ Theme: tokyonight
 
 - yabai
 - skhd
-- sketchybar
 - alacritty
 - spotlight
 - zsh
