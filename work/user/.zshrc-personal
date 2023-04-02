@@ -15,8 +15,6 @@ alias mv='mv -i'
 alias q='exit'
 alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rm='rm -i'
-alias update-system="sudo nixos-rebuild switch"
-alias edit-config="sudo -E -s nvim /etc/nixos/configuration.nix"
 alias wget="wget -c" # continue the download
 alias fetch="pfetch"
 

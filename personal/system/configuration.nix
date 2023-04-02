@@ -153,7 +153,7 @@
 
     # Global Apps
     wget
-    firefox
+    google-chrome
     neovim
     sumneko-lua-language-server
     geany
