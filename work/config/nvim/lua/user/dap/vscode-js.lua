@@ -9,8 +9,8 @@ if not dap_vscode_js_ok then
 end
 
 dap_vscode_js.setup({
-  debugger_path = vim.fn.stdpath('data') .. "/mason/packages/js-debug-adapter", -- Path to vscode-js-debug installation.
-  node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+  debugger_path = vim.fn.stdpath('data') .. "/mason/packages/js-debug-adapter",                -- Path to vscode-js-debug installation.
+  node_path = "node",                                                                          -- Path of node executable. Defaults to $NODE_PATH, and then "node"
   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
 })
 
@@ -48,7 +48,17 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
+    },
+    {
+      name = "Docker: Attach to Node",
+      type = "node",
+      request = "attach",
+      restart = true,
+      port = 9229,
+      address = "localhost",
+      localRoot = "${workspaceFolder}",
+      remoteRoot = "/usr/src/app",
+      protocol = "inspector"
     }
   }
 end
-

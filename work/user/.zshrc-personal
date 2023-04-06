@@ -17,6 +17,7 @@ alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rm='rm -i'
 alias wget="wget -c" # continue the download
 alias fetch="pfetch"
+alias aws="aws-mfa-secure session"
 
 # required functions
 
