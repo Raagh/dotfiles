@@ -54,10 +54,6 @@ packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim" -- indentation guides
   use "anuvyklack/pretty-fold.nvim"         -- folding code
 
-  use {
-    'nmac427/guess-indent.nvim',
-    config = function() require('guess-indent').setup {} end,
-  }
   -- Copilot
   -- use { "github/copilot.vim" }
   use {
@@ -76,6 +72,7 @@ packer.startup(function(use)
       require("copilot_cmp").setup()
     end
   }
+
   -- Colorscheme
   use "folke/tokyonight.nvim"
 
@@ -127,6 +124,37 @@ packer.startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "theHamsta/nvim-dap-virtual-text"
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+  }
+
+  -- Testing
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
+    },
+    config = function()
+      require('neotest').setup({
+        discovery = {
+          enabled = false,
+        },
+        quickfix = {
+          enabled = true,
+          open = false,
+        },
+        adapters = {
+          require('neotest-jest')({
+          }),
+        }
+      })
+    end
+  }
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -140,10 +168,13 @@ packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  -- use "andymass/vim-matchup" -- Allows to move between code better than default vim
+  use { --helps neovim figure out the correct indentation
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
+  }
   use({
     "kylechui/nvim-surround",
-    tag = "*",   -- Use for stability; omit to use `main` branch for the latest features
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
       require("nvim-surround").setup()
     end

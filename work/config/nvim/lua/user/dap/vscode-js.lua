@@ -19,23 +19,6 @@ for _, language in ipairs({ "typescript", "javascript" }) do
     {
       type = "pwa-node",
       request = "launch",
-      name = "Debug Jest Tests",
-      -- trace = true, -- include debugger info
-      runtimeExecutable = "node",
-      runtimeArgs = {
-        "--max-old-space-size=5120",
-        "./node_modules/jest/bin/jest.js",
-        "--runInBand",
-        "--watch"
-      },
-      rootPath = "${workspaceFolder}",
-      cwd = "${workspaceFolder}",
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-    },
-    {
-      type = "pwa-node",
-      request = "launch",
       name = "Debug Nodemon",
       -- trace = true, -- include debugger info
       runtimeExecutable = "node",
@@ -51,14 +34,34 @@ for _, language in ipairs({ "typescript", "javascript" }) do
     },
     {
       name = "Docker: Attach to Node",
-      type = "node",
+      type = "pwa-node",
       request = "attach",
       restart = true,
       port = 9229,
-      address = "localhost",
       localRoot = "${workspaceFolder}",
       remoteRoot = "/usr/src/app",
-      protocol = "inspector"
-    }
+      console = "integratedTerminal",
+      internalConsoleOptions = "neverOpen",
+      protocol = "inspector",
+      cwd = "${workspaceFolder}",
+    },
+    {
+      name = "Debug Local App",
+      request = "launch",
+      runtimeArgs = {
+        "run",
+        "dev"
+      },
+      runtimeExecutable = "npm",
+      skipFiles = {
+        "<node_internals>/**"
+      },
+      type = "pwa-node",
+      envFile = "${workspaceFolder}/.env.local",
+      rootPath = "${workspaceFolder}",
+      cwd = "${workspaceFolder}",
+      console = "integratedTerminal",
+      internalConsoleOptions = "neverOpen",
+    },
   }
 end
