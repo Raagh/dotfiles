@@ -18,7 +18,6 @@ configs.setup {
     "yaml",
     "nix",
     "go",
-    "help",
     "vim",
     "rasi"
   },

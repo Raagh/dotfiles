@@ -34,8 +34,8 @@ packer.init {
 packer.startup(function(use)
   -- Base plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
 
   -- Editor UI
   use { -- File tree navigation
@@ -45,14 +45,14 @@ packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "folke/which-key.nvim" -- Keybindings information
-  use "glepnir/dashboard-nvim" -- Greeter
-  use "nvim-lualine/lualine.nvim" -- Status bar
-  use "romgrk/barbar.nvim" -- Tabs support
-  use "akinsho/toggleterm.nvim" -- Terminal support
-  use "nvim-telescope/telescope.nvim" -- Search functionality
+  use "folke/which-key.nvim"                -- Keybindings information
+  use "glepnir/dashboard-nvim"              -- Greeter
+  use "nvim-lualine/lualine.nvim"           -- Status bar
+  use "romgrk/barbar.nvim"                  -- Tabs support
+  use "akinsho/toggleterm.nvim"             -- Terminal support
+  use "nvim-telescope/telescope.nvim"       -- Search functionality
   use "lukas-reineke/indent-blankline.nvim" -- indentation guides
-  use "anuvyklack/pretty-fold.nvim" -- folding code
+  use "anuvyklack/pretty-fold.nvim"         -- folding code
 
   -- Copilot
   -- use { "github/copilot.vim" }
@@ -72,30 +72,31 @@ packer.startup(function(use)
       require("copilot_cmp").setup()
     end
   }
+
   -- Colorscheme
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
   })
   -- Completion
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "hrsh7th/nvim-cmp"         -- The completion plugin
+  use "hrsh7th/cmp-buffer"       -- buffer completions
+  use "hrsh7th/cmp-path"         -- path completions
+  use "hrsh7th/cmp-cmdline"      -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
 
   -- Code Snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
+  use "L3MON4D3/LuaSnip"             --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
-  use "neovim/nvim-lspconfig" -- enable LSP
+  use "neovim/nvim-lspconfig"           -- enable LSP
   use "jose-elias-alvarez/null-ls.nvim" -- Formatting and Linting per language support
-  use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
+  use { "ray-x/lsp_signature.nvim",     -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -126,6 +127,32 @@ packer.startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
+  -- Testing
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
+    },
+    config = function()
+      require('neotest').setup({
+        discovery = {
+          enabled = false,
+        },
+        quickfix = {
+          enabled = true,
+          open = false,
+        },
+        adapters = {
+          require('neotest-jest')({
+          }),
+        }
+      })
+    end
+  }
+
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "f-person/git-blame.nvim"
@@ -133,18 +160,21 @@ packer.startup(function(use)
   -- Extra quality of life improvements
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
   use {
-    'numToStr/Comment.nvim', -- Allows for commenting code easily
+    'numToStr/Comment.nvim',  -- Allows for commenting code easily
     config = function()
       require('Comment').setup()
     end
   }
-  -- use "andymass/vim-matchup" -- Allows to move between code better than default vim
+  use { --helps neovim figure out the correct indentation
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
+  }
   use({
-      "kylechui/nvim-surround",
-      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-      config = function()
-        require("nvim-surround").setup()
-      end
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup()
+    end
   })
   -- Improve performance
   use("nathom/filetype.nvim")
