@@ -13,6 +13,15 @@ tokyo.setup({
       bg = c.bg_dark,
       fg = c.bg_dark
     }
+
+    hl.BufferTabpageFill = {
+      bg = c.bg
+    }
+
+    hl.BufferInactiveSign = {
+      bg = c.bg,
+      fg = c.bg
+    }
   end
 })
 
