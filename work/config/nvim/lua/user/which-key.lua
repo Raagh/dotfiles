@@ -43,24 +43,19 @@ local mappings = {
   d = {
     name = "Debug",
     t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+    c = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
     d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
     g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover" },
     p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
     q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+    u = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
   },
   f = {
     name = "Files",
     f = {
-      "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+      "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<cr>",
       "Find" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
     h = { "<cmd>Telescope oldfiles<CR>", "Recents" },
@@ -110,22 +105,26 @@ local mappings = {
   },
   T = {
     name = "Testing",
+    d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug This Test"},
     f = { "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", "Run File" },
-    p = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Toggle Panel" },
     r = { "<cmd>lua require'neotest'.run.run()<cr>", "Run This Test" },
-    s = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Toggle File Summary" },
-    S = {
-      function()
-        require('neotest').setup({
-          discovery = {
-            enabled = false,
-          },
-          adapters = {
-            require('neotest-jest')({
-            }),
-          }
-        })
-      end, "Toggle Full Summary" }
+    T = {
+      name = "Toggle",
+      p = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Toggle Panel" },
+      s = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Toggle File Summary" },
+      S = {
+        function()
+          require('neotest').setup({
+            discovery = {
+              enabled = false,
+            },
+            adapters = {
+              require('neotest-jest')({
+              }),
+            }
+          })
+        end, "Toggle Full Summary" }
+    }
   },
   l = {
     name = "LSP",

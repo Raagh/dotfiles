@@ -61,8 +61,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.g.bufferline = {
-    -- ...
-    exclude_ft = {'qf'},
-    -- ...
-}

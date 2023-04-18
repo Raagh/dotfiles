@@ -83,3 +83,9 @@ keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opts)
 keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opts)
 keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opts)
 keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opts)
+
+-- VSCODE style debugging
+keymap("n", "<F5>", "<cmd>lua require('dap').continue()<cr>", opts)
+keymap("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>", opts)
+keymap("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>", opts)
+keymap("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>", opts)
