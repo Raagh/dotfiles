@@ -17,16 +17,18 @@ dap_vscode_js.setup({
 for _, language in ipairs({ "typescript", "javascript" }) do
   dap.configurations[language] = {
     {
-      type = "pwa-node",
+      name = "Debug Local App",
       request = "launch",
-      name = "Debug Nodemon",
-      -- trace = true, -- include debugger info
-      runtimeExecutable = "node",
       runtimeArgs = {
-        "--max-old-space-size=5120",
-        "./node_modules/nodemon/bin/nodemon.js",
-        "--inspect",
+        "run",
+        "dev"
       },
+      runtimeExecutable = "npm",
+      skipFiles = {
+        "<node_internals>/**"
+      },
+      type = "pwa-node",
+      envFile = "${workspaceFolder}/.env.local",
       rootPath = "${workspaceFolder}",
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
@@ -46,11 +48,11 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
     },
     {
-      name = "Debug Local App",
+      name = "Debug Local App: Watch",
       request = "launch",
       runtimeArgs = {
         "run",
-        "dev"
+        "dev:watch"
       },
       runtimeExecutable = "npm",
       skipFiles = {
