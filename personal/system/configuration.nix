@@ -58,7 +58,7 @@
   services.xserver.displayManager = {
     defaultSession = "none+bspwm";
     setupCommands = ''
-      my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep 'DP-1 connected')
+      my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep 'DP-1 connected 3440')
       if [[ $my_laptop_external_monitor = *connected* ]]; then
         ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
       else
