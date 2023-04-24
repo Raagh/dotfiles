@@ -98,7 +98,7 @@ local mappings = {
   },
   s = {
     name = "Session",
-    r = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore Session" },
+    r = { "<cmd>lua require('persistence').load()<cr>", "Restore Session" },
     s = { "<cmd>lua require('persistence').stop()<cr>", "Stop Running Session" },
   },
   t = {

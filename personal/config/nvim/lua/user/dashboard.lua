@@ -54,7 +54,7 @@ dashboard.setup({
     },
     center = {
 
-      { desc = "  Restore Session         ", action = "lua require('persistence').load({ last = true })", key = 'SPC s r', desc_hl = "DashboardCenter" },
+      { desc = "  Restore Session         ", action = "lua require('persistence').load()", key = 'SPC s r', desc_hl = "DashboardCenter" },
       { desc = "  Find File               ", action = "Telescope find_files", key = 'SPC f f', desc_hl = "DashboardCenter" },
       { desc = "  Recents                 ", action = "Telescope oldfiles", key = 'SPC f h' , desc_hl = "DashboardCenter"},
       { desc = "  Find Word               ", action = "Telescope live_grep" , key = 'SPC f g' , desc_hl = "DashboardCenter"},
