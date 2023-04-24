@@ -51,8 +51,16 @@ packer.startup(function(use)
   use "romgrk/barbar.nvim"                  -- Tabs support
   use "akinsho/toggleterm.nvim"             -- Terminal support
   use "nvim-telescope/telescope.nvim"       -- Search functionality
-  use "lukas-reineke/indent-blankline.nvim" -- indentation guides
-  use "anuvyklack/pretty-fold.nvim"         -- folding code
+  use "lukas-reineke/indent-blankline.nvim" -- Indentation guides
+  use "anuvyklack/pretty-fold.nvim"         -- Folding code
+  use({                                     -- Session management
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    module = "persistence",
+    config = function()
+      require("persistence").setup()
+    end,
+  })
 
   -- Copilot
   -- use { "github/copilot.vim" }

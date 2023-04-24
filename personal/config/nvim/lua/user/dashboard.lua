@@ -53,10 +53,12 @@ dashboard.setup({
       "                                                                    ",
     },
     center = {
+
+      { desc = "  Restore Session         ", action = "lua require('persistence').load({ last = true })", key = 'SPC s r', desc_hl = "DashboardCenter" },
       { desc = "  Find File               ", action = "Telescope find_files", key = 'SPC f f', desc_hl = "DashboardCenter" },
       { desc = "  Recents                 ", action = "Telescope oldfiles", key = 'SPC f h' , desc_hl = "DashboardCenter"},
       { desc = "  Find Word               ", action = "Telescope live_grep" , key = 'SPC f g' , desc_hl = "DashboardCenter"},
-      { desc = "  New Buffer              ", action = "<cmd>enew<CR>" , key = 'SPC b n' , desc_hl = "DashboardCenter"},
+      { desc = "  New Buffer              ", action = "enew" , key = 'SPC b n' , desc_hl = "DashboardCenter"},
       { desc = "  Update Plugins          ", action = "PackerUpdate" , key = 'SPC P u' , desc_hl = "DashboardCenter"},
       { desc = "  Settings                ", action = "edit $MYVIMRC" , key = 'SPC n e' , desc_hl = "DashboardCenter"},
       { desc = "  Exit                    ", action = "exit" , key = 'SPC Q' , desc_hl = "DashboardCenter"}
