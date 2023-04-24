@@ -96,6 +96,11 @@ local mappings = {
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
   },
+  s = {
+    name = "Session",
+    r = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore Session" },
+    s = { "<cmd>lua require('persistence').stop()<cr>", "Stop Running Session" },
+  },
   t = {
     name = "Terminal",
     f = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Float" },
