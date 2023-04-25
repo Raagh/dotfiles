@@ -39,13 +39,16 @@ dapui.setup {
     {
       elements = {
         -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.85 },
-        { id = "breakpoints", size = 0.15},
+        { id = "scopes",      size = 0.85 },
+        { id = "breakpoints", size = 0.15 },
+        { id = "watches", size = 0.15 },
+        -- "scopes",
+        -- "breakpoints",
         -- "stacks",
         -- "watches",
       },
-      size = 0.35,
-      position = "right",
+      size = 0.25,
+      position = "left",
     },
     {
       elements = {
@@ -57,8 +60,8 @@ dapui.setup {
     },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
+    max_height = nil,  -- These can be integers or a float between 0 and 1.
+    max_width = nil,   -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -80,5 +83,5 @@ vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl
 vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open {}
+  dapui.open()
 end

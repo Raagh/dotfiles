@@ -63,7 +63,6 @@ packer.startup(function(use)
   })
 
   -- Copilot
-  -- use { "github/copilot.vim" }
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
