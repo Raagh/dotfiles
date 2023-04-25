@@ -63,7 +63,6 @@ packer.startup(function(use)
   })
 
   -- Copilot
-  -- use { "github/copilot.vim" }
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -184,6 +183,7 @@ packer.startup(function(use)
       require("nvim-surround").setup()
     end
   })
+
   -- Improve performance
   use("nathom/filetype.nvim")
   use 'lewis6991/impatient.nvim'
