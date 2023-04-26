@@ -61,14 +61,6 @@ local mappings = {
     h = { "<cmd>Telescope oldfiles<CR>", "Recents" },
     l = { "<cmd>Telescope resume<cr>", "Resume last search" },
   },
-  P = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
-  },
   g = {
     name = "Git",
     g = { "<cmd>lua LazygitToggle()<CR>", "Lazygit" },
@@ -90,46 +82,6 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
-  },
-  n = {
-    name = "Neovim",
-    e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-  },
-  s = {
-    name = "Session",
-    r = { "<cmd>lua require('persistence').load()<cr>", "Restore Session" },
-    s = { "<cmd>lua require('persistence').stop()<cr>", "Stop Running Session" },
-  },
-  t = {
-    name = "Terminal",
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Float" },
-    t = { "<cmd>ToggleTerm direction=tab<cr>", "Toggle Tab" },
-    h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical" },
-  },
-  T = {
-    name = "Testing",
-    d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug This Test"},
-    f = { "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", "Run File" },
-    r = { "<cmd>lua require'neotest'.run.run()<cr>", "Run This Test" },
-    T = {
-      name = "Toggle",
-      p = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Toggle Panel" },
-      s = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Toggle File Summary" },
-      S = {
-        function()
-          require('neotest').setup({
-            discovery = {
-              enabled = false,
-            },
-            adapters = {
-              require('neotest-jest')({
-              }),
-            }
-          })
-        end, "Toggle Full Summary" }
-    }
   },
   l = {
     name = "LSP",
@@ -154,6 +106,54 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
+  },
+  n = {
+    name = "Neovim",
+    e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+  },
+  p = {
+    name = "Packer",
+    c = { "<cmd>PackerCompile<cr>", "Compile" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    S = { "<cmd>PackerStatus<cr>", "Status" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+  s = {
+    name = "Session",
+    r = { "<cmd>lua require('persistence').load()<cr>", "Restore Session" },
+    s = { "<cmd>lua require('persistence').stop()<cr>", "Stop Running Session" },
+  },
+  t = {
+    name = "Testing",
+    d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug This Test" },
+    f = { "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", "Run File" },
+    r = { "<cmd>lua require'neotest'.run.run()<cr>", "Run This Test" },
+    t = {
+      name = "Toggle",
+      p = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Toggle Panel" },
+      s = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Toggle File Summary" },
+      S = {
+        function()
+          require('neotest').setup({
+            discovery = {
+              enabled = false,
+            },
+            adapters = {
+              require('neotest-jest')({
+              }),
+            }
+          })
+        end, "Toggle Full Summary" }
+    },
+  },
+  z = {
+    name = "Terminal",
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Float" },
+    t = { "<cmd>ToggleTerm direction=tab<cr>", "Toggle Tab" },
+    h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical" },
   },
 }
 
