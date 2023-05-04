@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 -- keep copy when pasting multiple times
 keymap("x", "<leader>p", "\"_dP", opts)
 
+-- Clean search highlights
+keymap("n", "<F3>", ":noh<cr>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)

@@ -46,7 +46,10 @@ packer.startup(function(use)
     },
   }
   use "folke/which-key.nvim"                -- Keybindings information
-  use "glepnir/dashboard-nvim"              -- Greeter
+  use {
+    "glepnir/dashboard-nvim", -- Greeter,
+    commit = 'c025c9ca4e23049daf1f0aa305ebf1753783612a',
+  }
   use "nvim-lualine/lualine.nvim"           -- Status bar
   use "romgrk/barbar.nvim"                  -- Tabs support
   use "akinsho/toggleterm.nvim"             -- Terminal support
@@ -149,21 +152,6 @@ packer.startup(function(use)
       "antoinemadec/FixCursorHold.nvim",
       "haydenmeade/neotest-jest",
     },
-    config = function()
-      require('neotest').setup({
-        discovery = {
-          enabled = false,
-        },
-        quickfix = {
-          enabled = true,
-          open = false,
-        },
-        adapters = {
-          require('neotest-jest')({
-          }),
-        }
-      })
-    end
   }
 
   -- Git
