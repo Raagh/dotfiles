@@ -34,29 +34,25 @@ packer.init {
 packer.startup(function(use)
   -- Base plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Editor UI
   use { -- File tree navigation
     'kyazdani42/nvim-tree.lua',
-    commit = 'e14989c0eaa6f9c299d48f7e45ce1ed04b21180f',
     requires = {
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "folke/which-key.nvim"                -- Keybindings information
-  use {
-    "glepnir/dashboard-nvim", -- Greeter,
-    commit = 'c025c9ca4e23049daf1f0aa305ebf1753783612a',
-  }
-  use "nvim-lualine/lualine.nvim"           -- Status bar
-  use "romgrk/barbar.nvim"                  -- Tabs support
-  use "akinsho/toggleterm.nvim"             -- Terminal support
-  use "nvim-telescope/telescope.nvim"       -- Search functionality
+  use "folke/which-key.nvim" -- Keybindings information
+  use "goolord/alpha-nvim" -- Greeter
+  use "nvim-lualine/lualine.nvim" -- Status bar
+  use "romgrk/barbar.nvim" -- Tabs support
+  use "akinsho/toggleterm.nvim" -- Terminal support
+  use "nvim-telescope/telescope.nvim" -- Search functionality
   use "lukas-reineke/indent-blankline.nvim" -- Indentation guides
-  use "anuvyklack/pretty-fold.nvim"         -- Folding code
-  use({                                     -- Session management
+  use "anuvyklack/pretty-fold.nvim" -- Folding code
+  use({ -- Session management
     "folke/persistence.nvim",
     event = "BufReadPre",
     module = "persistence",
@@ -89,24 +85,24 @@ packer.startup(function(use)
     as = 'rose-pine',
   })
   -- Completion
-  use "hrsh7th/nvim-cmp"         -- The completion plugin
-  use "hrsh7th/cmp-buffer"       -- buffer completions
-  use "hrsh7th/cmp-path"         -- path completions
-  use "hrsh7th/cmp-cmdline"      -- cmdline completions
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
 
   -- Code Snippets
-  use "L3MON4D3/LuaSnip"             --snippet engine
+  use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
-  use "neovim/nvim-lspconfig"           -- enable LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
   use "jose-elias-alvarez/null-ls.nvim" -- Formatting and Linting per language support
-  use { "ray-x/lsp_signature.nvim",     -- See method signature on LSP suggestions
+  use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -155,7 +151,7 @@ packer.startup(function(use)
   -- Extra quality of life improvements
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
   use {
-    'numToStr/Comment.nvim',  -- Allows for commenting code easily
+    'numToStr/Comment.nvim', -- Allows for commenting code easily
     config = function()
       require('Comment').setup()
     end

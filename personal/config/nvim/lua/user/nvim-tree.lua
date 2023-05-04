@@ -9,6 +9,20 @@ if not config_status_ok then
   return
 end
 
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr);
+
+  vim.keymap.set('n', 'e', '', { buffer = bufnr })
+  vim.keymap.del('n', 'e', { buffer = bufnr })
+  vim.keymap.set('n', '<S-r>', api.fs.rename_basename, opts('Rename: Basename'))
+end
+
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
@@ -27,14 +41,9 @@ nvim_tree.setup {
       resize_window = false,
     }
   },
+  on_attach = on_attach;
   view = {
     adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "e",  action = "" },
-        { key = "<S-r>",  action = "rename_basename" },
-      }
-    }
   }
 }
 
@@ -42,7 +51,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
   nested = true,
 })
-
 
 local events, nvim_tree_events = pcall(require, "nvim-tree.events")
 if not events then
