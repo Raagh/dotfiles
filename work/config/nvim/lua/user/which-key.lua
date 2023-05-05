@@ -100,7 +100,7 @@ local mappings = {
   n = {
     name = "Neovim",
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    d = { "<cmd>Alpha<CR>", "Dashboard" },
+    d = { "<cmd>Dashboard<CR>", "Dashboard" },
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     r = { "<cmd>:e %<cr>", "Reload File" },
   },
