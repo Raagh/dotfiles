@@ -1,10 +1,15 @@
-local status_ok, alpha = pcall(require, "alpha")
+local status_ok, dashboard = pcall(require, 'dashboard')
 if not status_ok then
-    return
+  return
 end
 
-local dashboard = require("alpha.themes.dashboard")
-dashboard.section.header.val = {
+local header = {
+    "                                                                    ",
+    "                                                                    ",
+    "                                                                    ",
+    "                                                                    ",
+    "                                                                    ",
+    "                                                                    ",
     "               ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀       ",
     "                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀       ",
     "               ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀       ",
@@ -43,78 +48,66 @@ dashboard.section.header.val = {
     "                                                                    ",
 }
 
--- dashboard.section.header.val = {
---     "                                                                    ",
---     "                                                                    ",
---     "                                                                    ",
---     "                                                                    ",
---     "            :h-                                  Nhy`               ",
---     "           -mh.                           h.    `Ndho               ",
---     "           hmh+                          oNm.   oNdhh               ",
---     "          `Nmhd`                        /NNmd  /NNhhd               ",
---     "          -NNhhy                      `hMNmmm`+NNdhhh               ",
---     "          .NNmhhs              ```....`..-:/./mNdhhh+               ",
---     "           mNNdhhh-     `.-::///+++////++//:--.`-/sd`               ",
---     "           oNNNdhhdo..://++//++++++/+++//++///++/-.`                ",
---     "      y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:       ",
---     " .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+        ",
---     " h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`         ",
---     " hd+` -NNNy`./dNNNNNhhhh+-://///    -+oo:`  ::-:+////++///:`        ",
---     " /Nmhs+oss-:++/dNNNmhho:--::///    /mmmmmo  ../-///++///////.       ",
---     "  oNNdhhhhhhhs//osso/:---:::///    /yyyyso  ..o+-//////////:/.      ",
---     "   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.     ",
---     "     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`    ",
---     "       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:    ",
---     "       -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`   ",
---     "       /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:   ",
---     "       //+++//++++++////+++///::--                 .::::-------::   ",
---     "       :/++++///////////++++//////.                -:/:----::../-   ",
---     "       -/++++//++///+//////////////               .::::---:::-.+`   ",
---     "       `////////////////////////////:.            --::-----...-/    ",
---     "        -///://////////////////////::::-..      :-:-:-..-::.`.+`    ",
---     "         :/://///:///::://::://::::::/:::::::-:---::-.-....``/- -   ",
---     "           ::::://::://::::::::::::::----------..-:....`.../- -+oo/ ",
---     "            -/:::-:::::---://:-::-::::----::---.-.......`-/.      ``",
---     "           s-`::--:::------:////----:---.-:::...-.....`./:          ",
---     "          yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`           ",
---     "         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-              ",
---     "        :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                ",
---     "                        .-:mNdhh:.......--::::-`                    ",
---     "                           yNh/..------..`                          ",
---     "                                                                    ",
---     "                                                                    ",
---     "                                                                    ",
---     "                             N E O V I M                            ",
---     "                                                                    ",
---     "                                                                    ",
---     "                                                                    ",
+-- local header = {
+--       "                                                                    ",
+--       "                                                                    ",
+--       "                                                                    ",
+--       "                                                                    ",
+--       "            :h-                                  Nhy`               ",
+--       "           -mh.                           h.    `Ndho               ",
+--       "           hmh+                          oNm.   oNdhh               ",
+--       "          `Nmhd`                        /NNmd  /NNhhd               ",
+--       "          -NNhhy                      `hMNmmm`+NNdhhh               ",
+--       "          .NNmhhs              ```....`..-:/./mNdhhh+               ",
+--       "           mNNdhhh-     `.-::///+++////++//:--.`-/sd`               ",
+--       "           oNNNdhhdo..://++//++++++/+++//++///++/-.`                ",
+--       "      y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:       ",
+--       " .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+        ",
+--       " h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`         ",
+--       " hd+` -NNNy`./dNNNNNhhhh+-://///    -+oo:`  ::-:+////++///:`        ",
+--       " /Nmhs+oss-:++/dNNNmhho:--::///    /mmmmmo  ../-///++///////.       ",
+--       "  oNNdhhhhhhhs//osso/:---:::///    /yyyyso  ..o+-//////////:/.      ",
+--       "   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.     ",
+--       "     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`    ",
+--       "       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:    ",
+--       "       -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`   ",
+--       "       /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:   ",
+--       "       //+++//++++++////+++///::--                 .::::-------::   ",
+--       "       :/++++///////////++++//////.                -:/:----::../-   ",
+--       "       -/++++//++///+//////////////               .::::---:::-.+`   ",
+--       "       `////////////////////////////:.            --::-----...-/    ",
+--       "        -///://////////////////////::::-..      :-:-:-..-::.`.+`    ",
+--       "         :/://///:///::://::://::::::/:::::::-:---::-.-....``/- -   ",
+--       "           ::::://::://::::::::::::::----------..-:....`.../- -+oo/ ",
+--       "            -/:::-:::::---://:-::-::::----::---.-.......`-/.      ``",
+--       "           s-`::--:::------:////----:---.-:::...-.....`./:          ",
+--       "          yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`           ",
+--       "         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-              ",
+--       "        :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                ",
+--       "                        .-:mNdhh:.......--::::-`                    ",
+--       "                           yNh/..------..`                          ",
+--       "                                                                    ",
+--       "                                                                    ",
+--       "                                                                    ",
+--       "                             N E O V I M                            ",
+--       "                                                                    ",
+--       "                                                                    ",
+--       "                                                                    ",
 -- }
 
-dashboard.section.buttons.val = {
-    dashboard.button("SPC s r", "  Restore Session", ":lua require('persistence').load()<cr>"),
-    dashboard.button("SPC b n", "  New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("SPC f f", "  Find file", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<cr> <CR>"),
-    dashboard.button("SPC f g", "  Find text", ":Telescope live_grep <CR>"),
-    dashboard.button("SPC f h", "  Recently used files", ":Telescope oldfiles <CR>"),
-    dashboard.button("SPC f h", "  Update Plugins", ":PackerUpdate <CR>"),
-    dashboard.button("SPC n e", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
-    dashboard.button("SPC Q", "  Quit Neovim", ":qa<CR>"),
-}
-
-local function footer()
-    return {
-        "                                    ",
-        "                                    ",
-        "                                    ",
-        "Ignore the noise, you are awesome..."
+dashboard.setup({
+  theme = "doom",
+  config = {
+    header = header,
+    center = {
+      { desc = "  Restore Session         ", action = "lua require('persistence').load()", key = 'SPC s r', desc_hl = "DashboardCenter" },
+      { desc = "  Find File               ", action = "Telescope find_files", key = 'SPC f f', desc_hl = "DashboardCenter" },
+      { desc = "  Recents                 ", action = "Telescope oldfiles", key = 'SPC f h' , desc_hl = "DashboardCenter"},
+      { desc = "  Find Word               ", action = "Telescope live_grep" , key = 'SPC f g' , desc_hl = "DashboardCenter"},
+      { desc = "  New Buffer              ", action = "enew" , key = 'SPC b n' , desc_hl = "DashboardCenter"},
+      { desc = "  Update Plugins          ", action = "PackerUpdate" , key = 'SPC p u' , desc_hl = "DashboardCenter"},
+      { desc = "  Settings                ", action = "edit $MYVIMRC" , key = 'SPC n e' , desc_hl = "DashboardCenter"},
+      { desc = "  Exit                    ", action = "exit" , key = 'SPC Q' , desc_hl = "DashboardCenter"}
     }
-end
-
-dashboard.section.footer.val = footer()
-
-dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Include"
-dashboard.section.buttons.opts.hl = "Keyword"
-
-dashboard.opts.opts.noautocmd = true
-alpha.setup(dashboard.opts)
+  },
+})
