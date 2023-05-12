@@ -41,7 +41,7 @@ nvim_tree.setup {
       resize_window = false,
     }
   },
-  on_attach = on_attach;
+  on_attach = on_attach,
   view = {
     adaptive_size = true,
   }
@@ -68,6 +68,9 @@ end
 
 nvim_tree_events.subscribe('TreeOpen', function()
   bufferline_api.set_offset(get_tree_size())
+  if require("dap").session() then
+    require("dapui").close()
+  end
 end)
 
 nvim_tree_events.subscribe('Resize', function()
@@ -76,4 +79,7 @@ end)
 
 nvim_tree_events.subscribe('TreeClose', function()
   bufferline_api.set_offset(0)
+  if require("dap").session() then
+    require("dapui").open({ reset = true })
+  end
 end)
