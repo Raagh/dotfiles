@@ -19,10 +19,6 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
-
--- keep copy when pasting multiple times
-keymap("x", "<leader>p", "\"_dP", opts)
-
 -- Clean search highlights
 keymap("n", "<F3>", ":noh<cr>", opts)
 
@@ -35,6 +31,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Center C-d and C-u
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- The control-shift-z of nvim
 keymap("n", "U", "<C-r>", opts)
 
 -- Fold
@@ -54,10 +52,6 @@ keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
 -- Re-order to previous/next
 keymap('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
 keymap('n', '<A->>', ':BufferMoveNext<CR>', opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
