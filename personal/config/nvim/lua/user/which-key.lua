@@ -37,7 +37,6 @@ local mappings = {
       "Active",
     },
     n = { "<cmd>enew<CR>", "New" },
-    d = { "<cmd>BufferDelete<CR>", "Delete" },
   },
   d = {
     name = "Debug",
