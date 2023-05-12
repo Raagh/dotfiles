@@ -26,13 +26,14 @@ window:
   decorations: buttonless
   startup_mode: Windowed
   dynamic_title: true
+  option_as_alt: Both
 
 ## scrolling
   history: 10000
   multiplier: 3
 
 ## Background opacity
-window.opacity: 1.0 
+  opacity: 1.0 
 
 ## Cursor
 cursor:
@@ -44,3 +45,4 @@ cursor:
 
 ## Live config reload
 live_config_reload: true
+
