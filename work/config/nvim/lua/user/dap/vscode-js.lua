@@ -21,37 +21,6 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       request = "launch",
       runtimeArgs = {
         "run",
-        "dev"
-      },
-      runtimeExecutable = "npm",
-      skipFiles = {
-        "<node_internals>/**"
-      },
-      type = "pwa-node",
-      envFile = "${workspaceFolder}/.env.local",
-      rootPath = "${workspaceFolder}",
-      cwd = "${workspaceFolder}",
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-    },
-    {
-      name = "Docker: Attach to Node",
-      type = "pwa-node",
-      request = "attach",
-      restart = true,
-      port = 9229,
-      localRoot = "${workspaceFolder}",
-      remoteRoot = "/usr/src/app",
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-      protocol = "inspector",
-      cwd = "${workspaceFolder}",
-    },
-    {
-      name = "Debug Local App: Watch",
-      request = "launch",
-      runtimeArgs = {
-        "run",
         "dev:watch"
       },
       runtimeExecutable = "npm",
@@ -64,6 +33,19 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
+    },
+    {
+      name = "Docker: Attach to App",
+      type = "pwa-node",
+      request = "attach",
+      restart = true,
+      port = 9229,
+      localRoot = "${workspaceFolder}",
+      remoteRoot = "/usr/src/app",
+      console = "integratedTerminal",
+      internalConsoleOptions = "neverOpen",
+      protocol = "inspector",
+      cwd = "${workspaceFolder}",
     },
   }
 end
