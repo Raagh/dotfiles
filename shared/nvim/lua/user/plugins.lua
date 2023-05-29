@@ -88,6 +88,11 @@ packer.startup(function(use)
     "folke/tokyonight.nvim",
     commit = "715f923435a9255f85dec8380fac027f37acac72"
   }
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+  })
+
   -- Completion
   use "hrsh7th/nvim-cmp"         -- The completion plugin
   use "hrsh7th/cmp-buffer"       -- buffer completions

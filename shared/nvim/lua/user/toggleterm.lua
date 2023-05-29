@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
-local highlights = require('rose-pine.plugins.toggleterm')
-
 local function set_nvimtree_when_open_term(terminal)
   local nvimtree = require "nvim-tree"
   local nvimtree_view = require "nvim-tree.view"
@@ -16,12 +14,10 @@ local function set_nvimtree_when_open_term(terminal)
   end
 end
 
-
-toggleterm.setup({
+local opts = {
   size = 20,
   open_mapping = [[<c-\>]],
   shading_factor = 2,
-  highlights = highlights,
   direction = "horizontal",
   on_open = set_nvimtree_when_open_term,
   float_opts = {
@@ -31,7 +27,18 @@ toggleterm.setup({
       background = "Normal",
     },
   },
-})
+}
+
+if (ThemeName == 'rose-pine') then
+  local highlights_ok, highlights = pcall(require, "rose-pine.plugins.toggleterm")
+  if not highlights_ok then
+    return
+  end
+
+  opts = vim.tbl_deep_extend("force", { highlights = highlights }, opts)
+end
+
+toggleterm.setup(opts)
 
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
