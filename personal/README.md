@@ -28,4 +28,6 @@ all configurations are linked using stow
   stow config -vn --adopt -t ~/.config
   sudo stow system -vn --adopt -t /etc/nixos
   stow user -vn --adopt -t ~
+  cd dotfiles/shared
+  stow nvim -vn --adopt -t ~/.config
 ```

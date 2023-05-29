@@ -18,6 +18,7 @@ alias rm='rm -i'
 alias wget="wget -c" # continue the download
 alias fetch="pfetch"
 alias aws="aws-mfa-secure session"
+alias connect-aws="export CODEARTIFACT_AUTH_TOKEN=`aws-mfa-secure session codeartifact get-authorization-token --domain npm --domain-owner 221581667315 --query authorizationToken --output text --region eu-west-1`"
 
 # required functions
 

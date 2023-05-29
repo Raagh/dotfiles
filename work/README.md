@@ -22,4 +22,6 @@ all configurations are linked using stow
   cd dotfiles/work
   stow config -vn --adopt -t ~/.config
   stow user -vn --adopt -t ~
+  cd dotfiles/shared
+  stow nvim -vn --adopt -t ~/.config
 ```
