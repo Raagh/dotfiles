@@ -76,7 +76,7 @@ dapui.setup {
 -- The colorscheme should define Highlight values or manually in this function colorscheme.lua
 CreateDAPHighlights()
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = 'DapBreakpoint', linehl = '', numhl = '' })
 vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
 vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
