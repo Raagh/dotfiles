@@ -53,7 +53,7 @@ local mappings = {
   f = {
     name = "Files",
     f = {
-      "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<cr>",
+      "<cmd>Telescope find_files hidden=true theme=dropdown<cr>",
       "Find" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
     h = { "<cmd>Telescope oldfiles<CR>", "Recents" },
