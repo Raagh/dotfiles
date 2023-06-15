@@ -35,16 +35,16 @@ accumulate-stats = true
 unknown-as-up = true
 format-connected = <ramp-signal>  <label-connected>
 format-disconnected = <label-disconnected>
-format-disconnected-prefix = "睊  "
+format-disconnected-prefix = "󰖪  "
 format-disconnected-prefix-font = 2
 format-disconnected-prefix-foreground = ${color.RED}
 label-connected = "Connected"
 label-disconnected = "Disconnected"
-ramp-signal-0 = 直
-ramp-signal-1 = 直
-ramp-signal-2 = 直
-ramp-signal-3 = 直
-ramp-signal-4 = 直
+ramp-signal-0 = 󰤯 
+ramp-signal-1 = 󰤟 
+ramp-signal-2 = 󰤢 
+ramp-signal-3 = 󰤥 
+ramp-signal-4 = 󰤨 
 ramp-signal-font = 2
 ramp-signal-foreground = ${color.CYAN}
 
@@ -55,7 +55,7 @@ type = internal/date
 interval = 1.0
 time = %A, %d %B  %I:%M %p 
 time-alt = %I:%M %p 
-format = <label>
+format = "󰃭   <label>"
 format-prefix = " "
 format-prefix-font = 2
 format-prefix-foreground = ${color.RED}
@@ -69,26 +69,26 @@ use-ui-max = false
 interval = 5
 format-volume = <ramp-volume>  <label-volume>
 format-muted = <label-muted>
-format-muted-prefix = 婢
+format-muted-prefix = 󰝟 
 format-muted-prefix-font = 2
 format-muted-prefix-foreground = ${color.RED}
 label-volume = %percentage%%
 label-muted = "  Muted"
 label-muted-foreground = #757575
-ramp-volume-0 = 奄
-ramp-volume-1 = 奄
-ramp-volume-2 = 奄
-ramp-volume-3 = 奔
-ramp-volume-4 = 奔
-ramp-volume-5 = 奔
-ramp-volume-6 = 墳
-ramp-volume-7 = 墳
-ramp-volume-8 = 墳
-ramp-volume-9 = 墳
+ramp-volume-0 = 󰕿 
+ramp-volume-1 = 󰕿 
+ramp-volume-2 = 󰕿 
+ramp-volume-3 = 󰖀 
+ramp-volume-4 = 󰖀 
+ramp-volume-5 = 󰖀 
+ramp-volume-6 = 󰖀 
+ramp-volume-7 = 󰕾 
+ramp-volume-8 = 󰕾 
+ramp-volume-9 = 󰕾 
 ramp-volume-font = 2
 ramp-volume-foreground = ${color.BLUE}
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+ramp-headphones-0 = 󰋋 
+ramp-headphones-1 = 󰋋 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -98,16 +98,16 @@ card = intel_backlight
 format = <ramp> <label>
 label = %percentage%%
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-ramp-5 = 
-ramp-6 = 
-ramp-7 = 
-ramp-8 = 
-ramp-9 = 
+ramp-0 = 󰹐 
+ramp-1 = 󱩎 
+ramp-2 = 󱩏 
+ramp-3 = 󱩐 
+ramp-4 = 󱩑 
+ramp-5 = 󱩒 
+ramp-6 = 󱩓 
+ramp-7 = 󱩔 
+ramp-8 = 󱩕 
+ramp-9 = 󱩖 
 ramp-font = 2
 ramp-foreground = ${color.MAGENTA}
 
@@ -223,7 +223,7 @@ interval = 3
 format = <label>
 format-background = ${color.BGL}
 
-format-prefix = " "
+format-prefix = "󰍛 "
 format-prefix-font = 2
 format-prefix-foreground = ${color.GREEN}
 
@@ -247,24 +247,10 @@ format-prefix-foreground = ${color.GREEN}
 
 label = " %mb_used%"
 
-; Only applies if <ramp-used> is used
-;;ramp-used-0 = 
-;;ramp-used-1 = 
-;;ramp-used-2 = 
-;;ramp-used-3 = 
-;;ramp-used-4 = 
-
-; Only applies if <ramp-free> is used
-;;ramp-free-0 = 
-;;ramp-free-1 = 
-;;ramp-free-2 = 
-;;ramp-free-3 = 
-;;ramp-free-4 = 
-
 [module/sysmenu]
 type = custom/text
 
-content = 襤
+content = 󰐥 
 content-font = 2
 content-background = ${color.BGL}
 content-foreground = ${color.RED}
