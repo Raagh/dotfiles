@@ -1,66 +1,90 @@
 #!/usr/bin/env bash
 
-DIR="$HOME/.config"
+# Current Theme
+dir="$HOME/.config/rofi/themes"
 
-rofi_command="rofi -theme $DIR/rofi/themes/powermenu.rasi"
+# CMDs
+host=`hostname`
 
 # Options
-logout=""
-reboot="ﰇ"
-shutdown=""
-suspend="鈴"
-lock=""
+shutdown='  Shutdown'
+reboot='  Reboot'
+lock='  Lock'
+suspend='󰒲  Suspend'
+logout='󰍃  Logout'
+yes='󰄳 Yes'
+no='󰜺 No'
 
-# Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-_msg="Options  -  yes / y / no / n"
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "$host" \
+		-theme ${dir}/powermenu.rasi
+}
 
-chosen="$(echo -e "$options" | $rofi_command -p "" -dmenu -selected-row 0)"
-case $chosen in
+# Confirmation CMD
+confirm_cmd() {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 1;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme ${dir}/powermenu.rasi
+}
+
+# Ask for confirmation
+confirm_exit() {
+	echo -e "$yes\n$no" | confirm_cmd
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+}
+
+# Execute Command
+run_cmd() {
+	selected="$(confirm_exit)"
+	if [[ "$selected" == "$yes" ]]; then
+		if [[ $1 == '--shutdown' ]]; then
+			systemctl poweroff
+		elif [[ $1 == '--reboot' ]]; then
+			systemctl reboot
+		elif [[ $1 == '--suspend' ]]; then
+			mpc -q pause
+			amixer set Master mute
+			systemctl suspend
+		elif [[ $1 == '--logout' ]]; then
+				bspc quit
+		fi
+	else
+		exit 0
+	fi
+}
+
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
     $shutdown)
-		ans=$($DIR/rofi/bin/confirm)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl poweroff
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-    else
-        rofi -theme $DIR/rofi/themes/askpass.rasi -e "$_msg"
-        fi
+		run_cmd --shutdown
         ;;
     $reboot)
-		ans=$($HOME/.config/rofi/bin/confirm)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl reboot
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme $DIR/rofi/themes/askpass.rasi -e "$_msg"
-        fi
+		run_cmd --reboot
         ;;
     $lock)
-        bsplock
+		if [[ -x '/usr/bin/betterlockscreen' ]]; then
+			betterlockscreen -l
+		elif [[ -x '/usr/bin/i3lock' ]]; then
+			i3lock
+		fi
         ;;
     $suspend)
-		ans=$($HOME/.config/rofi/bin/confirm)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        mpc -q pause
-        amixer set Master mute
-        betterlockscreen --suspend
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme $DIR/rofi/themes/askpass.rasi -e "$_msg"
-        fi
+		run_cmd --suspend
         ;;
     $logout)
-		ans=$($HOME/.config/rofi/bin/confirm)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        bspc quit
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme $DIR/rofi/themes/askpass.rasi -e "$_msg"
-        fi
+		run_cmd --logout
         ;;
 esac
-
