@@ -69,6 +69,7 @@ xsetroot -cursor_name left_ptr
 # State rules for specific apps
 bspc rule -a Zathura state=tiled
 bspc rule -a Nitrogen state=floating
+bspc rule -a Arandr state=floating
 
 # workspace 4 (Settings)
 declare -a settings=(Pavucontrol Xfce4-settings-manager blueberry)
