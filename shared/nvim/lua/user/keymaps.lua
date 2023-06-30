@@ -39,6 +39,10 @@ keymap("n", "N", "Nzzzv", opts)
 -- The control-shift-z of nvim
 keymap("n", "U", "<C-r>", opts)
 
+-- Split
+keymap("n", "<A-v>", ":vsplit<cr>", opts)
+keymap("n", "<A-h>", ":split<cr>", opts)
+
 -- Fold
 keymap("n", "fc", ":foldclose<CR>", opts)
 keymap("n", "fo", ":foldopen<CR>", opts)

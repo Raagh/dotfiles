@@ -26,8 +26,6 @@ local opts = {
 local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["Q"] = { "<cmd>qa!<CR>", "Quit Neovim" },
-  ["q"] = { "<cmd>q!<CR>", "Quit Window" },
-  ["c"] = { "<cmd>BufferClose<CR>", "Close Tab" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
   b = {
@@ -36,6 +34,8 @@ local mappings = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Active",
     },
+    c = { "<cmd>BufferClose<CR>", "Close" },
+    d = { "<cmd>q!<CR>", "Delete" },
     n = { "<cmd>enew<CR>", "New" },
   },
   d = {
@@ -127,13 +127,21 @@ local mappings = {
         function()
           require('neotest').setup({
             discovery = {
-              enabled = false,
+              enabled = true,
+            },
+            quickfix = {
+              enabled = true,
+              open = false,
             },
             adapters = {
-              require('neotest-jest')({
-              }),
+              require('neotest-jest')({}),
+            },
+            summary = {
+              open = "topleft vsplit | vertical resize 50"
             }
           })
+
+          require 'neotest'.summary.toggle()
         end, "Toggle Full Summary" }
     },
   },
