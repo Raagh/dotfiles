@@ -45,6 +45,10 @@ run_rofi() {
 	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
+lock_command() {
+ 	i3lock-color --blur 5 --ringver-color "#9ccfd8" --ringwrong-color "#eb6f92" --ring-color "#c4a7e7" --insidever-color "#3e8fb0" --insidewrong-color "#eb6f92" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9";
+}
+
 # Execute Command
 run_cmd() {
 	selected="$(confirm_exit)"
@@ -56,9 +60,12 @@ run_cmd() {
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
 			amixer set Master mute
+			lock_command
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-				bspc quit
+			bspc quit
+		elif [[ $1 == '--lock' ]]; then
+			lock_command
 		fi
 	else
 		exit 0
@@ -75,11 +82,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+		run_cmd --lock
         ;;
     $suspend)
 		run_cmd --suspend
