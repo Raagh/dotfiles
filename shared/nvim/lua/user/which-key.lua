@@ -102,6 +102,7 @@ local mappings = {
     d = { "<cmd>Dashboard<CR>", "Dashboard" },
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     r = { "<cmd>:e %<cr>", "Reload File" },
+    t = { "<cmd>ToggleTerm direction=float<cr>", "Terminal" },
   },
   p = {
     name = "Packer",
@@ -144,13 +145,6 @@ local mappings = {
           require 'neotest'.summary.toggle()
         end, "Toggle Full Summary" }
     },
-  },
-  z = {
-    name = "Terminal",
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Float" },
-    t = { "<cmd>ToggleTerm direction=tab<cr>", "Toggle Tab" },
-    h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical" },
   },
 }
 
