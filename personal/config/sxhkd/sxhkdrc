@@ -130,7 +130,7 @@ super + {_,shift + }{1-9,0}
 
 # rotate split
 super + e
-	bspc node '@parent' -y next
+	bspc node @parent -R 90
 
 #
 # preselect
