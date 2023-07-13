@@ -3,6 +3,8 @@ if not dap_status_ok then
   return
 end
 
+-- TODO: Last working version with this is MasonInstall js-debug-adapter@v1.74.0 
+-- we need to remove this plugin and make it work with just dap
 local dap_vscode_js_ok, dap_vscode_js = pcall(require, "dap-vscode-js")
 if not dap_vscode_js_ok then
   return

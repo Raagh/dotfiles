@@ -44,7 +44,7 @@ packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "folke/which-key.nvim"                -- Keybindings information
+  use "folke/which-key.nvim"  -- Keybindings information
   use {
     "glepnir/dashboard-nvim", -- Greeter,
     commit = 'c025c9ca4e23049daf1f0aa305ebf1753783612a',
