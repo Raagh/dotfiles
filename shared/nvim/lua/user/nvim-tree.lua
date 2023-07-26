@@ -75,5 +75,8 @@ nvim_tree_events.subscribe('Resize', function()
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
+    if require("dap").session() then
+        require("dapui").open({ reset = true })
+    end
   bufferline_api.set_offset(0)
 end)
