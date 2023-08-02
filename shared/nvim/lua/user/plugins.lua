@@ -130,7 +130,6 @@ packer.startup(function(use)
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   }
-
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
@@ -165,7 +164,7 @@ packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  use { --helps neovim figure out the correct indentation
+  use { --Helps neovim figure out the correct indentation
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
   }
@@ -182,10 +181,10 @@ packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
 
   -- Extra language support, enable when needed
+  -- ## PURESCRIPT ##
   -- use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
   -- use "FrigoEU/psc-ide-vim" -- Adds IDE error diagnostics
   -- use "vmchale/dhall-vim" -- Adds dhall config fils highlighting
-  -- use "neoclide/coc.nvim" -- allows using some language plugins that only exist for vscode
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
