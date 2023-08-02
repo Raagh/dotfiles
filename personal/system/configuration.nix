@@ -55,6 +55,8 @@
   # Enable the desktop environment.
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.autoRepeatDelay = 200;
+  services.xserver.autoRepeatInterval = 30;
   services.xserver.displayManager = {
     defaultSession = "none+bspwm";
     setupCommands = ''
