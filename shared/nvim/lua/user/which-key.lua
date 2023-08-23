@@ -104,12 +104,7 @@ local mappings = {
     r = { "<cmd>:e %<cr>", "Reload File" },
     t = { "<cmd>ToggleTerm direction=float<cr>", "Terminal" },
   },
-  p = {
-    name = "Packer",
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
-  },
+  u = { "<cmd>PackerUpdate<cr>", "Update" },
   s = {
     name = "Session",
     r = { "<cmd>lua require('persistence').load()<cr>", "Restore Session" },
