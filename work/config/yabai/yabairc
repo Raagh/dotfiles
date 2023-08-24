@@ -50,14 +50,15 @@ yabai -m config                                 \
 
 # rules
 ## makes system preferences always floating
-yabai -m rule --add app="^System Settings$" manage=off grid=4:4:1:1:2:2 border=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Slack$" manage=off grid=8:4:1:1:2:6 border=off
 yabai -m rule --add app="^Code$" manage=off grid=8:4:1:1:2:6 border=off 
 yabai -m rule --add app="^Docker Desktop$" manage=off grid=8:4:1:1:2:6 border=off 
 yabai -m rule --add app="^OpenLens$" manage=off grid=8:4:1:1:2:6 border=off 
 yabai -m rule --add app="^Spotify$" manage=off grid=8:4:1:1:2:6 border=off 
-yabai -m rule --add app="^Activity Monitor$" manage=off grid=4:4:1:1:2:2 border=off 
+yabai -m rule --add app="^Activity Monitor$"
 yabai -m rule --add title='Preferences$' manage=off
+yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Insomnia$" manage=off grid=8:4:1:1:2:6 border=off
 
 echo "yabai configuration loaded.."
