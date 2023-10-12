@@ -55,7 +55,7 @@
   # Enable the desktop environment.
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-  services.xserver.autoRepeatDelay = 200;
+  services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
   services.xserver.displayManager = {
     defaultSession = "none+bspwm";
@@ -115,7 +115,7 @@
   users.users.raagh = {
     isNormalUser = true;
     description = "Raagh";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   # Enable automatic login for the user.
@@ -205,6 +205,7 @@
 
   services.xserver.excludePackages = [ pkgs.xterm ];
 
+  virtualisation.docker.enable = true;
   environment.variables.EDITOR = "nvim";
   nixpkgs.overlays = [
     (self: super: {
