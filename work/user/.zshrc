@@ -57,5 +57,13 @@ _comp_options+=(globdots) # lets you tab complete hidden files by default
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH" 
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

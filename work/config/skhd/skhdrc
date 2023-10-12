@@ -26,13 +26,13 @@ cmd - 0 : yabai -m space --focus 10
 alt - q : yabai -m space --destroy
 
 # toggle window split type
-cmd - e : yabai -m window --toggle split
+alt - e : yabai -m window --toggle split
 
 # close window
-cmd - c : yabai -m window --close
+alt - c : yabai -m window --close
 
 # minimize window
-cmd - m : yabai -m window --minimize
+alt - m : yabai -m window --minimize
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
