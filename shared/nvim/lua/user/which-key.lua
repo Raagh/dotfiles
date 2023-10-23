@@ -103,8 +103,8 @@ local mappings = {
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     r = { "<cmd>:e %<cr>", "Reload File" },
     t = { "<cmd>ToggleTerm direction=float<cr>", "Terminal" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
-  u = { "<cmd>PackerUpdate<cr>", "Update" },
   s = {
     name = "Session",
     r = { "<cmd>lua require('persistence').load()<cr>", "Restore Session" },

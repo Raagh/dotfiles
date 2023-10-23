@@ -44,10 +44,9 @@ packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "folke/which-key.nvim"  -- Keybindings information
+  use "folke/which-key.nvim"                -- Keybindings information
   use {
-    "glepnir/dashboard-nvim", -- Greeter,
-    commit = 'c025c9ca4e23049daf1f0aa305ebf1753783612a',
+    "glepnir/dashboard-nvim",               -- Greeter
   }
   use "nvim-lualine/lualine.nvim"           -- Status bar
   use "romgrk/barbar.nvim"                  -- Tabs support
@@ -85,8 +84,7 @@ packer.startup(function(use)
 
   -- Colorscheme
   use {
-    "folke/tokyonight.nvim",
-    commit = "715f923435a9255f85dec8380fac027f37acac72"
+    "folke/tokyonight.nvim"
   }
   use({
     'rose-pine/neovim',

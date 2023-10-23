@@ -61,11 +61,11 @@ local function get_tree_size()
 end
 
 nvim_tree_events.subscribe('TreeOpen', function()
-  bufferline_api.set_offset(get_tree_size())
+  bufferline_api.set_offset(get_tree_size() + 1)
 end)
 
 nvim_tree_events.subscribe('Resize', function()
-  bufferline_api.set_offset(get_tree_size())
+  bufferline_api.set_offset(get_tree_size() + 1)
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
