@@ -52,6 +52,20 @@ local lazygit = Terminal:new({
   },
 })
 
+local floatTerminal = Terminal:new({
+  hidden = true,
+  direction = "float",
+  float_opts = {
+    border = "none",
+    width = 100000,
+    height = 100000,
+  },
+})
+
 function LazygitToggle()
   lazygit:toggle()
+end
+
+function TerminalToggle()
+  floatTerminal:toggle()
 end
