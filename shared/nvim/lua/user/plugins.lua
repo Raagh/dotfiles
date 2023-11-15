@@ -44,14 +44,21 @@ packer.startup(function(use)
       'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
-  use "folke/which-key.nvim"                -- Keybindings information
+  use "folke/which-key.nvim"      -- Keybindings information
   use {
-    "glepnir/dashboard-nvim",               -- Greeter
+    "glepnir/dashboard-nvim",     -- Greeter
   }
-  use "nvim-lualine/lualine.nvim"           -- Status bar
-  use "romgrk/barbar.nvim"                  -- Tabs support
-  use "akinsho/toggleterm.nvim"             -- Terminal support
-  use "nvim-telescope/telescope.nvim"       -- Search functionality
+  use "nvim-lualine/lualine.nvim" -- Status bar
+  use "romgrk/barbar.nvim"        -- Tabs support
+  use "akinsho/toggleterm.nvim"   -- Terminal support
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run =
+  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {
+    "nvim-telescope/telescope.nvim",
+    -- requires = {
+    --   'nvim-telescope/telescope-fzf-native.nvim', -- file icons on nvim-tree
+    -- },
+  }                                         -- Search functionality
   use "lukas-reineke/indent-blankline.nvim" -- Indentation guides
   use "anuvyklack/pretty-fold.nvim"         -- Folding code
   use({
@@ -107,9 +114,9 @@ packer.startup(function(use)
   -- LSP
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
-  use "neovim/nvim-lspconfig"           -- enable LSP
-  use "jose-elias-alvarez/null-ls.nvim" -- Formatting and Linting per language support
-  use { "ray-x/lsp_signature.nvim",     -- See method signature on LSP suggestions
+  use "neovim/nvim-lspconfig"       -- enable LSP
+  use "nvimtools/none-ls.nvim"      -- Formatting and Linting per language support
+  use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
