@@ -39,9 +39,9 @@ packer.startup(function(use)
 
   -- Editor UI
   use { -- File tree navigation
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', -- file icons on nvim-tree
+      'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
     },
   }
   use "folke/which-key.nvim"      -- Keybindings information
