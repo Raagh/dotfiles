@@ -134,7 +134,7 @@
     autosuggestions.enable = true;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts-emoji
     dejavu_fonts
     liberation_ttf
@@ -163,7 +163,8 @@
     lazygit
     pfetch
     bat
-    exa
+    eza
+    etcher
     htop
     galculator
     vlc
@@ -214,6 +215,10 @@
         vimAlias = true;
       };
     })
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-19.1.9"
   ];
 
   nixpkgs.config.packagesOverrides = pkgs: {
