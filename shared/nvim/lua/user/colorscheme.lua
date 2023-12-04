@@ -27,6 +27,9 @@ local function setupTheme()
           bg = c.bg_dark,
           fg = c.bg_dark
         }
+
+        vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = c.bg_dark, bg = c.bg_dark })
+        vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = c.fg, bg = c.bg_dark })
       end
     }
     vim.g.tokyonight_style = "night"
@@ -43,7 +46,7 @@ local function setupTheme()
 
   colorscheme.setup(opts)
 
----@diagnostic disable-next-line: param-type-mismatch
+  ---@diagnostic disable-next-line: param-type-mismatch
   local status_ok, _ = pcall(vim.cmd, "colorscheme " .. ThemeName)
   if not status_ok then
     vim.notify("colorscheme " .. ThemeName .. " not found!")

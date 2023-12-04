@@ -72,6 +72,11 @@ local mappings = {
       "Diff",
     },
   },
+  h = {
+    name = "Harpoon",
+    a = { "<cmd>lua require('harpoon'):list():append()<cr>", "Add File" },
+    e = { "<cmd>lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<cr>", "Quick Menu" },
+  },
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },

@@ -54,8 +54,8 @@ keymap("n", "<C-A-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-A-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":BufferNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
+-- keymap("n", "<S-l>", ":BufferNext<CR>", opts)
+-- keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
 
 -- Re-order to previous/next
 keymap('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
@@ -88,9 +88,3 @@ keymap('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opts)
 keymap('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opts)
 keymap('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opts)
 keymap('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opts)
-
--- VSCODE style debugging
-keymap("n", "<F5>", "<cmd>lua require('dap').continue()<cr>", opts)
-keymap("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>", opts)
-keymap("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>", opts)
-keymap("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>", opts)

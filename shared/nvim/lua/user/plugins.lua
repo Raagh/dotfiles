@@ -49,8 +49,13 @@ packer.startup(function(use)
     "glepnir/dashboard-nvim",     -- Greeter
   }
   use "nvim-lualine/lualine.nvim" -- Status bar
-  use "romgrk/barbar.nvim"        -- Tabs support
-  use "akinsho/toggleterm.nvim"   -- Terminal support
+  -- use "romgrk/barbar.nvim"      -- Tabs support
+  use {  --Bookmarks
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  }
+  use "akinsho/toggleterm.nvim" -- Terminal support
   use { 'nvim-telescope/telescope-fzf-native.nvim', run =
   'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use {
