@@ -1,6 +1,10 @@
 local harpoon = require("harpoon")
 
-harpoon:setup()
+harpoon:setup({
+  settings = {
+    ui_width_ratio = 0.3,
+  }
+})
 
 vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
