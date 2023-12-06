@@ -41,8 +41,16 @@ local function setupTheme()
         TelescopeBorder = { bg = 'surface', fg = 'surface' },
         TelescopeNormal = { bg = 'surface' },
         TelescopePromptNormal = { bg = 'surface' },
+        TelescopeTitle = { bg = 'surface', fg = 'love' },
       }
     }
+
+    local rose_pine_palette_ok, palette = pcall(require, 'rose-pine.palette')
+    if rose_pine_palette_ok then
+      vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = palette.surface, bg = palette.surface })
+      vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = palette.text, bg = palette.surface })
+      vim.api.nvim_set_hl(0, 'HarpoonTitle', { fg = palette.love, bg = palette.surface })
+    end
   end
 
   colorscheme.setup(opts)
