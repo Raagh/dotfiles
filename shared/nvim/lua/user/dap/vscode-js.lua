@@ -3,18 +3,15 @@ if not dap_status_ok then
   return
 end
 
--- TODO: Last working version with this is MasonInstall js-debug-adapter@v1.74.0 
--- we need to remove this plugin and make it work with just dap
-local dap_vscode_js_ok, dap_vscode_js = pcall(require, "dap-vscode-js")
-if not dap_vscode_js_ok then
-  return
-end
-
-dap_vscode_js.setup({
-  debugger_path = vim.fn.stdpath('data') .. "/mason/packages/js-debug-adapter",                -- Path to vscode-js-debug installation.
-  node_path = "node",                                                                          -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-  adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
-})
+dap.adapters["pwa-node"] = {
+    type = "server",
+    host = "localhost",
+    port = "${port}",
+    executable = {
+        command = vim.fn.exepath "js-debug-adapter",
+        args = { "${port}" },
+    },
+}
 
 for _, language in ipairs({ "typescript", "javascript" }) do
   dap.configurations[language] = {
