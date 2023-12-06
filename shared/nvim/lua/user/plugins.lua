@@ -1,72 +1,55 @@
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  is_bootstrap = true
-  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+vim.opt.rtp:prepend(lazypath)
 
 -- Install your plugins here
-packer.startup(function(use)
+require('lazy').setup({
   -- Base plugins
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+  "nvim-lua/popup.nvim",   -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
   -- Editor UI
-  use { -- File tree navigation
+  { -- File tree navigation
     'nvim-tree/nvim-tree.lua',
-    requires = {
+    dependencies = {
       'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
     },
-  }
-  use "folke/which-key.nvim"      -- Keybindings information
-  use {
-    "glepnir/dashboard-nvim",     -- Greeter
-  }
-  use "nvim-lualine/lualine.nvim" -- Status bar
-  -- use "romgrk/barbar.nvim"      -- Tabs support
-  use {  --Bookmarks
+  },
+  "folke/which-key.nvim",      -- Keybindings information
+  {
+    "glepnir/dashboard-nvim",  -- Greeter
+  },
+  "nvim-lualine/lualine.nvim", -- Status bar
+  -- "romgrk/barbar.nvim",      -- Tabs support
+  {                            --Bookmarks
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { { "nvim-lua/plenary.nvim" } }
-  }
-  use "akinsho/toggleterm.nvim" -- Terminal support
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run =
-  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-  use {
+    dependencies = { { "nvim-lua/plenary.nvim" } }
+  },
+  "akinsho/toggleterm.nvim", -- Terminal support
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  },
+  {
     "nvim-telescope/telescope.nvim",
-    -- requires = {
+    -- dependencies = {
     --   'nvim-telescope/telescope-fzf-native.nvim', -- file icons on nvim-tree
     -- },
-  }                                         -- Search functionality
-  use "lukas-reineke/indent-blankline.nvim" -- Indentation guides
-  use "anuvyklack/pretty-fold.nvim"         -- Folding code
-  use({
+  },                                     -- Search functionality
+  "lukas-reineke/indent-blankline.nvim", -- Indentation guides
+  "anuvyklack/pretty-fold.nvim",         -- Folding code
+  {
     -- Session management
     "folke/persistence.nvim",
     event = "BufReadPre",
@@ -74,10 +57,10 @@ packer.startup(function(use)
     config = function()
       require("persistence").setup()
     end,
-  })
+  },
 
   -- Copilot
-  use {
+  {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
     config = function()
@@ -85,43 +68,45 @@ packer.startup(function(use)
         require "user.copilot"
       end, 100)
     end,
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  }
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end
+      }
+    }
+  },
 
   -- Colorscheme
-  use {
+  {
     "folke/tokyonight.nvim"
-  }
-  use({
+  },
+  {
     'rose-pine/neovim',
     as = 'rose-pine',
-  })
+  },
 
   -- Completion
-  use "hrsh7th/nvim-cmp"         -- The completion plugin
-  use "hrsh7th/cmp-buffer"       -- buffer completions
-  use "hrsh7th/cmp-path"         -- path completions
-  use "hrsh7th/cmp-cmdline"      -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-nvim-lsp"
+  "hrsh7th/nvim-cmp",         -- The completion plugin
+  "hrsh7th/cmp-buffer",       -- buffer completions
+  "hrsh7th/cmp-path",         -- path completions
+  "hrsh7th/cmp-cmdline",      -- cmdline completions
+  "saadparwaiz1/cmp_luasnip", -- snippet completions
+  "hrsh7th/cmp-nvim-lua",
+  "hrsh7th/cmp-nvim-lsp",
 
   -- Code Snippets
-  use "L3MON4D3/LuaSnip"             --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  "L3MON4D3/LuaSnip",             --snippet engine
+  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- LSP
-  use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim" }
-  use "neovim/nvim-lspconfig"       -- enable LSP
-  use "nvimtools/none-ls.nvim"      -- Formatting and Linting per language support
-  use { "ray-x/lsp_signature.nvim", -- See method signature on LSP suggestions
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  "neovim/nvim-lspconfig",                 -- enable LSP
+  { "nvimtools/none-ls.nvim", lazy = true }, -- Formatting and Linting per language support
+  {
+    "ray-x/lsp_signature.nvim",            -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -131,87 +116,70 @@ packer.startup(function(use)
       }
       )
     end
-  }
+  },
 
   -- Syntax highlighting
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = function()
+    build = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
-  }
-  use { -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    }
+  },
 
   -- Debugging
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "theHamsta/nvim-dap-virtual-text"
+  "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "theHamsta/nvim-dap-virtual-text",
 
   -- Testing
-  use {
+  {
     "nvim-neotest/neotest",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       "haydenmeade/neotest-jest",
     },
-  }
+  },
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
-  use "f-person/git-blame.nvim"
-  use "sindrets/diffview.nvim"
+  "lewis6991/gitsigns.nvim",
+  "f-person/git-blame.nvim",
+  "sindrets/diffview.nvim",
 
   -- Extra quality of life improvements
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and and treesitter
-  use {
-    'numToStr/Comment.nvim',  -- Allows for commenting code easily
+  "windwp/nvim-autopairs",   -- Autopairs, integrates with both cmp and and treesitter
+  {
+    'numToStr/Comment.nvim', -- Allows for commenting code easily
     config = function()
       require('Comment').setup()
     end
-  }
-  use { --Helps neovim figure out the correct indentation
+  },
+  { --Helps neovim figure out the correct indentation
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end,
-  }
-  use({
+  },
+  {
     "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "*",   -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
-  })
+  },
 
   -- Improve performance
-  use("nathom/filetype.nvim")
-  use 'lewis6991/impatient.nvim'
+  "nathom/filetype.nvim",
+  "lewis6991/impatient.nvim",
 
   -- Extra language support, enable when needed
   -- ## PURESCRIPT ##
-  -- use "purescript-contrib/purescript-vim" -- Purescript syntax highlighting
-  -- use "FrigoEU/psc-ide-vim" -- Adds IDE error diagnostics
-  -- use "vmchale/dhall-vim" -- Adds dhall config fils highlighting
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if is_bootstrap then
-    require("packer").sync()
-  end
-end)
-
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-  print '=================================='
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-  return
-end
+  -- "purescript-contrib/purescript-vim", -- Purescript syntax highlighting
+  -- "FrigoEU/psc-ide-vim", -- Adds IDE error diagnostics
+  -- "vmchale/dhall-vim", -- Adds dhall config fils highlighting
+})

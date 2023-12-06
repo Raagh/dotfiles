@@ -108,7 +108,7 @@ local mappings = {
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     r = { "<cmd>:e %<cr>", "Reload File" },
     t = { "<cmd>lua TerminalToggle()<CR>", "Terminal" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    u = { "<cmd>:Lazy sync<cr>", "Update" },
   },
   s = {
     name = "Session",
