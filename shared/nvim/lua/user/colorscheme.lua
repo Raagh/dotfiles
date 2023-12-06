@@ -30,6 +30,7 @@ local function setupTheme()
 
         vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = c.bg_dark, bg = c.bg_dark })
         vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = c.fg, bg = c.bg_dark })
+        vim.api.nvim_set_hl(0, 'HarpoonTitle', { fg = c.purple, bg = c.bg_dark })
       end
     }
     vim.g.tokyonight_style = "night"
