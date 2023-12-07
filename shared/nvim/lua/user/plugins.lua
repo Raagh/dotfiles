@@ -24,7 +24,8 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
     },
   },
-  "folke/which-key.nvim",      -- Keybindings information
+  { "folke/which-key.nvim", event = "VeryLazy"},      -- Keybindings information
+
   {
     "glepnir/dashboard-nvim",  -- Greeter
   },
@@ -80,7 +81,8 @@ require('lazy').setup({
 
   -- Colorscheme
   {
-    "folke/tokyonight.nvim"
+    "folke/tokyonight.nvim",
+    lazy = true,
   },
   {
     'rose-pine/neovim',
@@ -156,7 +158,8 @@ require('lazy').setup({
     'numToStr/Comment.nvim', -- Allows for commenting code easily
     config = function()
       require('Comment').setup()
-    end
+    end,
+    lazy = true
   },
   { --Helps neovim figure out the correct indentation
     'nmac427/guess-indent.nvim',
