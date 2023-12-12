@@ -34,6 +34,7 @@ require('lazy').setup({
   {                            --Bookmarks
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    commit = "ac9b93984f222865c827e8677f362d0286b9d188",
     dependencies = { { "nvim-lua/plenary.nvim" } }
   },
   "akinsho/toggleterm.nvim", -- Terminal support

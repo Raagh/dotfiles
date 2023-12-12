@@ -75,6 +75,7 @@ local mappings = {
   h = {
     name = "Harpoon",
     a = { "<cmd>lua require('harpoon'):list():append()<cr>", "Add File" },
+    c = { "<cmd>lua require('harpoon'):list():clear()<cr>", "Clear List" },
     e = { "<cmd>lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<cr>", "Quick Menu" },
   },
   l = {
