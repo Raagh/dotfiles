@@ -6,6 +6,7 @@ end
 harpoon:setup({
   settings = {
     ui_width_ratio = 0.3,
+    save_on_toggle = true,
   }
 })
 
