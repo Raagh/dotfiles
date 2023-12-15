@@ -68,9 +68,20 @@ local mappings = {
     o = { "<cmd>GitBlameOpenCommitURL<cr>", "Open Commit In Browser" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
-      "Diff",
-    },
+      name = "Diffview",
+      o = {
+        "<cmd>DiffviewOpen<cr>",
+        "Diff open",
+      },
+      c = {
+        "<cmd>DiffviewClose<cr>",
+        "Diff close",
+      },
+      r = {
+        "<cmd>DiffviewRefresh<cr>",
+        "Diff refresh",
+      },
+    }
   },
   h = {
     name = "Harpoon",
@@ -109,6 +120,7 @@ local mappings = {
     e = { "<cmd>edit $MYVIMRC<cr>", "Edit Configuration" },
     r = { "<cmd>:e %<cr>", "Reload File" },
     t = { "<cmd>lua TerminalToggle()<CR>", "Terminal" },
+    p = { "<cmd>:Lazy<cr>", "Plugin management" },
     u = { "<cmd>:Lazy sync<cr>", "Update" },
   },
   s = {

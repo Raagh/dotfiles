@@ -45,9 +45,9 @@ require('lazy').setup({
   },
   {
     "nvim-telescope/telescope.nvim",
-    -- dependencies = {
-    --   'nvim-telescope/telescope-fzf-native.nvim', -- file icons on nvim-tree
-    -- },
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim', -- file icons on nvim-tree
+    },
   },                                     -- Search functionality
   "lukas-reineke/indent-blankline.nvim", -- Indentation guides
   "anuvyklack/pretty-fold.nvim",         -- Folding code
@@ -83,11 +83,15 @@ require('lazy').setup({
   -- Colorscheme
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
+    opts = {}
   },
   {
     'rose-pine/neovim',
     as = 'rose-pine',
+    lazy = false,
+    priority = 1000
   },
 
   -- Completion

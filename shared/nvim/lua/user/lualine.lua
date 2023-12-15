@@ -6,6 +6,6 @@ end
 lualine.setup({
   extensions = { 'nvim-tree', 'toggleterm', 'nvim-dap-ui' },
   options = {
-    theme = ThemeName,
+    theme = theme_name,
   },
 })

@@ -29,7 +29,7 @@ local opts = {
   },
 }
 
-if (ThemeName == 'rose-pine') then
+if (theme_name == 'rose-pine') then
   local highlights_ok, highlights = pcall(require, "rose-pine.plugins.toggleterm")
   if not highlights_ok then
     return

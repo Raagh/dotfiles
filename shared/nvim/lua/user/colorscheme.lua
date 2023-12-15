@@ -1,16 +1,16 @@
-ThemeName = "tokyonight"
+theme_name = "tokyonight"
 
-local colorscheme_ok, colorscheme = pcall(require, ThemeName)
+local colorscheme_ok, colorscheme = pcall(require, theme_name)
 if not colorscheme_ok then
   return
 end
 
 function CreateDAPHighlights()
-  if (ThemeName == "tokyonight") then
+  if (theme_name == "tokyonight") then
     vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#f7768e', bg = '#1a1b26' })
     vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#449dab', bg = '#1a1b26' })
     vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#e0af68', bg = '#1a1b26' })
-  elseif (ThemeName == "rose-pine") then
+  elseif (theme_name == "rose-pine") then
     vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#eb6f92', bg = '#191724' })
     vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#9ccfd8', bg = '#191724' })
     vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#f6c177', bg = '#191724' })
@@ -19,7 +19,7 @@ end
 
 local function setupTheme()
   local opts = {}
-  if ThemeName == "tokyonight" then
+  if theme_name == "tokyonight" then
     opts = {
       style = "night",
       on_highlights = function(hl, c)
@@ -34,7 +34,7 @@ local function setupTheme()
       end
     }
     vim.g.tokyonight_style = "night"
-  elseif ThemeName == "rose-pine" then
+  elseif theme_name == "rose-pine" then
     opts = {
       disable_float_background = true,
       highlight_groups = {
@@ -56,9 +56,9 @@ local function setupTheme()
   colorscheme.setup(opts)
 
   ---@diagnostic disable-next-line: param-type-mismatch
-  local status_ok, _ = pcall(vim.cmd, "colorscheme " .. ThemeName)
+  local status_ok, _ = pcall(vim.cmd, "colorscheme " .. theme_name)
   if not status_ok then
-    vim.notify("colorscheme " .. ThemeName .. " not found!")
+    vim.notify("colorscheme " .. theme_name .. " not found!")
     return
   end
 end
