@@ -53,14 +53,6 @@ keymap("n", "<C-A-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-A-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-A-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
--- keymap("n", "<S-l>", ":BufferNext<CR>", opts)
--- keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
-
--- Re-order to previous/next
-keymap('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
-keymap('n', '<A->>', ':BufferMoveNext<CR>', opts)
-
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)

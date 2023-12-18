@@ -10,7 +10,5 @@ harpoon:setup({
   }
 })
 
-vim.keymap.set("n", "<S-i>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<S-o>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<S-p>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<S-{>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<A-<>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<A->>", function() harpoon:list():next() end)
