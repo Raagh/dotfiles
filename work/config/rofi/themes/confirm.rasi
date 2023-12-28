@@ -3,7 +3,7 @@
 * {
     transparency:                   "real";
     background-color:               @background;
-   text-color:                     @foreground;
+    text-color:                     @foreground;
     font:            				"Iosevka 10";
 }
 
