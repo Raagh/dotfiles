@@ -1,4 +1,4 @@
-alias cat='bat'
+alias cat='batcat'
 alias cd..='cd ..'
 alias clock='tty-clock -sct -C 4'
 alias cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head"
@@ -16,10 +16,7 @@ alias q='exit'
 alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rm='rm -i'
 alias wget="wget -c" # continue the download
-alias fetch="pfetch"
-alias aws="aws-mfa-secure session"
-alias connect-aws="export CODEARTIFACT_AUTH_TOKEN=`aws-mfa-secure session codeartifact get-authorization-token --domain npm --domain-owner 221581667315 --query authorizationToken --output text --region eu-west-1`"
-alias connect-aws="export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain npm --domain-owner 974360507615 --region eu-west-1 --query authorizationToken --output text`"
+alias fetch="neofetch"
 
 # required functions
 

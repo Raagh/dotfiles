@@ -16,14 +16,14 @@ env:
 ## Terminal window settings
 window:
   dimensions:
-    columns: 82
-    lines: 25
+    columns: 180
+    lines: 55
 
   padding:
     x: 12
     y: 12
 
-  decorations: buttonless
+  decorations: Full
   startup_mode: Windowed
   dynamic_title: true
   option_as_alt: Both

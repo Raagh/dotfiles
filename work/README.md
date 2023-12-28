@@ -2,17 +2,16 @@
 
 The dotfiles for my work setup.
 
-System: Mac OS  
+System: Ubuntu 22.04.3 LTS
 Theme: tokyonight
 
-- yabai
-- skhd
+- i3
 - alacritty
-- spotlight
+- dmenu
 - zsh
-- pfetch
+- neofetch
 - nvim
-- finder
+- Thunar
 
 <img width="1728" alt="Screenshot 2023-04-02 at 13 09 13" src="https://user-images.githubusercontent.com/8405459/229350237-19f41c4c-e6c5-42f0-b9c5-9e1b23350ff7.png">
 
