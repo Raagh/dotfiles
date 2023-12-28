@@ -180,6 +180,12 @@ require('lazy').setup({
       })
     end
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
 
   -- Improve performance
   "nathom/filetype.nvim",
