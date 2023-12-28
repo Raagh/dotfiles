@@ -13,7 +13,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       400px;
+    width:                       500px;
     x-offset:                    0px;
     y-offset:                    0px;
 

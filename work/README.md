@@ -5,13 +5,14 @@ The dotfiles for my work setup.
 System: Ubuntu 22.04.3 LTS
 Theme: tokyonight
 
-- i3
+- i3 + gnome-flasback
 - alacritty
-- dmenu
+- rofi
 - zsh
-- neofetch
+- pfetch
 - nvim
-- Thunar
+- gnome apps
+
 
 <img width="1728" alt="Screenshot 2023-04-02 at 13 09 13" src="https://user-images.githubusercontent.com/8405459/229350237-19f41c4c-e6c5-42f0-b9c5-9e1b23350ff7.png">
 

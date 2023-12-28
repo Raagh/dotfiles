@@ -17,14 +17,14 @@ no='󰜺 No'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dmenu \
+	rofi -dpi 192 -dmenu \
 		-p "$host" \
 		-theme ${dir}/powermenu.rasi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+	rofi -dpi 192 -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
@@ -45,10 +45,6 @@ run_rofi() {
 	echo -e "$shutdown\n$reboot\n$logout\n$lock\n$suspend" | rofi_cmd
 }
 
-lock_command() {
- 	i3lock-color --blur 5 --ringver-color "#9ccfd8" --ringwrong-color "#eb6f92" --ring-color "#c4a7e7" --insidever-color "#3e8fb0" --insidewrong-color "#eb6f92" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9";
-}
-
 # Execute Command
 run_cmd() {
 	selected="$(confirm_exit)"
@@ -58,14 +54,11 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
-			lock_command
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			bspc quit
+			i3 exit
 		elif [[ $1 == '--lock' ]]; then
-			lock_command
+			xdg-screensaver lock
 		fi
 	else
 		exit 0
