@@ -5,7 +5,7 @@ The dotfiles for my work setup.
 System: Ubuntu 22.04.3 LTS
 Theme: tokyonight
 
-- i3 + gnome-flasback
+- i3 + gnome-flashback
 - alacritty
 - rofi
 - zsh

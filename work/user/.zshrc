@@ -43,7 +43,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 
 setopt prompt_subst
-PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
+PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
 
 RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
 
