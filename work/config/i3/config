@@ -93,10 +93,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Alt+h split h
+bindsym $mod+Mod1+h split h
 
 # split in vertical orientation
-bindsym $mod+Alt+v split v
+bindsym $mod+Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -170,9 +170,9 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -188,6 +188,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# client.focused 
+# border pixel 1
+client.focused         #f7768e #285577 #ffffff #2e9ef4  #f7768e
 
 # Start pixom on startx
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
