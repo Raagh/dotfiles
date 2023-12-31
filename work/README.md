@@ -14,7 +14,8 @@ Theme: tokyonight
 - gnome apps
 
 
-<img width="1728" alt="Screenshot 2023-04-02 at 13 09 13" src="https://user-images.githubusercontent.com/8405459/229350237-19f41c4c-e6c5-42f0-b9c5-9e1b23350ff7.png">
+![screenshot](https://github.com/Raagh/dotfiles/assets/8405459/5a35b92b-e190-45fd-b8b9-5283c99878e7)
+
 
 all configurations are linked using stow
 
