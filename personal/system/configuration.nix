@@ -18,6 +18,7 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.gfxmodeEfi = "1024x768";
+  boot.loader.grub.default = 2;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
@@ -164,7 +165,6 @@
     pfetch
     bat
     eza
-    etcher
     htop
     galculator
     vlc
