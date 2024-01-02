@@ -55,17 +55,17 @@
 
   # Enable the desktop environment.
   services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
   services.xserver.displayManager = {
-    defaultSession = "none+bspwm";
+    defaultSession = "none+i3";
     setupCommands = ''
       my_laptop_external_monitor=$(${pkgs.xorg.xrandr}/bin/xrandr --query | grep -ow 'DP-1 connected')
       if [[ $my_laptop_external_monitor = *connected* ]]; then
         ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
       else
-        ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --rate 60
+        ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 3840x2400 --dpi 192 --rate 60
       fi
     '';
     lightdm = {
@@ -171,6 +171,7 @@
     stow
     zathura
     portfolio
+    killall
 
     # Desktop Environment
     polybar
@@ -230,6 +231,7 @@
       pulseSupport = true;
       iwSupport = true;
       nlSupport = true;
+      i3support = true;
     };
   };
 

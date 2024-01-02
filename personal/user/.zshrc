@@ -1,3 +1,8 @@
+ZSH_THEME="robbyrussell"
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# User configuration
+
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -6,23 +11,12 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+export BAT_THEME="ansi"
+
 autoload -U promptinit; promptinit
 autoload -U colors && colors
-# Load Version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
-
-export PWD=/home/$USER
-export OLDPWD=/home/$USER
-export BAT_THEME="ansi"
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export KEYTIMEOUT=1
-export ZSH=/usr/share/oh-my-zsh
-
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats "%b"
@@ -39,11 +33,11 @@ ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
+
 setopt prompt_subst
 PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
 
 RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
-
 
 HISTSIZE=50000
 SAVEHIST=50000

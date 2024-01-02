@@ -17,14 +17,14 @@ no='󰜺 No'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dmenu \
+	rofi -dpi 192 -dmenu \
 		-p "$host" \
 		-theme ${dir}/powermenu.rasi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+	rofi -dpi 192 -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
@@ -63,7 +63,7 @@ run_cmd() {
 			lock_command
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			bspc quit
+			i3 exit
 		elif [[ $1 == '--lock' ]]; then
 			lock_command
 		fi

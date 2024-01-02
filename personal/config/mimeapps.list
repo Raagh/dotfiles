@@ -12,6 +12,10 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 application/zip=userapp-unzip-3ZKXM1.desktop
+application/x-zerosize=geany.desktop
+application/octet-stream=geany.desktop
+application/x-compressed-tar=userapp-unzip-3ZKXM1.desktop
+x-scheme-handler/webcal=google-chrome.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -27,3 +31,6 @@ application/x-extension-xht=firefox.desktop;
 application/zip=userapp-unzip-9OETM1.desktop;userapp-7z-MWS9M1.desktop;userapp-unzip-3ZKXM1.desktop;
 application/x-shellscript=geany.desktop;
 image/jpeg=firefox.desktop;
+application/x-zerosize=geany.desktop;
+application/octet-stream=geany.desktop;
+application/x-compressed-tar=userapp-unzip-3ZKXM1.desktop;
