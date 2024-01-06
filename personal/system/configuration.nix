@@ -56,6 +56,13 @@
   # Enable the desktop environment.
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  environment.variables = {
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "0.5";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    EDITOR = "nvim";
+  };
+  services.xserver.dpi = 192;
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
   services.xserver.displayManager = {
@@ -206,34 +213,21 @@
   ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
-
+  
   virtualisation.docker.enable = true;
-  environment.variables.EDITOR = "nvim";
   nixpkgs.overlays = [
     (self: super: {
       neovim = super.neovim.override {
         viAlias = true;
         vimAlias = true;
       };
+      polybar = super.polybar.override { i3Support = true; pulseSupport = true; };
     })
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-19.1.9"
   ];
-
-  nixpkgs.config.packagesOverrides = pkgs: {
-    polybar = pkgs.polybar.override {
-      jackSupport = true;
-      alsaSupport = true;
-      githubSupport = true;
-      mpdSupport = true;
-      pulseSupport = true;
-      iwSupport = true;
-      nlSupport = true;
-      i3support = true;
-    };
-  };
 
   # List services that you want to enable:
 
