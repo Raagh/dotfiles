@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{  pkgs, ... }:
 
 {
   imports =
@@ -57,12 +57,9 @@
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
   environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.5";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     EDITOR = "nvim";
+    XCURSOR_SIZE = "32";
   };
-  services.xserver.dpi = 192;
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
   services.xserver.displayManager = {
@@ -78,6 +75,7 @@
     lightdm = {
       enable = true;
       greeter.enable = true;
+      greeters.gtk.cursorTheme.size = 32;
     };
   };
 
@@ -223,10 +221,6 @@
       };
       polybar = super.polybar.override { i3Support = true; pulseSupport = true; };
     })
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-19.1.9"
   ];
 
   # List services that you want to enable:
