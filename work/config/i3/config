@@ -64,8 +64,6 @@ bindsym $mod+c kill
 bindsym $mod+d exec ~/.config/rofi/bin/launcher
 bindsym $mod+x exec ~/.config/rofi/bin/powermenu
 
-## Launch bar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -205,3 +203,6 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #         font pango:Iosevka Nerd Font Mono 12
 #         status_command i3status
 # }
+
+## Launch bar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
