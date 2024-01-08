@@ -1,6 +1,6 @@
 ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode )
 # User configuration
 
 if [ -d "$HOME/.bin" ] ;
