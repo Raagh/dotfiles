@@ -1,0 +1,30 @@
+import = ["/home/patricio/.config/alacritty/colors.toml", "/home/patricio/.config/alacritty/fonts.toml"]
+live_config_reload = true
+
+[cursor]
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+decorations = "Full"
+dynamic_title = true
+# history = 10000
+# multiplier = 3
+opacity = 1.0
+# option_as_alt = "Both"
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 180
+lines = 55
+
+[window.padding]
+x = 12
+y = 12

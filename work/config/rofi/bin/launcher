@@ -2,4 +2,4 @@
 
 DIR="$HOME/.config"
 
-rofi -dpi 192 -no-lazy-grab -show drun -theme $DIR/rofi/themes/launcher.rasi
+rofi -dpi 92 -no-lazy-grab -show drun -theme $DIR/rofi/themes/launcher.rasi
