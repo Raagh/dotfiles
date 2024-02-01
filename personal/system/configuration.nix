@@ -62,6 +62,8 @@
   };
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
+
+  # ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 3840x2400 --dpi 192 --rate 60
   services.xserver.displayManager = {
     defaultSession = "none+i3";
     setupCommands = ''
@@ -69,7 +71,7 @@
       if [[ $my_laptop_external_monitor = *connected* ]]; then
         ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1 --primary --mode 3440x1440 --rate 100 --output eDP-1 --off
       else
-        ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 3840x2400 --dpi 192 --rate 60
+        ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --rate 60
       fi
     '';
     lightdm = {

@@ -17,14 +17,16 @@ no='󰜺 No'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -dpi 192 -dmenu \
+	# rofi -dpi 192 -dmenu \
+	rofi -dmenu \
 		-p "$host" \
 		-theme ${dir}/powermenu.rasi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -dpi 192 -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
+	# rofi -dpi 192 -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \

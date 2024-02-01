@@ -21,8 +21,10 @@ for_window [class=".*"] title_format " "
 # Always focus urgent windows
 for_window [urgent="latest"] focus
 
-gaps inner 8
-gaps top 28 
+# gaps inner 8
+# gaps top 28 
+gaps inner 4
+gaps top 42 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).

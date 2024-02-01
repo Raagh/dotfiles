@@ -4,7 +4,7 @@ Xft.autohint:	0
 Xft.hintstyle:	hintslight
 Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
-Xft.dpi: 192
+! Xft.dpi: 192
 
 ! Urxvt
 URxvt*font: xft:JetBrainsMono Nerd Font:size=10,xft:Symbols Nerd Font-6

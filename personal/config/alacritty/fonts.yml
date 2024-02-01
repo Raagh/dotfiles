@@ -20,7 +20,8 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 20
+  size: 10
+  # size: 20
 
   # Offset
   #offset:
