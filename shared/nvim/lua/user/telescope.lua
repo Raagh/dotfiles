@@ -5,6 +5,8 @@ end
 
 local actions = require "telescope.actions"
 
+vim.api.nvim_set_keymap('v', '<C-g>', 'y<ESC>:Telescope live_grep default_text=<c-r>0<CR>',{ noremap = true, silent = true })
+
 telescope.setup {
   pickers = {
     find_files = {

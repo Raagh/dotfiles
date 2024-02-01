@@ -24,7 +24,7 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
     },
   },
-  { "folke/which-key.nvim", event = "VeryLazy"},      -- Keybindings information
+  { "folke/which-key.nvim",             event = "VeryLazy" }, -- Keybindings information
 
   {
     "glepnir/dashboard-nvim",  -- Greeter
@@ -48,9 +48,9 @@ require('lazy').setup({
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim', -- file icons on nvim-tree
     },
-  },                                     -- Search functionality
-  "lukas-reineke/indent-blankline.nvim", -- Indentation guides
-  "anuvyklack/pretty-fold.nvim",         -- Folding code
+  },                                              -- Search functionality
+  "lukas-reineke/indent-blankline.nvim",          -- Indentation guides
+  "anuvyklack/pretty-fold.nvim",                  -- Folding code
   {
     -- Session management
     "folke/persistence.nvim",
@@ -110,10 +110,10 @@ require('lazy').setup({
   -- LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  "neovim/nvim-lspconfig",                 -- enable LSP
+  "neovim/nvim-lspconfig",                   -- enable LSP
   { "nvimtools/none-ls.nvim", lazy = true }, -- Formatting and Linting per language support
   {
-    "ray-x/lsp_signature.nvim",            -- See method signature on LSP suggestions
+    "ray-x/lsp_signature.nvim",              -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -172,7 +172,7 @@ require('lazy').setup({
   },
   {
     "kylechui/nvim-surround",
-    version = "*",   -- Use for stability; omit to use `main` branch for the latest features
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
@@ -188,7 +188,7 @@ require('lazy').setup({
   },
 
   -- Improve performance
-  "nathom/filetype.nvim",
+  -- "nathom/filetype.nvim",
   "lewis6991/impatient.nvim",
 
   -- Extra language support, enable when needed

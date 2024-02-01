@@ -35,21 +35,19 @@ local function setupTheme()
     }
     vim.g.tokyonight_style = "night"
   elseif theme_name == "rose-pine" then
-    opts = {
-      disable_float_background = true,
-      highlight_groups = {
-        TelescopeBorder = { bg = 'surface', fg = 'surface' },
-        TelescopeNormal = { bg = 'surface' },
-        TelescopePromptNormal = { bg = 'surface' },
-        TelescopeTitle = { bg = 'surface', fg = 'love' },
-      }
-    }
-
     local rose_pine_palette_ok, palette = pcall(require, 'rose-pine.palette')
     if rose_pine_palette_ok then
-      vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = palette.surface, bg = palette.surface })
-      vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = palette.text, bg = palette.surface })
-      vim.api.nvim_set_hl(0, 'HarpoonTitle', { fg = palette.love, bg = palette.surface })
+      opts = {
+        disable_float_background = true,
+        highlight_groups = {
+          TelescopeBorder = { bg = palette.base, fg = palette.muted },
+          TelescopeTitle = { bg = palette.base, fg = palette.gold },
+          TelescopeResultsNormal = { bg = palette.base, fg = palette.text },
+        }
+      }
+      vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = palette.muted, bg = palette.base })
+      vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = palette.text, bg = palette.base })
+      vim.api.nvim_set_hl(0, 'HarpoonTitle', { fg = palette.gold, bg = palette.base })
     end
   end
 

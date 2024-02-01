@@ -16,13 +16,12 @@ dap.adapters["pwa-node"] = {
 for _, language in ipairs({ "typescript", "javascript" }) do
   dap.configurations[language] = {
     {
-      name = "Debug Local App",
+      name = "Debug watch:node",
       request = "launch",
       runtimeArgs = {
-        "run",
-        "dev:watch"
+        "watch:node"
       },
-      runtimeExecutable = "npm",
+      runtimeExecutable = "yarn",
       skipFiles = {
         "<node_internals>/**"
       },
@@ -32,19 +31,6 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
-    },
-    {
-      name = "Docker: Attach to App",
-      type = "pwa-node",
-      request = "attach",
-      restart = true,
-      port = 9229,
-      localRoot = "${workspaceFolder}",
-      remoteRoot = "/usr/src/app",
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-      protocol = "inspector",
-      cwd = "${workspaceFolder}",
     },
   }
 end

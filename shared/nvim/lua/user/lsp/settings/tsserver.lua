@@ -8,6 +8,9 @@ local function organize_imports()
 end
 
 return {
+  root_dir = function(...)
+    return require("lspconfig.util").root_pattern(".git")(...)
+  end,
   settings = {
     typescript = {
       inlayHints = {
