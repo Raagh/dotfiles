@@ -24,7 +24,7 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
     },
   },
-  { "folke/which-key.nvim",             event = "VeryLazy" }, -- Keybindings information
+  { "folke/which-key.nvim", event = "VeryLazy" }, -- Keybindings information
 
   {
     "glepnir/dashboard-nvim",  -- Greeter
@@ -131,6 +131,7 @@ require('lazy').setup({
     build = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
+    commit = "d4dac523d2546afc266eb9b5a7986690b5319c41",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     }
