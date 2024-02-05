@@ -18,13 +18,15 @@ require('lazy').setup({
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
   -- Editor UI
-  { -- File tree navigation
-    'nvim-tree/nvim-tree.lua',
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
     dependencies = {
-      'nvim-tree/nvim-web-devicons', -- file icons on nvim-tree
+      "nvim-tree/nvim-web-devicons",
     },
   },
-  { "folke/which-key.nvim", event = "VeryLazy" }, -- Keybindings information
+  { "folke/which-key.nvim",             event = "VeryLazy" }, -- Keybindings information
 
   {
     "glepnir/dashboard-nvim",  -- Greeter
@@ -110,10 +112,10 @@ require('lazy').setup({
   -- LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  "neovim/nvim-lspconfig",                   -- enable LSP
-  { "nvimtools/none-ls.nvim", lazy = true }, -- Formatting and Linting per language support
+  "neovim/nvim-lspconfig",                            -- enable LSP
+  { "nvimtools/none-ls.nvim", lazy = true },          -- Formatting and Linting per language support
   {
-    "ray-x/lsp_signature.nvim",              -- See method signature on LSP suggestions
+    "ray-x/lsp_signature.nvim",                       -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -126,15 +128,12 @@ require('lazy').setup({
   },
 
   -- Syntax highlighting
+  -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
+      require("nvim-treesitter.install").update({ with_sync = true })()
     end,
-    commit = "d4dac523d2546afc266eb9b5a7986690b5319c41",
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    }
   },
 
   -- Debugging
