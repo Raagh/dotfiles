@@ -15,6 +15,7 @@ configs.setup {
     "markdown",
     "scss",
     "typescript",
+    "tsx",
     "yaml",
     "nix",
     "go",
