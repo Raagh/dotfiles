@@ -29,6 +29,12 @@ require('lazy').setup({
   { "folke/which-key.nvim",             event = "VeryLazy" }, -- Keybindings information
 
   {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
     "glepnir/dashboard-nvim",  -- Greeter
   },
   "nvim-lualine/lualine.nvim", -- Status bar
@@ -112,10 +118,10 @@ require('lazy').setup({
   -- LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  "neovim/nvim-lspconfig",                            -- enable LSP
-  { "nvimtools/none-ls.nvim", lazy = true },          -- Formatting and Linting per language support
+  "neovim/nvim-lspconfig",                   -- enable LSP
+  { "nvimtools/none-ls.nvim", lazy = true }, -- Formatting and Linting per language support
   {
-    "ray-x/lsp_signature.nvim",                       -- See method signature on LSP suggestions
+    "ray-x/lsp_signature.nvim",              -- See method signature on LSP suggestions
     config = function()
       require "lsp_signature".setup({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
