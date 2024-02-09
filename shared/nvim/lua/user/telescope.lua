@@ -5,7 +5,27 @@ end
 
 local actions = require "telescope.actions"
 
-vim.api.nvim_set_keymap('v', '<C-g>', 'y<ESC>:Telescope live_grep default_text=<c-r>0<CR>',{ noremap = true, silent = true })
+function vim.getVisualSelection()
+	vim.cmd('noau normal! "vy"')
+	local text = vim.fn.getreg('v')
+	vim.fn.setreg('v', {})
+
+	text = string.gsub(text, "\n", "")
+	if #text > 0 then
+		return text
+	else
+		return ''
+	end
+end
+
+local keymap = vim.keymap.set
+local tb = require('telescope.builtin')
+
+keymap('v', '<C-g>',
+  function()
+    local text = vim.getVisualSelection()
+    tb.live_grep({ default_text = text })
+  end, { noremap = true, silent = true })
 
 telescope.setup {
   pickers = {
