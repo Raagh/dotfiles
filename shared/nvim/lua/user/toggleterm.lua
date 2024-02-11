@@ -43,17 +43,25 @@ toggleterm.setup(opts)
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
-  hidden = true,
+  dir = "git_dir",
   direction = "float",
   float_opts = {
     border = "none",
     width = 100000,
     height = 100000,
   },
+  -- function to run on opening the terminal
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+  end,
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd("startinsert!")
+  end,
 })
 
 local floatTerminal = Terminal:new({
-  hidden = true,
   direction = "float",
   float_opts = {
     border = "none",

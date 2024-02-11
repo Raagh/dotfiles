@@ -31,6 +31,12 @@ local function setupTheme()
         vim.api.nvim_set_hl(0, 'HarpoonBorder', { fg = c.bg_dark, bg = c.bg_dark })
         vim.api.nvim_set_hl(0, 'HarpoonWindow', { fg = c.fg, bg = c.bg_dark })
         vim.api.nvim_set_hl(0, 'HarpoonTitle', { fg = c.purple, bg = c.bg_dark })
+
+        -- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+        --   command = "highlight FloatBorder guifg=" .. c.bg_dark .. "guibg=" .. c.bg_dark,
+        --   pattern = { "*" },
+        -- })
+        -- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=red guibg=#1f2335]]
       end
     }
     vim.g.tokyonight_style = "night"
