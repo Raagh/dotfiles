@@ -195,6 +195,10 @@ bindsym $mod+r mode "resize"
 default_border pixel 3
 client.focused         #f7768e #285577 #ffffff #2e9ef4  #f7768e
 
+
+## Launch settings
+exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+
 # Start pixom on startx
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
