@@ -10,6 +10,9 @@ local setup = {
     spacing = 3,                    -- spacing between columns
     align = "center",               -- align columns left, center or right
   },
+  git = {
+    timeout = 600,
+  },
   ignore_missing = true,            -- enable this to hide mappings for which you didn't specify a label
   show_help = false,                -- show help message on the command line when the popup is visible
 }

@@ -38,6 +38,9 @@ nvim_tree.setup {
   on_attach = on_attach,
   view = {
     adaptive_size = true,
+  },
+  git = {
+    timeout = 500
   }
 }
 

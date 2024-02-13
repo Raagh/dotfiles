@@ -22,7 +22,8 @@ configs.setup {
     "vim",
     "rasi",
     "prisma",
-    "sql"
+    "sql",
+    "vimdoc"
   },
   matchup = {
     enable = true,
