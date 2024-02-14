@@ -22,6 +22,7 @@ for_window [class=".*"] title_format " "
 for_window [urgent="latest"] focus
 
 gaps inner 8
+gaps bottom 42 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
