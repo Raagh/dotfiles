@@ -3,23 +3,24 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require 'telescope.actions'
+local defaultConfig = require'telescope.config'.values
+local tb = require'telescope.builtin'
 
 function vim.getVisualSelection()
-	vim.cmd('noau normal! "vy"')
-	local text = vim.fn.getreg('v')
-	vim.fn.setreg('v', {})
+  vim.cmd('noau normal! "vy"')
+  local text = vim.fn.getreg('v')
+  vim.fn.setreg('v', {})
 
-	text = string.gsub(text, "\n", "")
-	if #text > 0 then
-		return text
-	else
-		return ''
-	end
+  text = string.gsub(text, "\n", "")
+  if #text > 0 then
+    return text
+  else
+    return ''
+  end
 end
 
 local keymap = vim.keymap.set
-local tb = require('telescope.builtin')
 
 keymap('v', '<C-g>',
   function()
@@ -42,6 +43,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
+    vimgrep_arguments = table.insert(defaultConfig.vimgrep_arguments, '--fixed-strings'),
     file_ignore_patterns = { "node_modules" },
     mappings = {
       i = {
