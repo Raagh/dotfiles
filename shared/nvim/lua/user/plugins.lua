@@ -140,6 +140,7 @@ require('lazy').setup({
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    version = '0.9.1'
   },
 
   -- Debugging
