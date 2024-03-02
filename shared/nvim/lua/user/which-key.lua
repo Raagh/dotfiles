@@ -13,8 +13,8 @@ local setup = {
   git = {
     timeout = 600,
   },
-  ignore_missing = true,            -- enable this to hide mappings for which you didn't specify a label
-  show_help = false,                -- show help message on the command line when the popup is visible
+  ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+  show_help = false,     -- show help message on the command line when the popup is visible
 }
 
 local opts = {
@@ -59,8 +59,9 @@ local mappings = {
       "<cmd>Telescope find_files hidden=true theme=dropdown<cr>",
       "Find" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-    h = { "<cmd>Telescope oldfiles<CR>", "Recents" },
+    r = { "<cmd>Telescope oldfiles<CR>", "Recents" },
     l = { "<cmd>Telescope resume<cr>", "Resume last search" },
+    h = { "<cmd>lua require'telescope.builtin'.live_grep({ hidden = true })<CR>", "Hidden Grep" }
   },
   g = {
     name = "Git",

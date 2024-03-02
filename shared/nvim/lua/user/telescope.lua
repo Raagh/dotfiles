@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 local actions = require 'telescope.actions'
-local defaultConfig = require'telescope.config'.values
-local tb = require'telescope.builtin'
+local defaultConfig = require 'telescope.config'.values
+local tb = require 'telescope.builtin'
 
 function vim.getVisualSelection()
   vim.cmd('noau normal! "vy"')
@@ -33,6 +33,11 @@ telescope.setup {
     find_files = {
       previewer = false,
       hidden = true
+    },
+    live_grep = {
+      additional_args = function(opts)
+        return { "--hidden" }
+      end
     },
     colorscheme = {
       enable_preview = true,
