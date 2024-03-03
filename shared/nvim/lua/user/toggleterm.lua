@@ -64,10 +64,11 @@ local lazygit = Terminal:new({
 local floatTerminal = Terminal:new({
   direction = "float",
   float_opts = {
-    border = "none",
-    width = 100000,
-    height = 100000,
+    border = "curved",
   },
+  highlights = {
+    FloatBorder = { link = "ToggleTermFloatBorder" },
+  }
 })
 
 function LazygitToggle()
