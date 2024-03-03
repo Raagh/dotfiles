@@ -17,7 +17,7 @@ alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rm='rm -i'
 alias wget="wget -c" # continue the download
 alias fetch="pfetch"
-alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
+alias hm-tools="node ./scripts/lib/cli.js"
 alias connect-db-staging="AWS_PROFILE=hm-eu-stag ./Code/henchman/ops/scripts/bastion_tunnel.sh stag 9494"
 
 # required functions
