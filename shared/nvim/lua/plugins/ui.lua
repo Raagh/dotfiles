@@ -6,6 +6,29 @@ return {
     },
   },
   {
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "night",
+      on_highlights = function(_, c)
+        vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+        vim.fn.sign_define(
+          "DapBreakpointCondition",
+          { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+        )
+        vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
+        vim.fn.sign_define(
+          "DapStopped",
+          { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+        )
+
+        vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = c.red, bg = c.bg_dark })
+        vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = c.cyan, bg = c.bg_dark })
+        vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = c.yellow, bg = c.bg_dark })
+      end,
+    },
+  },
+  {
     "catppuccin/catppuccin",
     enabled = false,
   },
@@ -20,7 +43,18 @@ return {
         opts = { skip = true },
       })
 
-      opts.presets.lsp_doc_border = true
+      opts.presets = {
+        lsp_doc_border = true,
+        command_palette = {
+          views = {
+            cmdline_popup = {
+              position = {
+                row = "50%",
+              },
+            },
+          },
+        },
+      }
     end,
   },
   {

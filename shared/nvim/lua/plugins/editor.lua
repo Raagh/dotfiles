@@ -23,6 +23,83 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = vim.fn.exepath("js-debug-adapter"),
+          args = { "${port}" },
+        },
+      }
+
+      for _, language in ipairs({ "typescript", "javascript" }) do
+        dap.configurations[language] = {
+          {
+            name = "Debug watch:node",
+            request = "launch",
+            runtimeArgs = {
+              "watch:node",
+            },
+            runtimeExecutable = "yarn",
+            skipFiles = {
+              "<node_internals>/**",
+            },
+            type = "pwa-node",
+            envFile = "${workspaceFolder}/.env.local",
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+          },
+        }
+      end
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    opts = {
+      layouts = {
+        {
+          elements = {
+            -- Elements can be strings or table with id and size keys.
+            { id = "scopes", size = 0.85 },
+            { id = "breakpoints", size = 0.15 },
+            { id = "watches", size = 0.15 },
+            "stacks",
+          },
+          size = 0.25,
+          position = "left",
+        },
+        {
+          elements = {
+            "console",
+            "repl",
+          },
+          size = 0.30,
+          position = "bottom",
+        },
+      },
+    },
+    config = function(_, opts)
+      -- setup dap config by VsCode launch.json file
+      -- require("dap.ext.vscode").load_launchjs()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup(opts)
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open({})
+      end
+
+      vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#f7768e", bg = "#1a1b26" })
+      vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#449dab", bg = "#1a1b26" })
+      vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#e0af68", bg = "#1a1b26" })
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>/", false },
