@@ -26,16 +26,13 @@ return {
         },
         opts = { skip = true },
       })
-      table.insert(
-        opts.routes,
-        {
-          filter = {
-            event = "dap",
-            find = "Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)",
-          },
-          opts = { skip = true },
-        }
-      )
+      table.insert(opts.routes, {
+        filter = {
+          event = "dap",
+          find = "Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)",
+        },
+        opts = { skip = true },
+      })
 
       opts.presets = {
         lsp_doc_border = true,
