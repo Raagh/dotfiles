@@ -28,6 +28,7 @@ return {
         hl.TelescopeBorder.bg = c.bg
         hl.TelescopeNormal.bg = c.bg
         hl.NeoTreeNormal.bg = c.bg
+        hl.LspInfoBorder.bg = c.bg
 
         vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 })
       end,
