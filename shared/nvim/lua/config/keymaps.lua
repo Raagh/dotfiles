@@ -55,6 +55,7 @@ set_keymap("n", "<leader>gg", function()
       width = 1,
       height = 1,
     },
+    border = "none",
   })
 end, { desc = "Lazygit" })
 

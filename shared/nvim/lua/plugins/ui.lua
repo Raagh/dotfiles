@@ -118,7 +118,7 @@ return {
     },
     opts = {
       window = {
-        border = "single",
+        border = "rounded",
       },
     },
   },
