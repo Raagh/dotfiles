@@ -17,6 +17,7 @@ return {
       { "<leader>fE", false },
     },
     opts = {
+      popup_border_style = "rounded",
       window = {
         position = "float",
       },
@@ -209,19 +210,4 @@ return {
       })
     end,
   },
-  -- {
-  --   "akinsho/toggleterm.nvim",
-  --   opts = {
-  --     direction = "float",
-  --     float_opts = {
-  --       border = "none",
-  --       width = 100000,
-  --       height = 100000,
-  --     },
-  --   },
-  --   keys = {
-  --     { "<C-/>", "<cmd>ToggleTerm<cr>", desc = "Open ToggleTerm" },
-  --     { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "Open ToggleTerm" },
-  --   },
-  -- },
 }
