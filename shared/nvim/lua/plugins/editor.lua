@@ -4,9 +4,7 @@ return {
     keys = {
       {
         "<leader>e",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-        end,
+        "<cmd>Neotree reveal<cr>",
         desc = "Explorer",
       },
       {
@@ -61,6 +59,15 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
+    keys = {
+      {
+        "<leader>dh",
+        function()
+          require("dap.ui.widgets").hover()
+        end,
+        desc = "Hover",
+      },
+    },
     opts = {
       layouts = {
         {
@@ -154,12 +161,24 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
-      -- opts.window = {
-      --   documentation = {
-      --     border = "rounded",
-      --     winhighlight = "NormalFloat:TelescopeNormal,FloatBorder:TelescopeBorder",
-      --   },
-      -- }
+      local win_opt = {
+        border = "single",
+        col_offset = 0,
+        side_padding = 1,
+        winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+      }
+      local doc_opt = {
+        col_offset = 0,
+        side_padding = 1,
+        winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+      }
+      opts.window = {
+        completion = cmp.config.window.bordered(win_opt),
+        documentation = cmp.config.window.bordered(doc_opt),
+      }
+      opts.experimental = {
+        ghost_text = false,
+      }
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)

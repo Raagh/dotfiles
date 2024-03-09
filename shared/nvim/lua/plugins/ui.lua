@@ -1,36 +1,20 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
-    },
-  },
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      style = "night",
-      on_highlights = function(_, c)
-        vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-        vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-        vim.fn.sign_define(
-          "DapBreakpointCondition",
-          { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
-        )
-        vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
-        vim.fn.sign_define(
-          "DapStopped",
-          { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
-        )
-
-        vim.api.nvim_set_hl(0, "DapBreakpoint", { ctermbg = 0, fg = c.red, bg = c.bg_dark })
-        vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = c.cyan, bg = c.bg_dark })
-        vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = c.yellow, bg = c.bg_dark })
-      end,
-    },
-  },
-  {
-    "catppuccin/catppuccin",
-    enabled = false,
+    priority = 100,
+    opts = function(_, _)
+      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+      vim.fn.sign_define(
+        "DapBreakpointCondition",
+        { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+      )
+      vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
+      vim.fn.sign_define(
+        "DapStopped",
+        { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+      )
+    end,
   },
   {
     "folke/noice.nvim",
@@ -42,6 +26,16 @@ return {
         },
         opts = { skip = true },
       })
+      table.insert(
+        opts.routes,
+        {
+          filter = {
+            event = "dap",
+            find = "Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)",
+          },
+          opts = { skip = true },
+        }
+      )
 
       opts.presets = {
         lsp_doc_border = true,
