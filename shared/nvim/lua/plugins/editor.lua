@@ -4,7 +4,9 @@ return {
     keys = {
       {
         "<leader>e",
-        "<cmd>Neotree reveal<cr>",
+        function()
+          require("neo-tree.command").execute({ toggle = true, reveal = true, dir = vim.loop.cwd() })
+        end,
         desc = "Explorer",
       },
       {
