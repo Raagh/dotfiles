@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "tokyonight",
     },
   },
   {
@@ -22,15 +22,15 @@ return {
           fg = c.yellow,
           bg = c.bg,
         }
-        hl.NormalFloat.bg = c.bg
-        hl.WhichKeyFloat.bg = c.bg
-        hl.FloatBorder.bg = c.bg
+        hl.NormalFloat.bg = c.bg -- All floating buffers background like the lsp, autocomplete and such
+        hl.WhichKeyFloat.bg = c.bg -- Whichkey popup background
+        hl.FloatBorder.bg = c.bg -- Most floating borders except telescope
         hl.TelescopeBorder.bg = c.bg
         hl.TelescopeNormal.bg = c.bg
-        hl.NeoTreeNormal.bg = c.bg
-        hl.LspInfoBorder.bg = c.bg
+        hl.NeoTreeNormal.bg = c.bg --Neotree background
+        hl.LspInfoBorder.bg = c.bg --Border for the LSPInfo window, leader + c + l
 
-        vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 })
+        vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 }) --Remove transparency and set background of completion popup
       end,
     },
   },
@@ -42,7 +42,6 @@ return {
     "rebelot/kanagawa.nvim",
     enabled = true,
     opts = {
-      transparent = true,
       theme = "wave",
       background = {
         dark = "wave",
@@ -59,11 +58,11 @@ return {
       },
       overrides = function(colors)
         local theme = colors.theme
+        -- Only setup the only ones needed
+        vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
         return {
-          NormalFloat = { bg = "none" },
-          FloatBorder = { bg = "none" },
-          FloatTitle = { bg = "none" },
-          NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+          NormalFloat = { bg = "none" }, -- All floating buffers background like the lsp, autocomplete and such
+          FloatBorder = { bg = "none" }, -- Most floating borders except telescope
           TelescopeBorder = { bg = "none" },
         }
       end,
