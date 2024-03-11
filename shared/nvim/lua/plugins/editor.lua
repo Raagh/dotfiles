@@ -25,38 +25,43 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      dap.adapters["pwa-node"] = {
-        type = "server",
-        host = "localhost",
-        port = "${port}",
-        executable = {
-          command = vim.fn.exepath("js-debug-adapter"),
-          args = { "${port}" },
-        },
-      }
-
-      for _, language in ipairs({ "typescript", "javascript" }) do
-        table.insert(dap.configurations[language], {
-          name = "Debug -> watch:node",
-          request = "launch",
-          runtimeArgs = {
-            "watch:node",
-          },
-          runtimeExecutable = "yarn",
-          skipFiles = {
-            "<node_internals>/**",
-          },
-          type = "pwa-node",
-          envFile = "${workspaceFolder}/.env.local",
-          rootPath = "${workspaceFolder}",
-          cwd = "${workspaceFolder}",
-          console = "integratedTerminal",
-          internalConsoleOptions = "neverOpen",
-        })
-      end
-    end,
+    keys = {
+      { "<leader>dO", false },
+      { "<leader>db", false },
+      { "<leader>dl", false },
+      { "<leader>dg", false },
+      {
+        "<leader>dt",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Toggle Breakpoint",
+      },
+      {
+        "<F5>",
+        function()
+          require("dap").continue()
+        end,
+      },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+      },
+      {
+        "<F11>",
+        function()
+          require("dap").step_into()
+        end,
+      },
+      {
+        "<F12>",
+        function()
+          require("dap").step_out()
+        end,
+      },
+    },
   },
   {
     "rcarriga/nvim-dap-ui",
