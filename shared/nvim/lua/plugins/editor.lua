@@ -125,7 +125,9 @@ return {
       {
         "<leader>fg",
         function()
-          require("telescope.builtin").live_grep({ hidden = true })
+          local defaultConfig = require("telescope.config").values
+          local arguments = table.insert(defaultConfig.vimgrep_arguments, "--fixed-strings")
+          require("telescope.builtin").live_grep({ hidden = true, vim_grep_arguments = arguments })
         end,
         desc = "Live grep",
       },
@@ -144,6 +146,12 @@ return {
         },
         colorscheme = {
           enable_preview = true,
+        },
+        defaults = {
+          vimgrep_arguments = function()
+            local defaultConfig = require("telescope.config").values
+            return table.insert(defaultConfig.vimgrep_arguments, "--fixed-strings")
+          end,
         },
       },
     },
@@ -212,5 +220,9 @@ return {
         end, { "i", "s" }),
       })
     end,
+  },
+  {
+    "RRethy/vim-illuminate",
+    enabled = false,
   },
 }

@@ -16,6 +16,26 @@ return {
       )
     end,
   },
+
+  {
+    "akinsho/bufferline.nvim",
+    keys = {
+      {
+        "[b",
+        function()
+          require("bufferline").move(-1)
+        end,
+        desc = "Move Buffer Left",
+      },
+      {
+        "]b",
+        function()
+          require("bufferline").move(1)
+        end,
+        desc = "Move Buffer Right",
+      },
+    },
+  },
   {
     "folke/noice.nvim",
     opts = function(_, opts)
@@ -26,6 +46,7 @@ return {
         },
         opts = { skip = true },
       })
+      --   Warn  15:34:01 notify.warn DAP Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)
       table.insert(opts.routes, {
         filter = {
           event = "dap",
