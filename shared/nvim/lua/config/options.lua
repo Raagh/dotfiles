@@ -3,6 +3,8 @@
 -- Add any additional options here
 local options = {
   cursorlineopt = "line", -- highlight only the text line
+  pumblend = 0, -- popup menu transparency
+  winblend = 0, -- window transparency
 }
 
 vim.opt.shortmess:append("c")

@@ -46,7 +46,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "1917b562a02f20885900b1da0f0ea25028ccedab" },
   "nvim-notify": { "branch": "master", "commit": "5371f4bfc1f6d3adf4fe9d62cd3a9d44356bfd15" },
   "nvim-spectre": { "branch": "master", "commit": "3712ff0cdf4f9f877d9ca708d835a877d9a0abaf" },
-  "nvim-treesitter": { "branch": "master", "commit": "488bec03254207b1dd071be8cb1fb78434b6e777" },
+  "nvim-treesitter": { "branch": "master", "commit": "76f699dcc89642eedf69fafaef79bc235b7ef51e" },
   "nvim-treesitter-context": { "branch": "master", "commit": "b8b7e52c1517d401d7c519787d5dc4528c41291a" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "b7a0bfa3e93697ca5b61b15df633404bf8f45883" },
   "nvim-ts-autotag": { "branch": "main", "commit": "531f48334c422222aebc888fd36e7d109cb354cd" },
@@ -59,7 +59,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "833d8dd8b07eeda37a09e99460f72a02616935cb" },
   "tokyonight.nvim": { "branch": "main", "commit": "c025baf23b62f044eff1f4ef561c45de636f0e32" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
-  "vim-illuminate": { "branch": "master", "commit": "305bf07b919ac526deb5193280379e2f8b599926" },
   "vim-startuptime": { "branch": "master", "commit": "308b0088a864c4711a96e45b6734cf9294074f65" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

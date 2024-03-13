@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "kanagawa",
     },
   },
   {
@@ -30,7 +30,7 @@ return {
         hl.NeoTreeNormal.bg = c.bg --Neotree background
         hl.LspInfoBorder.bg = c.bg --Border for the LSPInfo window, leader + c + l
 
-        vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 }) --Remove transparency and set background of completion popup
+        -- vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 }) --Remove transparency and set background of completion popup
       end,
     },
   },
@@ -57,9 +57,10 @@ return {
         },
       },
       overrides = function(colors)
-        local theme = colors.theme
+        -- local theme = colors.theme
+        -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
+
         -- Only setup the only ones needed
-        vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
         return {
           NormalFloat = { bg = "none" }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = "none" }, -- Most floating borders except telescope
