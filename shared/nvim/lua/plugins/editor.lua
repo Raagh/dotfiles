@@ -73,6 +73,13 @@ return {
         end,
         desc = "Hover",
       },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle({ reset = true })
+        end,
+        desc = "Dap UI",
+      },
     },
     opts = {
       layouts = {
