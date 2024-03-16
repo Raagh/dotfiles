@@ -142,7 +142,11 @@ return {
   {
     "folke/which-key.nvim",
     keys = {
-      -- { "<leader>s", false },
+      {
+        "<leader>ur",
+        "<cmd>:e %<cr>",
+        desc = "Reload File",
+      },
     },
     opts = {
       window = {
