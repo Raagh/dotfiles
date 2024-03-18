@@ -121,7 +121,7 @@ return {
       { "<leader>/", false },
       { "<leader>,", false },
       { "<leader><space>", false },
-      -- { "<leader>s", false },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       {
         "<leader>fl",
         function()
