@@ -57,11 +57,24 @@ return {
         },
       },
       overrides = function(colors)
-        -- local theme = colors.theme
+        local theme = colors.palette
         -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
 
         -- Only setup the only ones needed
+        --
         return {
+          DapBreakpoint = {
+            fg = theme.waveRed,
+            bg = "none",
+          },
+          DapLogPoint = {
+            fg = theme.waveAqua2,
+            bg = "none",
+          },
+          DapStopped = {
+            fg = theme.boatYellow2,
+            bg = "none",
+          },
           NormalFloat = { bg = "none" }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = "none" }, -- Most floating borders except telescope
           TelescopeBorder = { bg = "none" },
