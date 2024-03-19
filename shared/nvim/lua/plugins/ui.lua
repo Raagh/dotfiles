@@ -107,7 +107,7 @@ return {
             { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
             { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
             { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
-            { action = [[lua require("lazyvim.util").telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
+            { action = "edit $MYVIMRC",                                            desc = " Config",          icon = " ", key = "c" },
             { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
             { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
             { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
@@ -159,6 +159,17 @@ return {
     opts = {
       ui = {
         border = "rounded",
+      },
+    },
+  },
+  {
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        -- Disable labels for regular search with `/`
+        search = {
+          enabled = false,
+        },
       },
     },
   },

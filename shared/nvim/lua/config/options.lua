@@ -5,6 +5,7 @@ local options = {
   cursorlineopt = "line", -- highlight only the text line
   pumblend = 0, -- popup menu transparency
   winblend = 0, -- window transparency
+  ignorecase = true, -- ignore case when searching
 }
 
 vim.opt.shortmess:append("c")

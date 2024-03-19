@@ -65,6 +65,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
+    dependencies = { "nvim-neotest/nvim-nio" },
     keys = {
       {
         "<leader>dh",
@@ -231,5 +232,14 @@ return {
   {
     "RRethy/vim-illuminate",
     enabled = false,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- add latex, needed for markdown for whatever reason
+      vim.list_extend(opts.ensure_installed, {
+        "latex",
+      })
+    end,
   },
 }
