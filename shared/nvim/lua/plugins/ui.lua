@@ -170,6 +170,10 @@ return {
         search = {
           enabled = false,
         },
+        -- Disable labels for motions like f, t, F, T
+        char = {
+          enabled = false,
+        },
       },
     },
   },
