@@ -116,6 +116,7 @@ return {
       end
     end,
   },
+  -- { "akinsho/bufferline.nvim", enabled = false },
   {
     "nvim-telescope/telescope.nvim",
     keys = {
