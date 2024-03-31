@@ -47,17 +47,17 @@ keymap("t", "<C-j>", [[<Cmd>wincmd j<CR>]], term_opts)
 keymap("t", "<C-k>", [[<Cmd>wincmd k<CR>]], term_opts)
 keymap("t", "<C-l>", [[<Cmd>wincmd l<CR>]], term_opts)
 
+-- replace all inside buffer
+keymap("v", "<C-r>", '"hy:%s/<C-r>h//g<left><left>', opts)
+
 -- Launch lazygit as full screen
 local Util = require("lazyvim.util")
 set_keymap("n", "<leader>gg", function()
-  Util.terminal.open({ "lazygit" }, {
-    size = {
-      width = 1,
-      height = 1,
-    },
-    border = "none",
-  })
-end, { desc = "Lazygit" })
+  Util.lazygit({ cwd = Util.root.git(), size = {
+    width = 1,
+    height = 1,
+  }, border = "none" })
+end, { desc = "Lazygit (Root Dir)" })
 
 -- REMOVE DEFAULT KEYMAPS
 
