@@ -30,8 +30,8 @@ return {
         hl.NeoTreeNormal.bg = c.bg --Neotree background
         hl.LspInfoBorder.bg = c.bg --Border for the LSPInfo window, leader + c + l
         hl.FloatTitle.bg = c.bg -- Title for the rename and lsp windows (dressing.nvim)
-        hl.BufferLineBackground.bg = c.bg
-        hl.BufferLineFill.bg = c.bg
+        -- hl.BufferLineBackground.bg = c.bg
+        -- hl.BufferLineFill.bg = c.bg
 
         -- vim.api.nvim_set_hl(0, "PopMenu", { bg = c.bg, blend = 0 }) --Remove transparency and set background of completion popup
       end,
@@ -43,7 +43,6 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = true,
     opts = {
       theme = "wave",
       background = {
@@ -79,12 +78,14 @@ return {
             fg = palette.boatYellow2,
             bg = "none",
           },
-          NormalFloat = { bg = "none" }, -- All floating buffers background like the lsp, autocomplete and such
+          NormalFloat = { bg = theme.ui.bg }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = "none" }, -- Most floating borders except telescope
           TelescopeBorder = { bg = "none" },
           FloatTitle = { bg = "none" }, -- Title for the rename and lsp windows (dressing.nvim)
-          BufferLineBackground = { bg = theme.ui.bg_dim },
-          BufferLineFill = { bg = theme.ui.bg_dim },
+          LazyDimmed = { bg = "none", fg = "none" },
+          -- LazyNormal = { bg = "red" }, -- Title for the rename and lsp windows (dressing.nvim)
+          -- BufferLineBackground = { bg = theme.ui.bg_dim },
+          -- BufferLineFill = { bg = theme.ui.bg_dim },
         }
       end,
     },
