@@ -41,23 +41,31 @@ return {
       }
 
       for _, language in ipairs({ "typescript", "javascript" }) do
-        table.insert(dap.configurations[language], {
-          name = "Debug -> watch:node",
-          request = "launch",
-          runtimeArgs = {
-            "watch:node",
+        local defaultConfig = dap.configurations[language]
+        local newConfig = {
+          {
+            name = "Debug -> watch:node",
+            request = "launch",
+            runtimeArgs = {
+              "watch:node",
+            },
+            runtimeExecutable = "yarn",
+            skipFiles = {
+              "<node_internals>/**",
+            },
+            type = "pwa-node",
+            envFile = "${workspaceFolder}/.env.local",
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
           },
-          runtimeExecutable = "yarn",
-          skipFiles = {
-            "<node_internals>/**",
-          },
-          type = "pwa-node",
-          envFile = "${workspaceFolder}/.env.local",
-          rootPath = "${workspaceFolder}",
-          cwd = "${workspaceFolder}",
-          console = "integratedTerminal",
-          internalConsoleOptions = "neverOpen",
-        })
+        }
+        for _, v in ipairs(defaultConfig) do
+          table.insert(newConfig, v)
+        end
+
+        dap.configurations[language] = newConfig
       end
     end,
   },
