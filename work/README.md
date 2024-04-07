@@ -2,20 +2,17 @@
 
 The dotfiles for my work setup.
 
-System: Ubuntu 22.04.3 LTS
-Theme: tokyonight
+System: Mac OS
+Theme: tokyonight/kanagawa
 
-- i3 + gnome-flashback
-- alacritty
-- rofi
+- aerospace
+- kitty
+- alfred
 - zsh
 - pfetch
 - nvim
-- gnome apps
-
 
 ![screenshot](https://github.com/Raagh/dotfiles/assets/8405459/5a35b92b-e190-45fd-b8b9-5283c99878e7)
-
 
 all configurations are linked using stow
 

@@ -45,7 +45,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 
 setopt prompt_subst
-PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
+PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
 
 RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
 
@@ -60,8 +60,9 @@ _comp_options+=(globdots) # lets you tab complete hidden files by default
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
