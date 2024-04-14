@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
+      ./desktop-environment.nix
       ./hardware-configuration.nix
     ];
 
@@ -79,65 +80,28 @@
   users.users.raagh = {
     isNormalUser = true;
     description = "Raagh";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Desktop Environment
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  services.gnome.gnome-keyring.enable = true;
-  services.udisks2.enable = true;
-  security.polkit.enable = true;
-  programs.light.enable = true;
-  systemd.user.services.kanshi = {
-    description = "Kanshi daemon";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
-    };
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
-     neovim
      git 
      gcc
      nodejs
      ripgrep
+     eza
+     bat
 
+     neovim
      google-chrome
      lazygit
-
-     networkmanagerapplet
-     blueberry
-     kitty
-     wdisplays
-     rofi-wayland
-     mako
-     wl-clipboard
-     slurp
-     kanshi
-     udiskie
-     gnome.nautilus
      stow
-  ];
-
-  fonts.packages = with pkgs; [
-    noto-fonts-emoji
-    dejavu_fonts
-    liberation_ttf
-    source-code-pro
-    inter
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
 
   # Enable zsh as default shell 
