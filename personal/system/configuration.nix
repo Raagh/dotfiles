@@ -7,42 +7,49 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-     "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
       ./hardware-configuration.nix
-
-      #wayland
-      ./wayland/general.nix
-      ./wayland/window-manager.nix
-      ./wayland/login-manager.nix
     ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "nodev" ];
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.devices = [ "nodev"];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.gfxmodeEfi = "1024x768";
   boot.loader.grub.default = 2;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Encryption UI and silent boot
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
   boot.kernelParams = ["quiet"];
-  boot.initrd.luks.devices."luks-365e8444-5cd9-4047-8d0c-cad09d914234".device = "/dev/disk/by-uuid/365e8444-5cd9-4047-8d0c-cad09d914234";
+  boot.initrd.luks.devices."luks-aa540375-94f1-455d-9e10-9a657a644d3f".device = "/dev/disk/by-uuid/aa540375-94f1-455d-9e10-9a657a644d3f";
+  networking.hostName = "rmx-nix"; # Define your hostname.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
- 
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
-  services.gnome.gnome-keyring.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "rmx-nix"; # Define your hostname.
   hardware.bluetooth.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -62,57 +69,67 @@
     LC_TIME = "es_ES.UTF-8";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput = {
-    enable = true;
-    touchpad = {
-      disableWhileTyping = true;
-      sendEventsMode = "disabled-on-external-mouse";
-    };
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "euro";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
     isNormalUser = true;
     description = "Raagh";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-     google-chrome
-    ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable zsh as default shell 
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
+  # Desktop Environment
+  programs.sway = {
     enable = true;
-    ohMyZsh.enable = true;
-    ohMyZsh.plugins = [ "git" "npm" "vi-mode" ];
-    syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
+    wrapperFeatures.gtk = true;
   };
+  services.gnome.gnome-keyring.enable = true;
+  services.udisks2.enable = true;
+  security.polkit.enable = true;
+  programs.light.enable = true;
+  systemd.user.services.kanshi = {
+    description = "Kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
+  };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     wget
+     neovim
+     git 
+     gcc
+     nodejs
+     ripgrep
+
+     google-chrome
+     lazygit
+
+     networkmanagerapplet
+     blueberry
+     kitty
+     wdisplays
+     rofi-wayland
+     mako
+     wl-clipboard
+     slurp
+     kanshi
+     udiskie
+     gnome.nautilus
+     stow
+  ];
 
   fonts.packages = with pkgs; [
     noto-fonts-emoji
@@ -123,28 +140,15 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
 
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-     gcc
-     wget
-     neovim
-     ripgrep
-     nodejs
-     cargo
-
-     wget
-     sumneko-lua-language-server
-     git
-     lazygit
-     pfetch
-     bat
-     eza
-     vlc
-     stow
-     zathura
-     portfolio
-  ];
-
+  # Enable zsh as default shell 
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh.enable = true;
+    ohMyZsh.plugins = [ "git" "npm" "vi-mode" ];
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+  };
   nixpkgs.overlays = [
     (self: super: {
       neovim = super.neovim.override {
@@ -164,14 +168,8 @@
 
   # List services that you want to enable:
 
-  # Enable docker
-  virtualisation.docker.enable = true;
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Enable Trezor Hardware wallet support
-  services.trezord.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
