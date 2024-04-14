@@ -4,7 +4,7 @@
 dir="$HOME/.config/rofi/themes"
 
 # CMDs
-host=`hostname`
+host=$(hostname)
 
 # Options
 shutdown='  Shutdown'
@@ -48,7 +48,7 @@ run_rofi() {
 }
 
 lock_command() {
- 	i3lock-color --blur 5 --ringver-color "#9ccfd8" --ringwrong-color "#eb6f92" --ring-color "#c4a7e7" --insidever-color "#3e8fb0" --insidewrong-color "#eb6f92" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9";
+	i3lock-color --blur 5 --ringver-color "#9ccfd8" --ringwrong-color "#eb6f92" --ring-color "#c4a7e7" --insidever-color "#3e8fb0" --insidewrong-color "#eb6f92" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9"
 }
 
 # Execute Command
@@ -65,7 +65,7 @@ run_cmd() {
 			lock_command
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			i3 exit
+			sway exit
 		elif [[ $1 == '--lock' ]]; then
 			lock_command
 		fi
@@ -77,19 +77,19 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
-		run_cmd --shutdown
-        ;;
-    $reboot)
-		run_cmd --reboot
-        ;;
-    $lock)
-		run_cmd --lock
-        ;;
-    $suspend)
-		run_cmd --suspend
-        ;;
-    $logout)
-		run_cmd --logout
-        ;;
+$shutdown)
+	run_cmd --shutdown
+	;;
+$reboot)
+	run_cmd --reboot
+	;;
+$lock)
+	run_cmd --lock
+	;;
+$suspend)
+	run_cmd --suspend
+	;;
+$logout)
+	run_cmd --logout
+	;;
 esac

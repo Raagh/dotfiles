@@ -9,6 +9,11 @@
     [ # Include the results of the hardware scan.
      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
       ./hardware-configuration.nix
+
+      #wayland
+      ./wayland/general.nix
+      ./wayland/window-manager.nix
+      ./wayland/login-manager.nix
     ];
 
   # Bootloader.
@@ -28,6 +33,10 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+ 
+  # Enable the gnome-keyring secrets vault. 
+  # Will be exposed through DBus to programs willing to store secrets.
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -51,22 +60,6 @@
     LC_PAPER = "es_ES.UTF-8";
     LC_TELEPHONE = "es_ES.UTF-8";
     LC_TIME = "es_ES.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.defaultSession = "plasmawayland";
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.autoRepeatDelay = 250;
-  services.xserver.autoRepeatInterval = 30;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "euro";
   };
 
   # Enable CUPS to print documents.
@@ -104,7 +97,6 @@
     description = "Raagh";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-     firefox
      google-chrome
     ];
   };
@@ -137,12 +129,13 @@
      wget
      neovim
      ripgrep
+     nodejs
+     cargo
 
      wget
      sumneko-lua-language-server
      git
      lazygit
-     kitty
      pfetch
      bat
      eza

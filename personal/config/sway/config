@@ -21,68 +21,48 @@ for_window [class=".*"] title_format " "
 # Always focus urgent windows
 for_window [urgent="latest"] focus
 
-# gaps inner 8
-# gaps top 28 
-gaps inner 4
-gaps top 42 
+gaps inner 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#pango:Iosevka Nerd Font Mono 12
+#pango:Iosevka Nerd Font Mono 12#
+
+# A more modern dmenu replacement is rofi:
+bindsym $mod+d exec ~/.config/rofi/bin/launcher
+bindsym $mod+x exec ~/.config/rofi/bin/powermenu
 
 ## Startup apps
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
 
-# NetworkManager
-exec --no-startup-id nm-applet
-
-# Restore wallpaper
-exec --no-startup-id nitrogen --restore
-
-# Launch notification daemon
-exec --no-startup-id dunst -config ~/.config/dunstrc
-#
-# # Enable power management
-# exec --no-startup-id xfce4-power-manager
-#
-# # Start udiskie
-# exec --no-startup-id udiskie
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Volume
+bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # start browser
 bindsym $mod+Shift+w exec google-chrome-stable
 
 # start flameshot
-bindsym $mod+Shift+s exec flameshot gui
+bindsym $mod+Shift+s exec slurp
+
+# NetworkManager
+exec --no-startup-id nm-applet
 
 # kill focused window
 bindsym $mod+c kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-bindsym $mod+d exec ~/.config/rofi/bin/launcher
-bindsym $mod+x exec ~/.config/rofi/bin/powermenu
-
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -196,11 +176,10 @@ bindsym $mod+r mode "resize"
 default_border pixel 2
 client.focused         #f7768e #285577 #ffffff #2e9ef4  #f7768e
 
-# Start pixom on startx
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
-
 # Toggle keyboard layouts
-exec --no-startup-id setxkbmap -option grp:win_space_toggle us,es 
+exec --no-startup-id setxkbmap -option grp:win_space_toggle us,es &
 
-## Launch bar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec waybar
+
+# give sway a little time to startup before starting kanshi.
+exec sleep 5; systemctl --user start kanshi.service
