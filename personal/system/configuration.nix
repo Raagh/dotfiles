@@ -80,8 +80,10 @@
   users.users.raagh = {
     isNormalUser = true;
     description = "Raagh";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [
+      portfolio
+    ];
   };
 
   # Allow unfree packages
@@ -93,6 +95,7 @@
      wget
      git 
      gcc
+     cargo
      nodejs
      ripgrep
      eza
@@ -134,6 +137,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  virtualisation.docker.enable = true; 
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

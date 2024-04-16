@@ -61,6 +61,7 @@ output * bg wallpapers/Shogoki.png fill
 # Style:
 #
 gaps inner 8
+corner_radius 8
 client.focused         #f7768e #285577 #ffffff #2e9ef4  #f7768e
 font pango:monospace 0
 default_border pixel 2
@@ -93,9 +94,6 @@ default_border pixel 2
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -235,7 +233,7 @@ include @sysconfdir@/sway/config.d/*
 # Startup apps:
 #
     # give sway a little time to startup before starting kanshi.
-    exec sleep 5; systemctl --user start kanshi.service
+    exec sleep 5; systemctl --user start kanshi.service &
 
     # Start udiskie
     exec --no-startup-id udiskie -f nautilus

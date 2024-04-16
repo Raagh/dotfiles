@@ -8,10 +8,8 @@
   # Desktop Environment
   programs.sway = {
     enable = true;
+    package = (pkgs.swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; })); 
     wrapperFeatures.gtk = true;
-  };
-  programs.hyprland = {
-    enable = true;
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   services.gnome.gnome-keyring.enable = true;
@@ -23,13 +21,15 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver.displayManager.defaultSession = "sway";
 
   systemd.user.services.kanshi = {
     description = "Kanshi daemon";
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi'';
+      RestartSec = 5;
+      Restart = "always";
     };
   };
 
@@ -45,6 +45,9 @@
      kanshi
      udiskie
      gnome.nautilus
+     waybar
+     flameshot
+     pavucontrol
   ];
 
   fonts.packages = with pkgs; [

@@ -18,7 +18,8 @@ alias rm='rm -i'
 alias update-system="sudo nixos-rebuild switch"
 alias edit-config="sudo -E -s nvim /etc/nixos/configuration.nix"
 alias wget="wget -c" # continue the download
-
+alias via-enable="sudo chmod a+rw /dev/hidraw3"
+alias via-disable="sudo chmod 600 /dev/hidraw3"
 # required functions
 
 ex ()
