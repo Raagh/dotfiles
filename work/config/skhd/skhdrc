@@ -119,4 +119,4 @@ cmd + ctrl + shift - k : yabai -m window --resize top:0:40
 cmd + ctrl + shift - l : yabai -m window --resize right:-40:0
 
 # restart yabai
-ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
