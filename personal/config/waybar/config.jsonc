@@ -1,98 +1,16 @@
 {
   "layer": "top",
-  "position": "top",
-  "modules-left": ["custom/launcher", "hyprland/workspaces"],
-  "modules-right": [
-    "pulseaudio",
-    "backlight",
-    "memory",
-    "cpu",
-    "network",
-    "hyprland/language",
-    "custom/powermenu",
-    "tray",
-  ],
-  "custom/launcher": {
-    "format": " ",
-    "on-click": "~/.config/rofi/bin/launcher",
-    "tooltip": false,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["battery", "clock"],
+  "sway/window": {
+    "max-length": 50,
   },
-  "custom/cava-internal": {
-    "exec": "sleep 1s && cava-internal",
-    "tooltip": false,
-  },
-  "pulseaudio": {
-    "scroll-step": 1,
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁 Muted",
-    "format-icons": {
-      "default": ["", "", ""],
-    },
-    "on-click": "pavucontrol",
-    "tooltip": false,
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
   },
   "clock": {
-    "interval": 1,
-    "format": "{:%I:%M %p  %A %b %d}",
-    "tooltip": true,
-    "tooltip-format": "{=%A; %d %B %Y}\n<tt>{calendar}</tt>",
-  },
-  "memory": {
-    "interval": 1,
-    "format": "󰻠 {percentage}%",
-    "states": {
-      "warning": 85,
-    },
-  },
-  "cpu": {
-    "interval": 1,
-    "format": "󰍛 {usage}%",
-  },
-  "mpd": {
-    "max-length": 25,
-    "format": "<span foreground='#bb9af7'></span> {title}",
-    "format-paused": " {title}",
-    "format-stopped": "<span foreground='#bb9af7'></span>",
-    "format-disconnected": "",
-    "on-click": "mpc --quiet toggle",
-    "on-click-right": "mpc update; mpc ls | mpc add",
-    "on-click-middle": "kitty --class='ncmpcpp' ncmpcpp ",
-    "on-scroll-up": "mpc --quiet prev",
-    "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold": 5,
-    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})",
-  },
-  "network": {
-    "format-disconnected": "󰯡 Disconnected",
-    "format-ethernet": "󰒢 Connected!",
-    "format-linked": "󰖪 {essid} (No IP)",
-    "format-wifi": "󰖩 {essid}",
-    "interval": 1,
-    "tooltip": false,
-  },
-  "custom/powermenu": {
-    "format": "",
-    "on-click": "pkill rofi || ~/.config/rofi/bin/powermenu",
-    "tooltip": false,
-  },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 5,
-  },
-
-  "hyprland/language": {
-    "format": " {}",
-  },
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
-    "format": " {icon} ",
-    "format-icons": {
-      "1": " ",
-      "2": " ",
-      "3": " ",
-      "4": " ",
-    },
+    "format-alt": "{:%a, %d. %b  %H:%M}",
   },
 }
