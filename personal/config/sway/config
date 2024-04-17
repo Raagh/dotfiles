@@ -233,7 +233,10 @@ include @sysconfdir@/sway/config.d/*
 # Startup apps:
 #
     # give sway a little time to startup before starting kanshi.
-    exec sleep 5; systemctl --user start kanshi.service &
+    exec sleep 8; systemctl --user start kanshi.service &
 
     # Start udiskie
-    exec --no-startup-id udiskie -f nautilus
+    exec --no-startup-id udiskie -f nautilus &
+
+    exec dbus-sway-environment
+    exec configure-gtk

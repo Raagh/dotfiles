@@ -65,7 +65,7 @@ run_cmd() {
 			lock_command
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			hyprctl dispatch exit
+			sway exit
 		elif [[ $1 == '--lock' ]]; then
 			lock_command
 		fi
