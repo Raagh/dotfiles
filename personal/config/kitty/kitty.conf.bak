@@ -30,6 +30,6 @@ enable_audio_bell 0
 
 
 # BEGIN_KITTY_THEME
-# Rosé Pine
+# kanagawabones
 include current-theme.conf
 # END_KITTY_THEME

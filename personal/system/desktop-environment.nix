@@ -33,6 +33,7 @@ let
         datadir = "${schema}/share/gsettings-schemas/${schema.name}";
       in ''
         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+        export GTK_THEME=rose-pine
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'rose-pine'
         '';
@@ -114,11 +115,13 @@ in
      wl-clipboard
      slurp
      kanshi
-     udiskie
-     gnome.nautilus
      waybar
      flameshot
      pavucontrol
+     udiskie
+     xfce.thunar
+     xfce.thunar-volman
+     xfce.thunar-archive-plugin
 
      # Theming
      qogir-theme

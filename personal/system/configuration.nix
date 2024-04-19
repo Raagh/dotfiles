@@ -102,6 +102,7 @@
      bat
 
      neovim
+     sumneko-lua-language-server
      google-chrome
      lazygit
      stow
