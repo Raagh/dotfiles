@@ -42,6 +42,45 @@ return {
     enabled = false,
   },
   {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    opts = function()
+      local rose_pine_palette_ok, palette = pcall(require, 'rose-pine.palette')
+      return {
+          disable_float_background = true,
+          highlight_groups = { 
+            -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
+
+            -- Only setup the only ones needed
+            --
+              DapBreakpoint = {
+                fg = palette.love,
+                bg = palette.base, 
+              },
+              DapLogPoint = {
+                fg = palette.iris,
+                bg = palette.base ,
+              },
+              DapStopped = {
+                fg = palette.gold,
+                bg = palette.base ,
+              },
+              NormalFloat = { bg = palette.base }, -- All floating buffers background like the lsp, autocomplete and such
+              FloatBorder = { bg = palette.base, fg = palette.muted }, -- Most floating borders except telescope
+              WhichKeyFloat = { bg = palette.base }, -- Whichkey popup background
+              -- FloatTitle = { bg = palette.base }, -- Title for the rename and lsp windows (dressing.nvim)
+              -- LazyDimmed = { bg = palette.base, fg = palette.base },
+              TelescopeBorder = { bg = palette.base, fg = palette.love },
+              TelescopeTitle = { bg = palette.base, fg = palette.gold },
+              TelescopeResultsNormal = { bg = palette.base, fg = palette.text },
+              -- LazyNormal = { bg = "red" }, -- Title for the rename and lsp windows (dressing.nvim)
+              -- BufferLineBackground = { bg = theme.ui.bg_dim },
+              -- BufferLineFill = { bg = theme.ui.bg_dim },
+          },
+        }
+    end,
+  },
+  {
     "rebelot/kanagawa.nvim",
     opts = {
       theme = "wave",
