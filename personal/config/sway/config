@@ -233,7 +233,7 @@ include @sysconfdir@/sway/config.d/*
 #
 # Startup apps:
 #
-    exec_always "systemctl --user restart kanshi.service" &
+    exec_always "systemctl --user start kanshi.service" &
 
     # Start udiskie
     exec --no-startup-id udiskie -f nautilus &
