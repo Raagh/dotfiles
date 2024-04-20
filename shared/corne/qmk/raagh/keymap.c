@@ -40,6 +40,7 @@ enum custom_layers {
 #define OSM_LCTL   OSM(MOD_LCTL)
 #define OSM_AGR    OSM(MOD_RALT)
 #define OSL_FUN    OSL(_FUNC)
+#define OSL_LOW    OSL(_LOWER)
 #define GUI_TAB    GUI_T(KC_TAB)
 #define LOW_SPC    LT(_LOWER, KC_SPC)
 #define RSE_BSP    LT(_RAISE, KC_BSPC)
@@ -54,7 +55,7 @@ enum custom_layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL  ,
+      OSL_LOW,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  OSM(MOD_LSFT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_QUOT ,OSM_AGR ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
