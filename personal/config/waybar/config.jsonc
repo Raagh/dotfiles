@@ -17,7 +17,7 @@
   "custom/logo": {
     "format": "",
     "tooltip": false,
-    // "on-click": ''~/.config/rofi/bin/launcher '',
+    "on-click": "~/.config/rofi/bin/launcher",
   },
   "sway/workspaces": {
     "all-outputs": true,
@@ -45,7 +45,7 @@
     },
   },
   "sway/window": {
-    "max-length": 50,
+    "max-length": 30,
   },
   "memory": {
     "format": "󰍛   %{percentage}",

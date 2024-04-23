@@ -62,18 +62,30 @@ in
   # Desktop Environment
   programs.sway = {
     enable = true;
-    package = (pkgs.swayfx.overrideAttrs (old: {
-      passthru.providedSessions = [ "sway" ];
-      passthru.extraSessionCommands = ''
-        export XDG_SESSION_TYPE=wayland
-        export XDG_SESSION_DESKTOP=sway
-        export XDG_CURRENT_DESKTOP=sway
-        export QT_QPA_PLATFORM=wayland
-        export CLUTTER_BACKEND=wayland
-        export SDL_VIDEODRIVER=wayland
-        export _JAVA_AWT_WM_NONREPARENTING=1
-      '';
-    })); 
+    # package = (pkgs.swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; }));
+    # package = pkgs.swayfx;
+    extraSessionCommands = ''
+         export XDG_SESSION_TYPE=wayland
+         export XDG_SESSION_DESKTOP=sway
+         export XDG_CURRENT_DESKTOP=sway
+         export QT_QPA_PLATFORM=wayland
+         export CLUTTER_BACKEND=wayland
+         export SDL_VIDEODRIVER=wayland
+         export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
+    # package = (pkgs.swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; }));
+    # package = (pkgs.swayfx.overrideAttrs (old: {
+    #   passthru.providedSessions = [ "sway" ];
+    #   passthru.extraSessionCommands = ''
+    #     export XDG_SESSION_TYPE=wayland
+    #     export XDG_SESSION_DESKTOP=sway
+    #     export XDG_CURRENT_DESKTOP=sway
+    #     export QT_QPA_PLATFORM=wayland
+    #     export CLUTTER_BACKEND=wayland
+    #     export SDL_VIDEODRIVER=wayland
+    #     export _JAVA_AWT_WM_NONREPARENTING=1
+    #   '';
+    # })); 
     wrapperFeatures.gtk = true;
   };
   services.gnome.gnome-keyring.enable = true;
@@ -113,9 +125,9 @@ in
      rofi-wayland
      mako
      wl-clipboard
-     slurp
      kanshi
      waybar
+     grim
      flameshot
      pavucontrol
      udiskie

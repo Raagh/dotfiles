@@ -212,6 +212,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
 #
 # Status Bar:
 #
