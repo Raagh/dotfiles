@@ -23,6 +23,8 @@ set $menu ~/.config/rofi/bin/launcher
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 output * bg wallpapers/Shogoki.png fill
+output DP-7 enable position 0,0
+output eDP-1 disable
 #
 # Example configuration:
 #
@@ -84,6 +86,9 @@ default_border pixel 2
 
     # Start powermenu:
     bindsym $mod+x exec ~/.config/rofi/bin/powermenu
+
+    # start flameshot
+    bindsym $mod+Shift+s exec flameshot gui
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -233,7 +238,7 @@ include @sysconfdir@/sway/config.d/*
 #
 # Startup apps:
 #
-    exec_always "systemctl --user start kanshi.service &
+    exec systemctl --user start kanshi.service &
 
     # Start udiskie
     exec --no-startup-id udiskie -f nautilus &
