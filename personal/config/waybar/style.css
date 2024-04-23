@@ -1,142 +1,82 @@
 @import "./rose-pine.css";
 
 * {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 12pt;
+  font-family: JetBrains Nerd Font Mono;
+  font-size: 12px;
   font-weight: bold;
+  color: #ffffff;
   border-radius: 8px;
 }
-@keyframes blink_red {
-  to {
-    background-color: rgb(242, 143, 173);
-    color: rgb(26, 24, 38);
-  }
-}
-.warning,
-.critical,
-.urgent {
-  animation-name: blink_red;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
+
 window#waybar {
-  background-color: transparent;
+  background: rgba(1, 0, 0, 0);
 }
-window > box {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  background-color: #1e1e2a;
-  padding: 3px;
-  padding-left: 8px;
-  border: 2px none #33ccff;
+
+/*-----module groups----*/
+.modules-center {
+  background-color: @base;
+  margin: 2px 0 0 0;
 }
-#workspaces {
-  padding-left: 0px;
-  padding-right: 4px;
-}
+
+/*-----modules indv----*/
 #workspaces button {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding: 2.5;
+  background-color: @base;
 }
-#workspaces button.active {
-  background-color: rgb(181, 232, 224);
-  color: rgb(26, 24, 38);
+#workspaces button label {
+  color: @rose;
 }
-#workspaces button.urgent {
-  color: rgb(26, 24, 38);
+
+#workspaces button.focused label {
+  color: @pine;
 }
-#workspaces button:hover {
-  background-color: rgb(248, 189, 150);
-  color: rgb(26, 24, 38);
-}
-tooltip {
-  background: rgb(48, 45, 65);
-}
-tooltip label {
-  color: rgb(217, 224, 238);
-}
-#custom-launcher {
-  font-size: 20px;
-  padding-left: 8px;
-  padding-right: 6px;
-  color: #7ebae4;
-}
-#mode,
-#clock,
-#memory,
-#temperature,
-#cpu,
-#mpd,
-#custom-wall,
-#temperature,
-#backlight,
-#pulseaudio,
-#network,
-#battery,
-#custom-powermenu,
-#custom-cava-internal {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/* #mode { */
-/* 	margin-left: 10px; */
-/* 	background-color: rgb(248, 189, 150); */
-/*     color: rgb(26, 24, 38); */
-/* } */
+
 #memory {
-  color: rgb(181, 232, 224);
+  padding: 0 10px 0 500px;
+  color: @foam;
 }
-#cpu {
-  color: rgb(245, 194, 231);
+#custom-logo {
+  font-size: 18px;
+  margin: 0;
+  margin-left: 7px;
+  margin-right: 12px;
+  padding: 0;
+  font-family: Iosevka Nerd Font;
 }
+
+#tray,
+#mode {
+  padding: 0 10px;
+  color: @iris;
+}
+
 #clock {
-  color: rgb(217, 224, 238);
+  color: @love;
+  padding: 0 10px;
 }
-/* #idle_inhibitor {
-                 color: rgb(221, 182, 242);
-               }*/
-#custom-wall {
-  color: #33ccff;
+
+#mode {
+  color: #cc3436;
+  font-weight: bold;
 }
-#temperature {
-  color: rgb(150, 205, 251);
+#custom-power {
+  background-color: rgba(0, 119, 179, 0.6);
+  border-radius: 100px;
+  margin: 5px 5px;
+  padding: 1px 1px 1px 6px;
 }
-#backlight {
-  color: rgb(248, 189, 150);
+/*-----Indicators----*/
+#battery {
+  padding: 0 10px;
+  color: @gold;
 }
+
 #pulseaudio {
-  color: rgb(245, 224, 220);
+  padding: 0 10px;
+  color: @pine;
 }
-#network {
-  color: #abe9b3;
-}
-#network.disconnected {
-  color: rgb(255, 255, 255);
-}
-#custom-powermenu {
-  color: rgb(242, 143, 173);
-  padding-right: 8px;
-}
-#tray {
-  padding-right: 8px;
-  padding-left: 10px;
-}
-#mpd.paused {
-  color: #414868;
-  font-style: italic;
-}
-#mpd.stopped {
-  background: transparent;
-}
-#mpd {
-  color: #c0caf5;
-}
-#custom-cava-internal {
-  font-family: "Hack Nerd Font";
-  color: #33ccff;
+
+#language {
+  padding: 0 10px;
+  color: @rose;
 }
