@@ -91,6 +91,9 @@ return {
 
       logo = string.rep("\n", 8) .. logo .. "\n\n"
 
+      local desc_highlight = "DashboardCenter"
+      local icon_highlight = "DashboardShortcut"
+
       local opts = {
         theme = "doom",
         hide = {
@@ -102,15 +105,15 @@ return {
           header = vim.split(logo, "\n"),
           -- stylua: ignore
           center = {
-            { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = "󰦛 ", key = "s" },
-            { action = 'Telescope find_files hidden=true theme=dropdown',          desc = " Find file",       icon = " ", key = "f" },
-            { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
-            { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
-            { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
-            { action = "edit $MYVIMRC",                                            desc = " Config",          icon = " ", key = "c" },
-            { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
-            { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
-            { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
+            { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = "󰦛 ", key = "s", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = 'Telescope find_files hidden=true theme=dropdown',          desc = " Find file",       icon = " ", key = "f", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "edit $MYVIMRC",                                            desc = " Config",          icon = " ", key = "c", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l", desc_hl = desc_highlight, icon_hl= icon_highlight },
+            { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q", desc_hl = desc_highlight, icon_hl= icon_highlight },
           },
           footer = function()
             local stats = require("lazy").stats()
