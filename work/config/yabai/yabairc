@@ -63,4 +63,4 @@ yabai -m rule --add app="^Insomnia$" manage=off grid=8:4:1:1:2:6 border=off
 
 echo "yabai configuration loaded.."
 
-borders active_color=0xfff7768e inactive_color=0xff494d64 width=5.0 &
+borders active_color=0xfff7768e inactive_color=0xff494d64 width=1 &
