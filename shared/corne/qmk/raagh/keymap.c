@@ -1,5 +1,3 @@
-// Copyright 2022 Mark Stosberg (@markstos)
-// SPDX-License-Identifier: GPL-2.0-or-later
 #include QMK_KEYBOARD_H
 
 enum custom_keycodes {
@@ -22,7 +20,7 @@ combo_t key_combos[COMBO_COUNT] = {
   // Add commonly used dash to home row
   [DF_DASH]    = COMBO(df_combo, KC_MINS),
   // For Vim, put Escape on the home row
-  [JK_ESC]    = COMBO(jk_combo, KC_ESC),
+  [JK_ESC]     = COMBO(jk_combo, KC_ESC),
 };
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -44,15 +42,15 @@ enum custom_layers {
 // #define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
 // #define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
 
-// original markstos keys
+// in use keys
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_AGR  OSM(MOD_RALT)
+#define OSM_ALT  OSM(MOD_LALT)
+#define OSM_SFT  OSM(MOD_LSFT)
 #define OSL_FUN  OSL(_FUNC)
 #define GUI_ENT  GUI_T(KC_ENT)
 #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
-#define OSM_SFT  OSM(MOD_LSFT) 
-
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -62,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LALT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_QUOT ,OSM_AGR ,
+      OSM_SFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_QUOT ,OSM_AGR ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
+      OSM_ALT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          OSM_LCTL, GUI_ENT, LOW_TAB,   RSE_BSP ,KC_SPC  ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
@@ -85,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_DEL , XXXXXXX, KC_UNDS, KC_PLUS, KC_PGUP,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, KC_PIPE,_______ ,
+      _______, XXXXXXX, XXXXXXX, KC_UNDS, KC_PLUS, KC_QUES,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, KC_PIPE,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_HOME, KC_END , KC_MINS, KC_EQL , KC_PGDN,                      KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_APP ,_______ ,
+      _______, KC_HOME, KC_END , KC_MINS, KC_EQL , XXXXXXX,                      KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_APP ,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_LT  , KC_GT  , KC_COPY, KC_PSTE, KC_SCLN,                      KC_MPLY, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU,_______ ,
+      _______, KC_LT  , KC_GT  , XXXXXXX, XXXXXXX, KC_SCLN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
@@ -99,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 ,                     KC_F6   , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
+      _______, KC_F11 , KC_F12 , XXXXXXX, KC_VOLU, XXXXXXX,                     RGB_MOD , RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,XXXXXXX ,
+      _______, KC_CAPS, XXXXXXX, XXXXXXX, KC_VOLD, XXXXXXX,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, QK_BOOT,XXXXXXX ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX
                                       //`--------------------------'  `--------------------------'
