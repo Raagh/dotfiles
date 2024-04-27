@@ -34,20 +34,25 @@ enum custom_layers {
   _LOWER,
   _RAISE,
   _FUNC,
-}; 
+};
 
-// For _QWERTY layer
-#define OSM_LCTL   OSM(MOD_LCTL)
-#define OSM_AGR    OSM(MOD_RALT)
-#define OSL_FUN    OSL(_FUNC)
-#define OSL_LOW    OSL(_LOWER)
-#define GUI_TAB    GUI_T(KC_TAB)
-#define LOW_SPC    LT(_LOWER, KC_SPC)
-#define RSE_BSP    LT(_RAISE, KC_BSPC)
-#define OSM_SFT    OSM(MOD_LSFT)
-#define DTT_PRINT  QK_DYNAMIC_TAPPING_TERM_PRINT
-#define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
-#define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
+// some I added and might use
+// #define OSL_LOW    OSL(_LOWER)
+// #define GUI_TAB    GUI_T(KC_TAB)
+// #define LOW_SPC    LT(_LOWER, KC_SPC)
+// #define DTT_PRINT  QK_DYNAMIC_TAPPING_TERM_PRINT
+// #define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
+// #define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
+
+// original markstos keys
+#define OSM_LCTL OSM(MOD_LCTL)
+#define OSM_AGR  OSM(MOD_RALT)
+#define OSL_FUN  OSL(_FUNC)
+#define GUI_ENT  GUI_T(KC_ENT)
+#define LOW_TAB  LT(_LOWER, KC_TAB)
+#define RSE_BSP  LT(_RAISE, KC_BSPC)
+#define OSM_SFT  OSM(MOD_LSFT) 
+
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -55,13 +60,13 @@ enum custom_layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      OSL_LOW,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL  ,
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LSFT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_QUOT ,OSM_AGR ,
+ OSM(MOD_LALT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_QUOT ,OSM_AGR ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LALT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
+ OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_LCTL, GUI_TAB, LOW_SPC,   RSE_BSP ,KC_ENT  ,OSM_SFT
+                                         OSM_LCTL, GUI_ENT, LOW_TAB,   RSE_BSP ,KC_SPC  ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -94,9 +99,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 ,                     KC_F6   , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_F11 , KC_F12 , DTT_PRINT, XXXXXXX, DTT_UP,                    XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
+      _______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, DTT_DOWN,                    XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,XXXXXXX ,
+      _______, KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,XXXXXXX ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -104,12 +109,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    // switch (keycode) {
-    //   case LT(_RAISE, KC_BSPC):
-    //         return TAPPING_TERM_THUMB;
-    //   case LT(_LOWER, KC_SPC):
-    //         return TAPPING_TERM_THUMB;
-    //   default:
+    switch (keycode) {
+      case LT(_RAISE, KC_BSPC):
+            return TAPPING_TERM_THUMB;
+      case LT(_LOWER, KC_TAB):
+            return TAPPING_TERM_THUMB;
+      default:
             return TAPPING_TERM;
-    // }
+    }
 }
