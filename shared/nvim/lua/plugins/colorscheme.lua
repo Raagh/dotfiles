@@ -43,7 +43,9 @@ return {
           WhichKeyFloat = { bg = palette.base }, -- Whichkey popup background
           TelescopeBorder = { bg = palette.base, fg = palette.love },
           TelescopeTitle = { bg = palette.base, fg = palette.gold },
-          NotifyWARNBorder = { bg = palette.base, fg = palette.gold },
+          NotifyWARNBorder = { bg = palette.base },
+          NotifyERRORBorder = { bg = palette.base },
+          NotifyINFOBorder = { bg = palette.base },
           TelescopeResultsNormal = { bg = palette.base, fg = palette.text },
         },
       }
