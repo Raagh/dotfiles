@@ -21,14 +21,14 @@ return {
     "akinsho/bufferline.nvim",
     keys = {
       {
-        "[b",
+        "[[",
         function()
           require("bufferline").move(-1)
         end,
         desc = "Move Buffer Left",
       },
       {
-        "]b",
+        "]]",
         function()
           require("bufferline").move(1)
         end,
