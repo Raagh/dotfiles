@@ -36,8 +36,8 @@ enum custom_layers {
 
 // some I added and might use
 // #define OSL_LOW    OSL(_LOWER)
-// #define GUI_TAB    GUI_T(KC_TAB)
-// #define LOW_SPC    LT(_LOWER, KC_SPC)
+#define GUI_TAB    GUI_T(KC_TAB)
+#define LOW_SPC    LT(_LOWER, KC_SPC)
 // #define DTT_PRINT  QK_DYNAMIC_TAPPING_TERM_PRINT
 // #define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
 // #define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
@@ -48,8 +48,8 @@ enum custom_layers {
 #define OSM_ALT  OSM(MOD_LALT)
 #define OSM_SFT  OSM(MOD_LSFT)
 #define OSL_FUN  OSL(_FUNC)
-#define GUI_ENT  GUI_T(KC_ENT)
-#define LOW_TAB  LT(_LOWER, KC_TAB)
+// #define GUI_ENT  GUI_T(KC_ENT)
+// #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
 
 // For _RAISE layer
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       OSM_ALT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_LCTL, GUI_ENT, LOW_TAB,   RSE_BSP ,KC_SPC  ,OSM_SFT
+                                         OSM_LCTL, GUI_TAB, LOW_SPC,   RSE_BSP ,KC_ENT  ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -109,9 +109,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case LT(_RAISE, KC_BSPC):
-            return TAPPING_TERM_THUMB;
-      case LT(_LOWER, KC_TAB):
-            return TAPPING_TERM_THUMB;
+            return 190;
+      case LT(_LOWER, KC_SPC):
+            return 200;
       default:
             return TAPPING_TERM;
     }
