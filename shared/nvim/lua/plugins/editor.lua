@@ -116,6 +116,25 @@ return {
       end
     end,
   },
+  {
+    "f-person/git-blame.nvim",
+    event = "BufRead",
+    opts = {
+      enabled = false,
+    },
+    keys = {
+      {
+        "<leader>go",
+        "<cmd>GitBlameOpenCommitURL<cr>",
+        desc = "Open ommit in browser",
+      },
+      {
+        "<leader>gb",
+        "<cmd>GitBlameToggle<cr>",
+        desc = "Open ommit in browser",
+      },
+    },
+  },
   -- { "akinsho/bufferline.nvim", enabled = false },
   {
     "nvim-telescope/telescope.nvim",
