@@ -126,12 +126,12 @@ return {
       {
         "<leader>go",
         "<cmd>GitBlameOpenCommitURL<cr>",
-        desc = "Open ommit in browser",
+        desc = "Open Commit In Browser",
       },
       {
         "<leader>gb",
         "<cmd>GitBlameToggle<cr>",
-        desc = "Open ommit in browser",
+        desc = "Toggle Blame Inline",
       },
     },
   },
@@ -259,6 +259,7 @@ return {
       -- add latex, needed for markdown for whatever reason
       vim.list_extend(opts.ensure_installed, {
         "latex",
+        "prisma",
       })
     end,
   },
