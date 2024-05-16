@@ -5,10 +5,10 @@ cmd - return : open -n -a "kitty"
 cmd + shift - w : open -n -a "Google Chrome" 
 
 # moves focus between windows in the current focused display
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
 # moves focus between spaces 
 cmd - 1 : yabai -m space --focus 1
@@ -119,4 +119,4 @@ cmd + ctrl + shift - k : yabai -m window --resize top:0:40
 cmd + ctrl + shift - l : yabai -m window --resize right:-40:0
 
 # restart yabai
-ctrl + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + shift - r : yabai --restart-service
