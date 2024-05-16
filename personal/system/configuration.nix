@@ -106,6 +106,7 @@
      google-chrome
      lazygit
      stow
+     galculator
   ];
 
   # Enable zsh as default shell 

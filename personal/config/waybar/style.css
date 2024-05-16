@@ -20,7 +20,7 @@ window#waybar {
 
 /*-----modules indv----*/
 #workspaces button {
-  padding: 2.5;
+  padding: 2.5px;
   background-color: @base;
 }
 #workspaces button label {
