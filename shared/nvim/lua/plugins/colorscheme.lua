@@ -20,7 +20,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     opts = function()
-      local rose_pine_palette_ok, palette = pcall(require, "rose-pine.palette")
+      local _, palette = pcall(require, "rose-pine.palette")
       return {
         disable_float_background = true,
         highlight_groups = {
@@ -73,8 +73,6 @@ return {
         local theme = colors.theme
         -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
 
-        -- Only setup the only ones needed
-        --
         return {
           DapBreakpoint = {
             fg = palette.waveRed,
