@@ -83,23 +83,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, XXXXXXX, XXXXXXX, KC_UNDS, KC_PLUS, KC_QUES,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, KC_PIPE,_______ ,
+      _______, XXXXXXX, XXXXXXX, KC_UNDS, KC_PLUS, KC_QUES,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_HOME, KC_END , KC_MINS, KC_EQL , KC_SCLN,                      KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_APP ,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_LT  , KC_GT  , XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
+      _______, XXXXXXX, XXXXXXX, KC_LT  , KC_GT  , XXXXXXX,                      XXXXXXX, KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
+                                          CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS
                                       //`--------------------------'  `--------------------------'
   ),
 
   [_FUNC] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 ,                     KC_F6   , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,_______ ,
+      KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 , KC_F6  ,                      KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_F11 , KC_F12 , XXXXXXX, KC_VOLU, XXXXXXX,                     RGB_MOD , RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,_______ ,
+      _______, KC_VOLU, XXXXXXX, QK_BOOT, XXXXXXX, KC_CAPS,                      RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_CAPS, XXXXXXX, XXXXXXX, KC_VOLD, XXXXXXX,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, QK_BOOT,XXXXXXX ,
+      _______, KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,XXXXXXX ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -108,9 +108,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+      case LOW_SPC:
+            return TAPPING_TERM;
       default:
-            // return TAPPING_TERM;
             return 180;
-
     }
 }
