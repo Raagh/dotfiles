@@ -75,6 +75,8 @@
     layout = "us";
     xkbVariant = "euro";
   };
+  services.xserver.autoRepeatDelay = 250;
+  services.xserver.autoRepeatInterval = 30;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
