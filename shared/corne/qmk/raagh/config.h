@@ -11,10 +11,10 @@
 // tapped key will begin repeating. This is handy for fast typists when typing
 // words with double letters, such as "happy". If you turn this setting ON, it
 // will be counted as a held modifier instead.
-#define TAPPING_FORCE_HOLD
+//#define TAPPING_FORCE_HOLD
 
 // Customized by Raagh
-#define TAPPING_TERM 200
+#define TAPPING_TERM 180
 #define TAPPING_TERM_PER_KEY
 
 // If you press a dual-role key, press another key, and then release the
