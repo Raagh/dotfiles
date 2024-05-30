@@ -19,6 +19,7 @@ alias wget="wget -c" # continue the download
 alias fetch="pfetch"
 alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
 alias connect-db-staging="AWS_PROFILE=hm-eu-stag ./Code/henchman/ops/scripts/bastion_tunnel.sh stag 9494"
+alias connect-db-prod="AWS_PROFILE=hm-eu-prod ./Code/henchman/ops/scripts/bastion_tunnel.sh prod 9494"
 
 # required functions
 
