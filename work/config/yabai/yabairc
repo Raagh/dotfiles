@@ -50,7 +50,6 @@ yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Insomnia$" manage=off
-yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --apply
 
 echo "yabai configuration loaded.."
