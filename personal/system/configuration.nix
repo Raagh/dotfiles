@@ -71,10 +71,11 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "euro";
+    variant = "euro";
   };
+
   services.xserver.autoRepeatDelay = 250;
   services.xserver.autoRepeatInterval = 30;
 
@@ -99,12 +100,14 @@
      gcc
      cargo
      nodejs
+     go
      ripgrep
      eza
      bat
+     unzip
 
      neovim
-     sumneko-lua-language-server
+     lua-language-server
      google-chrome
      lazygit
      stow
@@ -141,7 +144,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  virtualisation.docker.enable = true; 
+  virtualisation.docker.enable = true;
+  services.trezord.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
