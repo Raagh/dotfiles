@@ -249,7 +249,7 @@ return {
     opts = function(_, opts)
       -- add latex, needed for markdown for whatever reason
       vim.list_extend(opts.ensure_installed, {
-        "latex",
+        -- "latex",
         "prisma",
       })
     end,

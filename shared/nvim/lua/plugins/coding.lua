@@ -4,9 +4,9 @@ return {
     opts = function(_, opts)
       opts.servers = {
         -- eslint = {},
-        tsserver = {
-          root_dir = require("lspconfig.util").root_pattern(".git"),
-        },
+        -- tsserver = {
+        --   root_dir = require("lspconfig.util").root_pattern(".git"),
+        -- },
       }
 
       opts.setup = {
