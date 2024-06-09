@@ -62,6 +62,7 @@ end, { desc = "Lazygit (Root Dir)" })
 -- REMOVE DEFAULT KEYMAPS
 
 -- tabs
+del_keymap("n", "<leader><tab>o", opts)
 del_keymap("n", "<leader><tab>l", opts)
 del_keymap("n", "<leader><tab>f", opts)
 del_keymap("n", "<leader><tab><tab>", opts)
