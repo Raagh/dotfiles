@@ -65,7 +65,7 @@ output eDP-1 disable
 gaps inner 8
 corner_radius 8
 client.focused         #f7768e #285577 #ffffff #2e9ef4  #f7768e
-font pango:monospace 0
+# font pango:monospace 0
 default_border pixel 2
 
 ### Key bindings
