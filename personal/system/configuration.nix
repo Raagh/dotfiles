@@ -76,9 +76,6 @@
     variant = "euro";
   };
 
-  services.xserver.autoRepeatDelay = 250;
-  services.xserver.autoRepeatInterval = 30;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
     isNormalUser = true;
@@ -142,10 +139,10 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
   services.trezord.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
