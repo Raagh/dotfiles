@@ -3,8 +3,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       opts.servers = {
-        -- eslint = {},
-        -- tsserver = {
+        eslint = {},
+        -- vtsls = {
         --   root_dir = require("lspconfig.util").root_pattern(".git"),
         -- },
       }
