@@ -4,9 +4,14 @@ return {
     opts = function(_, opts)
       opts.servers = {
         eslint = {},
-        -- vtsls = {
-        --   root_dir = require("lspconfig.util").root_pattern(".git"),
-        -- },
+        vtsls = {
+          root_dir = require("lspconfig.util").root_pattern(".git"),
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+            },
+          },
+        },
       }
 
       opts.setup = {
@@ -14,7 +19,7 @@ return {
           require("lazyvim.util").lsp.on_attach(function(client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == "tsserver" then
+            elseif client.name == "vtsls" then
               client.server_capabilities.documentFormattingProvider = false
             end
           end)
