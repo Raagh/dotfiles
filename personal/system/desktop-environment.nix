@@ -74,6 +74,9 @@ in
      '';
     wrapperFeatures.gtk = true;
   };
+  programs.hyprland = {
+    enable = true;
+  };
 
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
@@ -91,6 +94,7 @@ in
       default_session = initial_session;
     };
   };
+
   systemd.user.services.kanshi = {
     description = "Kanshi daemon";
     serviceConfig = {
