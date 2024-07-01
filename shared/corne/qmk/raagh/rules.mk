@@ -1,4 +1,4 @@
-# DYNAMIC_TAPPING_TERM_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 VIA_ENABLE                  = yes
 RGBLIGHT_ENABLE             = yes
 BOOTLOADER                  = caterina

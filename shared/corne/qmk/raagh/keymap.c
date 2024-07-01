@@ -23,10 +23,6 @@ combo_t key_combos[COMBO_COUNT] = {
   [JK_ESC]     = COMBO(jk_combo, KC_ESC),
 };
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
 enum custom_layers {
   _QWERTY,
   _LOWER,
@@ -34,23 +30,21 @@ enum custom_layers {
   _FUNC,
 };
 
-// some I added and might use
-// #define OSL_LOW    OSL(_LOWER)
-// #define GUI_TAB    GUI_T(KC_TAB)
-// #define LOW_SPC    LT(_LOWER, KC_SPC)
-// #define DTT_PRINT  QK_DYNAMIC_TAPPING_TERM_PRINT
-// #define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
-// #define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
-
-// in use keys
+#define DTT_PRINT  QK_DYNAMIC_TAPPING_TERM_PRINT
+#define DTT_UP     QK_DYNAMIC_TAPPING_TERM_UP
+#define DTT_DOWN   QK_DYNAMIC_TAPPING_TERM_DOWN
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_AGR  OSM(MOD_RALT)
 #define OSM_ALT  OSM(MOD_LALT)
 #define OSM_SFT  OSM(MOD_LSFT)
 #define OSL_FUN  OSL(_FUNC)
-#define GUI_ENT  GUI_T(KC_ENT)
-#define LOW_TAB  LT(_LOWER, KC_TAB)
+// #define GUI_ENT  GUI_T(KC_ENT)
+// #define GUI_SPC  GUI_T(KC_SPC)
+#define GUI_TAB    GUI_T(KC_TAB)
+#define LOW_SPC  LT(_LOWER, KC_SPC)
+// #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
+#define RSE_ENT  LT(_RAISE, KC_ENT)
 #define OSM_SFT  OSM(MOD_LSFT) 
 #define CTL_ESC  LCTL_T(KC_ESC)
 
@@ -64,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  OSM(MOD_LALT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_LCTL, GUI_ENT, LOW_TAB,   RSE_BSP ,KC_SPC  ,OSM_SFT
+                                         OSM_LCTL, GUI_TAB, LOW_SPC,    RSE_BSP ,KC_ENT ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -76,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX , KC_TILD,KC_GRV, KC_LBRC, KC_LCBR,                       KC_RCBR, KC_RBRC, KC_COMM,KC_DOT,  KC_SLSH, _______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_TRNS,  KC_TRNS, LOWER,    KC_TRNS, KC_TRNS, KC_COLON
+                                          KC_TRNS, KC_TRNS, XXXXXXX,   KC_TRNS, KC_TRNS, KC_COLON
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -89,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, KC_LT  , KC_GT  , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS
+                                          CTL_ESC, KC_TRNS, XXXXXXX,    XXXXXXX , KC_TRNS, KC_TRNS
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -97,9 +91,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 , KC_F6  ,                      KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_VOLU, XXXXXXX, QK_BOOT, XXXXXXX, KC_CAPS,                      RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,_______ ,
+      _______, KC_VOLU, DTT_UP, DTT_PRINT, XXXXXXX, KC_CAPS,                      RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,XXXXXXX ,
+      _______, KC_VOLD, DTT_DOWN, XXXXXXX, XXXXXXX, QK_BOOT,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,XXXXXXX ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
