@@ -13,11 +13,8 @@
 // will be counted as a held modifier instead.
 //#define TAPPING_FORCE_HOLD
 
-// Customized by markstos
 #define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY
-// used for Tapping Term on thumb keys
-#define TAPPING_TERM_THUMB 125
 
 // If you press a dual-role key, press another key, and then release the
 // dual-role key, all within the tapping term, by default the dual-role key
