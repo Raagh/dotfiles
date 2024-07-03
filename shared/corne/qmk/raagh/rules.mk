@@ -1,8 +1,6 @@
-DYNAMIC_TAPPING_TERM_ENABLE = yes
 VIA_ENABLE                  = yes
 RGBLIGHT_ENABLE             = yes
 BOOTLOADER                  = caterina
-
 MOUSEKEY_ENABLE             = no
 EXTRAKEY_ENABLE             = yes # enable media keys
 LTO_ENABLE                  = yes # smaller file size, little down-side
