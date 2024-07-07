@@ -102,6 +102,7 @@
      eza
      bat
      unzip
+     gedit
 
      neovim
      lua-language-server
