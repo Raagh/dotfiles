@@ -144,15 +144,15 @@ return {
   },
   {
     "folke/which-key.nvim",
-    keys = {
-      {
-        "<leader>ur",
-        "<cmd>:e %<cr>",
-        desc = "Reload File",
-      },
-    },
     opts = {
-      window = {
+      spec = {
+        {
+          "<leader>ur",
+          "<cmd>:e %<cr>",
+          desc = "Reload File",
+        },
+      },
+      win = {
         border = "rounded",
       },
     },
