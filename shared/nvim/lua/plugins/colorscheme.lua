@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -41,6 +41,8 @@ return {
           NormalFloat = { bg = palette.base }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = palette.base, fg = palette.love }, -- Most floating borders except telescope
           WhichKeyFloat = { bg = palette.base }, -- Whichkey popup background
+          WhichKeyTitle = { bg = palette.base }, -- Whichkey popup background
+          WhichKeyBorder = { bg = palette.base, fg = palette.love }, -- Whichkey border popup
           TelescopeBorder = { bg = palette.base, fg = palette.love },
           TelescopeTitle = { bg = palette.base, fg = palette.gold },
           NotifyWARNBorder = { bg = palette.base },
