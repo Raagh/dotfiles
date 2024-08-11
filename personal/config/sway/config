@@ -23,8 +23,8 @@ set $menu ~/.config/rofi/bin/launcher
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 output * bg wallpapers/Shogoki.png fill
-output DP-7 enable position 0,0
-output eDP-1 disable
+# output DP-7 enable position 0,0
+# output eDP-1 disable
 #
 # Example configuration:
 #

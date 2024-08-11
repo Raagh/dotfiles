@@ -93,7 +93,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      wget
-     git 
+     git
      gcc
      cargo
      nodejs
@@ -143,7 +143,14 @@
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
   services.trezord.enable = true;
+  services.printing.enable = true;
   hardware.keyboard.qmk.enable = true;
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
