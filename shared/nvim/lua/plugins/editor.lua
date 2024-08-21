@@ -213,7 +213,7 @@ return {
         side_padding = 1,
         winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }
-      opts.win = {
+      opts.window = {
         completion = cmp.config.window.bordered(win_opt),
         documentation = cmp.config.window.bordered(doc_opt),
       }
