@@ -19,7 +19,9 @@ alias wget="wget -c" # continue the download
 alias fetch="pfetch"
 alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
 alias connect-db-staging="AWS_PROFILE=hm-eu-stag ./Code/henchman/ops/scripts/bastion_port_forward.sh stag core-db 9494"
-alias connect-db-prod="AWS_PROFILE=hm-eu-prod ./Code/henchman/ops/scripts/bastion_port_forward.sh prod core-db 9494"
+alias connect-db-eu-prod="AWS_PROFILE=hm-eu-prod ./Code/henchman/ops/scripts/bastion_port_forward.sh prod core-db 9494"
+alias connect-db-us-prod="AWS_PROFILE=hm-us-prod ./Code/henchman/ops/scripts/bastion_port_forward.sh prod-us core-db 9494"
+alias connect-db-sa-prod="AWS_PROFILE=hm-sa-prod ./Code/henchman/ops/scripts/bastion_port_forward.sh prod-sa core-db 9495"
 
 # required functions
 
