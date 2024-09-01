@@ -11,6 +11,10 @@
       ./desktop-environment.nix
       ./hardware-configuration.nix
     ];
+  
+  boot.extraModprobeConfig =''
+    options snd-hda-intel dmic_detect=0
+  '';
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -19,6 +23,7 @@
   boot.loader.grub.gfxmodeEfi = "1024x768";
   boot.loader.grub.default = 2;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.configurationLimit = 42;
 
   # Encryption UI and silent boot
   boot.initrd.systemd.enable = true;
