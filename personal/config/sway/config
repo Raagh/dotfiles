@@ -60,8 +60,11 @@ output * bg wallpapers/Shogoki.png fill
 # Read `man 5 sway-input` for more information about this section.
 
 input "type:keyboard" {
+    xkb_layout us,es
     repeat_delay 250
     repeat_rate 30
+
+    xkb_options grp:win_space_toggle
 }
 
 #
