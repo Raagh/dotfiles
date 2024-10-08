@@ -57,7 +57,7 @@ set_keymap("n", "<leader>gg", function()
     width = 1,
     height = 1,
   }, border = "none" })
-end, { desc = "Lazygit (Root Dir)" })
+end, { desc = "Lazygit" })
 
 -- REMOVE DEFAULT KEYMAPS
 
@@ -77,3 +77,7 @@ del_keymap("n", "<leader>L", opts)
 -- terminal
 del_keymap("n", "<leader>ft", opts)
 del_keymap("n", "<leader>fT", opts)
+
+-- lazygit
+del_keymap("n", "<leader>gG", opts)
+del_keymap("n", "<leader>gL", opts)
