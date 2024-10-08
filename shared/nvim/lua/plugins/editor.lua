@@ -134,14 +134,8 @@ return {
         "<cmd>GitBlameOpenCommitURL<cr>",
         desc = "Open Commit In Browser",
       },
-      {
-        "<leader>gb",
-        "<cmd>GitBlameToggle<cr>",
-        desc = "Toggle Blame Inline",
-      },
     },
   },
-  -- { "akinsho/bufferline.nvim", enabled = false },
   {
     "nvim-telescope/telescope.nvim",
     keys = {
