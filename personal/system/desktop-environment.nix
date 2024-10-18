@@ -74,9 +74,6 @@ in
      '';
     wrapperFeatures.gtk = true;
   };
-  programs.hyprland = {
-    enable = true;
-  };
 
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
