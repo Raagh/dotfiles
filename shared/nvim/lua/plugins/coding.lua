@@ -33,6 +33,17 @@ return {
     end,
   },
   {
+    "folke/snacks.nvim",
+    opts = {
+      lazygit = {
+        win = {
+          height = 0,
+          width = 0,
+        },
+      },
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
