@@ -112,6 +112,7 @@
      gedit
 
      neovim
+     zellij
      lua-language-server
      google-chrome
      lazygit
