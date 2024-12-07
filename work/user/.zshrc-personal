@@ -26,6 +26,9 @@ alias ywt='cd ~/Code/henchman && yarn watch:ts'
 alias ywn='cd ~/Code/henchman && yarn watch:node'
 alias ywnl='cd ~/Code/henchman && yarn watch:node:logdy'
 alias ywf='cd ~/Code/henchman && yarn watch:frontend'
+alias ywfo='cd ~/Code/henchman && yarn watch:ops'
+alias ywfa='cd ~/Code/henchman && yarn watch:global-add-in'
+alias ywfd='cd ~/Code/henchman && yarn watch:global-dashboard'
 alias ydbm='cd ~/Code/henchman/data && yarn prisma:migrate && yarn knex:migrate:latest'
 # required functions
 
