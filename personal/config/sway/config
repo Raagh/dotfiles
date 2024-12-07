@@ -253,5 +253,7 @@ include @sysconfdir@/sway/config.d/*
     # Start udiskie
     exec --no-startup-id udiskie -f nautilus &
 
+    exec nm-applet &
+
     exec dbus-sway-environment
     exec configure-gtk
