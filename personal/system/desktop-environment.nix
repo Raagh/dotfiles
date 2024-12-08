@@ -42,7 +42,7 @@ in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
-    extraGroups = [ "video" ];
+    extraGroups = [ "video" "audio" ];
   };
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
