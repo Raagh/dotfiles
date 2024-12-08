@@ -125,7 +125,7 @@ in
 
      # Theming
      qogir-theme
-     gnome3.adwaita-icon-theme
+     adwaita-icon-theme
      papirus-icon-theme
      rose-pine-gtk-theme
   ];
