@@ -137,54 +137,6 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>/", false },
-      { "<leader>,", false },
-      { "<leader><space>", false },
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      {
-        "<leader>fl",
-        function()
-          require("telescope.builtin").resume()
-        end,
-        desc = "Resume last search",
-      },
-      {
-        "<leader>fg",
-        function()
-          local defaultConfig = require("telescope.config").values
-          local arguments = table.insert(defaultConfig.vimgrep_arguments, "--fixed-strings")
-          require("telescope.builtin").live_grep({ hidden = true, vim_grep_arguments = arguments })
-        end,
-        desc = "Live grep",
-      },
-    },
-    opts = {
-      pickers = {
-        find_files = {
-          previewer = false,
-          hidden = true,
-          theme = "dropdown",
-        },
-        live_grep = {
-          additional_args = function(_)
-            return { "--hidden" }
-          end,
-        },
-        colorscheme = {
-          enable_preview = true,
-        },
-        defaults = {
-          vimgrep_arguments = function()
-            local defaultConfig = require("telescope.config").values
-            return table.insert(defaultConfig.vimgrep_arguments, "--fixed-strings")
-          end,
-        },
-      },
-    },
-  },
-  {
     "saghen/blink.cmp",
     opts = {
       completion = {

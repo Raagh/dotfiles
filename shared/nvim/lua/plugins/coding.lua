@@ -35,6 +35,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      win = {
+        backdrop = 100,
+      },
       scroll = {
         enabled = false,
       },
@@ -48,19 +51,10 @@ return {
         preset = {
           keys = {
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-            { icon = " ", key = "f", desc = "Find File", action = "<cmd>Telescope find_files<cr>" },
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-            {
-              icon = " ",
-              key = "g",
-              desc = "Find Text",
-              action = function()
-                local defaultConfig = require("telescope.config").values
-                local arguments = table.insert(defaultConfig.vimgrep_arguments, "--fixed-strings")
-                require("telescope.builtin").live_grep({ hidden = true, vim_grep_arguments = arguments })
-              end,
-            },
-            -- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
             {
               icon = " ",
               key = "c",
@@ -70,21 +64,6 @@ return {
             { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          -- keys = {
-          --   { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          --   { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          --   { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          --   { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          --   { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          --   {
-          --     icon = " ",
-          --     key = "c",
-          --     desc = "Config",
-          --     action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-          --   },
-          --   { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy },
-          --   { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-          -- },
           header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
