@@ -42,7 +42,7 @@ in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
-    extraGroups = [ "video" ];
+    extraGroups = [ "video" "audio" ];
   };
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
@@ -125,7 +125,7 @@ in
 
      # Theming
      qogir-theme
-     gnome3.adwaita-icon-theme
+     adwaita-icon-theme
      papirus-icon-theme
      rose-pine-gtk-theme
   ];
