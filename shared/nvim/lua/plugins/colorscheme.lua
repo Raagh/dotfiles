@@ -45,6 +45,8 @@ return {
           WhichKeyBorder = { bg = palette.base, fg = palette.love }, -- Whichkey border popup
           TelescopeBorder = { bg = palette.base, fg = palette.love },
           TelescopeTitle = { bg = palette.base, fg = palette.gold },
+          FzfTitle = { bg = palette.base, fg = palette.gold },
+          FzfBorder = { bg = palette.base, fg = palette.love },
           NotifyWARNBorder = { bg = palette.base },
           NotifyERRORBorder = { bg = palette.base },
           NotifyINFOBorder = { bg = palette.base },
