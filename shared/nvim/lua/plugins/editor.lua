@@ -139,6 +139,11 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      keymap = {
+        preset = "enter",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+      },
       completion = {
         menu = {
           border = "rounded",
@@ -152,6 +157,9 @@ return {
         },
         ghost_text = {
           enabled = false,
+        },
+        trigger = {
+          show_on_insert_on_trigger_character = false,
         },
       },
     },
