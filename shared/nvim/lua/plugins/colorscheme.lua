@@ -60,6 +60,7 @@ return {
         backdrop = 100,
       },
       hls = {
+        title = "FloatNormal",
         backdrop = 100,
         border = "FloatBorder",
         preview_border = "FloatBorder",
