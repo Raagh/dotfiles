@@ -109,6 +109,7 @@
      bat
      unzip
      gedit
+     fzf
 
      neovim
      zellij
