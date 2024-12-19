@@ -40,15 +40,14 @@ return {
           },
           NormalFloat = { bg = palette.base }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = palette.base, fg = palette.love }, -- Most floating borders except telescope
+          FloatTitle = { bg = palette.base, fg = palette.gold },
+          NeotreeFloatTitle = { bg = palette.base, fg = palette.gold },
           WhichKeyFloat = { bg = palette.base }, -- Whichkey popup background
-          WhichKeyTitle = { bg = palette.base }, -- Whichkey popup background
+          WhichKeyTitle = { bg = palette.base, fg = palette.gold }, -- Whichkey popup background
           WhichKeyBorder = { bg = palette.base, fg = palette.love }, -- Whichkey border popup
-          -- TelescopeBorder = { bg = palette.base, fg = palette.love },
-          -- TelescopeTitle = { bg = palette.base, fg = palette.gold },
           NotifyWARNBorder = { bg = palette.base },
           NotifyERRORBorder = { bg = palette.base },
           NotifyINFOBorder = { bg = palette.base },
-          -- TelescopeResultsNormal = { bg = palette.base, fg = palette.text },
         },
       }
     end,
@@ -60,7 +59,7 @@ return {
         backdrop = 100,
       },
       hls = {
-        title = "FloatNormal",
+        title = "FloatTitle",
         backdrop = 100,
         border = "FloatBorder",
         preview_border = "FloatBorder",
@@ -71,10 +70,6 @@ return {
     "rebelot/kanagawa.nvim",
     opts = {
       theme = "wave",
-      background = {
-        dark = "wave",
-        light = "lotus",
-      },
       colors = {
         theme = {
           all = {
@@ -87,7 +82,6 @@ return {
       overrides = function(colors)
         local palette = colors.palette
         local theme = colors.theme
-        -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
 
         return {
           DapBreakpoint = {
@@ -107,8 +101,9 @@ return {
             bg = "none",
           },
           NormalFloat = { bg = theme.ui.bg }, -- All floating buffers background like the lsp, autocomplete and such
-          FloatBorder = { bg = "none" }, -- Most floating borders except telescope
-          FloatTitle = { bg = "none" }, -- Title for the rename and lsp windows (dressing.nvim)
+          FloatBorder = { bg = "none", fg = palette.autumnGreen }, -- Most floating borders except telescope
+          FloatTitle = { bg = "none", fg = palette.boatYellow2 }, -- Title for the rename and lsp windows (dressing.nvim)
+          NeotreeFloatTitle = { bg = "none", fg = palette.boatYellow2 }, -- Title for the rename and lsp windows (dressing.nvim)
           LazyDimmed = { bg = "none", fg = "none" },
         }
       end,

@@ -37,6 +37,10 @@ return {
     opts = {
       win = {
         backdrop = 100,
+        -- for reference this is how you link a highlight group for a window
+        -- wo = {
+        -- winhighlight = "FloatTitle:Title",
+        -- },
       },
       scroll = {
         enabled = false,
