@@ -109,6 +109,7 @@
      bat
      unzip
      gedit
+     vlc
      fzf
 
      neovim
@@ -118,6 +119,7 @@
      lazygit
      stow
      galculator
+     transmission_4-gtk
   ];
 
   # Enable zsh as default shell 

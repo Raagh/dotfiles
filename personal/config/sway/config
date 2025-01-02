@@ -248,12 +248,8 @@ include @sysconfdir@/sway/config.d/*
 #
 # Startup apps:
 #
-    exec systemctl --user start kanshi.service &
-
-    # Start udiskie
-    exec --no-startup-id udiskie -f nautilus &
-
-    exec nm-applet &
-
-    exec dbus-sway-environment
+    exec systemctl --user start kanshi.service
+    exec --no-startup-id udiskie -f nautilus
+    exec nm-applet
     exec configure-gtk
+    exec dbus-sway-environment
