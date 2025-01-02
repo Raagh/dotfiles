@@ -12,10 +12,10 @@ let
     executable = true;
 
     text = ''
-  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-  systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-  systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      '';
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
   };
 
   # currently, there is some friction between sway and gtk:
@@ -25,25 +25,30 @@ let
   # using the XDG_DATA_DIR environment variable
   # run at the end of sway config
   configure-gtk = pkgs.writeTextFile {
-      name = "configure-gtk";
-      destination = "/bin/configure-gtk";
-      executable = true;
-      text = let
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text =
+      let
         schema = pkgs.gsettings-desktop-schemas;
         datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in ''
+      in
+      ''
         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
         export GTK_THEME=rose-pine
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'rose-pine'
         gsettings set $gnome_schema color-scheme 'prefer-dark'
-        '';
+      '';
   };
 in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raagh = {
-    extraGroups = [ "video" "audio" ];
+    extraGroups = [
+      "video"
+      "audio"
+    ];
   };
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
@@ -65,14 +70,14 @@ in
     enable = true;
     package = pkgs.swayfx;
     extraSessionCommands = ''
-       export XDG_SESSION_TYPE=wayland
-       export XDG_SESSION_DESKTOP=sway
-       export XDG_CURRENT_DESKTOP=sway
-       export QT_QPA_PLATFORM=wayland
-       export CLUTTER_BACKEND=wayland
-       export SDL_VIDEODRIVER=wayland
-       export _JAVA_AWT_WM_NONREPARENTING=1
-     '';
+      export XDG_SESSION_TYPE=wayland
+      export XDG_SESSION_DESKTOP=sway
+      export XDG_CURRENT_DESKTOP=sway
+      export QT_QPA_PLATFORM=wayland
+      export CLUTTER_BACKEND=wayland
+      export SDL_VIDEODRIVER=wayland
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
     wrapperFeatures.gtk = true;
   };
 
@@ -104,29 +109,29 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-     dbus-sway-environment
-     configure-gtk
-     glib
-     networkmanagerapplet
-     blueberry
-     kitty
-     wdisplays
-     rofi-wayland
-     mako
-     wl-clipboard
-     kanshi
-     waybar
-     grim
-     flameshot
-     pavucontrol
-     udiskie
-     nautilus
+    dbus-sway-environment
+    configure-gtk
+    glib
+    networkmanagerapplet
+    blueberry
+    kitty
+    wdisplays
+    rofi-wayland
+    mako
+    wl-clipboard
+    kanshi
+    waybar
+    grim
+    flameshot
+    pavucontrol
+    udiskie
+    nautilus
 
-     # Theming
-     qogir-theme
-     adwaita-icon-theme
-     papirus-icon-theme
-     rose-pine-gtk-theme
+    # Theming
+    qogir-theme
+    adwaita-icon-theme
+    papirus-icon-theme
+    rose-pine-gtk-theme
   ];
 
   fonts.packages = with pkgs; [
@@ -135,6 +140,11 @@ in
     liberation_ttf
     source-code-pro
     inter
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Iosevka"
+      ];
+    })
   ];
 }

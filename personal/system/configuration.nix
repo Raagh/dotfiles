@@ -5,20 +5,20 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
-      ./desktop-environment.nix
-      ./hardware-configuration.nix
-    ];
-  
-  boot.extraModprobeConfig =''
+  imports = [
+    # Include the results of the hardware scan.
+    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/xps/13-9310"
+    ./desktop-environment.nix
+    ./hardware-configuration.nix
+  ];
+
+  boot.extraModprobeConfig = ''
     options snd-hda-intel dmic_detect=0
   '';
 
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "nodev"];
+  boot.loader.grub.devices = [ "nodev" ];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.gfxmodeEfi = "1024x768";
   boot.loader.grub.default = 2;
@@ -28,8 +28,9 @@
   # Encryption UI and silent boot
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
-  boot.kernelParams = ["quiet"];
-  boot.initrd.luks.devices."luks-aa540375-94f1-455d-9e10-9a657a644d3f".device = "/dev/disk/by-uuid/aa540375-94f1-455d-9e10-9a657a644d3f";
+  boot.kernelParams = [ "quiet" ];
+  boot.initrd.luks.devices."luks-aa540375-94f1-455d-9e10-9a657a644d3f".device =
+    "/dev/disk/by-uuid/aa540375-94f1-455d-9e10-9a657a644d3f";
   networking.hostName = "rmx-nix"; # Define your hostname.
 
   # Configure network proxy if necessary
@@ -84,7 +85,11 @@
   users.users.raagh = {
     isNormalUser = true;
     description = "Raagh";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
       portfolio
     ];
@@ -98,36 +103,41 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget
-     git
-     gcc
-     cargo
-     nodejs
-     go
-     ripgrep
-     eza
-     bat
-     unzip
-     gedit
-     vlc
-     fzf
+    wget
+    git
+    gcc
+    cargo
+    nodejs
+    go
+    ripgrep
+    eza
+    bat
+    unzip
+    gedit
+    vlc
+    fzf
 
-     neovim
-     zellij
-     lua-language-server
-     google-chrome
-     lazygit
-     stow
-     galculator
-     transmission_4-gtk
+    neovim
+    zellij
+    lua-language-server
+    nixfmt-rfc-style
+    google-chrome
+    lazygit
+    stow
+    galculator
+    transmission_4-gtk
   ];
 
-  # Enable zsh as default shell 
+  # Enable zsh as default shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     ohMyZsh.enable = true;
-    ohMyZsh.plugins = [ "git" "npm" "vi-mode" ];
+    ohMyZsh.plugins = [
+      "git"
+      "npm"
+      "vi-mode"
+    ];
     syntaxHighlighting.enable = true;
     autosuggestions.enable = true;
   };
