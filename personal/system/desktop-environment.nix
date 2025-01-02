@@ -126,6 +126,7 @@ in
     pavucontrol
     udiskie
     nautilus
+    zathura
 
     # Theming
     qogir-theme
