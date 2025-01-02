@@ -36,6 +36,7 @@ let
         export GTK_THEME=rose-pine
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'rose-pine'
+        gsettings set $gnome_schema color-scheme 'prefer-dark'
         '';
   };
 in
@@ -119,9 +120,7 @@ in
      flameshot
      pavucontrol
      udiskie
-     xfce.thunar
-     xfce.thunar-volman
-     xfce.thunar-archive-plugin
+     nautilus
 
      # Theming
      qogir-theme
