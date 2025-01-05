@@ -127,6 +127,7 @@ in
     udiskie
     nautilus
     zathura
+    exercism
 
     # Theming
     qogir-theme
