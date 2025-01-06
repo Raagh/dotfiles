@@ -81,6 +81,7 @@ in
     wrapperFeatures.gtk = true;
   };
 
+  programs.gnome-disks.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
   security.polkit.enable = true;
