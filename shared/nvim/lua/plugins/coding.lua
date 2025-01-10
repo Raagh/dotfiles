@@ -11,6 +11,13 @@ return {
               enableServerSideFuzzyMatch = true,
             },
           },
+          settings = {
+            typescript = {
+              tsserver = {
+                maxTsServerMemory = 8192,
+              },
+            },
+          },
         },
       }
 
