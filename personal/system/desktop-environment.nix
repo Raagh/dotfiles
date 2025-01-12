@@ -86,6 +86,8 @@ in
   services.udisks2.enable = true;
   security.polkit.enable = true;
   programs.light.enable = true;
+  programs.waybar.enable = true;
+  programs.xwayland.enable = true;
 
   # Login Manager
   services.greetd = {
