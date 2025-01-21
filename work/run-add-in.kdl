@@ -6,7 +6,7 @@ layout {
         }
         pane split_direction="vertical" {
             pane command="nvim" cwd="henchman" size="50%"
-            pane cwd="Radix.Maximus/Apps.Bison" focus=true size="50%"
+            pane cwd="Apps.Bison" focus=true size="50%"
         }
         pane size=1 borderless=true {
             plugin location="zellij:status-bar"
@@ -49,8 +49,9 @@ layout {
                 pane command="npm" cwd="Apps.Bison/GlobalPlatform/PlatformAddins/GlobalPlatformAddin" size="33%" {
                     args "run" "start:mock"
                 }
-                pane command="npx" cwd="Maximus.LMO" size="33%" {
-                    args "live-server --port=5500 --no-browser --cors"
+                pane command="npx live-server" cwd="Maximus.LMO" size="33%" {
+                    args "--port=5500" "--no-browser" "--cors"
+                    start_suspended true
                 }
             }
         }

@@ -20,6 +20,7 @@ alias fetch="pfetch"
 alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
 
 alias connect-db-staging="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh stag core-db 9494"
+alias connect-db-uat="AWS_PROFILE=plateu-uat:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh uat core-db 9494"
 alias connect-db-prod-eu="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod core-db 9494"
 alias connect-db-prod-us="AWS_PROFILE=platus-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-us core-db 9494"
 alias connect-db-prod-ca="AWS_PROFILE=platca-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-ca core-db 9494"
