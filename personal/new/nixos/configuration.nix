@@ -99,8 +99,13 @@
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
     git
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
+    gcc
+    ripgrep
+    eza
+    bat
+    fzf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

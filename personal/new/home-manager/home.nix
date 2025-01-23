@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     google-chrome
     lazygit
+    stow
   ];
 
   # basic configuration of git, please change to your own
@@ -32,6 +33,8 @@
     userName = "Raagh";
     userEmail = "pattferraggi@gmail.com";
   };
+
+  home.file.".config/nvim/" = { source = ../../../shared/nvim; recursive = true; };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
