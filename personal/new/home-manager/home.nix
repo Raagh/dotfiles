@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./neovim.nix
     ./theme.nix
   ];
 
@@ -44,9 +45,6 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
-
-  # link the neovim config in shared directory to the .config folder in home
-  home.file.".config/nvim/" = { source = ../../../shared/nvim; recursive = true; };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

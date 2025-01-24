@@ -104,13 +104,9 @@
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
     git
-    neovim
     wget
-    gcc
-    ripgrep
     eza
     bat
-    fzf
   ];
 
   # Enable zsh as default shell
