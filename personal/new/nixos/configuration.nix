@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 42;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -112,6 +112,10 @@
     bat
     fzf
   ];
+
+  # Enable zsh as default shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

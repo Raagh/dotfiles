@@ -25,13 +25,27 @@
     stow
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "Raagh";
     userEmail = "pattferraggi@gmail.com";
   };
 
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+      "git"
+      "npm"
+      "vi-mode"
+      ];
+    };
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+  };
+
+  # link the neovim config in shared directory to the .config folder in home
   home.file.".config/nvim/" = { source = ../../../shared/nvim; recursive = true; };
 
   # This value determines the home Manager release that your
