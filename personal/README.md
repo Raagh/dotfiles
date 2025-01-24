@@ -24,7 +24,5 @@ all configurations are linked using stow
 
 ```bash
   cd dotfiles/personal
-  stow config -vn --adopt -t ~/.config
-  sudo stow system -vn --adopt -t /etc/nixos
-  stow user -vn --adopt -t ~
+  sudo stow new -vn --adopt -t /etc/nixos
 ```
