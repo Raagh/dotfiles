@@ -3,7 +3,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./hyrpanel.nix
     ./neovim.nix
     ./theme.nix
   ];

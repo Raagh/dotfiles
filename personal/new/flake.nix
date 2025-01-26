@@ -14,15 +14,9 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     inputs@{
-      self,
       nixos-hardware,
       nixpkgs,
       home-manager,
@@ -45,11 +39,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
-          }
-          {
-            nixpkgs.overlays = [
-              inputs.hyprpanel.overlay
-            ];
           }
         ];
       };
