@@ -1,8 +1,7 @@
-
 { config, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [ ];
 
   home.packages = with pkgs; [
     neovim
@@ -14,6 +13,9 @@
   ];
 
   # link the neovim config in shared directory to the .config folder in home
-  home.file.".config/nvim/" = { source = ../../../shared/nvim; recursive = true; };
+  home.file.".config/nvim/" = {
+    source = ../../../shared/nvim;
+    recursive = true;
+  };
 
 }

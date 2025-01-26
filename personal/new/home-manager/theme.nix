@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [];
- 
+  imports = [ ];
+
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
     "Xcursor.size" = 16;

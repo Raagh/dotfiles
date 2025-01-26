@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hyprland.nix
     ./neovim.nix
     ./theme.nix
   ];
@@ -24,6 +25,8 @@
     google-chrome
     lazygit
     stow
+    kitty
+    zellij
   ];
 
   programs.git = {
@@ -37,9 +40,9 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-      "git"
-      "npm"
-      "vi-mode"
+        "git"
+        "npm"
+        "vi-mode"
       ];
     };
     syntaxHighlighting.enable = true;
