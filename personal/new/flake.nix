@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "Raagh NixOS setup";
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
@@ -14,29 +14,42 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
-    {
+    inputs@{
       self,
-      nixpkgs,
       nixos-hardware,
+      nixpkgs,
       home-manager,
       ...
-    }@inputs:
+    }:
+    let
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        specialArgs = {
+          inherit system;
+          inherit inputs;
+        };
         modules = [
           nixos-hardware.nixosModules.dell-xps-13-9310
-
           ./nixos/configuration.nix
-
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
+          }
+          {
+            nixpkgs.overlays = [
+              inputs.hyprpanel.overlay
+            ];
           }
         ];
       };

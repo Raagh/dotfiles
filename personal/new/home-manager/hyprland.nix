@@ -10,6 +10,11 @@
   #   enable = true;
   # };
 
+  # Packages to make hyprland a DE.
+  home.packages = with pkgs; [
+    overskride # bluetooth tool
+  ];
+
   # link the hyprland config to the .config folder in home
   home.file = {
     ".config/hypr/hyprland.conf".source =
