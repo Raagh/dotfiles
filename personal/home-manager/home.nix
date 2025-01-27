@@ -11,12 +11,13 @@
     ./hyprpanel.nix
     ./rofi.nix
     ./neovim.nix
+    ./zsh.nix
     ./theme.nix
   ];
 
   home.username = "raagh";
   home.homeDirectory = "/home/raagh";
-  home.file.".face" = {
+  home.file.".face.icon" = {
     source = ../assets/profile_picture.jpeg;
   };
 
@@ -50,20 +51,6 @@
     enable = true;
     userName = "Raagh";
     userEmail = "pattferraggi@gmail.com";
-  };
-
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "npm"
-        "vi-mode"
-      ];
-    };
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
   };
 
   # This value determines the home Manager release that your
