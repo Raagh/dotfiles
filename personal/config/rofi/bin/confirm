@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-DIR="$HOME/.config"
-
-rofi -dmenu\
-     -i\
-     -no-fixed-num-lines\
-     -p "Are You Sure? : "\
-     -theme $DIR/rofi/themes/confirm.rasi
