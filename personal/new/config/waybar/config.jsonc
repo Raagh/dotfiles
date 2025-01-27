@@ -1,0 +1,85 @@
+{
+  "layer": "top",
+  "height": 32,
+  "spacing": 4,
+  "modules-center": [
+    "custom/logo",
+    "sway/workspaces",
+    "sway/mode",
+    "sway/window",
+    "memory",
+    "battery",
+    "pulseaudio",
+    "sway/language",
+    "clock",
+    "tray",
+  ],
+  "custom/logo": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/rofi/bin/launcher",
+  },
+  "sway/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "default": "",
+    },
+
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+    },
+  },
+  "sway/window": {
+    "max-length": 30,
+  },
+  "memory": {
+    "format": "󰍛   %{percentage}",
+  },
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "muted  ",
+    "format-icons": {
+      "headphones": " ",
+      "handsfree": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": "  ",
+      "default": [" ", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+  "sway/language": {
+    "format": "   {}",
+  },
+  "clock": {
+    "format": "󰃭  {:%A, %d %B  %I:%M %p}",
+    "format-alt": "{%I:%M %p}",
+  },
+  "tray": {
+    "show-passive-items": true,
+    "icon-size": 20,
+    "spacing": 5,
+  },
+}

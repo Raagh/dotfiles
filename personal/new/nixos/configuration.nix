@@ -30,7 +30,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
+
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -95,11 +100,15 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "video"
+      "audio"
     ];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
+
+  # Setup general purpose services
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -115,6 +124,7 @@
   environment.systemPackages = with pkgs; [
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
+    vim
     git
     wget
     eza
@@ -137,6 +147,26 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.libinput.enable = true;
+  programs.dconf.enable = true;
+  services = {
+    dbus.enable = true;
+    gvfs.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
+    udisks2.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

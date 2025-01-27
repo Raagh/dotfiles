@@ -16,6 +16,9 @@
 
   home.username = "raagh";
   home.homeDirectory = "/home/raagh";
+  home.file.".face" = {
+    source = ../assets/profile_picture.jpeg;
+  };
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
