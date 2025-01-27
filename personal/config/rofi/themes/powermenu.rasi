@@ -99,7 +99,7 @@ error-message {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       5;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;

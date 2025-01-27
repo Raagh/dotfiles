@@ -9,7 +9,6 @@ host=$(hostname)
 # Options
 shutdown='  Shutdown'
 reboot='  Reboot'
-lock='  Lock'
 suspend='󰒲  Suspend'
 logout='󰍃  Logout'
 yes='󰄳 Yes'
@@ -44,11 +43,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-  echo -e "$shutdown\n$reboot\n$logout\n$lock\n$suspend" | rofi_cmd
-}
-
-lock_command() {
-  i3lock-color --blur 5 --ringver-color "#9ccfd8" --ringwrong-color "#eb6f92" --ring-color "#c4a7e7" --insidever-color "#3e8fb0" --insidewrong-color "#eb6f92" --noinput-text "Empty" --indicator --clock --time-color "#4DD0E1" --date-color "#4DD0E1" --wrong-text "Error" --inside-color "#1a1b26D9"
+  echo -e "$shutdown\n$reboot\n$logout\n$suspend" | rofi_cmd
 }
 
 # Execute Command
@@ -60,14 +55,9 @@ run_cmd() {
     elif [[ $1 == '--reboot' ]]; then
       systemctl reboot
     elif [[ $1 == '--suspend' ]]; then
-      mpc -q pause
-      amixer set Master mute
-      lock_command
       systemctl suspend
     elif [[ $1 == '--logout' ]]; then
       hyprctl dispatch exit
-    elif [[ $1 == '--lock' ]]; then
-      lock_command
     fi
   else
     exit 0
@@ -82,9 +72,6 @@ $shutdown)
   ;;
 $reboot)
   run_cmd --reboot
-  ;;
-$lock)
-  run_cmd --lock
   ;;
 $suspend)
   run_cmd --suspend

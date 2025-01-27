@@ -7,6 +7,17 @@
 {
   programs.zsh = {
     enable = true;
+    # promptInit = " ❯";
+    shellAliases = {
+      cat = "bat";
+      "cd.." = "cd ..";
+      grep = "grep --color=auto";
+      jctl = "journalctl -p 3 -xb"; # get the error messages from journalctl
+      ls = "eza -lhF --color=always --icons --sort=size --group-directories-first";
+      q = "exit";
+      rg = "rg --sort path --no-ignore --hidden"; # search content with ripgrep
+      rm = "rm -i";
+    };
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -17,16 +28,5 @@
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-  };
-
-  # link the zsh config to the .config folder in home
-  home.file = {
-    ".zshrc".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/personal/config/zsh/.zshrc";
-  };
-
-  home.file = {
-    ".zshrc-personal".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/personal/config/zsh/.zshrc-personal";
   };
 }
