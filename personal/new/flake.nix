@@ -14,6 +14,10 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs@{
@@ -27,18 +31,24 @@
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit system;
-          inherit inputs;
-        };
+        specialArgs = { inherit inputs; };
         modules = [
           nixos-hardware.nixosModules.dell-xps-13-9310
           ./nixos/configuration.nix
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
+          }
+          {
+            nixpkgs.overlays = [
+              inputs.hyprpanel.overlay
+            ];
           }
         ];
       };

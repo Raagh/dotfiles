@@ -30,6 +30,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -50,11 +51,11 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprland Window Manager
   programs.hyprland.enable = true;

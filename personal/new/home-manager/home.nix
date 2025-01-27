@@ -1,8 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
     ./hyprland.nix
+    ./hyprpanel.nix
+    ./rofi.nix
     ./neovim.nix
     ./theme.nix
   ];

@@ -13,6 +13,8 @@
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
     overskride # bluetooth tool
+    nwg-displays
+    wdisplays
   ];
 
   # link the hyprland config to the .config folder in home
