@@ -23,20 +23,15 @@
     # kanshi
     # waybar
     # udiskie
-    #
-    # zathura
-    # exercism
-    # transmission_4-gtk
     # unzip
-    # gedit
-    # vlc
-    # galculator
+    # zip
+    #
   ];
 
   # link the hyprland config to the .config folder in home
   home.file = {
     ".config/hypr/hyprland.conf".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/personal/new/config/hyprland.conf";
+      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/personal/config/hyprland.conf";
   };
 
   # hint Electron apps to use Wayland:

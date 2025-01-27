@@ -37,6 +37,13 @@
     stow
     kitty
     zellij
+
+    # zathura
+    # exercism
+    # transmission_4-gtk
+    # gedit
+    # vlc
+    # galculator
   ];
 
   programs.git = {
