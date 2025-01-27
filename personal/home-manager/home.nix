@@ -8,7 +8,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./hyprpanel.nix
     ./rofi.nix
     ./neovim.nix
     ./zsh.nix
