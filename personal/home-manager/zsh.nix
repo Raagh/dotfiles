@@ -25,6 +25,7 @@
         "npm"
         "vi-mode"
       ];
+      theme = "robbyrussell";
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;

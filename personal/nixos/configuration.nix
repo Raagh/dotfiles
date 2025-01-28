@@ -8,18 +8,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./boot.nix
+    ./theme.nix
   ];
-
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "nodev" ];
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.gfxmodeEfi = "1024x768";
-  boot.loader.grub.default = 2;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.configurationLimit = 42;
-  boot.plymouth.enable = true;
-  boot.kernelParams = [ "quiet" ];
 
   networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -129,6 +120,7 @@
     wget
     eza
     bat
+    btop
   ];
 
   # Enable zsh as default shell

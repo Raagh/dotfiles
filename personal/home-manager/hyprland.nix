@@ -13,11 +13,12 @@
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
     overskride # bluetooth tool
-    #nwg-displays
+    nwg-displays
     wdisplays
     nautilus
     pavucontrol
     wl-clipboard
+    file-roller
 
     # mako
     # kanshi

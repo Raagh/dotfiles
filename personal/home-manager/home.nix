@@ -11,7 +11,6 @@
     ./rofi.nix
     ./neovim.nix
     ./zsh.nix
-    ./theme.nix
   ];
 
   home.username = "raagh";
@@ -19,9 +18,6 @@
   home.file.".face.icon" = {
     source = ../assets/profile_picture.jpeg;
   };
-
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
   # link all files in `./scripts` to `~/.config/i3/scripts`
   # home.file.".config/i3/scripts" = {
@@ -37,6 +33,7 @@
     stow
     kitty
     zellij
+    nodejs
 
     # zathura
     # exercism
