@@ -18,10 +18,10 @@
   stylix.image = ../assets/Shogoki.png;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
-  stylix.opacity = {
-    desktop = 0.5;
-    terminal = 0.9;
-  };
+  # stylix.opacity = {
+  #   desktop = 0.5;
+  #   terminal = 0.9;
+  # };
 
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";

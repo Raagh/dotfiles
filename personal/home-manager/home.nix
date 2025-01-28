@@ -9,6 +9,7 @@
   imports = [
     ./hyprland.nix
     ./rofi.nix
+    ./waybar.nix
     ./neovim.nix
     ./zsh.nix
   ];
