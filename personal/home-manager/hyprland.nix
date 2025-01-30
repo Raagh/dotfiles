@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  personalDotfilesPath,
   ...
 }:
 
@@ -32,7 +33,7 @@
   # link the hyprland config to the .config folder in home
   home.file = {
     ".config/hypr/hyprland.conf".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/personal/config/hyprland.conf";
+      config.lib.file.mkOutOfStoreSymlink "${personalDotfilesPath}/config/hyprland.conf";
   };
 
   # hint Electron apps to use Wayland:

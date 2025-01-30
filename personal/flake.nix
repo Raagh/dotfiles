@@ -37,6 +37,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = {
+              personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
+              sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
               inherit inputs;
             };
           }

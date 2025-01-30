@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  sharedDotfilesPath,
+  ...
+}:
 
 {
   imports = [ ];
@@ -23,8 +28,7 @@
 
   # link the neovim config to the .config folder in home
   home.file = {
-    ".config/nvim/".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/raagh/Code/dotfiles/shared/nvim/";
+    ".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink "${sharedDotfilesPath}/nvim/";
   };
 
 }
