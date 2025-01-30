@@ -23,10 +23,16 @@
     }:
     let
       system = "x86_64-linux";
+      personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
+      sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit personalDotfilesPath;
+          inherit sharedDotfilesPath;
+          inherit inputs;
+        };
         modules = [
           nixos-hardware.nixosModules.dell-xps-13-9310
           ./nixos/configuration.nix
@@ -37,8 +43,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = {
-              personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
-              sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
+              inherit personalDotfilesPath;
+              inherit sharedDotfilesPath;
               inherit inputs;
             };
           }

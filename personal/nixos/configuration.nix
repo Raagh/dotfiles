@@ -46,14 +46,9 @@
     LC_TIME = "es_ES.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
+  # Enable the Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-
-  # Enable Hyprland Window Manager
   programs.hyprland.enable = true;
 
   # Configure keymap in X11

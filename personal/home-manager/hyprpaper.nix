@@ -1,9 +1,10 @@
-# Hyprpaper is used to set the wallpaper on the system
 {
-  # The wallpaper is set by stylix
   services.hyprpaper = {
     enable = true;
     settings = {
+      preload = [ "~/Code/dotfiles/assets/Shogoki.png" ];
+      wallpaper = [ "DP-7,~/Code/dotfiles/assets/Shogoki.png" ];
+
       ipc = "on";
       splash = false;
       splash_offset = 2.0;

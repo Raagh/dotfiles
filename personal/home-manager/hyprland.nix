@@ -20,6 +20,7 @@
     pavucontrol
     wl-clipboard
     file-roller
+    hyprpaper
 
     # mako
     # kanshi
