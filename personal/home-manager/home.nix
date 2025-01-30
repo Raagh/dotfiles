@@ -19,7 +19,7 @@
   home.username = "raagh";
   home.homeDirectory = "/home/raagh";
   home.file.".face.icon" = {
-    source = ../assets/profile_picture.jpeg;
+    source = ../../assets/profile_picture.jpeg;
   };
 
   # link all files in `./scripts` to `~/.config/i3/scripts`

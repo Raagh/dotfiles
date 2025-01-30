@@ -13,48 +13,53 @@
     })
   ];
 
-  stylix.enable = true;
+  stylix = {
+    enable = true;
 
-  #FIXME: it doesnt work, it has to do with hyprpaper
-  stylix.image = ../assets/Shogoki.png;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
-  # stylix.opacity = {
-  #   desktop = 0.5;
-  #   terminal = 0.9;
-  # };
-
-  stylix.cursor.package = pkgs.bibata-cursors;
-  stylix.cursor.name = "Bibata-Modern-Ice";
-
-  stylix.fonts = {
-    serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
     };
 
-    sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        applications = 10;
+        terminal = 10;
+        desktop = 10;
+        popups = 10;
+      };
     };
 
-    monospace = {
-      package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-      name = "JetBrainsMono Nerd Font Mono";
-    };
+    targets.nixvim.enable = false;
 
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-    };
-  };
+    #FIXME: it doesnt work, it has to do with hyprpaper
+    image = ../../assets/Shogoki.png;
 
-  stylix.targets.nixvim.enable = false;
-
-  stylix.fonts.sizes = {
-    applications = 10;
-    terminal = 10;
-    desktop = 10;
-    popups = 10;
+    # opacity = {
+    #   desktop = 0.5;
+    #   terminal = 0.9;
+    # };
   };
 }
