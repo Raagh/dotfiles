@@ -13,6 +13,7 @@
     ./waybar.nix
     ./neovim.nix
     ./zsh.nix
+    ./theme.nix
   ];
 
   home.username = "raagh";
