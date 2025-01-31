@@ -13,6 +13,7 @@
     ./waybar.nix
     ./neovim.nix
     ./zsh.nix
+    ./kanshi.nix
     ./theme.nix
   ];
 
