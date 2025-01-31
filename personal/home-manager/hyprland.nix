@@ -14,7 +14,6 @@
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
     overskride # bluetooth tool
-    nwg-displays
     wdisplays
     nautilus
     pavucontrol
@@ -23,7 +22,6 @@
     hyprpaper
 
     # mako
-    # kanshi
     # waybar
     # udiskie
     # unzip

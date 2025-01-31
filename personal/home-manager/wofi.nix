@@ -5,7 +5,7 @@
 }:
 
 {
-  programs.rofi = {
+  programs.wofi = {
     enable = true;
   };
 

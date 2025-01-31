@@ -9,7 +9,7 @@
   imports = [
     ./hyprland.nix
     ./hyprpaper.nix
-    ./rofi.nix
+    ./wofi.nix
     ./waybar.nix
     ./neovim.nix
     ./zsh.nix
