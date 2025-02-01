@@ -22,6 +22,8 @@
     wl-clipboard
     file-roller
     hyprpaper
+    hyprpolkitagent
+    nwg-panel
 
     # mako
   ];
