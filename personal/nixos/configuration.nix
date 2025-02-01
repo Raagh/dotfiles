@@ -9,6 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
+    ./user.nix
     ./theme.nix
   ];
 
@@ -79,21 +80,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.raagh = {
-    isNormalUser = true;
-    description = "raagh";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "video"
-      "audio"
-    ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
-
   # Setup general purpose services
 
   # Allow unfree packages
@@ -128,6 +114,7 @@
   services.openssh.enable = true;
   services.libinput.enable = true;
   programs.dconf.enable = true;
+  programs.light.enable = true;
   services = {
     dbus.enable = true;
     gvfs.enable = true;

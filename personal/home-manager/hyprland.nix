@@ -14,6 +14,8 @@
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
     overskride # bluetooth tool
+    overskride
+    networkmanagerapplet
     wdisplays
     nautilus
     pavucontrol
@@ -22,11 +24,6 @@
     hyprpaper
 
     # mako
-    # waybar
-    # udiskie
-    # unzip
-    # zip
-    #
   ];
 
   # link the hyprland config to the .config folder in home
@@ -50,14 +47,4 @@
 
   # services.gnome.gnome-keyring.enable = true;
   # security.polkit.enable = true;
-
-  # systemd.user.services.kanshi = {
-  #   description = "Kanshi daemon";
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     ExecStart = ''${pkgs.kanshi}/bin/kanshi'';
-  #     RestartSec = 5;
-  #     Restart = "always";
-  #   };
-  # };
 }

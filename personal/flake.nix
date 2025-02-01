@@ -23,6 +23,7 @@
     }:
     let
       system = "x86_64-linux";
+      assets = "/home/raagh/Code/dotfiles/assets/";
       personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
       sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
     in
