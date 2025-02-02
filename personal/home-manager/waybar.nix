@@ -7,26 +7,29 @@
     settings = {
       mainBar = {
         layer = "top";
-        height = 32;
         width = 1250;
-        spacing = 4;
         margin-top = 8;
-        "modules-center" = [
+        spacing = 8;
+        "modules-left" = [
           "custom/logo"
           "hyprland/workspaces"
           "hyprland/window"
-          "memory"
-          "battery"
-          "pulseaudio"
-          "hyprland/language"
+        ];
+        "modules-center" = [
           "clock"
+        ];
+        "modules-right" = [
+          "group/audio"
           "tray"
+          "hyprland/language"
+          "battery"
+          "group/power"
         ];
 
         "custom/logo" = {
           format = "";
           tooltip = false;
-          on-click = "pidof wofi || wofi --no-lazy-grab --show drun";
+          on-click = "pidof wofi || wofi --show drun";
         };
 
         "hyprland/workspaces" = {
@@ -55,12 +58,11 @@
         };
 
         "hyprland/window" = {
-          max-length = 30;
+          format = "<span  weight='bold' >{class}</span>";
+          max-length = 120;
+          icon = false;
+          icon-size = 13;
           separate-outputs = true;
-        };
-
-        memory = {
-          format = "󰍛   %{percentage}";
         };
 
         battery = {
@@ -71,6 +73,58 @@
             " "
             " "
             " "
+          ];
+        };
+
+        "group/power" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 500;
+            transition-left-to-right = true;
+          };
+          modules = [
+            "custom/power" # First element is the "group leader" and won't ever be hidden
+            "custom/quit"
+            "custom/lock"
+            "custom/reboot"
+          ];
+        };
+
+        "custom/quit" = {
+          format = "";
+          tooltip = false;
+          on-click = "hyprctl dispatch exit";
+        };
+
+        "custom/lock" = {
+          format = "󰌾";
+          tooltip = false;
+          on-click = "swaylock";
+        };
+
+        "custom/reboot" = {
+          format = "󰜉";
+          tooltip = false;
+          on-click = "reboot";
+        };
+
+        "custom/power" = {
+          format = "󰐥";
+          tooltip = false;
+          on-click = "shutdown now";
+        };
+
+        "group/audio" = {
+          orientation = "horizontal";
+          drawer = {
+            transition-duration = 600;
+            children-class = "not-power";
+            transition-to-left = true;
+            click-to-reveal = false;
+          };
+          modules = [
+            "pulseaudio"
+            "pulseaudio/slider"
           ];
         };
 
@@ -94,6 +148,14 @@
           on-click = "pavucontrol";
         };
 
+        "pulseaudio/slider" = {
+          min = 5;
+          max = 100;
+          rotate = 0;
+          device = "pulseaudio";
+          "scroll-step" = 1;
+        };
+
         "hyprland/language" = {
           format = "   {}";
         };
@@ -101,6 +163,25 @@
         clock = {
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
           format-alt = "{%I:%M %p}";
+          tooltip-format = "<tt>{calendar}</tt>";
+          calendar = {
+            mode = "month";
+            "mode-mon-col" = 3;
+            "on-scroll" = 1;
+            "on-click-right" = "mode";
+            "format" = {
+              "months" = "<span color='#ffead3'><b>{}</b></span>";
+              "weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
+              "today" = "<span color='#ff6699'><b>{}</b></span>";
+            };
+          };
+          "actions" = {
+            "on-click-right" = "mode";
+            "on-click-forward" = "tz_up";
+            "on-click-backward" = "tz_down";
+            "on-scroll-up" = "shift_up";
+            "on-scroll-down" = "shift_down";
+          };
         };
 
         tray = {
@@ -110,61 +191,37 @@
         };
       };
     };
-    style =
+    style = ''
+      * {
+        font-family: DejaVu Serif;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+      }
 
-      ''
-        * {
-          font-family: DejaVu Serif;
-          font-size: 12px;
-          font-weight: bold;
-          border-radius: 8px;
-        }
+      #custom-logo {
+        font-size: 18px;
+        margin-left: 7px;
+        margin-right: 12px;
+        font-family: Iosevka Nerd Font;
+      }
 
-        /*-----module groups----*/
-        .modules-center {
-          margin: 2px 0 0 0;
-        }
+      #custom-quit,
+      #custom-lock,
+      #custom-reboot,
+      #custom-power {
+        border-radius: 8px;
+        margin-left: 7px;
+        margin-right: 12px;
+        font-size: 18px;
+      }
 
-        /*-----modules indv----*/
-        #workspaces button {
-          padding: 2.5px;
-        }
-
-        #memory {
-          padding: 0 10px 0 500px;
-        }
-        #custom-logo {
-          font-size: 18px;
-          margin: 0;
-          margin-left: 7px;
-          margin-right: 12px;
-          padding: 0;
-          font-family: Iosevka Nerd Font;
-        }
-
-        #tray,
-
-        #clock {
-          padding: 0 10px;
-        }
-
-        #custom-power {
-          border-radius: 100px;
-          margin: 5px 5px;
-          padding: 1px 1px 1px 6px;
-        }
-        /*-----Indicators----*/
-        #battery {
-          padding: 0 10px;
-        }
-
-        #pulseaudio {
-          padding: 0 10px;
-        }
-
-        #language {
-          padding: 0 10px;
-        }
-      '';
+      #pulseaudio-slider trough {
+        min-width: 90px;
+        min-height: 10px;
+        border-radius: 8px;
+        background: #343434;
+      }
+    '';
   };
 }

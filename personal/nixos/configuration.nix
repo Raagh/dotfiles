@@ -102,6 +102,7 @@
     eza
     bat
     btop
+    nerdfetch
   ];
 
   # Enable zsh as default shell
