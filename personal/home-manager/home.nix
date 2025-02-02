@@ -36,11 +36,13 @@
     zellij
     nodejs
 
-    # zathura
-    # exercism
+    zathura
+    exercism
     # transmission_4-gtk
+    vlc
+    gnome-calculator
+    gnome-text-editor
     # gedit
-    # vlc
     # galculator
   ];
 

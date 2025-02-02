@@ -13,7 +13,6 @@
 
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
-    overskride # bluetooth tool
     overskride
     networkmanagerapplet
     wdisplays
@@ -23,7 +22,6 @@
     file-roller
     hyprpaper
     hyprpolkitagent
-    nwg-panel
 
     # mako
   ];

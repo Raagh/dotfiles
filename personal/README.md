@@ -6,12 +6,12 @@ System: Nix OS
 Theme: rose-pine
 
 - hyprland
-- hyprpanel
+- waybar
 - kitty
-- nitrogen
-- rofi
+- hyprpaper
+- wofi
 - zsh
-- pfetch
+- nerdfetch
 - nvim
 
 ![rose-pine-readme](https://user-images.githubusercontent.com/8405459/214701411-b2728d3a-8144-41e8-8edc-b66f9a6ca7d7.png)
