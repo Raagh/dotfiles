@@ -8,12 +8,14 @@
       mainBar = {
         layer = "top";
         width = 1250;
+        height = 40;
         margin-top = 8;
         spacing = 0;
         "modules-left" = [
           "custom/logo"
           "hyprland/workspaces"
           "hyprland/window"
+          # "hyrpland/submap"
         ];
         "modules-center" = [
           "clock"
@@ -56,6 +58,12 @@
           max-length = 120;
           icon = false;
           separate-outputs = true;
+        };
+
+        "hyprland/submap" = {
+          format = "{}";
+          max-length = 8;
+          tooltip = false;
         };
 
         battery = {
@@ -246,11 +254,11 @@
       }
 
       .modules-left #workspaces button {
-        border-bottom: 3px solid transparent;
+        border-bottom: 1px solid transparent;
       }
       .modules-left #workspaces button.focused,
       .modules-left #workspaces button.active {
-        border-bottom: 3px solid transparent;
+        border-bottom: 1px solid transparent;
       } 
 
       #battery {
