@@ -9,7 +9,7 @@
         layer = "top";
         width = 1250;
         margin-top = 8;
-        spacing = 8;
+        spacing = 0;
         "modules-left" = [
           "custom/logo"
           "hyprland/workspaces"
@@ -19,8 +19,8 @@
           "clock"
         ];
         "modules-right" = [
-          "group/audio"
           "tray"
+          "group/audio"
           "hyprland/language"
           "battery"
           "group/power"
@@ -49,19 +49,12 @@
             "10" = "";
             default = "";
           };
-          persistent_workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-          };
         };
 
         "hyprland/window" = {
           format = "<span  weight='bold' >{class}</span>";
           max-length = 120;
           icon = false;
-          icon-size = 13;
           separate-outputs = true;
         };
 
@@ -159,6 +152,22 @@
         "hyprland/language" = {
           format = "   {}";
         };
+        # base00: "#191724"
+        # base01: "#1f1d2e"
+        # base02: "#26233a"
+        # base03: "#6e6a86"
+        # base04: "#908caa"
+        # base05: "#e0def4"
+        # base06: "#e0def4"
+        # base07: "#524f67"
+        # base08: "#eb6f92"
+        # base09: "#f6c177"
+        # base0A: "#ebbcba"
+        # base0B: "#31748f"
+        # base0C: "#9ccfd8"
+        # base0D: "#c4a7e7"
+        # base0E: "#f6c177"
+        # base0F: "#524f67"
 
         clock = {
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
@@ -170,9 +179,9 @@
             "on-scroll" = 1;
             "on-click-right" = "mode";
             "format" = {
-              "months" = "<span color='#ffead3'><b>{}</b></span>";
-              "weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
-              "today" = "<span color='#ff6699'><b>{}</b></span>";
+              "months" = "<span color='#${config.lib.stylix.colors.base0A}'><b>{}</b></span>";
+              "weekdays" = "<span color='#${config.lib.stylix.colors.base0E}'><b>{}</b></span>";
+              "today" = "<span color='#${config.lib.stylix.colors.base08}'><b>{}</b></span>";
             };
           };
           "actions" = {
@@ -199,28 +208,56 @@
         border-radius: 8px;
       }
 
-      #custom-logo {
-        font-size: 18px;
-        margin-left: 7px;
-        margin-right: 12px;
-        font-family: Iosevka Nerd Font;
+      #workspaces button {
+        padding: 2.5px;
       }
 
+      #workspaces button label {
+        color: #${config.lib.stylix.colors.base0A};
+      }
+
+      #workspaces button.focused label {
+        color: #${config.lib.stylix.colors.base0B};
+      }
+
+      #clock {
+        color: #${config.lib.stylix.colors.base08};
+      }
+
+      #custom-logo
       #custom-quit,
       #custom-lock,
       #custom-reboot,
       #custom-power {
-        border-radius: 8px;
         margin-left: 7px;
         margin-right: 12px;
         font-size: 18px;
+        font-family: Iosevka Nerd Font;
       }
 
       #pulseaudio-slider trough {
         min-width: 90px;
         min-height: 10px;
-        border-radius: 8px;
-        background: #343434;
+      }
+
+      .modules-left #workspaces button {
+        border-bottom: 3px solid transparent;
+      }
+      .modules-left #workspaces button.focused,
+      .modules-left #workspaces button.active {
+        border-bottom: 3px solid transparent;
+      } 
+
+      #battery {
+        color: #${config.lib.stylix.colors.base09};
+      }
+
+      #pulseaudio {
+        color: #${config.lib.stylix.colors.base0D};
+      }
+
+      #language {
+        color: #${config.lib.stylix.colors.base0A};
       }
     '';
   };

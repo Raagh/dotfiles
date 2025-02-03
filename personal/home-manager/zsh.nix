@@ -7,7 +7,6 @@
 {
   programs.zsh = {
     enable = true;
-    # promptInit = " ❯";
     shellAliases = {
       cat = "bat";
       "cd.." = "cd ..";
