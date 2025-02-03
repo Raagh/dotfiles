@@ -209,7 +209,7 @@
       }
 
       #workspaces button {
-        padding: 2.5px;
+        margin: 2.5px;
       }
 
       #workspaces button label {
@@ -220,11 +220,17 @@
         color: #${config.lib.stylix.colors.base0B};
       }
 
+      #custom-logo {
+        font-size: 18px;
+        margin-left: 7px;
+        margin-right: 12px;
+        font-family: Iosevka Nerd Font;
+      }
+
       #clock {
         color: #${config.lib.stylix.colors.base08};
       }
 
-      #custom-logo
       #custom-quit,
       #custom-lock,
       #custom-reboot,
@@ -232,7 +238,6 @@
         margin-left: 7px;
         margin-right: 12px;
         font-size: 18px;
-        font-family: Iosevka Nerd Font;
       }
 
       #pulseaudio-slider trough {
