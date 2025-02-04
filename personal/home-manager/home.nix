@@ -41,8 +41,6 @@
     vlc
     gnome-calculator
     gnome-text-editor
-    # gedit
-    # galculator
   ];
 
   programs.git = {
