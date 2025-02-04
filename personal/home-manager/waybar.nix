@@ -210,7 +210,6 @@
     };
     style = ''
       * {
-        font-family: DejaVu Serif;
         font-size: 12px;
         font-weight: bold;
         border-radius: 8px;
@@ -232,7 +231,6 @@
         font-size: 18px;
         margin-left: 7px;
         margin-right: 12px;
-        font-family: Iosevka Nerd Font;
       }
 
       #clock {

@@ -10,11 +10,12 @@
 
   home.packages = with pkgs; [
     neovim
-    nixfmt-rfc-style
-    lua-language-server
     gcc
     ripgrep
     fzf
+    nixfmt-rfc-style
+    lua-language-server
+    nodejs
   ];
 
   nixpkgs.overlays = [

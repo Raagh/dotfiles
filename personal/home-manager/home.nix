@@ -14,6 +14,7 @@
     ./neovim.nix
     ./zsh.nix
     ./kanshi.nix
+    ./zellij.nix
     ./theme.nix
   ];
 
@@ -33,8 +34,6 @@
     lazygit
     stow
     kitty
-    zellij
-    nodejs
 
     zathura
     exercism
