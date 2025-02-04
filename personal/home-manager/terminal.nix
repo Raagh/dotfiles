@@ -29,4 +29,9 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
+
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

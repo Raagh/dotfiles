@@ -5,8 +5,7 @@
 }:
 
 {
-  programs.zellij = {
+  services.swaync = {
     enable = true;
-    enableZshIntegration = true;
   };
 }

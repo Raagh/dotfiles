@@ -12,9 +12,9 @@
     ./wofi.nix
     ./waybar.nix
     ./neovim.nix
-    ./zsh.nix
+    ./terminal.nix
     ./kanshi.nix
-    ./zellij.nix
+    ./swaync.nix
     ./theme.nix
   ];
 
