@@ -27,7 +27,6 @@
     file-roller
     hyprpaper
     hyprpolkitagent
-    # swaynotificationcenter
 
     # Must haves according to hyprland docs?
     # qt5-wayland

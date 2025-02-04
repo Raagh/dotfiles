@@ -16,6 +16,7 @@
     nixfmt-rfc-style
     lua-language-server
     nodejs
+    hub
   ];
 
   nixpkgs.overlays = [
