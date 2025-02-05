@@ -16,7 +16,7 @@ in
 
     extraConfig = {
       modi = "drun";
-      font = "Dejavu Sans 10";
+      font = "Dejavu Sans 12";
       show-icons = true;
       disable-history = true;
       hover-select = true;
