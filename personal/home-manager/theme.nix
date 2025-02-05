@@ -53,6 +53,7 @@
     };
 
     targets.nixvim.enable = false;
+    # targets.rofi.enable = false;
 
     #FIXME: it doesnt work, it has to do with hyprpaper
     image = ../../assets/Shogoki.png;
