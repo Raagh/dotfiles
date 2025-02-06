@@ -31,7 +31,7 @@
         "custom/logo" = {
           format = "";
           tooltip = false;
-          on-click = "pidof wofi || wofi --show drun";
+          on-click = "pidof rofi || rofi -no-lazy-grab -show drun";
         };
 
         "hyprland/workspaces" = {
