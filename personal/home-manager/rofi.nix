@@ -10,6 +10,11 @@ let
   inherit (config.lib.formats.rasi) mkLiteral;
 in
 {
+
+  home.packages = with pkgs; [
+    rofi-power-menu
+  ];
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -35,7 +40,7 @@ in
     theme = {
       window = {
         transparency = "real";
-        location = "southeast";
+        location = "center";
         anchor = "center";
         fullscreen = false;
         width = 500;
