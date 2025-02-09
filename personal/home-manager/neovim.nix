@@ -16,6 +16,7 @@
     nixfmt-rfc-style
     cargo
     hub
+    unzip
 
     lua-language-server
     nodejs
