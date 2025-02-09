@@ -12,49 +12,16 @@
     ./lock.nix
     ./rofi.nix
     ./waybar.nix
-    ./neovim.nix
     ./terminal.nix
     ./kanshi.nix
     ./swaync.nix
     ./theme.nix
+    ./programs.nix
+    ./neovim.nix
   ];
 
   home.username = "raagh";
   home.homeDirectory = "/home/raagh";
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    google-chrome
-    lazygit
-    stow
-    kitty
-
-    zathura
-    exercism
-    # transmission_4-gtk
-    vlc
-    gnome-calculator
-    gnome-text-editor
-    portfolio
-    go
-  ];
-
-  programs.git = {
-    enable = true;
-    userName = "Raagh";
-    userEmail = "pattferraggi@gmail.com";
-  };
-
-  #  virtualisation.docker.enable = true;
-  #  services.trezord.enable = true;
-  #  hardware.keyboard.qmk.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

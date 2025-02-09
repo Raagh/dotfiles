@@ -14,9 +14,12 @@
     ripgrep
     fzf
     nixfmt-rfc-style
+    cargo
+    hub
+
     lua-language-server
     nodejs
-    hub
+    go
   ];
 
   nixpkgs.overlays = [

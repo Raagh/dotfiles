@@ -110,10 +110,9 @@
   users.defaultUserShell = pkgs.zsh;
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.libinput.enable = true;
+  services.trezord.enable = true;
   programs.dconf.enable = true;
   programs.light.enable = true;
   services = {
@@ -123,6 +122,8 @@
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
   };
+  virtualisation.docker.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
