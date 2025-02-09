@@ -27,6 +27,8 @@
     file-roller
     hyprpaper
     hyprpolkitagent
+    waypaper
+    hyprshot
 
     # Must haves according to hyprland docs?
     # qt5-wayland
