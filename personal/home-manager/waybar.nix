@@ -1,6 +1,23 @@
 { config, pkgs, ... }:
 
 {
+  # base00: "#191724"
+  # base01: "#1f1d2e"
+  # base02: "#26233a"
+  # base03: "#6e6a86"
+  # base04: "#908caa"
+  # base05: "#e0def4"
+  # base06: "#e0def4"
+  # base07: "#524f67"
+  # base08: "#eb6f92"
+  # base09: "#f6c177"
+  # base0A: "#ebbcba"
+  # base0B: "#31748f"
+  # base0C: "#9ccfd8"
+  # base0D: "#c4a7e7"
+  # base0E: "#f6c177"
+  # base0F: "#524f67"
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -15,7 +32,7 @@
           "custom/logo"
           "hyprland/workspaces"
           "hyprland/window"
-          # "hyrpland/submap"
+          "hyprland/submap"
         ];
         "modules-center" = [
           "clock"
@@ -61,7 +78,7 @@
         };
 
         "hyprland/submap" = {
-          format = "{}";
+          format = "[{}]";
           max-length = 8;
           tooltip = false;
         };
@@ -160,22 +177,6 @@
         "hyprland/language" = {
           format = "   {}";
         };
-        # base00: "#191724"
-        # base01: "#1f1d2e"
-        # base02: "#26233a"
-        # base03: "#6e6a86"
-        # base04: "#908caa"
-        # base05: "#e0def4"
-        # base06: "#e0def4"
-        # base07: "#524f67"
-        # base08: "#eb6f92"
-        # base09: "#f6c177"
-        # base0A: "#ebbcba"
-        # base0B: "#31748f"
-        # base0C: "#9ccfd8"
-        # base0D: "#c4a7e7"
-        # base0E: "#f6c177"
-        # base0F: "#524f67"
 
         clock = {
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
@@ -216,7 +217,7 @@
       }
 
       #workspaces button {
-        margin: 2.5px;
+        padding: 2px;
       }
 
       #workspaces button label {
@@ -244,6 +245,10 @@
         margin-left: 7px;
         margin-right: 12px;
         font-size: 18px;
+      }
+
+      #submap {
+        color: #${config.lib.stylix.colors.base08};
       }
 
       #pulseaudio-slider trough {
