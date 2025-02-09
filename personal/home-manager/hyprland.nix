@@ -35,8 +35,10 @@
       config.lib.file.mkOutOfStoreSymlink "${personalDotfilesPath}/config/hyprland.conf";
   };
 
-  # hint Electron apps to use Wayland:
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # hint Electron apps to use Wayland
+    HYPRSHOT_DIR = "/home/raagh/Pictures/Screenshots";
+  };
 
   xdg.portal = {
     enable = true;
@@ -47,7 +49,4 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-  # services.gnome.gnome-keyring.enable = true;
-  # security.polkit.enable = true;
 }
