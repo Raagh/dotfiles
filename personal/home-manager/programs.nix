@@ -12,7 +12,6 @@
     stow
     kitty
 
-    zathura
     exercism
     transmission_4-gtk
     vlc

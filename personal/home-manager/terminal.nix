@@ -5,6 +5,13 @@
 }:
 
 {
+  programs.kitty = {
+    enable = true;
+    settings = {
+      enable_audio_bell = false;
+    };
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {

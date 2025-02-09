@@ -6,12 +6,6 @@
 }:
 
 {
-  programs.kitty = {
-    enable = true;
-    settings = {
-      enable_audio_bell = false;
-    };
-  };
   # wayland.windowManager.hyprland = {
   #   enable = true;
   # };
