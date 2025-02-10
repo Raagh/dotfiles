@@ -23,7 +23,7 @@
     }:
     let
       system = "x86_64-linux";
-      assets = "/home/raagh/Code/dotfiles/assets/";
+      assetsPath = "/home/raagh/Code/dotfiles/assets/";
       personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
       sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
     in
@@ -32,6 +32,7 @@
         specialArgs = {
           inherit personalDotfilesPath;
           inherit sharedDotfilesPath;
+          inherit assetsPath;
           inherit inputs;
         };
         modules = [
@@ -46,6 +47,7 @@
             home-manager.extraSpecialArgs = {
               inherit personalDotfilesPath;
               inherit sharedDotfilesPath;
+              inherit assetsPath;
               inherit inputs;
             };
           }

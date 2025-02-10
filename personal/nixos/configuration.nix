@@ -73,7 +73,7 @@
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
+    # no need to redefine it in your config for nor)
     #media-session.enable = true;
   };
 
@@ -103,6 +103,7 @@
     bat
     btop
     nerdfetch
+    stow
   ];
 
   # Enable zsh as default shell

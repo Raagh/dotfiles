@@ -1,9 +1,16 @@
 {
+  config,
+  pkgs,
+  assetsPath,
+  ...
+}:
+
+{
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/Code/dotfiles/assets/Shogoki.png" ];
-      wallpaper = [ "DP-7,~/Code/dotfiles/assets/Shogoki.png" ];
+      preload = [ "${assetsPath}/Shogoki.png" ];
+      wallpaper = [ "DP-7,${assetsPath}/Shogoki.png" ];
 
       ipc = "on";
       splash = false;
