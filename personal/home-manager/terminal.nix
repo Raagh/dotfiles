@@ -31,8 +31,20 @@
         "npm"
         "vi-mode"
       ];
-      theme = "robbyrussell";
     };
+    initExtra = ''
+      autoload -Uz vcs_info
+
+      precmd() { vcs_info }
+
+      # Format the vcs_info_msg_0_ variable
+      zstyle ':vcs_info:git:*' formats "%b"
+
+      setopt prompt_subst
+
+      PROMPT="%B%F{#${config.lib.stylix.colors.base0C}}% "" ❯ %f"
+      RPROMPT='%F{#${config.lib.stylix.colors.base0C}}''${vcs_info_msg_0_}'
+    '';
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
