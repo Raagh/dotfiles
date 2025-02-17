@@ -101,7 +101,6 @@
     wget
     eza
     bat
-    btop
     nerdfetch
     stow
   ];

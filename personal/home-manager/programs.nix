@@ -16,6 +16,7 @@
     vlc
     gnome-calculator
     gnome-text-editor
+    gnome-system-monitor
     portfolio
   ];
 
