@@ -15,7 +15,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      cat = "bat";
+      cat = "bat --theme=base16";
       "cd.." = "cd ..";
       grep = "grep --color=auto";
       jctl = "journalctl -p 3 -xb"; # get the error messages from journalctl

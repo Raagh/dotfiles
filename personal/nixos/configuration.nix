@@ -103,6 +103,7 @@
     bat
     nerdfetch
     stow
+    docker-compose
   ];
 
   # Enable zsh as default shell
