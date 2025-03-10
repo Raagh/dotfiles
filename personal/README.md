@@ -18,6 +18,12 @@ Theme: rose-pine (applied with stylix)
 
 Initial nix configurations are linked using stow.
 
+This configuration expects you that you first install the default gnome NixOS image and then install this:
+
+I don't keep anything from gnome but I use some of the folders gnome creates like Downloads, Pictures, etc
+It is also very helpful to have gnome generation working at the beginning in case we break something during the setup
+You can then go back to a functioning Desktop Environment
+
 ```bash
 cd dotfiles
 sudo stow personal -vn --adopt -t /etc/nixos

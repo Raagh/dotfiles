@@ -13,14 +13,8 @@
     ./theme.nix
   ];
 
-  networking.hostName = "nixos";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
@@ -96,8 +90,8 @@
   environment.systemPackages = with pkgs; [
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
-    vim
     git
+    vim
     wget
     eza
     bat
@@ -111,20 +105,23 @@
   users.defaultUserShell = pkgs.zsh;
 
   # List services that you want to enable:
-  services.openssh.enable = true;
-  services.libinput.enable = true;
-  services.trezord.enable = true;
-  programs.dconf.enable = true;
-  programs.light.enable = true;
   services = {
     dbus.enable = true;
     gvfs.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
+    openssh.enable = true;
+    libinput.enable = true;
+    trezord.enable = true;
   };
+  programs.dconf.enable = true;
+  programs.light.enable = true;
   virtualisation.docker.enable = true;
   hardware.keyboard.qmk.enable = true;
+
+  # Dont suspend laptop when lid is off and power is connected
+  services.logind.lidSwitchExternalPower = "ignore";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
