@@ -44,6 +44,7 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Slack$" manage=off
 # yabai -m rule --add app="^Microsoft Outlook$" manage=off
 yabai -m rule --add app="^Microsoft Word$" manage=off
+yabai -m rule --add app="^TablePlus$" manage=off
 yabai -m rule --add app="^Microsoft Teams$" manage=off
 yabai -m rule --add app="^Code$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
