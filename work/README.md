@@ -3,16 +3,19 @@
 The dotfiles for my work setup.
 
 System: Mac OS
-Theme: tokyonight/kanagawa
 
-- aerospace
+Theme: kanagawa
+
+- homebrew
+- yabai
 - kitty
 - alfred
 - zsh
 - pfetch
 - nvim
 
-![screenshot](https://github.com/Raagh/dotfiles/assets/8405459/5a35b92b-e190-45fd-b8b9-5283c99878e7)
+![image](https://github.com/user-attachments/assets/e73acadf-0112-490d-a4de-058225776877)
+
 
 all configurations are linked using stow
 
