@@ -217,14 +217,14 @@
       }
 
       #workspaces button {
-        padding: 2px;
+        padding: 2px 4px 2px 0px;
       }
 
       #workspaces button label {
         color: #${config.lib.stylix.colors.base0A};
       }
 
-      #workspaces button.focused label {
+      #workspaces button.active label {
         color: #${config.lib.stylix.colors.base0B};
       }
 
