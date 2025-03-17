@@ -181,6 +181,7 @@
         clock = {
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
           format-alt = "{%I:%M %p}";
+          locale = "en_US.UTF-8";
           tooltip-format = "<tt>{calendar}</tt>";
           calendar = {
             mode = "month";
