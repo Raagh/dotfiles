@@ -5,6 +5,17 @@
   ...
 }:
 
+let
+  portfolio = pkgs.symlinkJoin {
+    name = "portfolio";
+    paths = [ pkgs.portfolio ];
+    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/portfolio" \
+      --set GDK_BACKEND x11
+    '';
+  };
+in
 {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -17,6 +28,7 @@
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
+
     portfolio
   ];
 
@@ -36,4 +48,5 @@
   };
 
   programs.zathura.enable = true;
+
 }
