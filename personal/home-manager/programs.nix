@@ -48,5 +48,4 @@ in
   };
 
   programs.zathura.enable = true;
-
 }

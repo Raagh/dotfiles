@@ -98,6 +98,7 @@
     nerdfetch
     stow
     docker-compose
+    pfetch
   ];
 
   # Enable zsh as default shell
