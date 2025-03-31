@@ -7,7 +7,7 @@ System: Mac OS
 Theme: kanagawa
 
 - homebrew
-- yabai
+- aerospace
 - kitty
 - alfred
 - zsh
@@ -15,7 +15,6 @@ Theme: kanagawa
 - nvim
 
 ![image](https://github.com/user-attachments/assets/e73acadf-0112-490d-a4de-058225776877)
-
 
 all configurations are linked using stow
 
