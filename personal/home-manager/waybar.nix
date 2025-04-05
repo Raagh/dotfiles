@@ -179,6 +179,12 @@
         };
 
         clock = {
+          timezone = "America/Argentina/Buenos_Aires";
+          # timezone = "Europe/Madrid";
+          timezones = [
+            "America/Argentina/Buenos_Aires"
+            "Europe/Madrid"
+          ];
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
           format-alt = "{%I:%M %p}";
           locale = "en_US.UTF-8";
