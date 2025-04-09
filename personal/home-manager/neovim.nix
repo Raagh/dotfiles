@@ -13,6 +13,7 @@
     gcc
     ripgrep
     fzf
+    fd
     nixfmt-rfc-style
     cargo
     hub
