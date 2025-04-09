@@ -168,6 +168,7 @@ automatically-unhide-macos-hidden-apps = false
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
-[mode.resize.binding]          # 2. Declare 'resize' binding mode
+[mode.resize.binding]
     minus = 'resize smart -50'
     equal = 'resize smart +50'
+    esc = 'mode main'
