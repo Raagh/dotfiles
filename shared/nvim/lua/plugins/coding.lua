@@ -41,6 +41,16 @@ return {
   },
   {
     "folke/snacks.nvim",
+    keys = {
+      {
+        "<c-/>",
+        enabled = false,
+      },
+      {
+        "<c-_>",
+        enabled = false,
+      },
+    },
     opts = {
       win = {
         backdrop = 100,
