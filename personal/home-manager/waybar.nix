@@ -179,8 +179,8 @@
         };
 
         clock = {
-          timezone = "America/Argentina/Buenos_Aires";
-          # timezone = "Europe/Madrid";
+          # timezone = "America/Argentina/Buenos_Aires";
+          timezone = "Europe/Madrid";
           timezones = [
             "America/Argentina/Buenos_Aires"
             "Europe/Madrid"
