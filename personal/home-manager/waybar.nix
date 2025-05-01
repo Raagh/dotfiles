@@ -181,9 +181,10 @@
         clock = {
           # timezone = "America/Argentina/Buenos_Aires";
           timezone = "Europe/Madrid";
+          # not sure why you need to also change the order of this list to match
           timezones = [
-            "America/Argentina/Buenos_Aires"
             "Europe/Madrid"
+            "America/Argentina/Buenos_Aires"
           ];
           format = "󰃭  {:%A, %d %B  %I:%M %p}";
           format-alt = "{%I:%M %p}";
