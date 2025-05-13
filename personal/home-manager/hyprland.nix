@@ -19,10 +19,9 @@
     pavucontrol
     wl-clipboard
     file-roller
-    hyprpaper
     hyprpolkitagent
-    waypaper
     hyprshot
+    waypaper
 
     # Must haves according to hyprland docs?
     # qt5-wayland
