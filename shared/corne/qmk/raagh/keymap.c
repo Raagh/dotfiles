@@ -1,8 +1,7 @@
 #include QMK_KEYBOARD_H
+#include "oled_driver.h"
 
 extern uint8_t is_master;
-
-// markstos defines
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -105,6 +104,46 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       default:
             return TAPPING_TERM;
     }
+}
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    // Rotate OLED 180 degrees on the right half
+    if (!is_keyboard_master()) {
+        return OLED_ROTATION_180;
+    }
+    return rotation;
+}
+
+// Function to render current layer
+void render_layer_state(void) {
+    switch (get_highest_layer(layer_state)) {
+        case 0:
+            oled_write_ln_P(PSTR("Base"), false);
+            break;
+        case 1:
+            oled_write_ln_P(PSTR("Lower"), false);
+            break;
+        case 2:
+            oled_write_ln_P(PSTR("Raise"), false);
+            break;
+        case 3:
+            oled_write_ln_P(PSTR("Adjust"), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("Unknown"), false);
+    }
+}
+
+// Main OLED render task
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        oled_write_ln_P(PSTR(KEYMAP_VERSION), false);
+        oled_write_ln_P(PSTR(""), false); // spacing
+        render_layer_state();
+    } else {
+        oled_write_ln_P(PSTR("Raagh"), false);
+    }
+    return false;
 }
 
 // bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
