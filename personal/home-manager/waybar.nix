@@ -219,6 +219,7 @@
     };
     style = ''
       * {
+        font-family: "DejaVu Sans", sans-serif;
         font-size: 12px;
         font-weight: bold;
         border-radius: 8px;

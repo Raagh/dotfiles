@@ -5,12 +5,8 @@
   home.packages = with pkgs; [
     noto-fonts-emoji
     dejavu_fonts
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Iosevka"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
   ];
 
   stylix = {
@@ -30,7 +26,7 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 

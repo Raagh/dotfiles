@@ -34,7 +34,7 @@
         "vi-mode"
       ];
     };
-    initExtra = ''
+    initContent = ''
       autoload -Uz vcs_info
 
       precmd() { vcs_info }
