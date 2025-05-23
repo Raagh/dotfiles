@@ -4,11 +4,10 @@
 extern uint8_t is_master;
 
 enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
+  BASE = SAFE_RANGE,
   LOWER,
   RAISE,
-  FUNC,
-  BACKLIT
+  ADJUST,
 };
 
 enum combos {
@@ -20,23 +19,24 @@ const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  // Add tab to home row because we dont have enough keys
+  // Add tab to home row so I dont stretch my fingers
   [DF_TAB]    = COMBO(df_combo, KC_TAB),
   // For Vim, put Escape on the home row
   [JK_ESC]    = COMBO(jk_combo, KC_ESC),
 };
 
-#define _QWERTY 0
+#define _BASE 0
 #define _LOWER 1
 #define _RAISE 2
-#define _FUNC 3
+#define _ADJUST 3
 
-// For _QWERTY layer
+// For _BASE layer
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_LALT OSM(MOD_LALT)
 // #define OSM_AGR  OSM(MOD_RALT)
-#define OSL_FUN  OSL(_FUNC)
+#define OSL_FUN  OSL(_ADJUST)
 // #define GUI_ENT  GUI_T(KC_ENT)
+#define OSM_SFT  OSM(MOD_LSFT)
 #define LOW_SPC  LT(_LOWER, KC_SPC)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
 #define OSM_SFT  OSM(MOD_LSFT)
@@ -45,7 +45,7 @@ combo_t key_combos[COMBO_COUNT] = {
 #define CTL_ESC  LCTL_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT_split_3x6_3( \
+  [_BASE] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [_FUNC] = LAYOUT_split_3x6_3( \
+  [_ADJUST] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 , KC_F6  ,                      KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -114,7 +114,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return rotation;
 }
 
-// Function to render current layer
+// Render current layer
 void render_layer_state(void) {
     switch (get_highest_layer(layer_state)) {
         case 0:
@@ -141,18 +141,7 @@ bool oled_task_user(void) {
         oled_write_ln_P(PSTR(""), false); // spacing
         render_layer_state();
     } else {
-        oled_write_ln_P(PSTR("Raagh"), false);
+        oled_write_ln_P(PSTR("----- Raagh-RMX -----"), false);
     }
     return false;
 }
-
-// bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//       case LT(_RAISE, KC_BSPC):
-//             return false;
-//       case LT(_LOWER, KC_SPC):
-//             return false;
-//         default:
-//             return true;
-//     }
-// }

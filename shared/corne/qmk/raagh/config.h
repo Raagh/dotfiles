@@ -2,14 +2,18 @@
 
 #define SPLIT_USB_DETECT
 
-#define KEYMAP_VERSION "v1.0.1"
+
+// I often have the QMK bug where I need to flash the keyboard multiple times
+// for it to take effect, this version helps me know if it was flashed or not
+// I update this manually with every change like a caveman
+#define KEYMAP_VERSION "Keymap: v1.0.12"
 
 // Select hand configuration
 #define MASTER_LEFT
 
 #define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM_THUMB 210
+#define TAPPING_TERM_THUMB 270
 
 // If you press a dual-role key, press another key, and then release the
 // dual-role key, all within the tapping term, by default the dual-role key
