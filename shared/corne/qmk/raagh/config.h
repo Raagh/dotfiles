@@ -2,24 +2,23 @@
 
 #define SPLIT_USB_DETECT
 
-
 // I often have the QMK bug where I need to flash the keyboard multiple times
 // for it to take effect, this version helps me know if it was flashed or not
 // I update this manually with every change like a caveman
-#define KEYMAP_VERSION "Keymap: v1.0.12"
+#define KEYMAP_VERSION "Keymap: v1.0.0"
 
 // Select hand configuration
 #define MASTER_LEFT
 
 #define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM_THUMB 270
+#define TAPPING_TERM_FIXED 200
 
 // If you press a dual-role key, press another key, and then release the
 // dual-role key, all within the tapping term, by default the dual-role key
 // will perform its tap action. If the HOLD_ON_OTHER_KEY_PRESS option is
 // enabled, the dual-role key will perform its hold action instead.
-#define HOLD_ON_OTHER_KEY_PRESS
+// #define HOLD_ON_OTHER_KEY_PRESS
 
 // When enabled, typing a mod-tap plus second within term will register as the mod-combo
 // Ref: https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold#permissive-hold 
@@ -44,12 +43,6 @@
 
 // Enable RGB Lighting
 #ifdef RGBLIGHT_ENABLE
-    #define RGBLIGHT_EFFECT_BREATHING
-    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
-    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-    #define RGBLIGHT_EFFECT_SNAKE
-    #define RGBLIGHT_EFFECT_KNIGHT
-    #define RGBLIGHT_EFFECT_CHRISTMAS
     #define RGBLIGHT_EFFECT_STATIC_GRADIENT
     #define RGBLIGHT_LIMIT_VAL 120
     #define RGBLIGHT_HUE_STEP 10

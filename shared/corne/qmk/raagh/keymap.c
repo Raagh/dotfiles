@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 , KC_F6  ,                      KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_VOLU, KC_BRIU, KC_PSCR, KC_MPLY, KC_CAPS,                      RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, _______,
+      _______, KC_VOLU, KC_BRIU, KC_PSCR, KC_MPLY, KC_CAPS,                      DT_UP  , RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_VOLD, KC_BRID, XXXXXXX, XXXXXXX, QK_BOOT,                     RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, _______,
+      _______, KC_VOLD, KC_BRID, XXXXXXX, DT_PRNT, QK_BOOT,                      DT_DOWN, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX\
                                       //`--------------------------'  `--------------------------'
@@ -98,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case LT(_RAISE, KC_BSPC):
-            return TAPPING_TERM_THUMB;
-      case LT(_LOWER, KC_SPC):
-            return TAPPING_TERM_THUMB;
-      default:
             return TAPPING_TERM;
+      case LT(_LOWER, KC_SPC):
+            return TAPPING_TERM;
+      default:
+            return TAPPING_TERM_FIXED;
     }
 }
 
