@@ -117,16 +117,16 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 // Render current layer
 void render_layer_state(void) {
     switch (get_highest_layer(layer_state)) {
-        case 0:
+        case _BASE:
             oled_write_ln_P(PSTR("Base"), false);
             break;
-        case 1:
+        case _LOWER:
             oled_write_ln_P(PSTR("Lower"), false);
             break;
-        case 2:
+        case _RAISE:
             oled_write_ln_P(PSTR("Raise"), false);
             break;
-        case 3:
+        case _ADJUST:
             oled_write_ln_P(PSTR("Adjust"), false);
             break;
         default:
@@ -138,10 +138,12 @@ void render_layer_state(void) {
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_write_ln_P(PSTR(KEYMAP_VERSION), false);
-        oled_write_ln_P(PSTR(""), false); // spacing
+        oled_write_ln_P(PSTR(""), false);
         render_layer_state();
     } else {
         oled_write_ln_P(PSTR("----- Raagh-RMX -----"), false);
+        oled_write_ln_P(PSTR(""), false);
+        oled_write_ln_P(PSTR(""), false);
     }
     return false;
 }
