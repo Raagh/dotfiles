@@ -5,7 +5,7 @@
 // I often have the QMK bug where I need to flash the keyboard multiple times
 // for it to take effect, this version helps me know if it was flashed or not
 // I update this manually with every change like a caveman
-#define KEYMAP_VERSION "Keymap: v1.0.0"
+#define KEYMAP_VERSION "Keymap: v1.0.1"
 
 // Select hand configuration
 #define MASTER_LEFT
