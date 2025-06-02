@@ -22,10 +22,6 @@
     hyprpolkitagent
     hyprshot
     waypaper
-
-    # Must haves according to hyprland docs?
-    # qt5-wayland
-    # qt6-wayland
   ];
 
   # link the hyprland config to the .config folder in home

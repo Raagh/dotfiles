@@ -44,6 +44,7 @@
     };
 
     targets.nixvim.enable = false;
+    targets.qt.enable = false;
     # targets.rofi.enable = false;
 
     #FIXME: it doesnt work, it has to do with hyprpaper
