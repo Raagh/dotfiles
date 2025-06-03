@@ -55,6 +55,9 @@ return {
   {
     "ibhagwan/fzf-lua",
     opts = {
+      defaults = {
+        hidden = true,
+      },
       winopts = {
         backdrop = 100,
       },
