@@ -28,9 +28,12 @@ in
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
+    papers # new gnome-document-viewer
 
     portfolio
   ];
+
+  # programs.zathura.enable = true;
 
   programs.chromium = {
     enable = true;
@@ -46,6 +49,4 @@ in
     userName = "Raagh";
     userEmail = "pattferraggi@gmail.com";
   };
-
-  programs.zathura.enable = true;
 }
