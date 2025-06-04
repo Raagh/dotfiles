@@ -33,13 +33,13 @@ combo_t key_combos[COMBO_COUNT] = {
 // For _BASE layer
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_LALT OSM(MOD_LALT)
-// #define OSM_AGR  OSM(MOD_RALT)
-#define OSL_FUN  OSL(_ADJUST)
-// #define GUI_ENT  GUI_T(KC_ENT)
 #define OSM_SFT  OSM(MOD_LSFT)
+#define OSM_GUI  OSM(MOD_RGUI)
+// #define OSM_AGR  OSM(MOD_RALT)
+// #define GUI_ENT  GUI_T(KC_ENT)
+#define OSL_FUN  OSL(_ADJUST)
 #define LOW_SPC  LT(_LOWER, KC_SPC)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
-#define OSM_SFT  OSM(MOD_LSFT)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_LALT,  KC_RGUI, LOW_SPC,   RSE_BSP ,KC_ENT  ,OSM_SFT \
+                                         OSM_LALT,  OSM_GUI, LOW_SPC,   RSE_BSP ,KC_ENT  ,OSM_SFT \
                                       //`--------------------------'  `--------------------------'
   ),
 
