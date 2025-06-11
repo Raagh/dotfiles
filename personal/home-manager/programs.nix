@@ -33,8 +33,6 @@ in
     portfolio
   ];
 
-  # programs.zathura.enable = true;
-
   programs.chromium = {
     enable = true;
     package = pkgs.google-chrome;

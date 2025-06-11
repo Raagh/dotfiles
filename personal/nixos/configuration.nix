@@ -44,6 +44,7 @@
 
   # Enable the Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.layout = "us";
   # services.xserver.desktopManager.gnome.enable = true;
   programs.hyprland.enable = true;
   programs.nix-ld.enable = true;

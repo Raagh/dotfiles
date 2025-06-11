@@ -12,7 +12,8 @@
 
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
-    overskride
+    # overskride
+    blueberry
     networkmanagerapplet
     wdisplays
     nautilus
