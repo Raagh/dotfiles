@@ -98,7 +98,6 @@
     wget
     eza
     bat
-    nerdfetch
     stow
     docker-compose
     pfetch
