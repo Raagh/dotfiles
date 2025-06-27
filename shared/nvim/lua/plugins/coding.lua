@@ -117,7 +117,8 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function()
+    opts = function()
+      local languages = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
       local dap = require("dap")
       dap.adapters["pwa-node"] = {
         type = "server",
@@ -129,7 +130,7 @@ return {
         },
       }
 
-      for _, language in ipairs({ "typescript", "javascript" }) do
+      for _, language in ipairs(languages) do
         local defaultConfig = dap.configurations[language]
         local newConfig = {
           {
@@ -161,9 +162,11 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "haydenmeade/neotest-jest",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-jest",
     },
     opts = {
       discovery = {
@@ -175,30 +178,17 @@ return {
       },
       adapters = {
         ["neotest-jest"] = {
+          jest_test_discovery = true,
           jestCommand = "yarn test",
-          jestConfigFile = function()
-            local file = vim.fn.expand("%:p")
-            if string.find(file, "/packages/") then
-              return string.match(file, "(.-/[^/]+/)src") .. "jest.config.js"
-            end
-
-            if string.find(file, "/services/") then
-              return string.match(file, "(.-/[^/]+/)src") .. "jest.config.js"
-            end
-
-            return vim.fn.getcwd() .. "/jest.config.js"
-          end,
-          cwd = function()
-            local file = vim.fn.expand("%:p")
-
-            if string.find(file, "/packages/") then
+          cwd = function(file)
+            if
+              string.find(file, "/services/")
+              or string.find(file, "/packages/")
+              or string.find(file, "/scripts/")
+              or string.find(file, "/frontend/")
+            then
               return string.match(file, "(.-/[^/]+/)src")
             end
-
-            if string.find(file, "/services/") then
-              return string.match(file, "(.-/[^/]+/)src")
-            end
-
             return vim.fn.getcwd()
           end,
         },
