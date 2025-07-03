@@ -3,6 +3,7 @@ return {
     "LazyVim/LazyVim",
     priority = 100,
     opts = function(_, _)
+      -- this doesn't work, need to figure it out
       vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
       vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
       vim.fn.sign_define(
