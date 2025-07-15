@@ -28,9 +28,11 @@ in
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
-    papers # new gnome-document-viewer
+    papers
 
     portfolio
+
+    quickemu
   ];
 
   programs.chromium = {
