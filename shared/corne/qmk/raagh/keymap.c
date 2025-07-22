@@ -38,8 +38,10 @@ combo_t key_combos[COMBO_COUNT] = {
 // #define OSM_AGR  OSM(MOD_RALT)
 // #define GUI_ENT  GUI_T(KC_ENT)
 #define OSL_FUN  OSL(_ADJUST)
-#define LOW_SPC  LT(_LOWER, KC_SPC)
-#define RSE_BSP  LT(_RAISE, KC_BSPC)
+#define MO_LOW   MO(_LOWER)
+#define MO_RAISE MO(_RAISE)
+// #define LOW_SPC  LT(_LOWER, KC_SPC)
+// #define RSE_BSP  LT(_RAISE, KC_BSPC)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -53,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_LALT, OSM_GUI, LOW_SPC,   RSE_BSP ,KC_ENT  ,OSM_SFT 
+                                           MO_LOW, OSM_GUI, KC_SPC,    KC_BSPC ,KC_ENT  ,MO_RAISE 
                                       //`--------------------------'  `--------------------------'
   ),
 
