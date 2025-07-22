@@ -9,21 +9,13 @@ alias rm='rm -i'
 alias wget="wget -c" # continue the download
 alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
 
-alias connect-db-staging="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh stag core-db 9494"
+# alias connect-db-staging="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh stag core-db 9494"
 alias connect-db-dev="AWS_PROFILE=plateu-stag:Henchman-PowerUserAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh dev core-db 9494"
-alias connect-db-search-dev="AWS_PROFILE=plateu-stag:Henchman-PowerUserAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh dev search-db 9494"
-alias connect-db-uat="AWS_PROFILE=plateu-uat:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh uat core-db 9494"
-alias connect-db-prod-eu="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod core-db 9494"
-alias connect-db-prod-us="AWS_PROFILE=platus-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-us core-db 9494"
-alias connect-db-prod-ca="AWS_PROFILE=platca-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-ca core-db 9494"
-alias connect-db-prod-sa="AWS_PROFILE=platsa-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-sa core-db 9494"
-alias connect-db-prod-au="AWS_PROFILE=platau-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-au core-db 9494"
-alias ywt='cd ~/Code/henchman && yarn watch:ts'
-alias ywn='cd ~/Code/henchman && yarn watch:node'
-alias ywnl='cd ~/Code/henchman && yarn watch:node:logdy'
-alias ywf='cd ~/Code/henchman && yarn watch:frontend'
-alias ywfo='cd ~/Code/henchman && yarn watch:ops'
-alias ywfa='cd ~/Code/henchman && yarn watch:global-add-in'
-alias ywfd='cd ~/Code/henchman && yarn watch:global-dashboard'
-alias ydbm='cd ~/Code/henchman/data && yarn prisma:migrate && yarn knex:migrate:latest'
+# alias connect-db-search-dev="AWS_PROFILE=plateu-stag:Henchman-PowerUserAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh dev search-db 9494"
+# alias connect-db-uat="AWS_PROFILE=plateu-uat:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh uat core-db 9494"
+# alias connect-db-prod-eu="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod core-db 9494"
+# alias connect-db-prod-us="AWS_PROFILE=platus-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-us core-db 9494"
+# alias connect-db-prod-ca="AWS_PROFILE=platca-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-ca core-db 9494"
+# alias connect-db-prod-sa="AWS_PROFILE=platsa-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-sa core-db 9494"
+# alias connect-db-prod-au="AWS_PROFILE=platau-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh prod-au core-db 9494"
 
