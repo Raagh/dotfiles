@@ -130,7 +130,7 @@ automatically-unhide-macos-hidden-apps = false
 
     cmd-shift-w = 'exec-and-forget open -n -a "Google Chrome"'
     cmd-enter = 'exec-and-forget open -n -a "kitty"'
-    cmd-c = 'close'
+    cmd-q = 'close'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     cmd-tab = 'workspace-back-and-forth'
