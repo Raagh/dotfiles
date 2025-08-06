@@ -78,8 +78,6 @@
     #media-session.enable = true;
   };
 
-  # Setup general purpose services
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
