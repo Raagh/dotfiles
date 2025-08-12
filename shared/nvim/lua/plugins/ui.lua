@@ -80,6 +80,10 @@ return {
           "<cmd>:e %<cr>",
           desc = "Reload File",
         },
+        {
+          mode = { "n", "v" },
+          { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+        },
       },
       win = {
         border = "rounded",
