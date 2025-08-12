@@ -18,6 +18,7 @@
     cargo
     hub
     unzip
+    gnumake
 
     lua-language-server
     nodejs
