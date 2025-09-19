@@ -8,6 +8,8 @@ alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
 alias rm='rm -i'
 alias wget="wget -c" # continue the download
 alias hm-tools="node ~/Code/henchman/scripts/lib/cli.js"
+# alias docker="podman"
+# alias docker-compose="podman compose"
 
 # alias connect-db-staging="AWS_PROFILE=plateu-prod:Henchman-DeveloperAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh stag core-db 9494"
 alias connect-db-dev="AWS_PROFILE=plateu-stag:Henchman-PowerUserAccess /Users/pferraggi/Code/henchman/ops/scripts/bastion_port_forward.sh dev core-db 9494"
