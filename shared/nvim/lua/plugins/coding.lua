@@ -1,5 +1,14 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = function(_, _)
+      require("lspconfig.ui.windows").default_options.border = "rounded"
+      vim.diagnostic.config({
+        float = { border = "rounded" },
+      })
+    end,
+  },
+  {
     "folke/snacks.nvim",
     keys = {
       {
