@@ -1,45 +1,5 @@
 return {
   {
-    "neovim/nvim-lspconfig",
-    opts = function(_, opts)
-      opts.servers = {
-        eslint = {},
-        vtsls = {
-          root_dir = require("lspconfig.util").root_pattern(".git"),
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
-            },
-          },
-          settings = {
-            typescript = {
-              tsserver = {
-                maxTsServerMemory = 8192,
-              },
-            },
-          },
-        },
-      }
-
-      opts.setup = {
-        eslint = function()
-          require("lazyvim.util").lsp.on_attach(function(client)
-            if client.name == "eslint" then
-              client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == "vtsls" then
-              client.server_capabilities.documentFormattingProvider = false
-            end
-          end)
-        end,
-      }
-
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-      vim.diagnostic.config({
-        float = { border = "rounded" },
-      })
-    end,
-  },
-  {
     "folke/snacks.nvim",
     keys = {
       {
