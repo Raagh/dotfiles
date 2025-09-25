@@ -39,24 +39,17 @@ return {
   },
   {
     "folke/noice.nvim",
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
+    opts = {
+      routes = {
+        {
+          filter = {
+            event = "notify",
+            find = "Request textDocument/inlayHint failed",
+          },
+          opts = { skip = true },
         },
-        opts = { skip = true },
-      })
-      --   Warn  15:34:01 notify.warn DAP Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)
-      table.insert(opts.routes, {
-        filter = {
-          event = "dap",
-          find = "Debug adapter didn't respond. Either the adapter is slow (then wait and ignore this) or there is a problem with your adapter or `pwa-node` configuration. Check the logs for errors (:help dap.set_log_level)",
-        },
-        opts = { skip = true },
-      })
-
-      opts.presets = {
+      },
+      presets = {
         lsp_doc_border = true,
         command_palette = {
           views = {
@@ -67,8 +60,8 @@ return {
             },
           },
         },
-      }
-    end,
+      },
+    },
   },
   {
     "folke/which-key.nvim",
@@ -112,5 +105,14 @@ return {
         },
       },
     },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, _)
+      require("lspconfig.ui.windows").default_options.border = "rounded"
+      vim.diagnostic.config({
+        float = { border = "rounded" },
+      })
+    end,
   },
 }
