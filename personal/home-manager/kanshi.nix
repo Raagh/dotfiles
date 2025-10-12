@@ -10,6 +10,18 @@
     systemdTarget = "xdg-desktop-portal-hyprland.service";
     settings = [
       {
+        profile.name = "undocked";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            scale = 2.0;
+            position = "0,0";
+            mode = "3840x2400@59.99Hz";
+            status = "enable";
+          }
+        ];
+      }
+      {
         profile.name = "docked";
         profile.outputs = [
           {
