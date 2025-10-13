@@ -108,7 +108,19 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = function(_, _)
+    opts = function(opts, _)
+      opts.servers = {
+        vtsls = {
+          settings = {
+            typescript = {
+              tsserver = {
+                maxTsServerMemory = 8192,
+              },
+            },
+          },
+        },
+      }
+
       require("lspconfig.ui.windows").default_options.border = "rounded"
       vim.diagnostic.config({
         float = { border = "rounded" },
