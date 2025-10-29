@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -31,8 +29,6 @@ in
     papers
 
     portfolio
-
-    quickemu
   ];
 
   programs.chromium = {
@@ -40,6 +36,7 @@ in
     package = pkgs.google-chrome;
     commandLineArgs = [
       "--enable-features=UseOzonePlatform"
+      "--ozone-platform-hint=auto"
       "--ozone-platform=wayland"
     ];
   };
