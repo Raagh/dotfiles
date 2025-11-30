@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, KC_TILD, KC_GRV , KC_LBRC, KC_LCBR,                      KC_RCBR, KC_RBRC, KC_COMM,  KC_DOT, KC_SLSH, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_TRNS, KC_TRNS, XXXXXXX,    RSE_BSP, KC_TRNS, KC_COLON\
+                                          KC_TRNS, KC_TRNS, XXXXXXX,    KC_BSPC, KC_TRNS, KC_COLON\
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, KC_LT  , KC_GT  , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          CTL_ESC, KC_TRNS, LOW_SPC,    XXXXXXX , KC_TRNS, KC_TRNS\
+                                          CTL_ESC, KC_TRNS, KC_SPC,    XXXXXXX , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -96,16 +96,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
-
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LOW_SPC:
-        case RSE_BSP:
-            return g_tapping_term;
-        default:
-            return 200;
-    }
-}
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     // Rotate OLED 180 degrees on the right half

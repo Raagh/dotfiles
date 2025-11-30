@@ -11,7 +11,7 @@
 #define MASTER_LEFT
 
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY
+// #define TAPPING_TERM_PER_KEY
 
 // If you press a dual-role key, press another key, and then release the
 // dual-role key, all within the tapping term, by default the dual-role key
