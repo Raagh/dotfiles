@@ -3,7 +3,7 @@
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     dejavu_fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
@@ -31,7 +31,7 @@
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
 
