@@ -28,6 +28,8 @@ in
     gnome-system-monitor
     papers
 
+    nwg-displays
+
     portfolio
   ];
 

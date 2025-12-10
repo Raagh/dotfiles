@@ -13,7 +13,7 @@
     ./rofi.nix
     ./waybar.nix
     ./terminal.nix
-    ./kanshi.nix
+    # ./kanshi.nix
     ./swaync.nix
     ./theme.nix
     ./programs.nix
