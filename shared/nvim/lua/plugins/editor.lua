@@ -76,7 +76,7 @@ return {
       {
         "<leader>dh",
         function()
-          require("dap.ui.widgets").hover()
+          require("dap.ui.widgets").hover(nil, { border = "rounded" })
         end,
         desc = "Hover",
       },
