@@ -22,7 +22,6 @@
       ...
     }:
     let
-      system = "x86_64-linux";
       assetsPath = "/home/raagh/Code/dotfiles/assets/";
       personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
       sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
@@ -36,7 +35,7 @@
           inherit inputs;
         };
         modules = [
-          nixos-hardware.nixosModules.dell-xps-13-9310
+          nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/configuration.nix
 
           home-manager.nixosModules.home-manager
