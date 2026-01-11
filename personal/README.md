@@ -28,3 +28,5 @@ You can then go back to a functioning Desktop Environment
 cd dotfiles
 sudo stow personal -vn --adopt -t /etc/nixos
 ```
+
+After the setup you should enable zellij "unlock first" [keybinding preset](https://zellij.dev/documentation/keybinding-presets.html?highlight=set%20preset#keybinding-presets) as there is currently no way to configure this
