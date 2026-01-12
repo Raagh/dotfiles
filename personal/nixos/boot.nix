@@ -12,7 +12,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
   boot.plymouth.enable = true;
-  boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [
+    "quiet"
+    "mem_sleep_default=s2idle"
+    "amdgpu.dcdebugmask=0x10"
+    "pcie_aspm=off"
+  ];
 
   # Perform garbage collection weekly to maintain low disk usage
   nix.gc = {

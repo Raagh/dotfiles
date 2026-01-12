@@ -14,21 +14,34 @@
         profile.outputs = [
           {
             criteria = "eDP-1";
-            scale = 2.0;
             position = "0,0";
             status = "enable";
           }
         ];
       }
       {
-        profile.name = "docked";
+        profile.name = "docked-1";
         profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
           }
           {
-            criteria = "DP-7";
+            criteria = "DP-11";
+            position = "0,0";
+            status = "enable";
+          }
+        ];
+      }
+      {
+        profile.name = "docked-2";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "DP-12";
             position = "0,0";
             status = "enable";
           }

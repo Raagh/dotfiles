@@ -17,11 +17,13 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  # Enable bluetooth
+  # Enable Hardware
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
+  hardware.keyboard.qmk.enable = true;
+  hardware.sensor.iio.enable = false;
 
   # Set your time zone.
   # time.timeZone = "America/Argentina/Buenos_Aires";
@@ -47,6 +49,7 @@
   # services.desktopManager.gnome.enable = true;
   programs.hyprland.enable = true;
   programs.nix-ld.enable = true;
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -91,8 +94,7 @@
     "flakes"
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
@@ -115,19 +117,24 @@
     dbus.enable = true;
     gvfs.enable = true;
     upower.enable = true;
-    power-profiles-daemon.enable = true;
     udisks2.enable = true;
     openssh.enable = true;
     libinput.enable = true;
     trezord.enable = true;
   };
-  programs.dconf.enable = true;
+
   programs.light.enable = true;
   virtualisation.docker.enable = true;
-  hardware.keyboard.qmk.enable = true;
+
+  # Enable fingerprint sensor
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = false;
 
   # Dont suspend laptop when lid is off and power is connected
   services.logind.lidSwitchExternalPower = "ignore";
+
+  # Enable the bolt protocol for thunderbolt docks
+  services.hardware.bolt.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -142,5 +149,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
