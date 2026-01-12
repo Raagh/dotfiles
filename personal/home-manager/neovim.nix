@@ -23,6 +23,7 @@
     lua-language-server
     nodejs
     go
+    statix
   ];
 
   # link the neovim config to the .config folder in home
