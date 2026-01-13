@@ -121,6 +121,9 @@
     openssh.enable = true;
     libinput.enable = true;
     trezord.enable = true;
+    tlp.enable = false;
+    power-profiles-daemon.enable = true;
+    fwupd.enable = true;
   };
 
   programs.light.enable = true;
@@ -131,7 +134,7 @@
   security.pam.services.login.fprintAuth = false;
 
   # Dont suspend laptop when lid is off and power is connected
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
   # Enable the bolt protocol for thunderbolt docks
   services.hardware.bolt.enable = true;

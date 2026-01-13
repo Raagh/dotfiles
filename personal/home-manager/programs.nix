@@ -44,8 +44,12 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Raagh";
-    userEmail = "pattferraggi@gmail.com";
+    settings = {
+      user = {
+        name = "Raagh";
+        email = "pattferraggi@gmail.com";
+      };
+    };
   };
 
   xdg.mimeApps = {
