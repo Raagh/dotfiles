@@ -24,6 +24,7 @@
     hyprpolkitagent
     hyprshot
     waypaper
+    gnome-system-monitor
   ];
 
   # link the hyprland config to the .config folder in home

@@ -20,15 +20,14 @@ in
     lazygit
     kitty
 
-    exercism
-    transmission_4-gtk
     vlc
     gnome-calculator
     gnome-text-editor
-    gnome-system-monitor
     loupe
     papers
 
+    exercism
+    transmission_4-gtk
     portfolio
   ];
 
