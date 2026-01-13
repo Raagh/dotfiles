@@ -15,8 +15,8 @@
     # overskride
     blueberry
     networkmanagerapplet
-    wdisplays
-    nwg-displays
+    wdisplays # still deciding between wdisplays and nwg-displays
+    nwg-displays # still deciding between wdisplays and nwg-displays
     nautilus
     pavucontrol
     wl-clipboard

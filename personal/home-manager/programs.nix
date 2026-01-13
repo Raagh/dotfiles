@@ -21,6 +21,7 @@ in
     kitty
 
     vlc
+    gnome-disk-utility
     gnome-calculator
     gnome-text-editor
     loupe
