@@ -26,9 +26,8 @@ in
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
+    loupe
     papers
-
-    nwg-displays
 
     portfolio
   ];
@@ -47,5 +46,27 @@ in
     enable = true;
     userName = "Raagh";
     userEmail = "pattferraggi@gmail.com";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      "text/html" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/http" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/https" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/about" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/unknown" = [ "google-chrome.desktop" ];
+
+      "application/pdf" = [ "org.gnome.Papers.desktop" ];
+      "image/png" = [ "org.gnome.Loupe.desktop" ];
+      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+    };
+
+    associations.added = {
+      "application/pdf" = [ "org.gnome.Papers.desktop" ];
+      "image/png" = [ "org.gnome.Loupe.desktop" ];
+      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+    };
   };
 }

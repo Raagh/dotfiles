@@ -16,6 +16,7 @@
     blueberry
     networkmanagerapplet
     wdisplays
+    nwg-displays
     nautilus
     pavucontrol
     wl-clipboard
