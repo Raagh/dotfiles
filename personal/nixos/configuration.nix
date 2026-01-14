@@ -121,8 +121,6 @@
     openssh.enable = true;
     libinput.enable = true;
     trezord.enable = true;
-    tlp.enable = false;
-    power-profiles-daemon.enable = true;
     fwupd.enable = true;
   };
 
