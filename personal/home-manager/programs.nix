@@ -30,6 +30,7 @@ in
     exercism
     transmission_4-gtk
     portfolio
+    protonvpn-gui
   ];
 
   programs.chromium = {

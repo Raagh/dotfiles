@@ -137,6 +137,10 @@
   # Enable the bolt protocol for thunderbolt docks
   services.hardware.bolt.enable = true;
 
+  networking.extraHosts = ''
+    172.67.206.103 assets.moxfield.net
+  '';
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
