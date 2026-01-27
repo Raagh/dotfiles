@@ -5,38 +5,34 @@
 }:
 
 {
-  home.packages = with pkgs; [
-    shikane
-  ];
-
-  services.shikane = {
+  services.kanshi = {
     enable = true;
-    settings = {
-      profile = [
-        {
-          name = "external-monitor-default";
-          output = [
-            {
-              match = "eDP-1";
-              enable = false;
-            }
-            {
-              match = "DP-11";
-              enable = true;
-            }
-          ];
-        }
-        {
-          name = "builtin-monitor-only";
-          output = [
-            {
-              match = "eDP-1";
-              enable = true;
-              scale = 1.5;
-            }
-          ];
-        }
-      ];
-    };
+    systemdTarget = "xdg-desktop-portal-hyprland.service";
+    settings = [
+      {
+        profile.name = "laptop-only";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            position = "0,0";
+            status = "enable";
+          }
+        ];
+      }
+      {
+        profile.name = "ultrawide";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "DP-11";
+            position = "0,0";
+            status = "enable";
+          }
+        ];
+      }
+    ];
   };
 }
