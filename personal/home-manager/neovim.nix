@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgsUnstable,
   sharedDotfilesPath,
   ...
 }:
@@ -24,6 +25,9 @@
     nodejs
     go
     statix
+
+    pkgsUnstable.opencode
+    lsof
   ];
 
   # link the neovim config to the .config folder in home

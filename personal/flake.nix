@@ -4,6 +4,7 @@
   inputs = {
     # NixOS official package source, using the nixos-25.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
@@ -17,6 +18,7 @@
     inputs@{
       nixos-hardware,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       stylix,
       ...
@@ -25,10 +27,18 @@
       assetsPath = "/home/raagh/Code/dotfiles/assets/";
       personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
       sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
+
+      system = "x86_64-linux";
+
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
+          inherit pkgsUnstable;
           inherit personalDotfilesPath;
           inherit sharedDotfilesPath;
           inherit assetsPath;
@@ -44,6 +54,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.raagh = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = {
+              inherit pkgsUnstable;
               inherit personalDotfilesPath;
               inherit sharedDotfilesPath;
               inherit assetsPath;

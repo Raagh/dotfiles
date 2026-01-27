@@ -73,10 +73,13 @@ return {
           "<cmd>:e %<cr>",
           desc = "Reload File",
         },
-        {
-          mode = { "n", "v" },
-          { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
-        },
+        -- {
+        --   mode = { "v" },
+        --   { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+        --   { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Ask Avante" },
+        --   { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Chat with Avante" },
+        --   { "<leader>ae", "<cmd>AvanteEdit<CR>", desc = "Edit Avante" },
+        -- },
       },
       win = {
         border = "rounded",
