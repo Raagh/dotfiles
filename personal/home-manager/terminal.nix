@@ -46,6 +46,16 @@
 
       PROMPT="%B%F{#${config.lib.stylix.colors.base0C}}% "" ❯ %f"
       RPROMPT='%F{#${config.lib.stylix.colors.base0C}}''${vcs_info_msg_0_}'
+
+      # Auto-start tmux (like zellij enableZshIntegration)
+      if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+        # Try to attach to existing session, or create new one
+        if tmux has-session 2>/dev/null; then
+          exec tmux attach
+        else
+          exec tmux new-session
+        fi
+      fi
     '';
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
