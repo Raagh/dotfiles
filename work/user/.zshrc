@@ -66,7 +66,15 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-eval "$(zellij setup --generate-auto-start zsh)"
+# Auto-start tmux (like zellij enableZshIntegration)
+if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+  # Try to attach to existing session, or create new one
+  if tmux has-session 2>/dev/null; then
+    exec tmux attach
+  else
+    exec tmux new-session
+  fi
+fi
 
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
