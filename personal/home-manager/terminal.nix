@@ -51,8 +51,171 @@
     autosuggestion.enable = true;
   };
 
-  programs.zellij = {
+  # programs.zellij = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  # };
+
+  programs.tmux = {
     enable = true;
-    enableZshIntegration = true;
+    mouse = true;
+    prefix = "C-g";
+    baseIndex = 1;
+    escapeTime = 0;
+    keyMode = "vi";
+    terminal = "tmux-256color";
+    historyLimit = 10000;
+
+    extraConfig = ''
+      # True color support
+      set -ga terminal-overrides ",xterm-256color*:Tc"
+      set -as terminal-features ",xterm-256color:RGB"
+
+      # Enable image passthrough (critical for neovim image support)
+      set -gq allow-passthrough on
+      set -g visual-activity off
+
+      # Pane numbering starts from 1
+      set -g pane-base-index 1
+
+      # Renumber windows when one is closed
+      set -g renumber-windows on
+
+      # Monitor activity but don't show notifications
+      setw -g monitor-activity on
+      set -g visual-activity off
+
+      # Vi mode keys
+      set-window-option -g mode-keys vi
+
+      # Better copy mode
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+      # Pane navigation (vim-like)
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      # Window navigation
+      bind -n M-H previous-window
+      bind -n M-L next-window
+
+      # Pane splitting with better keys
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      unbind '"'
+      unbind %
+
+      # New window in current path
+      bind c new-window -c "#{pane_current_path}"
+
+      # Quick pane cycling
+      bind -r Tab select-pane -t :.+
+
+      # Reload config
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded!"
+
+      # Clear screen and history
+      bind C-l send-keys 'C-l'
+
+      # ===============================================
+      # ZELLIJ-STYLE CHORD KEYBINDINGS
+      # ===============================================
+      # After pressing Ctrl+g, you can press single letters without holding Ctrl
+
+      # Tab/Window management mode (Ctrl+g, then t)
+      bind t switch-client -T tab_mode
+      bind -T tab_mode n new-window -c "#{pane_current_path}" \; display "New tab created"
+      bind -T tab_mode c new-window -c "#{pane_current_path}" \; display "New tab created"  
+      bind -T tab_mode x confirm-before -p "kill-window #W? (y/n)" kill-window
+      bind -T tab_mode r command-prompt "rename-window %%"
+      bind -T tab_mode h previous-window \; display "Previous tab"
+      bind -T tab_mode l next-window \; display "Next tab"
+      bind -T tab_mode 1 select-window -t 1
+      bind -T tab_mode 2 select-window -t 2
+      bind -T tab_mode 3 select-window -t 3
+      bind -T tab_mode 4 select-window -t 4
+      bind -T tab_mode 5 select-window -t 5
+      bind -T tab_mode 6 select-window -t 6
+      bind -T tab_mode 7 select-window -t 7
+      bind -T tab_mode 8 select-window -t 8
+      bind -T tab_mode 9 select-window -t 9
+      bind -T tab_mode 0 select-window -t 10
+      bind -T tab_mode Tab last-window
+      bind -T tab_mode Escape switch-client -T root
+
+      # Pane management mode (Ctrl+g, then p)  
+      bind p switch-client -T pane_mode
+      bind -T pane_mode n split-window -h -c "#{pane_current_path}" \; display "New pane (horizontal)"
+      bind -T pane_mode d split-window -v -c "#{pane_current_path}" \; display "New pane (vertical)"
+      bind -T pane_mode x confirm-before -p "kill-pane? (y/n)" kill-pane
+      bind -T pane_mode f resize-pane -Z \; display "Pane zoom toggle"
+      bind -T pane_mode h select-pane -L \; display "Pane left"
+      bind -T pane_mode j select-pane -D \; display "Pane down"  
+      bind -T pane_mode k select-pane -U \; display "Pane up"
+      bind -T pane_mode l select-pane -R \; display "Pane right"
+      bind -T pane_mode Tab select-pane -t :.+
+      bind -T pane_mode w display-panes
+      bind -T pane_mode Escape switch-client -T root
+
+      # Session management mode (Ctrl+g, then s)
+      bind s switch-client -T session_mode  
+      bind -T session_mode n command-prompt "new-session -s %%"
+      bind -T session_mode r command-prompt "rename-session %%"
+      bind -T session_mode l choose-session
+      bind -T session_mode d detach-client \; display "Session detached"
+      bind -T session_mode x confirm-before -p "kill-session #S? (y/n)" kill-session
+      bind -T session_mode Escape switch-client -T root
+
+      # Quick actions (single key after Ctrl+g)
+      bind q display-panes \; display "Quick pane numbers"
+      bind w choose-window
+      bind e choose-session  
+      bind / copy-mode \; send-keys ?
+
+      # Keep some original bindings for compatibility
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+      # Status bar configuration (zellij-inspired)
+      set -g status on
+      set -g status-interval 2
+      set -g status-position bottom
+      set -g status-justify left
+      set -g status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base00}"
+
+      # Left status (session info)
+      set -g status-left-length 100
+      set -g status-left "#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] #S #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base00}]"
+
+      # Right status (system info)
+      set -g status-right-length 100
+      set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b "
+
+      # Window status
+      set -g window-status-current-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A},bold"
+      set -g window-status-current-format " #I #W "
+      set -g window-status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base02}"
+      set -g window-status-format " #I #W "
+      set -g window-status-separator ""
+
+      # Pane borders (modern look)
+      set -g pane-border-style "fg=#${config.lib.stylix.colors.base03}"
+      set -g pane-active-border-style "fg=#${config.lib.stylix.colors.base0C}"
+
+      # Message styling
+      set -g message-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
+      set -g message-command-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
+
+      # Copy mode styling
+      set -g mode-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
+
+      # Clock color
+      set -g clock-mode-colour "#${config.lib.stylix.colors.base0C}"
+    '';
   };
 }
