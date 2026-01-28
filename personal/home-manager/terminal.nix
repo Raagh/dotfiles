@@ -61,11 +61,6 @@
     autosuggestion.enable = true;
   };
 
-  # programs.zellij = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  # };
-
   programs.tmux = {
     enable = true;
     mouse = true;
@@ -177,11 +172,11 @@
       bind - split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
 
-      # Status bar configuration (zellij-inspired)
-      set -g status on
-      set -g status-interval 2
-      set -g status-position bottom
-      set -g status-justify left
+       # Status bar configuration (zellij-inspired)
+       set -g status on
+       set -g status-interval 2
+       set -g status-position top
+       set -g status-justify left
       set -g status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base00}"
 
       # Left status (session info)
