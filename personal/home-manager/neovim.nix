@@ -20,6 +20,7 @@
     hub
     unzip
     gnumake
+    imagemagick
 
     lua-language-server
     nodejs

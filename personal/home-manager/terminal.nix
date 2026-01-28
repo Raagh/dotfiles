@@ -103,22 +103,6 @@
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-      # Pane navigation (vim-like)
-      bind h select-pane -L
-      bind j select-pane -D
-      bind k select-pane -U
-      bind l select-pane -R
-
-      # Window navigation
-      bind -n M-H previous-window
-      bind -n M-L next-window
-
-      # Pane splitting with better keys
-      bind | split-window -h -c "#{pane_current_path}"
-      bind - split-window -v -c "#{pane_current_path}"
-      unbind '"'
-      unbind %
-
       # New window in current path
       bind c new-window -c "#{pane_current_path}"
 
@@ -138,12 +122,12 @@
 
       # Tab/Window management mode (Ctrl+g, then t)
       bind t switch-client -T tab_mode
-      bind -T tab_mode n new-window -c "#{pane_current_path}" \; display "New tab created"
-      bind -T tab_mode c new-window -c "#{pane_current_path}" \; display "New tab created"  
+      bind -T tab_mode n new-window -c "#{pane_current_path}"
+      bind -T tab_mode c new-window -c "#{pane_current_path}"  
       bind -T tab_mode x confirm-before -p "kill-window #W? (y/n)" kill-window
       bind -T tab_mode r command-prompt "rename-window %%"
-      bind -T tab_mode h previous-window \; display "Previous tab"
-      bind -T tab_mode l next-window \; display "Next tab"
+      bind -T tab_mode h previous-window
+      bind -T tab_mode l next-window
       bind -T tab_mode 1 select-window -t 1
       bind -T tab_mode 2 select-window -t 2
       bind -T tab_mode 3 select-window -t 3
@@ -159,29 +143,31 @@
 
       # Pane management mode (Ctrl+g, then p)  
       bind p switch-client -T pane_mode
-      bind -T pane_mode n split-window -h -c "#{pane_current_path}" \; display "New pane (horizontal)"
-      bind -T pane_mode d split-window -v -c "#{pane_current_path}" \; display "New pane (vertical)"
+      bind -T pane_mode n split-window -h -c "#{pane_current_path}"
+      bind -T pane_mode d split-window -v -c "#{pane_current_path}"
       bind -T pane_mode x confirm-before -p "kill-pane? (y/n)" kill-pane
-      bind -T pane_mode f resize-pane -Z \; display "Pane zoom toggle"
-      bind -T pane_mode h select-pane -L \; display "Pane left"
-      bind -T pane_mode j select-pane -D \; display "Pane down"  
-      bind -T pane_mode k select-pane -U \; display "Pane up"
-      bind -T pane_mode l select-pane -R \; display "Pane right"
+      bind -T pane_mode f resize-pane -Z
+      bind -T pane_mode h select-pane -L
+      bind -T pane_mode j select-pane -D  
+      bind -T pane_mode k select-pane -U
+      bind -T pane_mode l select-pane -R
       bind -T pane_mode Tab select-pane -t :.+
       bind -T pane_mode w display-panes
       bind -T pane_mode Escape switch-client -T root
+      bind -T pane_mode J swap-pane -D
+      bind -T pane_mode K swap-pane -U
 
       # Session management mode (Ctrl+g, then s)
       bind s switch-client -T session_mode  
       bind -T session_mode n command-prompt "new-session -s %%"
       bind -T session_mode r command-prompt "rename-session %%"
       bind -T session_mode l choose-session
-      bind -T session_mode d detach-client \; display "Session detached"
+      bind -T session_mode d detach-client
       bind -T session_mode x confirm-before -p "kill-session #S? (y/n)" kill-session
       bind -T session_mode Escape switch-client -T root
 
       # Quick actions (single key after Ctrl+g)
-      bind q display-panes \; display "Quick pane numbers"
+      bind q display-panes
       bind w choose-window
       bind e choose-session  
       bind / copy-mode \; send-keys ?

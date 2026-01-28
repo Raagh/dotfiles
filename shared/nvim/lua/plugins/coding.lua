@@ -19,12 +19,15 @@ return {
         -- winhighlight = "FloatTitle:Title",
         -- },
       },
-      picker = {
-        sources = {
-          grep = {
-            regex = false,
-          },
-        },
+      -- picker = {
+      --   sources = {
+      --     grep = {
+      --       regex = false,
+      --     },
+      --   },
+      -- },
+      image = {
+        enabled = true,
       },
       scroll = {
         enabled = false,
