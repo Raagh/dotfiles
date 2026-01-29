@@ -17,7 +17,7 @@
             criteria = "eDP-1";
             position = "0,0";
             status = "enable";
-            scale = 1.5;
+            scale = 2.0;
           }
         ];
       }
@@ -40,22 +40,5 @@
         ];
       }
     ];
-  };
-
-  # Additional systemd service configuration for better hotplug handling
-  systemd.user.services.kanshi = {
-    Unit = {
-      PartOf = "hyprland-session.target";
-      After = "hyprland-session.target";
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.kanshi}/bin/kanshi";
-      Restart = "always";
-      RestartSec = "1";
-    };
-    Install = {
-      WantedBy = [ "hyprland-session.target" ];
-    };
   };
 }

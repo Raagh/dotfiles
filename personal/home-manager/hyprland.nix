@@ -10,9 +10,6 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      monitor = [
-        # Let kanshi handle monitor configuration
-      ];
 
       env = [
         "HYPRSHOT_DIR,/home/raagh/Pictures/Screenshots"
@@ -27,8 +24,6 @@
 
       exec-once = [
         "nm-applet"
-        # Ensure kanshi starts and monitors for display changes
-        "sleep 2 && kanshi"
       ];
 
       general = {
