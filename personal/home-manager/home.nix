@@ -17,7 +17,6 @@
     ./theme.nix
     ./programs.nix
     ./neovim.nix
-    ./kanshi.nix
   ];
 
   home.username = "raagh";

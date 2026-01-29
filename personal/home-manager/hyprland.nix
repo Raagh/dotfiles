@@ -136,7 +136,6 @@
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, R, submap, resize"
         "$mainMod SHIFT, N, exec, swaync-client -t"
-        "$mainMod SHIFT, R, exec, pkill kanshi; sleep 1; kanshi"
 
         # Move focus with mainMod + hjkl
         "$mainMod, h, movefocus, l"
