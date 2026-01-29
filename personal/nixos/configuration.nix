@@ -122,6 +122,8 @@
     libinput.enable = true;
     trezord.enable = true;
     fwupd.enable = true;
+    # Enable GNOME Keyring for password storage (WiFi, etc.)
+    gnome.gnome-keyring.enable = true;
   };
 
   programs.light.enable = true;
@@ -130,6 +132,9 @@
   # Enable fingerprint sensor
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = false;
+
+  # Enable GNOME Keyring PAM integration for automatic unlock
+  security.pam.services.gdm.enableGnomeKeyring = true;
 
   # Dont suspend laptop when lid is off and power is connected
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
