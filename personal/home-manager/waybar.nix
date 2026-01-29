@@ -44,6 +44,7 @@
           "tray"
           "group/audio"
           "hyprland/language"
+          "power-profiles-daemon"
           "battery"
           "group/power"
         ];
@@ -190,6 +191,25 @@
           format = "   {}";
         };
 
+        "power-profiles-daemon" = {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}";
+
+          # optional icons
+          format-icons = {
+            performance = "⚡";
+            balanced = "⚖️";
+            power-saver = "🌿";
+          };
+
+          # click behavior (uses powerprofilesctl)
+          on-click = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced";
+          on-click-right = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance";
+          on-click-middle = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver";
+          on-scroll-up = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance";
+          on-scroll-down = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver";
+        };
+
         clock = {
           # timezone = "America/Argentina/Buenos_Aires";
           timezone = "Europe/Madrid";
@@ -295,6 +315,31 @@
 
       #language {
         color: #${config.lib.stylix.colors.base0A};
+      }
+
+      #tray {
+        margin-right: 8px;
+      }
+
+      #group-audio {
+        margin-left: 8px;
+        margin-right: 6px;
+      }
+
+      #language {
+        margin-right: 6px;
+      }
+
+      #power-profiles-daemon {
+        margin-right: 6px;
+      }
+
+      #battery {
+        margin-right: 4px;
+      }
+
+      #group-power {
+        margin-right: 12px;
       }
     '';
   };
