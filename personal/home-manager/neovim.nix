@@ -21,6 +21,7 @@
     unzip
     gnumake
     imagemagick
+    ghostscript
 
     lua-language-server
     nodejs
