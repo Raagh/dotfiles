@@ -281,7 +281,15 @@ return {
       },
     },
     config = function()
-      vim.g.opencode_opts = {}
+      vim.g.opencode_opts = {
+        provider = {
+          snacks = {
+            win = {
+              enter = true,
+            },
+          },
+        },
+      }
       vim.o.autoread = true
     end,
   },
