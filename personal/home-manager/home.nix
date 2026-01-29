@@ -13,11 +13,11 @@
     ./rofi.nix
     ./waybar.nix
     ./terminal.nix
-    ./displays.nix
     ./swaync.nix
     ./theme.nix
     ./programs.nix
     ./neovim.nix
+    ./kanshi.nix
   ];
 
   home.username = "raagh";
