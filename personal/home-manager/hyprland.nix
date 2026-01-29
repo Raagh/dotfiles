@@ -26,6 +26,13 @@
         "nm-applet"
       ];
 
+      monitor = [
+        "DP-11,3440x1440@60,0x0,1" # Ultrawide when on DP-11
+        "DP-12,3440x1440@60,0x0,1" # Ultrawide when on DP-12
+        "eDP-1,2880x1800@120,3440x0,1.5" # Laptop screen positioned to the right
+        ",preferred,auto,1" # Any other monitors
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -126,7 +133,7 @@
         # Basic binds
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, Q, killactive,"
-        "$mainMod, M, exit,"
+        "$mainMod, Escape, exit,"
         "$mainMod, X, exec, $powermenu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod SHIFT, W, exec, google-chrome-stable"
@@ -180,6 +187,9 @@
         # Screenshot binds
         "$mainMod, PRINT, exec, hyprshot -m window"
         "$mainMod SHIFT, PRINT, exec, hyprshot -m region --clipboard-only"
+
+        # Laptop monitor toggle
+        "$mainMod, M, exec, ${personalDotfilesPath}/scripts/toggle-laptop-monitor.sh"
       ];
 
       # Volume and brightness binds (repeatable)
