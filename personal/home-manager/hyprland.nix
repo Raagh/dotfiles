@@ -8,31 +8,29 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
     settings = {
-      # Monitors
       monitor = [
-        ",preferred,auto,auto"
+        # Let kanshi handle monitor configuration
       ];
 
-      # Environment Variables
       env = [
         "HYPRSHOT_DIR,/home/raagh/Pictures/Screenshots"
         "MUTTER_DEBUG_DISABLE_HW_CURSORS,1"
       ];
 
-      # Program Variables
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
       "$menu" = "rofi -no-lazy-grab -show drun";
       "$powermenu" =
         "rofi -show p -modi p:'rofi-power-menu --symbols-font \"JetBrains Mono NF 16\"' -theme-str 'listview {lines: 6;} element-text{spacing:9em;}'";
 
-      # Autostart
       exec-once = [
         "nm-applet"
+        # Ensure kanshi starts and monitors for display changes
+        "sleep 2 && kanshi"
       ];
 
-      # General settings
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -42,7 +40,6 @@
         layout = "dwindle";
       };
 
-      # Decoration
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
@@ -62,7 +59,6 @@
         };
       };
 
-      # Animations
       animations = {
         enabled = "yes, please :)";
 
@@ -94,24 +90,20 @@
         ];
       };
 
-      # Dwindle layout
       dwindle = {
         pseudotile = true;
         preserve_split = true;
       };
 
-      # Master layout
       master = {
         new_status = "master";
       };
 
-      # Misc
       misc = {
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
       };
 
-      # Input
       input = {
         kb_layout = "us,es";
         repeat_delay = 250;
@@ -125,7 +117,6 @@
         };
       };
 
-      # Device specific
       device = [
         {
           name = "epic-mouse-v1";
@@ -133,7 +124,6 @@
         }
       ];
 
-      # Main modifier
       "$mainMod" = "SUPER";
 
       # Keybindings
@@ -151,7 +141,7 @@
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, R, submap, resize"
         "$mainMod SHIFT, N, exec, swaync-client -t"
-        "$mainMod SHIFT, R, exec, kanshi"
+        "$mainMod SHIFT, R, exec, pkill kanshi; sleep 1; kanshi"
 
         # Move focus with mainMod + hjkl
         "$mainMod, h, movefocus, l"
@@ -246,11 +236,9 @@
 
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
-    # overskride
     blueberry
     networkmanagerapplet
-    wdisplays # still deciding between wdisplays and nwg-displays
-    nwg-displays # still deciding between wdisplays and nwg-displays
+    wdisplays
     nautilus
     pavucontrol
     wl-clipboard
@@ -260,8 +248,6 @@
     waypaper
     gnome-system-monitor
   ];
-
-  # Configuration is now handled through wayland.windowManager.hyprland.settings above
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # hint Electron apps to use Wayland
