@@ -6,6 +6,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+local system = require("utils.system")
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -14,7 +16,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.nix" },
+    system.is_nixos() and { import = "lazyvim.plugins.extras.lang.nix" } or nil,
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.test.core" },
     -- { import = "lazyvim.plugins.extras.ai.supermaven" },

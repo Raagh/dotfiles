@@ -110,50 +110,6 @@ return {
       },
     },
   },
-
-  --   {
-  --     "neovim/nvim-lspconfig",
-  --     opts = function(_, opts)
-  --       -- Ensure opts.servers exists
-  --       opts.servers = opts.servers or {}
-  --
-  --       -- Use deep merge to properly override LazyVim's vtsls configuration
-  --       opts.servers.vtsls = vim.tbl_deep_extend("force", opts.servers.vtsls or {}, {
-  --         settings = {
-  --           typescript = {
-  --             tsserver = {
-  --               maxTsServerMemory = 16384, -- 16GB for large monorepos
-  --             },
-  --           },
-  --           vtsls = {
-  --             autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
-  --             experimental = {
-  --               completion = {
-  --                 enableServerSideFuzzyMatch = true,
-  --                 entriesLimit = 10000, -- Limit completion entries for performance
-  --               },
-  --             },
-  --           },
-  --         },
-  --       })
-  --
-  --       -- Debug logging to verify configuration (remove after confirming it works)
-  --       vim.schedule(function()
-  --         print(
-  --           "VTSLS Memory Config Applied: "
-  --             .. (opts.servers.vtsls.settings.typescript.tsserver.maxTsServerMemory or "NOT SET")
-  --         )
-  --       end)
-  --
-  --       require("lspconfig.ui.windows").default_options.border = "rounded"
-  --       vim.diagnostic.config({
-  --         float = { border = "rounded" },
-  --       })
-  --
-  --       return opts
-  --     end,
-  --   },
-  -- }
   {
     "neovim/nvim-lspconfig",
     opts = function(opts, _)
@@ -177,12 +133,12 @@ return {
           },
         },
 
-        vim.schedule(function()
-          print(
-            "VTSLS Memory Config Applied: "
-              .. (opts.servers.vtsls.settings.typescript.tsserver.maxTsServerMemory or "NOT SET")
-          )
-        end),
+        -- vim.schedule(function()
+        --   print(
+        --     "VTSLS Memory Config Applied: "
+        --       .. (opts.servers.vtsls.settings.typescript.tsserver.maxTsServerMemory or "NOT SET")
+        --   )
+        -- end),
       }
 
       require("lspconfig.ui.windows").default_options.border = "rounded"

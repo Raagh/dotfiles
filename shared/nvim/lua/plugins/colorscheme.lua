@@ -1,8 +1,10 @@
+local system = require("utils.system")
+
 return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = system.is_nixos() and "rose-pine" or "kanagawa",
     },
   },
   {
