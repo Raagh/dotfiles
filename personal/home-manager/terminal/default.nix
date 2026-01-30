@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./tmux.nix
+    ./tmux
   ];
 
   programs.kitty = {
