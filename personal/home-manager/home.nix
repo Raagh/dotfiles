@@ -12,7 +12,7 @@
     ./lock.nix
     ./rofi.nix
     ./waybar.nix
-    ./terminal.nix
+    ./terminal
     ./swaync.nix
     ./theme.nix
     ./programs.nix
