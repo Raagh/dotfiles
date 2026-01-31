@@ -14,9 +14,9 @@ else
   # Check if ultrawide (DP-11 or DP-12) is connected
   if hyprctl monitors | grep -q "Monitor DP-1[12]"; then
     echo "Ultrawide detected - positioning eDP-1 to the right"
-    hyprctl keyword monitor "eDP-1,2880x1800@120,3440x0,1.5"
+    hyprctl keyword monitor "eDP-1,2880x1920@120,3440x0,1.5"
   else
     echo "No ultrawide detected - positioning eDP-1 as primary"
-    hyprctl keyword monitor "eDP-1,2880x1800@120,0x0,1.5"
+    hyprctl keyword monitor "eDP-1,2880x1920@120,0x0,1.5"
   fi
 fi

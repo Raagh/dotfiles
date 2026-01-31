@@ -29,7 +29,7 @@
       monitor = [
         "DP-11,3440x1440@60,0x0,1" # Ultrawide when on DP-11
         "DP-12,3440x1440@60,0x0,1" # Ultrawide when on DP-12
-        "eDP-1,2880x1800@120,3440x0,1.5" # Laptop screen positioned to the right
+        "eDP-1,2880x1920@120,3440x0,1.5" # Laptop screen positioned to the right
         ",preferred,auto,1" # Any other monitors
       ];
 
