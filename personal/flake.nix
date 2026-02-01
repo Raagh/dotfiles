@@ -24,9 +24,9 @@
       ...
     }:
     let
-      assetsPath = "/home/raagh/Code/dotfiles/assets/";
-      personalDotfilesPath = "/home/raagh/Code/dotfiles/personal/";
-      sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared/";
+      assetsPath = "/home/raagh/Code/dotfiles/assets";
+      personalDotfilesPath = "/home/raagh/Code/dotfiles/personal";
+      sharedDotfilesPath = "/home/raagh/Code/dotfiles/shared";
 
       system = "x86_64-linux";
 
