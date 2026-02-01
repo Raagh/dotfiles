@@ -189,7 +189,7 @@
         "$mainMod SHIFT, PRINT, exec, hyprshot -m region --clipboard-only"
 
         # Laptop monitor toggle
-        "$mainMod, M, exec, ${personalDotfilesPath}/scripts/toggle-laptop-monitor.sh"
+        "$mainMod, M, exec, ${personalDotfilesPath}/scripts/system/toggle-laptop-monitor.sh"
       ];
 
       # Volume and brightness binds (repeatable)

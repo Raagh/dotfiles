@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  personalDotfilesPath,
   ...
 }:
 
@@ -30,12 +31,12 @@
 
         # Mode switching (available in all modes)
         bind -T root C-p source-file ~/.config/tmux/modes/pane.conf
-        bind -T root C-t run-shell "sh ~/.config/tmux/scripts/return_to_normal.sh" \; source-file ~/.config/tmux/tmux.conf
+        bind -T root C-t run-shell "sh ${personalDotfilesPath}/scripts/terminal/return_to_normal.sh" \; source-file ~/.config/tmux/tmux.conf
         bind -T root C-s source-file ~/.config/tmux/modes/session.conf
         bind -T root C-r source-file ~/.config/tmux/modes/resize.conf
         bind -T root C-l source-file ~/.config/tmux/modes/locked.conf
-        bind -T root Escape run-shell "sh ~/.config/tmux/scripts/return_to_normal.sh" \; set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b " \; unbind -T root -a \; bind -n M-H previous-window \; bind -n M-L next-window \; bind -n M-[ previous-layout \; bind -n M-] next-layout
-        bind -T root Enter run-shell "sh ~/.config/tmux/scripts/return_to_normal.sh" \; set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b " \; unbind -T root -a \; bind -n M-H previous-window \; bind -n M-L next-window \; bind -n M-[ previous-layout \; bind -n M-] next-layout
+        bind -T root Escape run-shell "sh ${personalDotfilesPath}/scripts/terminal/return_to_normal.sh" \; set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b " \; unbind -T root -a \; bind -n M-H previous-window \; bind -n M-L next-window \; bind -n M-[ previous-layout \; bind -n M-] next-layout
+        bind -T root Enter run-shell "sh ${personalDotfilesPath}/scripts/terminal/return_to_normal.sh" \; set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b " \; unbind -T root -a \; bind -n M-H previous-window \; bind -n M-L next-window \; bind -n M-[ previous-layout \; bind -n M-] next-layout
 
         # Window creation and management (stays in window mode)
         bind -T root n new-window -c "#{pane_current_path}"

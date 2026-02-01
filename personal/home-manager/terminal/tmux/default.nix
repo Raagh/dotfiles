@@ -1,14 +1,13 @@
 {
   config,
   pkgs,
+  personalDotfilesPath,
   ...
 }:
 
 {
 
   imports = [
-    ./scripts/return_to_normal.nix
-    ./scripts/popup.nix
     ./modes/locked.nix
     ./modes/pane.nix
     ./modes/resize.nix
@@ -85,7 +84,7 @@
       # Press Escape or Enter in any mode to return to normal mode
 
       # Ensure we're in normal mode on config load - clear any blocking hooks
-      run-shell "sh ~/.config/tmux/scripts/return_to_normal.sh"
+      run-shell "sh ${personalDotfilesPath}/scripts/terminal/return_to_normal.sh"
 
       # Clear all root table bindings first (removes any mode bindings)
       unbind -T root -a
