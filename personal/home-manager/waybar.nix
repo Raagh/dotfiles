@@ -278,6 +278,22 @@
         font-size: 18px;
       }
 
+      #custom-quit {
+        color: #${config.lib.stylix.colors.base0A};
+      }
+
+      #custom-lock {
+        color: #${config.lib.stylix.colors.base0D};
+      }
+
+      #custom-reboot {
+        color: #${config.lib.stylix.colors.base09};
+      }
+
+      #custom-power {
+        color: #${config.lib.stylix.colors.base08};
+      }
+
       #submap {
         color: #${config.lib.stylix.colors.base08};
       }
