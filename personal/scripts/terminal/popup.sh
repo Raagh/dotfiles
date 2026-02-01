@@ -3,7 +3,7 @@
 # Opens a popup at 80% width/height if not visible, closes if visible
 # Maintains persistent session that can be toggled on/off
 
-POPUP_SESSION="popup-session"
+POPUP_SESSION="popup"
 
 # Get the current session name to detect if we're in the popup
 CURRENT_SESSION=$(tmux display-message -p "#{session_name}" 2>/dev/null)
@@ -35,5 +35,5 @@ else
   # Open popup with the persistent session
   # -w 80%: 80% of terminal width
   # -h 80%: 80% of terminal height
-  tmux display-popup -w 80% -h 80% "tmux attach-session -t $POPUP_SESSION"
+  tmux display-popup -E -w 80% -h 80% "tmux attach-session -t $POPUP_SESSION"
 fi

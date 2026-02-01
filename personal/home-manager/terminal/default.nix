@@ -58,7 +58,7 @@
           exec tmux attach -t "main"
         elif tmux has-session 2>/dev/null; then
           # Attach to first session that's not the popup session
-          MAIN_SESSION=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | grep -v "popup-session" | head -1)
+          MAIN_SESSION=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | grep -v "popup" | head -1)
           if [[ -n "$MAIN_SESSION" ]]; then
             exec tmux attach -t "$MAIN_SESSION"
           else
