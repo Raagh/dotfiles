@@ -20,10 +20,7 @@
 
   programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-      target = "hyprland-session.target";
-    };
+    systemd.enable = false;
     settings = {
       mainBar = {
         layer = "top";

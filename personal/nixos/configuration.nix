@@ -119,7 +119,18 @@
     upower.enable = true;
     udisks2.enable = true;
     openssh.enable = true;
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true; # Prevent wrist triggers while typing
+        naturalScrolling = false;
+        tapping = true;
+        tappingDragLock = false;
+        accelSpeed = "0.4"; # Moderate sensitivity (range: -1 to 1)
+        accelProfile = "adaptive"; # Natural acceleration curve
+        clickMethod = "clickfinger"; # Better multi-finger clicking
+      };
+    };
     trezord.enable = true;
     fwupd.enable = true;
     # Enable GNOME Keyring for password storage (WiFi, etc.)
@@ -135,6 +146,7 @@
 
   # Enable GNOME Keyring PAM integration for automatic unlock
   security.pam.services.gdm.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # Dont suspend laptop when lid is off and power is connected
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
