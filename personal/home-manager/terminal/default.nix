@@ -53,11 +53,19 @@
 
       # Auto-start tmux (like zellij enableZshIntegration)
       if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
-        # Try to attach to existing session, or create new one
-        if tmux has-session 2>/dev/null; then
-          exec tmux attach
+        # Try to attach to main session first, then any other session except popup
+        if tmux has-session -t "main" 2>/dev/null; then
+          exec tmux attach -t "main"
+        elif tmux has-session 2>/dev/null; then
+          # Attach to first session that's not the popup session
+          MAIN_SESSION=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | grep -v "popup-session" | head -1)
+          if [[ -n "$MAIN_SESSION" ]]; then
+            exec tmux attach -t "$MAIN_SESSION"
+          else
+            exec tmux new-session -s "main"
+          fi
         else
-          exec tmux new-session
+          exec tmux new-session -s "main"
         fi
       fi
     '';
