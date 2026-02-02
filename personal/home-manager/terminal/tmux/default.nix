@@ -8,7 +8,6 @@
 {
 
   imports = [
-    ./modes/locked.nix
     ./modes/pane.nix
     ./modes/resize.nix
     ./modes/session.nix
@@ -94,7 +93,6 @@
       bind t source-file ~/.config/tmux/modes/window.conf   # Window mode (YELLOW)
       bind s source-file ~/.config/tmux/modes/session.conf  # Session mode (BLUE)
       bind r source-file ~/.config/tmux/modes/resize.conf   # Resize mode (PURPLE)
-      bind l source-file ~/.config/tmux/modes/locked.conf   # Locked mode (RED)
 
       # Root table bindings (work without prefix, survive mode exits)
       # These are re-established each time we return to normal mode
