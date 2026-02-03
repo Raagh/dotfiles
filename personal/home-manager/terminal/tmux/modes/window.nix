@@ -39,7 +39,7 @@
 
         # Window creation and management (stays in window mode)
         bind -T root n new-window -c "#{pane_current_path}"
-        bind -T root x confirm-before -p "Will window #W? (y/n)" kill-window
+        bind -T root x confirm-before -p "kill window #W? (y/n)" kill-window
         bind -T root r command-prompt -I "#W" "rename-window '%%'"
 
         # Layout management (stays in window mode)
