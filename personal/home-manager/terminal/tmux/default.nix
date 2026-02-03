@@ -46,10 +46,11 @@
       # Vi mode keys
       set-window-option -g mode-keys vi
 
-      # Better copy mode
+      # Better copy mode with clipboard integration
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
+      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
 
       # Pane navigation (vim-like)
       bind h select-pane -L
@@ -101,6 +102,43 @@
       bind -n M-[ previous-layout
       bind -n M-] next-layout
 
+      # ===============================================
+      # MOUSE SUPPORT (Normal Mode Only)
+      # ===============================================
+      # Restore default mouse bindings after clearing root table
+      # These bindings enable full mouse support in normal mode
+      # Mouse will be disabled when entering any mode (pane/window/resize/session)
+
+      # Click on status bar window name to select window
+      bind -n MouseDown1Status select-window -t =
+
+      # Click on pane to select it
+      bind -n MouseDown1Pane select-pane -t = \; send-keys -M
+
+      # Drag pane border to resize
+      bind -n MouseDrag1Border resize-pane -M
+
+      # Drag in pane to select text (enters copy mode)
+      bind -n MouseDrag1Pane if -Ft = "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send-keys -M" "copy-mode -M"
+
+      # Scroll wheel up (enters copy mode if not already in it)
+      bind -n WheelUpPane if -Ft = "#{||:#{pane_in_mode},#{mouse_any_flag}}" "send-keys -M" "copy-mode -e"
+
+      # Scroll wheel down
+      bind -n WheelDownPane send-keys -M
+
+      # Right click on pane (paste)
+      bind -n MouseDown3Pane if -Ft = "#{||:#{mouse_any_flag},#{pane_in_mode}}" "select-pane -t = \; send-keys -M" "select-pane -mt ="
+
+      # Drag window in status bar to reorder
+      bind -n MouseDrag1StatusLeft swap-window -dt =
+
+      # Double click to select word
+      bind -n DoubleClick1Pane select-pane -t = \; copy-mode -M \; send-keys -X select-word
+
+      # Triple click to select line
+      bind -n TripleClick1Pane select-pane -t = \; copy-mode -M \; send-keys -X select-line
+
       # Quick actions (single key after Ctrl+g)
       bind q display-panes
       bind w choose-window
@@ -123,11 +161,11 @@
       set -g status-right-length 100
       set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b "
 
-      # Window status
+      # Window status (with clickable ranges for mouse support)
       set -g window-status-current-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A},bold"
-      set -g window-status-current-format " #I #W "
+      set -g window-status-current-format "#[range=window|#{window_index}] #I #W #[norange]"
       set -g window-status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base02}"
-      set -g window-status-format " #I #W "
+      set -g window-status-format "#[range=window|#{window_index}] #I #W #[norange]"
       set -g window-status-separator ""
 
       # Pane borders (modern look)
