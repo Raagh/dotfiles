@@ -183,6 +183,10 @@ return {
     },
     keys = {
       {
+        "<leader>a",
+        desc = "ai",
+      },
+      {
         "<leader>aa",
         function()
           require("opencode").toggle()
@@ -293,22 +297,22 @@ return {
       vim.o.autoread = true
     end,
   },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = "InsertEnter",
-  --   opts = {
-  --     panel = {
-  --       enabled = false,
-  --     },
-  --     suggestion = {
-  --       auto_trigger = true,
-  --       hide_during_completion = false,
-  --       keymap = {
-  --         accept = "<Tab>",
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    opts = {
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        auto_trigger = true,
+        hide_during_completion = false,
+        -- keymap = {
+        --   accept = "<Tab>",
+        -- },
+      },
+    },
+  },
   -- {
   --   "yetone/avante.nvim",
   --   opts = {
