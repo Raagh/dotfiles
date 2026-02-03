@@ -40,7 +40,7 @@
         bind -T root n command-prompt "new-session -s '%%'"
         bind -T root r command-prompt -I "#S" "rename-session '%%'"
         bind -T root l choose-tree
-        bind -T root x confirm-before -p "kill-session #S? (y/n)" kill-session
+        bind -T root x confirm-before -p "Kill session #S? (y/n)" kill-session
         bind -T root d detach-client
 
         # Utilities (stays in session mode)
