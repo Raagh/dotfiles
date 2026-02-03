@@ -1,6 +1,9 @@
 #!/bin/bash
 # Restore normal mode bindings (keyboard shortcuts + mouse support)
 # This script is called when exiting any modal mode
+#
+# NOTE: All tmux bind commands use single quotes for cross-platform consistency
+# This avoids shell escaping complexity and works reliably on Linux/macOS with bash/zsh
 
 # Clear all root table bindings first
 tmux unbind -T root -a
@@ -19,7 +22,7 @@ tmux bind -n M-] next-layout
 tmux bind -n MouseDown1Status select-window -t =
 
 # Click on pane to select it
-tmux bind -n MouseDown1Pane select-pane -t = \\\; send-keys -M
+tmux bind -n MouseDown1Pane 'select-pane -t = ; send-keys -M'
 
 # Drag pane border to resize
 tmux bind -n MouseDrag1Border resize-pane -M
@@ -34,13 +37,13 @@ tmux bind -n WheelUpPane if -Ft = "#{||:#{pane_in_mode},#{mouse_any_flag}}" "sen
 tmux bind -n WheelDownPane send-keys -M
 
 # Right click on pane (paste)
-tmux bind -n MouseDown3Pane if -Ft = "#{||:#{mouse_any_flag},#{pane_in_mode}}" "select-pane -t = \\\; send-keys -M" "select-pane -mt ="
+tmux bind -n MouseDown3Pane 'if -Ft = "#{||:#{mouse_any_flag},#{pane_in_mode}}" "select-pane -t = ; send-keys -M" "select-pane -mt ="'
 
 # Drag window in status bar to reorder
 tmux bind -n MouseDrag1StatusLeft swap-window -dt =
 
-# Double click to select word
-tmux bind -n DoubleClick1Pane select-pane -t = \\\; copy-mode -M \\\; send-keys -X select-word
+# Double click to select word (using single quotes for reliable cross-platform escaping)
+tmux bind -n DoubleClick1Pane 'select-pane -t = ; copy-mode -M ; send-keys -X select-word'
 
-# Triple click to select line
-tmux bind -n TripleClick1Pane select-pane -t = \\\; copy-mode -M \\\; send-keys -X select-line
+# Triple click to select line (using single quotes for reliable cross-platform escaping)
+tmux bind -n TripleClick1Pane 'select-pane -t = ; copy-mode -M ; send-keys -X select-line'

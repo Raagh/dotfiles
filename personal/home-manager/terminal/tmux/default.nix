@@ -113,7 +113,7 @@
       bind -n MouseDown1Status select-window -t =
 
       # Click on pane to select it
-      bind -n MouseDown1Pane select-pane -t = \; send-keys -M
+      bind -n MouseDown1Pane 'select-pane -t = ; send-keys -M'
 
       # Drag pane border to resize
       bind -n MouseDrag1Border resize-pane -M
@@ -128,16 +128,16 @@
       bind -n WheelDownPane send-keys -M
 
       # Right click on pane (paste)
-      bind -n MouseDown3Pane if -Ft = "#{||:#{mouse_any_flag},#{pane_in_mode}}" "select-pane -t = \; send-keys -M" "select-pane -mt ="
+      bind -n MouseDown3Pane 'if -Ft = "#{||:#{mouse_any_flag},#{pane_in_mode}}" "select-pane -t = ; send-keys -M" "select-pane -mt ="'
 
       # Drag window in status bar to reorder
       bind -n MouseDrag1StatusLeft swap-window -dt =
 
       # Double click to select word
-      bind -n DoubleClick1Pane select-pane -t = \; copy-mode -M \; send-keys -X select-word
+      bind -n DoubleClick1Pane 'select-pane -t = ; copy-mode -M ; send-keys -X select-word'
 
       # Triple click to select line
-      bind -n TripleClick1Pane select-pane -t = \; copy-mode -M \; send-keys -X select-line
+      bind -n TripleClick1Pane 'select-pane -t = ; copy-mode -M ; send-keys -X select-line'
 
       # Quick actions (single key after Ctrl+g)
       bind q display-panes
