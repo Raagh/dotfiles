@@ -31,6 +31,8 @@ in
     transmission_4-gtk
     portfolio
     protonvpn-gui
+
+    wlr-randr # Wayland display configuration
   ];
 
   programs.chromium = {

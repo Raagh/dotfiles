@@ -16,6 +16,10 @@
     "quiet"
     "mem_sleep_default=s2idle"
     "amdgpu.dcdebugmask=0x10"
+    "amdgpu.dc=1" # Enable Display Core for better color handling
+    "amdgpu.ppfeaturemask=0xffffffff" # Enable all power features for better performance
+    "amdgpu.gpu_recovery=1" # Enable GPU recovery for stability
+    "amdgpu.runpm=0" # Disable runtime PM for stability with external monitors
     "pcie_aspm=off"
   ];
 
