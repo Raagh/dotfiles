@@ -42,7 +42,7 @@
         bind -T root d split-window -v -c "#{pane_current_path}"
 
         # Pane management (stays in pane mode)
-        bind -T root x confirm-before -p "kill pane? (y/n)" kill-pane
+        bind -T root x confirm-before -p "kill-pane? (y/n)" kill-pane
         bind -T root f resize-pane -Z
         bind -T root b break-pane
         bind -T root w run-shell "sh ${personalDotfilesPath}/scripts/terminal/return_to_normal.sh" \; set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b " \; run-shell "sh ${personalDotfilesPath}/scripts/terminal/restore_normal_bindings.sh" \; run-shell "sh ${personalDotfilesPath}/scripts/terminal/popup.sh"
