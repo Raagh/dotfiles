@@ -5,7 +5,45 @@
   ...
 }:
 
+let
+  # Tmux-specific color mappings from stylix
+  base = config.lib.stylix.colors;
+  tmuxColors = {
+    # Background and text colors
+    background = base.base00;
+    backgroundAlt = base.base02;
+    backgroundMuted = base.base03;
+    foreground = base.base05;
+
+    # Mode colors (for status bar indicators)
+    paneMode = base.base0B; # GREEN - Pane management
+    windowMode = base.base0A; # YELLOW - Window/tab management
+    sessionMode = base.base0C; # BLUE - Session management
+    resizeMode = base.base0E; # PURPLE - Pane resizing
+
+    # UI accent colors
+    accent = base.base0C; # Primary accent (cyan/blue)
+    highlight = base.base0A; # Highlight color (yellow)
+    border = base.base03; # Inactive borders
+    borderActive = base.base0C; # Active borders
+
+    # Status and message colors
+    statusBg = base.base00; # Status bar background
+    statusFg = base.base05; # Status bar text
+    messageBg = base.base0A; # Message background
+    messageFg = base.base00; # Message text (dark on light)
+
+    # Window status colors
+    windowCurrent = base.base0A; # Current window highlight
+    windowInactive = base.base02; # Inactive window background
+  };
+  c = tmuxColors;
+in
 {
+  # Pass colors to imported modules through config
+  _module.args = {
+    inherit tmuxColors;
+  };
 
   imports = [
     ./modes/pane.nix
@@ -151,36 +189,36 @@
       set -g status-interval 2
       set -g status-position top
       set -g status-justify left
-      set -g status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base00}"
+      set -g status-style "fg=#${c.statusFg},bg=#${c.statusBg}"
 
       # Left status (session info)
       set -g status-left-length 100
-      set -g status-left "#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] #S #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base00}]"
+      set -g status-left "#[fg=#${c.statusBg},bg=#${c.accent},bold] #S #[fg=#${c.accent},bg=#${c.statusBg}]"
 
       # Right status (system info)
       set -g status-right-length 100
-      set -g status-right "#[fg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base03}] %H:%M #[fg=#${config.lib.stylix.colors.base0C},bg=#${config.lib.stylix.colors.base03}]#[fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0C},bold] %d %b "
+      set -g status-right "#[fg=#${c.backgroundMuted}]#[fg=#${c.foreground},bg=#${c.backgroundMuted}] %H:%M #[fg=#${c.accent},bg=#${c.backgroundMuted}]#[fg=#${c.statusBg},bg=#${c.accent},bold] %d %b "
 
       # Window status (with clickable ranges for mouse support)
-      set -g window-status-current-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A},bold"
+      set -g window-status-current-style "fg=#${c.statusBg},bg=#${c.windowCurrent},bold"
       set -g window-status-current-format "#[range=window|#{window_index}] #I #W #[norange]"
-      set -g window-status-style "fg=#${config.lib.stylix.colors.base05},bg=#${config.lib.stylix.colors.base02}"
+      set -g window-status-style "fg=#${c.foreground},bg=#${c.windowInactive}"
       set -g window-status-format "#[range=window|#{window_index}] #I #W #[norange]"
       set -g window-status-separator ""
 
       # Pane borders (modern look)
-      set -g pane-border-style "fg=#${config.lib.stylix.colors.base03}"
-      set -g pane-active-border-style "fg=#${config.lib.stylix.colors.base0C}"
+      set -g pane-border-style "fg=#${c.border}"
+      set -g pane-active-border-style "fg=#${c.borderActive}"
 
       # Message styling
-      set -g message-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
-      set -g message-command-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
+      set -g message-style "fg=#${c.messageFg},bg=#${c.messageBg}"
+      set -g message-command-style "fg=#${c.messageFg},bg=#${c.messageBg}"
 
       # Copy mode styling
-      set -g mode-style "fg=#${config.lib.stylix.colors.base00},bg=#${config.lib.stylix.colors.base0A}"
+      set -g mode-style "fg=#${c.messageFg},bg=#${c.messageBg}"
 
       # Clock color
-      set -g clock-mode-colour "#${config.lib.stylix.colors.base0C}"
+      set -g clock-mode-colour "#${c.accent}"
     '';
   };
 }
