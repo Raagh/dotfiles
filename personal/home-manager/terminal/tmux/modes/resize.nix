@@ -7,7 +7,7 @@
 }:
 
 let
-  modeCommon = import ../mode-common.nix {
+  modeCommon = import ./common.nix {
     inherit personalDotfilesPath tmuxColors;
   };
 
