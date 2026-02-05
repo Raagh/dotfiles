@@ -14,13 +14,15 @@
   boot.plymouth.enable = true;
   boot.kernelParams = [
     "quiet"
-    "mem_sleep_default=s2idle"
-    "amdgpu.dcdebugmask=0x10"
-    "amdgpu.dc=1" # Enable Display Core for better color handling
+    "mem_sleep_default=deep" # Change from s2idle to deep for better suspend support
     "amdgpu.ppfeaturemask=0xffffffff" # Enable all power features for better performance
-    "amdgpu.gpu_recovery=1" # Enable GPU recovery for stability
-    "amdgpu.runpm=0" # Disable runtime PM for stability with external monitors
+    # "amdgpu.gpu_recovery=1" # Enable GPU recovery for stability
+    "amdgpu.runpm=0" # Disable runtime PM for stability (prevents suspend crashes)
     "pcie_aspm=off"
+
+    # Additional parameters to fix hyprlock crashes after suspend
+    # "amdgpu.noretry=0" # Allow GPU recovery retries
+    # "amdgpu.lockup_timeout=10000" # Increase lockup timeout
   ];
 
   # Perform garbage collection weekly to maintain low disk usage
