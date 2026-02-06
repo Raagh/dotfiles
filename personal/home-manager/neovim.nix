@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ ];
+  imports = [ ./opencode ];
 
   home.packages = with pkgs; [
     neovim
@@ -30,19 +30,6 @@
 
     lsof
   ];
-
-  programs.opencode = {
-    enable = true;
-    package = pkgsUnstable.opencode;
-    settings = {
-      mcp = {
-        context7 = {
-          type = "remote";
-          url = "https://mcp.context7.com/mcp";
-        };
-      };
-    };
-  };
 
   # link the neovim config to the .config folder in home
   home.file = {
