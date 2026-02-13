@@ -132,7 +132,6 @@
         clickMethod = "clickfinger"; # Better multi-finger clicking
       };
     };
-    trezord.enable = true;
     fwupd.enable = true;
     # Enable GNOME Keyring for password storage (WiFi, etc.)
     gnome.gnome-keyring.enable = true;

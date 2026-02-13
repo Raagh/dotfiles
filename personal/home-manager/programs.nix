@@ -31,8 +31,7 @@ in
     transmission_4-gtk
     portfolio
     protonvpn-gui
-
-    wlr-randr # Wayland display configuration
+    trezor-suite
   ];
 
   programs.chromium = {

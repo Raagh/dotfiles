@@ -253,6 +253,8 @@
     hyprshot
     waypaper
     gnome-system-monitor
+
+    wlr-randr
   ];
 
   home.sessionVariables = {
