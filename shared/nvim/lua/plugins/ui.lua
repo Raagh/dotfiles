@@ -73,13 +73,6 @@ return {
           "<cmd>:e %<cr>",
           desc = "Reload File",
         },
-        -- {
-        --   mode = { "v" },
-        --   { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
-        --   { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Ask Avante" },
-        --   { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Chat with Avante" },
-        --   { "<leader>ae", "<cmd>AvanteEdit<CR>", desc = "Edit Avante" },
-        -- },
       },
       win = {
         border = "rounded",
@@ -121,24 +114,20 @@ return {
                 maxTsServerMemory = 8192,
               },
               vtsls = {
-                autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
+                -- autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
                 experimental = {
                   completion = {
                     enableServerSideFuzzyMatch = true,
-                    entriesLimit = 10000, -- Limit completion entries for performance
+                    entriesLimit = 1000, -- Limit completion entries for performance
                   },
                 },
+              },
+              preferences = {
+                includePackageJsonAutoImports = "off",
               },
             },
           },
         },
-
-        -- vim.schedule(function()
-        --   print(
-        --     "VTSLS Memory Config Applied: "
-        --       .. (opts.servers.vtsls.settings.typescript.tsserver.maxTsServerMemory or "NOT SET")
-        --   )
-        -- end),
       }
 
       require("lspconfig.ui.windows").default_options.border = "rounded"

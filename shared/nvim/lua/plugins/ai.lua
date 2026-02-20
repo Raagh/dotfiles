@@ -9,12 +9,9 @@ return {
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
     keys = {
+      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
-        "<leader>a",
-        desc = "ai",
-      },
-      {
-        "<leader>ao",
+        "<leader>aa",
         function()
           require("opencode").toggle()
         end,
@@ -45,63 +42,6 @@ return {
         mode = { "n", "x" },
         desc = "OpenCode ask about buffer",
       },
-      {
-        "<leader>ap",
-        function()
-          require("opencode").prompt("@this", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode prompt",
-      },
-      -- Built-in prompts
-      {
-        "<leader>ape",
-        function()
-          require("opencode").prompt("explain", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode explain",
-      },
-      {
-        "<leader>apf",
-        function()
-          require("opencode").prompt("fix", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode fix",
-      },
-      {
-        "<leader>apd",
-        function()
-          require("opencode").prompt("diagnose", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode diagnose",
-      },
-      {
-        "<leader>apr",
-        function()
-          require("opencode").prompt("review", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode review",
-      },
-      {
-        "<leader>apt",
-        function()
-          require("opencode").prompt("test", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode test",
-      },
-      {
-        "<leader>apo",
-        function()
-          require("opencode").prompt("optimize", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode optimize",
-      },
     },
     config = function()
       vim.g.opencode_opts = {
@@ -118,6 +58,24 @@ return {
     end,
   },
 
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- LazyVim Extra disabled it for copilot.lua
+        copilot = { enabled = true },
+      },
+    },
+  },
+
+  -- {
+  --   "mason-org/mason.nvim",
+  --   opts = { ensure_installed = { "copilot" } },
+  -- },
   -- {
   --   "zbirenbaum/copilot.lua",
   --   event = "InsertEnter",
@@ -143,14 +101,31 @@ return {
   --       hint_display = "delayed",
   --     },
   --     behaviour = {
+  --       auto_apply_diff_after_generation = false,
   --       auto_set_keymaps = false,
   --       auto_focus_sidebar = false,
   --       auto_approve_tool_permissions = false,
   --     },
-  --     providers = {
-  --       copilot = {
-  --         model = "claude-sonnet-4",
-  --       },
+  --   },
+  --   keys = {
+  --     { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+  --     {
+  --       "<leader>aa",
+  --       "<cmd>AvanteAsk<CR>",
+  --       desc = "Ask Avante",
+  --       mode = { "v", "n", "x" },
+  --     },
+  --     {
+  --       "<leader>ac",
+  --       "<cmd>AvanteChat<CR>",
+  --       desc = "Chat with Avante",
+  --       mode = { "v", "n", "x" },
+  --     },
+  --     {
+  --       "<leader>ae",
+  --       "<cmd>AvanteEdit<CR>",
+  --       desc = "Edit Avante",
+  --       mode = { "v", "n", "x" },
   --     },
   --   },
   -- },

@@ -179,12 +179,12 @@ return {
             winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
           },
         },
-        ghost_text = {
-          enabled = false,
-        },
-        trigger = {
-          show_on_insert_on_trigger_character = false,
-        },
+        -- ghost_text = {
+        --   enabled = false,
+        -- },
+        -- trigger = {
+        --   show_on_insert_on_trigger_character = false,
+        -- },
       },
     },
   },
