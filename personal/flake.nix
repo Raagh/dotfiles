@@ -2,7 +2,6 @@
   description = "Raagh NixOS setup";
 
   inputs = {
-    # NixOS official package source, using the nixos-25.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

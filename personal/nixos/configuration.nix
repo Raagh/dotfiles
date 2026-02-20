@@ -137,6 +137,8 @@
     gnome.gnome-keyring.enable = true;
   };
 
+  services.udev.packages = with pkgs; [ trezor-udev-rules ];
+
   programs.light.enable = true;
   virtualisation.docker.enable = true;
 
@@ -154,6 +156,7 @@
   # Enable the bolt protocol for thunderbolt docks
   services.hardware.bolt.enable = true;
 
+  # Fuck you LaLiga!
   networking.extraHosts = ''
     172.67.206.103 assets.moxfield.net
   '';

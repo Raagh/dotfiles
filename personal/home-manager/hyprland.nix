@@ -25,7 +25,6 @@
       exec-once = [
         "nm-applet"
         "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
-        "waybar"
       ];
 
       monitor = [
