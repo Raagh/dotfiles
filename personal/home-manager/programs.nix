@@ -32,6 +32,7 @@ in
     portfolio
     protonvpn-gui
     trezor-suite
+    framework-tool-tui
   ];
 
   programs.chromium = {
