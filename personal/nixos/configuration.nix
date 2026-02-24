@@ -137,6 +137,16 @@
     gnome.gnome-keyring.enable = true;
   };
 
+  systemd.services.framework-charge-limit = {
+    description = "Set Framework battery charge limit to 80%";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.framework-tool}/bin/framework_tool --charge-limit 80";
+    };
+  };
+
   services.udev.packages = with pkgs; [ trezor-udev-rules ];
 
   programs.light.enable = true;

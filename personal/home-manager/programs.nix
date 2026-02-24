@@ -1,18 +1,23 @@
 {
   pkgs,
+  pkgsUnstable,
   ...
 }:
 
 let
   portfolio = pkgs.symlinkJoin {
     name = "portfolio";
-    paths = [ pkgs.portfolio ];
+    paths = [ pkgsUnstable.portfolio ];
     nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
     postBuild = ''
       wrapProgram "$out/bin/portfolio" \
       --set GDK_BACKEND x11
     '';
   };
+
+  frameworkToolTuiLauncher = pkgs.writeShellScriptBin "framework-tool-tui-launcher" ''
+    exec kitty --class framework-tool-tui --title framework-tool-tui -e bash -lc 'sudo framework-tool-tui'
+  '';
 in
 {
   # Packages that should be installed to the user profile.
@@ -32,7 +37,9 @@ in
     portfolio
     protonvpn-gui
     trezor-suite
+    framework-tool
     framework-tool-tui
+    frameworkToolTuiLauncher
   ];
 
   programs.chromium = {
@@ -75,5 +82,14 @@ in
       "image/png" = [ "org.gnome.Loupe.desktop" ];
       "text/plain" = [ "org.gnome.TextEditor.desktop" ];
     };
+  };
+
+  xdg.desktopEntries.framework-tool-tui = {
+    name = "Framework Tool TUI";
+    comment = "Launch Framework Tool TUI in Kitty";
+    exec = "framework-tool-tui-launcher";
+    terminal = false;
+    categories = [ "System" ];
+    icon = "utilities-terminal";
   };
 }

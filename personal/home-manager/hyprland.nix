@@ -220,6 +220,9 @@
       # Window rules
       windowrulev2 = [
         "float, size:800x600, center:1,class:(.protonvpn-app-wrapped)"
+        "float,class:^(framework-tool-tui)$"
+        "center,class:^(framework-tool-tui)$"
+        "size 1100 720,class:^(framework-tool-tui)$"
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "noblur, title:^()$, class:^()$"
