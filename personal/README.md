@@ -2,7 +2,7 @@
 
 The dotfiles for my personal setup.
 
-System: Nix OS + Home Manager with flakes
+System: NixOS + Home Manager with flakes
 Theme: rose-pine (applied with stylix)
 
 - hyprland
