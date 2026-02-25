@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ ./opencode ];
+  imports = [ ./opencode.nix ];
 
   home.packages = with pkgs; [
     neovim
