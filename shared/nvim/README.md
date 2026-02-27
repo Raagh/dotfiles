@@ -3,7 +3,8 @@
 This folder holds my neovim personal configuration it meant to be shared between
 work and personal. Originally started as custom neovim config but now I am using 💤 LazyVim
 
-![neovim](https://github.com/Raagh/dotfiles/assets/8405459/eefa8d5c-054a-454a-b2a8-9c8aac77db2f)
+<img width="1685" height="1347" alt="image" src="https://github.com/user-attachments/assets/cc843152-e593-4ecb-964b-f03c763dab91" />
+
 
 # Currently Avante.nvim fails to build from Neovim, it needs to be build manually
 
