@@ -105,15 +105,15 @@ return {
       },
       presets = {
         lsp_doc_border = true,
-        -- command_palette = {
-        --   views = {
-        --     cmdline_popup = {
-        --       position = {
-        --         row = "50%",
-        --       },
-        --     },
-        --   },
-        -- },
+        command_palette = {
+          views = {
+            cmdline_popup = {
+              position = {
+                row = "50%",
+              },
+            },
+          },
+        },
       },
     },
   },
