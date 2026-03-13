@@ -193,4 +193,18 @@ return {
       },
     },
   },
+  {
+    "f-person/git-blame.nvim",
+    event = "BufRead",
+    opts = {
+      enabled = false,
+    },
+    keys = {
+      {
+        "<leader>go",
+        "<cmd>GitBlameOpenCommitURL<cr>",
+        desc = "Open Commit In Browser",
+      },
+    },
+  },
 }
