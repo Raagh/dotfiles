@@ -6,10 +6,6 @@ return {
         "<c-/>",
         enabled = false,
       },
-      {
-        "<c-_>",
-        enabled = false,
-      },
     },
     opts = {
       win = {
@@ -19,13 +15,6 @@ return {
         -- winhighlight = "FloatTitle:Title",
         -- },
       },
-      -- picker = {
-      --   sources = {
-      --     grep = {
-      --       regex = false,
-      --     },
-      --   },
-      -- },
       image = {
         enabled = true,
       },
@@ -40,21 +29,6 @@ return {
       },
       dashboard = {
         preset = {
-          keys = {
-            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-            { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            {
-              icon = " ",
-              key = "c",
-              desc = "Config",
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-            },
-            { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy },
-            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-          },
           header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
@@ -62,25 +36,6 @@ return {
 ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
 ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-        },
-        sections = {
-          { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
-          { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          {
-            pane = 2,
-            icon = " ",
-            title = "Git Status",
-            section = "terminal",
-            enabled = vim.fn.isdirectory(".git") == 1,
-            cmd = "hub status --short --branch --renames",
-            height = 5,
-            padding = 1,
-            ttl = 5 * 60,
-            indent = 3,
-          },
-          { section = "startup" },
         },
       },
     },
@@ -131,45 +86,9 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
     dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/neotest-jest",
+      "marilari88/neotest-vitest",
     },
-    opts = {
-      discovery = {
-        enabled = false,
-      },
-      quickfix = {
-        enabled = true,
-        open = false,
-      },
-      floating = {
-        border = "rounded",
-      },
-      adapters = {
-        ["neotest-jest"] = {
-          jest_test_discovery = true,
-          jestCommand = "yarn test",
-          cwd = function(file)
-            if
-              string.find(file, "/services/")
-              or string.find(file, "/packages/")
-              or string.find(file, "/scripts/")
-              or string.find(file, "/frontend/")
-            then
-              return string.match(file, "(.-/[^/]+/)src")
-            end
-            return vim.fn.getcwd()
-          end,
-        },
-      },
-      summary = {
-        open = "topleft vsplit | vertical resize 50",
-      },
-    },
+    opts = require("raagh.neotest"),
   },
 }

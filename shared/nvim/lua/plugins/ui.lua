@@ -1,22 +1,22 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    priority = 100,
-    opts = function(_, _)
-      -- this doesn't work, need to figure it out
-      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-      vim.fn.sign_define(
-        "DapBreakpointCondition",
-        { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
-      )
-      vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
-      vim.fn.sign_define(
-        "DapStopped",
-        { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
-      )
-    end,
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   priority = 100,
+  --   opts = function(_, _)
+  --     -- this doesn't work, need to figure it out
+  --     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+  --     vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+  --     vim.fn.sign_define(
+  --       "DapBreakpointCondition",
+  --       { text = "ﳁ", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+  --     )
+  --     vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
+  --     vim.fn.sign_define(
+  --       "DapStopped",
+  --       { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+  --     )
+  --   end,
+  -- },
 
   {
     "akinsho/bufferline.nvim",
@@ -36,6 +36,19 @@ return {
         desc = "Move Buffer Right",
       },
     },
+    opts = {
+      options = {
+        custom_filter = function(bufnr)
+          local bt = vim.bo[bufnr].buftype
+          if bt == "terminal" then
+            return false
+          end
+
+          return true
+        end,
+        buffer_close_icon = "✕",
+      },
+    },
   },
   {
     "folke/noice.nvim",
@@ -51,15 +64,15 @@ return {
       },
       presets = {
         lsp_doc_border = true,
-        command_palette = {
-          views = {
-            cmdline_popup = {
-              position = {
-                row = "50%",
-              },
-            },
-          },
-        },
+        -- command_palette = {
+        --   views = {
+        --     cmdline_popup = {
+        --       position = {
+        --         row = "50%",
+        --       },
+        --     },
+        --   },
+        -- },
       },
     },
   },
@@ -67,13 +80,6 @@ return {
     "folke/which-key.nvim",
     opts = {
       preset = "classic",
-      spec = {
-        {
-          "<leader>ur",
-          "<cmd>:e %<cr>",
-          desc = "Reload File",
-        },
-      },
       win = {
         border = "rounded",
       },
@@ -89,51 +95,37 @@ return {
     },
   },
   {
-    "folke/flash.nvim",
+    "neovim/nvim-lspconfig",
     opts = {
-      modes = {
-        -- Disable labels for regular search with `/`
-        search = {
-          enabled = false,
-        },
-        -- Disable labels for motions like f, t, F, T
-        char = {
-          enabled = false,
+      diagnostics = {
+        float = {
+          border = "rounded",
         },
       },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = function(opts, _)
-      opts.servers = {
-        vtsls = {
-          settings = {
-            typescript = {
-              tsserver = {
-                maxTsServerMemory = 8192,
-              },
-              vtsls = {
-                -- autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
-                experimental = {
-                  completion = {
-                    enableServerSideFuzzyMatch = true,
-                    entriesLimit = 1000, -- Limit completion entries for performance
-                  },
-                },
-              },
-              preferences = {
-                includePackageJsonAutoImports = "off",
-              },
-            },
-          },
-        },
-      }
 
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-      vim.diagnostic.config({
-        float = { border = "rounded" },
-      })
-    end,
+      -- servers = {
+      --   vtsls = {
+      --     settings = {
+      --       typescript = {
+      --         tsserver = {
+      --           maxTsServerMemory = 8192,
+      --         },
+      --         vtsls = {
+      --           -- autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
+      --           experimental = {
+      --             completion = {
+      --               enableServerSideFuzzyMatch = true,
+      --               entriesLimit = 1000, -- Limit completion entries for performance
+      --             },
+      --           },
+      --         },
+      --         preferences = {
+      --           includePackageJsonAutoImports = "off",
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
+    },
   },
 }
