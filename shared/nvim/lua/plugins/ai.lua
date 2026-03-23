@@ -1,46 +1,74 @@
 return {
-  {
-    "nickjvandyke/opencode.nvim",
-    version = "*", -- Latest stable release
-    dependencies = {
-      {
-        -- `snacks.nvim` integration is recommended, but optional
-        ---@module "snacks" <- Loads `snacks.nvim` types for configuration intellisense
-        "folke/snacks.nvim",
-        optional = true,
-        opts = {
-          input = {}, -- Enhances `ask()`
-          picker = {},
-          terminal = {},
-        },
-      },
-    },
-    keys = {
-      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
-      {
-        "<leader>aa",
-        function()
-          require("opencode").toggle()
-        end,
-        mode = { "n" },
-        desc = "Toggle OpenCode",
-      },
-    },
-    config = function()
-      ---@type opencode.Opts
-      vim.g.opencode_opts = {
-        provider = {
-          snacks = {
-            win = {
-              enter = true,
-            },
-          },
-        },
-      }
-
-      vim.o.autoread = true
-    end,
-  },
+  -- {
+  --   "sudo-tee/opencode.nvim",
+  --   config = function()
+  --     require("opencode").setup({
+  --       keymap_prefix = "<leader>a",
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     {
+  --       "MeanderingProgrammer/render-markdown.nvim",
+  --       opts = {
+  --         anti_conceal = { enabled = false },
+  --         file_types = { "markdown", "opencode_output" },
+  --       },
+  --       ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
+  --     },
+  --     -- Optional, for file mentions and commands completion, pick only one
+  --     "saghen/blink.cmp",
+  --     -- 'hrsh7th/nvim-cmp',
+  --
+  --     -- Optional, for file mentions picker, pick only one
+  --     -- "folke/snacks.nvim",
+  --     -- 'nvim-telescope/telescope.nvim',
+  --     "ibhagwan/fzf-lua",
+  --     -- 'nvim_mini/mini.nvim',
+  --   },
+  -- },
+  -- {
+  --   "nickjvandyke/opencode.nvim",
+  --   version = "*", -- Latest stable release
+  --   dependencies = {
+  --     {
+  --       -- `snacks.nvim` integration is recommended, but optional
+  --       ---@module "snacks" <- Loads `snacks.nvim` types for configuration intellisense
+  --       "folke/snacks.nvim",
+  --       optional = true,
+  --       opts = {
+  --         input = {}, -- Enhances `ask()`
+  --         picker = {},
+  --         terminal = {},
+  --       },
+  --     },
+  --   },
+  --   keys = {
+  --     { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+  --     {
+  --       "<leader>aa",
+  --       function()
+  --         require("opencode").toggle()
+  --       end,
+  --       mode = { "n" },
+  --       desc = "Toggle OpenCode",
+  --     },
+  --   },
+  --   config = function()
+  --     ---@type opencode.Opts
+  --     vim.g.opencode_opts = {
+  --       provider = {
+  --         snacks = {
+  --           win = {
+  --             enter = true,
+  --           },
+  --         },
+  --       },
+  --     }
+  --
+  --     vim.o.autoread = true
+  --   end,
+  -- },
 
   -- {
   --   "zbirenbaum/copilot.lua",
