@@ -23,11 +23,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
 
     -- AI modules
+    { import = "lazyvim.plugins.extras.ai.copilot-native" },
+    { import = "lazyvim.plugins.extras.ai.sidekick" },
     -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    -- { import = "lazyvim.plugins.extras.ai.copilot-native" },
     -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- { import = "lazyvim.plugins.extras.ai.avante" },
-    -- { import = "lazyvim.plugins.extras.ai.sidekick" },
     -- { import = "lazyvim.plugins.extras.ai.supermaven" },
     -- import/override with your plugins
     { import = "plugins" },

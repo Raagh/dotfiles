@@ -70,6 +70,7 @@ return {
   --   end,
   -- },
 
+  --- this is to enable copilot completions and nes through sidekick
   -- {
   --   "zbirenbaum/copilot.lua",
   --   enabled = false,
@@ -78,9 +79,17 @@ return {
   --   "neovim/nvim-lspconfig",
   --   opts = {
   --     servers = {
-  --       -- LazyVim Extra disabled it for copilot.lua
-  --       copilot = { enabled = true },
+  --       copilot = {
+  --         enabled = true,
+  --       },
   --     },
+  --   },
+  -- },
+  -- {
+  --   "mason-org/mason.nvim",
+  --   opts_extend = { "ensure_installed" },
+  --   opts = {
+  --     ensure_installed = { "copilot-language-server" },
   --   },
   -- },
 }
