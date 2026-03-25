@@ -1,4 +1,4 @@
-local henchman = require("raagh.henchman")
+local henchman = require("utils.henchman")
 
 local function setup_adapter(dap)
   dap.adapters["pwa-node"] = {

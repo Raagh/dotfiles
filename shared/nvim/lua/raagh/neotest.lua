@@ -1,4 +1,4 @@
-local henchman = require("raagh.henchman")
+local henchman = require("utils.henchman")
 
 local ALLOWED_ROOT_DIRS = { "services", "packages", "scripts", "frontend" }
 local IGNORED_DIRS = { "node_modules", ".git", "coverage", "dist" }
