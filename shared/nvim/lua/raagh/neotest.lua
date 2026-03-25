@@ -1,6 +1,7 @@
+local henchman = require("raagh.henchman")
+
 local ALLOWED_ROOT_DIRS = { "services", "packages", "scripts", "frontend" }
 local IGNORED_DIRS = { "node_modules", ".git", "coverage", "dist" }
-local HENCHMAN_ROOT_PATTERN = "/henchman$"
 
 local function contains(list, value)
   for _, item in ipairs(list) do
@@ -55,7 +56,7 @@ local function filter_dir(name, rel_path, root)
     return false
   end
 
-  if root and root:match(HENCHMAN_ROOT_PATTERN) then
+  if root and henchman.is_henchman_project(root) then
     return is_henchman_allowed_path(rel_path)
   end
 
@@ -76,19 +77,6 @@ local function is_test_file(file_path)
   end
 
   return string.find(file_path, "%.test%.[jt]sx?$") ~= nil or string.find(file_path, "%.spec%.[jt]sx?$") ~= nil
-end
-
-local function is_henchman_repo_path(file_path)
-  if not file_path then
-    return false
-  end
-
-  local git_root = vim.fs.find(".git", { path = file_path, upward = true })[1]
-  if not git_root then
-    return false
-  end
-
-  return vim.fs.dirname(git_root):match(HENCHMAN_ROOT_PATTERN) ~= nil
 end
 
 local function escape_test_name_pattern(name)
@@ -203,7 +191,7 @@ local function build_vitest_adapter()
 
   local default_is_test_file = vitest.is_test_file
   vitest.is_test_file = function(file_path)
-    if is_henchman_repo_path(file_path) then
+    if henchman.is_henchman_project(file_path) then
       return is_test_file(file_path)
     end
     return default_is_test_file(file_path)
