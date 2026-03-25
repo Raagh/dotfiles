@@ -15,10 +15,6 @@ return {
       },
       win = {
         backdrop = 100,
-        -- for reference this is how you link a highlight group for a window
-        -- wo = {
-        -- winhighlight = "FloatTitle:Title",
-        -- },
       },
       image = {
         enabled = true,
@@ -170,12 +166,6 @@ return {
             winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
           },
         },
-        -- ghost_text = {
-        --   enabled = false,
-        -- },
-        -- trigger = {
-        --   show_on_insert_on_trigger_character = false,
-        -- },
       },
     },
   },

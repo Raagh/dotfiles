@@ -46,32 +46,4 @@ return {
     },
     opts = require("raagh.neotest"),
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --       vtsls = {
-  --         settings = {
-  --           typescript = {
-  --             tsserver = {
-  --               maxTsServerMemory = 8192,
-  --             },
-  --             vtsls = {
-  --               -- autoUseWorkspaceTsdk = true, -- Use workspace TypeScript version
-  --               experimental = {
-  --                 completion = {
-  --                   enableServerSideFuzzyMatch = true,
-  --                   entriesLimit = 1000, -- Limit completion entries for performance
-  --                 },
-  --               },
-  --             },
-  --             preferences = {
-  --               includePackageJsonAutoImports = "off",
-  --             },
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
 }
