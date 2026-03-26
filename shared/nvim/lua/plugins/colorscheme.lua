@@ -26,8 +26,6 @@ return {
       return {
         disable_float_background = true,
         highlight_groups = {
-          -- vim.api.nvim_set_hl(0, "PopMenu", { bg = theme.ui.bg, blend = 0 })
-
           DapBreakpoint = {
             fg = palette.love,
             bg = palette.base,
