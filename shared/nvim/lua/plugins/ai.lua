@@ -92,4 +92,20 @@ return {
   --     ensure_installed = { "copilot-language-server" },
   --   },
   -- },
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      cli = {
+        mux = {
+          enabled = true,
+          backend = "tmux",
+          create = "terminal",
+          split = {
+            vertical = true,
+            size = 0.3,
+          },
+        },
+      },
+    },
+  },
 }
