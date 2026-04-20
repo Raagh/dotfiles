@@ -46,6 +46,7 @@ return {
             fg = palette.love,
             bg = "none",
           },
+          BufferLineFill = { bg = palette.surface },
           NormalFloat = { bg = palette.base }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = palette.base, fg = palette.love }, -- Most floating borders except telescope
           FloatTitle = { bg = palette.base, fg = palette.gold },
@@ -115,6 +116,7 @@ return {
             fg = palette.boatYellow2,
             bg = "none",
           },
+          BufferLineFill = { bg = theme.ui.bg_p1 },
           NormalFloat = { bg = theme.ui.bg }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = "none", fg = palette.autumnGreen }, -- Most floating borders except telescope
           FloatTitle = { bg = "none", fg = palette.boatYellow2 }, -- Title for the rename and lsp windows (dressing.nvim)
