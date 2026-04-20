@@ -38,6 +38,14 @@ return {
             fg = palette.gold,
             bg = palette.base,
           },
+          WinSeparator = {
+            fg = palette.love,
+            bg = "none",
+          },
+          VertSplit = {
+            fg = palette.love,
+            bg = "none",
+          },
           NormalFloat = { bg = palette.base }, -- All floating buffers background like the lsp, autocomplete and such
           FloatBorder = { bg = palette.base, fg = palette.love }, -- Most floating borders except telescope
           FloatTitle = { bg = palette.base, fg = palette.gold },
@@ -89,6 +97,10 @@ return {
         return {
           DapBreakpoint = {
             fg = palette.waveRed,
+            bg = "none",
+          },
+          WinSeparator = {
+            fg = palette.autumnGreen,
             bg = "none",
           },
           VertSplit = {
