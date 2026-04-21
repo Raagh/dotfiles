@@ -39,11 +39,11 @@ return {
             bg = palette.base,
           },
           WinSeparator = {
-            fg = palette.love,
+            fg = palette.iris,
             bg = "none",
           },
           VertSplit = {
-            fg = palette.love,
+            fg = palette.iris,
             bg = "none",
           },
           BufferLineFill = { bg = palette.surface },
@@ -101,11 +101,11 @@ return {
             bg = "none",
           },
           WinSeparator = {
-            fg = palette.autumnGreen,
+            fg = palette.oniViolet,
             bg = "none",
           },
           VertSplit = {
-            fg = palette.waveAqua2,
+            fg = palette.oniViolet,
             bg = "none",
           },
           DapLogPoint = {
