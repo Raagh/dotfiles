@@ -10,7 +10,7 @@
   imports = [ ./opencode.nix ];
 
   home.packages = with pkgs; [
-    neovim
+    pkgsUnstable.neovim
     gcc
     ripgrep
     fzf
@@ -24,6 +24,7 @@
     ghostscript
 
     lua-language-server
+    typescript-go
     nodejs
     go
     statix

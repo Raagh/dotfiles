@@ -1,8 +1,13 @@
+local system = require("utils.system")
+
 return {
   {
     "neovim/nvim-lspconfig",
     init = function()
       if vim.fn.executable("tsgo") == 1 then
+        return
+      end
+      if system.is_nixos() then
         return
       end
       if vim.g._tsgo_global_install_started then
