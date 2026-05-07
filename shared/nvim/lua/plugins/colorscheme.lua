@@ -54,6 +54,10 @@ return {
           WhichKeyFloat = { bg = palette.base }, -- Whichkey popup background
           WhichKeyTitle = { bg = palette.base, fg = palette.gold }, -- Whichkey popup background
           WhichKeyBorder = { bg = palette.base, fg = palette.love }, -- Whichkey border popup
+          Pmenu = { bg = palette.surface, fg = palette.text }, -- Right-click popup menu
+          PmenuSel = { bg = palette.overlay, fg = palette.text }, -- Selected item
+          PmenuSbar = { bg = palette.surface }, -- Scrollbar
+          PmenuThumb = { bg = palette.muted }, -- Scrollbar thumb
           NotifyWARNBorder = { bg = palette.base },
           NotifyERRORBorder = { bg = palette.base },
           NotifyINFOBorder = { bg = palette.base },
@@ -122,6 +126,10 @@ return {
           FloatTitle = { bg = "none", fg = palette.boatYellow2 }, -- Title for the rename and lsp windows (dressing.nvim)
           NeotreeFloatTitle = { bg = "none", fg = palette.boatYellow2 }, -- Title for the rename and lsp windows (dressing.nvim)
           LazyDimmed = { bg = "none", fg = "none" },
+          Pmenu = { bg = theme.ui.bg_p1, fg = theme.ui.fg }, -- Right-click popup menu
+          PmenuSel = { bg = theme.ui.bg_p2, fg = theme.ui.fg }, -- Selected item
+          PmenuSbar = { bg = theme.ui.bg_p1 }, -- Scrollbar
+          PmenuThumb = { bg = theme.ui.bg_m1 }, -- Scrollbar thumb
         }
       end,
     },
