@@ -13,6 +13,7 @@ Theme: rose-pine (applied with stylix)
 - zsh
 - pfetch
 - nvim
+- also includes gaming support via steam/proton and lutris
 
 ![rose-pine-hyprland-nixos](https://github.com/user-attachments/assets/f3f57a06-1a40-4d65-9535-09c2f7f0c3d7)
 
