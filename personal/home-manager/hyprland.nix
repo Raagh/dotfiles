@@ -138,11 +138,13 @@
         "$mainMod, X, exec, $powermenu"
         "$mainMod, E, exec, $fileManager"
         "$mainMod SHIFT, W, exec, google-chrome-stable"
-        "$mainMod, F, togglefloating,"
+        "$mainMod, F, fullscreen, 1"
+        "$mainMod, V, togglefloating,"
         "$mainMod, D, exec, $menu"
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, R, submap, resize"
+        "$mainMod SHIFT, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod SHIFT, N, exec, swaync-client -t"
 
         # Move focus with mainMod + hjkl
@@ -220,6 +222,15 @@
       # Window rules
       windowrulev2 = [
         "float, size:800x600, center:1,class:(.protonvpn-app-wrapped)"
+        "float,class:^(steam|Steam)$,title:^(Steam)$"
+        "size 1400 900,class:^(steam|Steam)$,title:^(Steam)$"
+        "center,class:^(steam|Steam)$,title:^(Steam)$"
+        "float,class:^(net\\.lutris\\.Lutris)$"
+        "size 1400 900,class:^(net\\.lutris\\.Lutris)$"
+        "center,class:^(net\\.lutris\\.Lutris)$"
+        "float,class:^(transmission-gtk)$"
+        "size 1200 800,class:^(transmission-gtk)$"
+        "center,class:^(transmission-gtk)$"
         "float,class:^(framework-tool-tui)$"
         "center,class:^(framework-tool-tui)$"
         "size 1100 720,class:^(framework-tool-tui)$"

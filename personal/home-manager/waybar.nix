@@ -24,7 +24,7 @@
     systemd.target = "hyprland-session.target";
     settings = {
       mainBar = {
-        layer = "top";
+        layer = "bottom";
         width = 1250;
         height = 40;
         margin-top = 8;

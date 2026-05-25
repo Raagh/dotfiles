@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./boot.nix
     ./display.nix
+    ./gaming.nix
     ./user.nix
     ./theme.nix
   ];

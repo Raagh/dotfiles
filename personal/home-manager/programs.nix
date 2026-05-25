@@ -36,6 +36,10 @@ in
     transmission_4-gtk
     portfolio
     protonvpn-gui
+    lutris
+    wineWowPackages.stable
+    winetricks
+    protonup-qt
     trezor-suite
     framework-tool
     framework-tool-tui
@@ -71,6 +75,8 @@ in
       "x-scheme-handler/https" = [ "google-chrome.desktop" ];
       "x-scheme-handler/about" = [ "google-chrome.desktop" ];
       "x-scheme-handler/unknown" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/file" = [ "org.gnome.Nautilus.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
 
       "application/pdf" = [ "org.gnome.Papers.desktop" ];
       "image/png" = [ "org.gnome.Loupe.desktop" ];
@@ -78,6 +84,8 @@ in
     };
 
     associations.added = {
+      "x-scheme-handler/file" = [ "org.gnome.Nautilus.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
       "application/pdf" = [ "org.gnome.Papers.desktop" ];
       "image/png" = [ "org.gnome.Loupe.desktop" ];
       "text/plain" = [ "org.gnome.TextEditor.desktop" ];
