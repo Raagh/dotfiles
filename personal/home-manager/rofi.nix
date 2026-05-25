@@ -24,6 +24,7 @@ in
       show-icons = true;
       disable-history = true;
       hover-select = true;
+      click-to-exit = true;
       bw = 0;
       display-drun = "";
       display-window = "";

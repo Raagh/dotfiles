@@ -156,6 +156,9 @@
   # Enable fingerprint sensor
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = false;
+  security.sudo.extraConfig = ''
+    Defaults timestamp_timeout=30
+  '';
 
   # Enable GNOME Keyring PAM integration for automatic unlock
   security.pam.services.gdm.enableGnomeKeyring = true;
