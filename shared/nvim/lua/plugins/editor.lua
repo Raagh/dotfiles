@@ -31,7 +31,7 @@ return {
       },
       dashboard = {
         preset = {
-          header = table.concat(headers.psyduck, "\n"),
+          header = table.concat(headers.neovim, "\n"),
         },
       },
     },
