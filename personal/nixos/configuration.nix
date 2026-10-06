@@ -150,6 +150,10 @@
 
   services.udev.packages = with pkgs; [ trezor-udev-rules ];
 
+  systemd.tmpfiles.rules = [
+    "d /mnt/google-drive 0755 raagh users - -"
+  ];
+
   programs.light.enable = true;
   virtualisation.docker.enable = true;
 

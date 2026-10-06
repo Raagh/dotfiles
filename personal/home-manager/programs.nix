@@ -24,6 +24,7 @@ in
   home.packages = with pkgs; [
     lazygit
     kitty
+    rclone
 
     vlc
     gnome-disk-utility

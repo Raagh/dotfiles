@@ -51,6 +51,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupCommand = "hm-backup";
             home-manager.users.raagh = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = {
               inherit pkgsUnstable;

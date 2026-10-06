@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./google-drive.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./lock.nix
