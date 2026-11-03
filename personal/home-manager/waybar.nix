@@ -21,7 +21,7 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    systemd.target = "hyprland-session.target";
+    systemd.targets = [ "hyprland-session.target" ];
     settings = {
       mainBar = {
         layer = "bottom";
@@ -40,6 +40,7 @@
         ];
         "modules-right" = [
           "tray"
+          "bluetooth"
           "group/audio"
           "hyprland/language"
           "power-profiles-daemon"
@@ -235,6 +236,18 @@
           icon-size = 20;
           spacing = 5;
         };
+
+        bluetooth = {
+          format = "󰂯";
+          format-disabled = "󰂲";
+          format-off = "󰂲";
+          format-on = "󰂯";
+          format-connected = "󰂯";
+          tooltip-format = "Bluetooth: {status}";
+          tooltip-format-connected = "{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}";
+          on-click = "adw-bluetooth";
+        };
       };
     };
     style = ''
@@ -322,6 +335,12 @@
       }
 
       #tray {
+        margin-right: 8px;
+      }
+
+      #bluetooth {
+        color: #${config.lib.stylix.colors.base0C};
+        font-size: 16px;
         margin-right: 8px;
       }
 

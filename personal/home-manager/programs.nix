@@ -36,9 +36,9 @@ in
     exercism
     transmission_4-gtk
     portfolio
-    protonvpn-gui
+    proton-vpn
     lutris
-    wineWowPackages.stable
+    wineWow64Packages.stable
     winetricks
     protonup-qt
     trezor-suite

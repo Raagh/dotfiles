@@ -24,6 +24,7 @@
     enable = true;
     powerOnBoot = true;
   };
+  services.adw-bluetooth.enable = true;
   hardware.keyboard.qmk.enable = true;
   hardware.sensor.iio.enable = false;
 
@@ -48,6 +49,7 @@
 
   # Enable the Desktop Environment.
   services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "hyprland";
   # services.desktopManager.gnome.enable = true;
   programs.hyprland.enable = true;
   programs.nix-ld.enable = true;
@@ -107,6 +109,7 @@
     bat
     stow
     docker-compose
+    brightnessctl
     pfetch
   ];
 
@@ -154,7 +157,6 @@
     "d /mnt/google-drive 0755 raagh users - -"
   ];
 
-  programs.light.enable = true;
   virtualisation.docker.enable = true;
 
   # Enable fingerprint sensor

@@ -9,6 +9,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    configType = "hyprlang";
     settings = {
 
       env = [
@@ -94,7 +95,6 @@
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
 
@@ -142,7 +142,7 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, D, exec, $menu"
         "$mainMod, P, pseudo," # dwindle
-        "$mainMod, J, togglesplit," # dwindle
+        "$mainMod, J, layoutmsg, togglesplit" # dwindle
         "$mainMod, R, submap, resize"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod SHIFT, N, exec, swaync-client -t"
@@ -201,8 +201,8 @@
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, light -A 10"
-        ",XF86MonBrightnessDown, exec, light -U 10"
+        ",XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
       # Media control binds (locked)
@@ -220,23 +220,25 @@
       ];
 
       # Window rules
-      windowrulev2 = [
-        "float, size:800x600, center:1,class:(.protonvpn-app-wrapped)"
-        "float,class:^(steam|Steam)$,title:^(Steam)$"
-        "size 1400 900,class:^(steam|Steam)$,title:^(Steam)$"
-        "center,class:^(steam|Steam)$,title:^(Steam)$"
-        "float,class:^(net\\.lutris\\.Lutris)$"
-        "size 1400 900,class:^(net\\.lutris\\.Lutris)$"
-        "center,class:^(net\\.lutris\\.Lutris)$"
-        "float,class:^(transmission-gtk)$"
-        "size 1200 800,class:^(transmission-gtk)$"
-        "center,class:^(transmission-gtk)$"
-        "float,class:^(framework-tool-tui)$"
-        "center,class:^(framework-tool-tui)$"
-        "size 1100 720,class:^(framework-tool-tui)$"
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "noblur, title:^()$, class:^()$"
+      windowrule = [
+        "float on, match:class (.protonvpn-app-wrapped)"
+        "size 800 600, match:class (.protonvpn-app-wrapped)"
+        "center on, match:class (.protonvpn-app-wrapped)"
+        "float on, match:class ^(steam|Steam)$, match:title ^(Steam)$"
+        "size 1400 900, match:class ^(steam|Steam)$, match:title ^(Steam)$"
+        "center on, match:class ^(steam|Steam)$, match:title ^(Steam)$"
+        "float on, match:class ^(net\\.lutris\\.Lutris)$"
+        "size 1400 900, match:class ^(net\\.lutris\\.Lutris)$"
+        "center on, match:class ^(net\\.lutris\\.Lutris)$"
+        "float on, match:class ^(transmission-gtk)$"
+        "size 1200 800, match:class ^(transmission-gtk)$"
+        "center on, match:class ^(transmission-gtk)$"
+        "float on, match:class ^(framework-tool-tui)$"
+        "center on, match:class ^(framework-tool-tui)$"
+        "size 1100 720, match:class ^(framework-tool-tui)$"
+        "suppress_event maximize, match:class .*"
+        "no_focus on, match:class ^$, match:title ^$, match:xwayland true, match:float true, match:fullscreen false, match:pin false"
+        "no_blur on, match:title ^()$, match:class ^()$"
       ];
     };
 
@@ -255,7 +257,6 @@
 
   # Packages to make hyprland a DE.
   home.packages = with pkgs; [
-    blueberry
     networkmanagerapplet
     wdisplays
     nautilus

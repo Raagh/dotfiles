@@ -15,7 +15,7 @@
     ripgrep
     fzf
     fd
-    nixfmt-rfc-style
+    nixfmt
     cargo
     hub
     unzip
