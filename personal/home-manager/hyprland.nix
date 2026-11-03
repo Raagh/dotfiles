@@ -19,9 +19,10 @@
 
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
-      "$menu" = "rofi -no-lazy-grab -show drun";
+      "$menu" =
+        "rofi -no-lazy-grab -show drun -me-select-entry '' -me-accept-entry '!MousePrimary' -kb-cancel 'Escape,MousePrimary,MouseMiddle'";
       "$powermenu" =
-        "rofi -show p -modi p:'rofi-power-menu --symbols-font \"JetBrains Mono NF 16\"' -theme-str 'listview {lines: 6;} element-text{spacing:9em;}'";
+        "rofi -show p -modi p:'rofi-power-menu --symbols-font \"JetBrains Mono NF 16\"' -theme-str 'listview {lines: 6;} element-text{spacing:9em;}' -me-select-entry '' -me-accept-entry '!MousePrimary' -kb-cancel 'Escape,MousePrimary,MouseMiddle'";
 
       exec-once = [
         "nm-applet"

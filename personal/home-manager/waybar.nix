@@ -45,7 +45,6 @@
           "hyprland/language"
           "power-profiles-daemon"
           "battery"
-          "group/power"
         ];
 
         "custom/logo" = {
@@ -96,51 +95,13 @@
           ];
         };
 
-        "group/power" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 500;
-            transition-left-to-right = true;
-          };
-          modules = [
-            "custom/power" # First element is the "group leader" and won't ever be hidden
-            "custom/quit"
-            "custom/lock"
-            "custom/reboot"
-          ];
-        };
-
-        "custom/quit" = {
-          format = "";
-          tooltip = false;
-          on-click = "hyprctl dispatch exit";
-        };
-
-        "custom/lock" = {
-          format = "󰌾";
-          tooltip = false;
-          on-click = "swaylock";
-        };
-
-        "custom/reboot" = {
-          format = "󰜉";
-          tooltip = false;
-          on-click = "reboot";
-        };
-
-        "custom/power" = {
-          format = "󰐥";
-          tooltip = false;
-          on-click = "shutdown now";
-        };
-
         "group/audio" = {
           orientation = "horizontal";
           drawer = {
             transition-duration = 600;
             children-class = "not-power";
-            transition-to-left = true;
-            click-to-reveal = false;
+            transition-left-to-right = true;
+            click-to-reveal = true;
           };
           modules = [
             "pulseaudio"
@@ -165,7 +126,6 @@
               " "
             ];
           };
-          on-click = "pavucontrol";
         };
 
         "pulseaudio/slider" = {
@@ -255,6 +215,24 @@
         font-family: "DejaVu Sans", sans-serif;
         font-size: 12px;
         font-weight: bold;
+      }
+
+      window#waybar {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      window#waybar > box {
+        background: #${config.lib.stylix.colors.base00};
+        border: none;
+        border-radius: 8px;
+        box-shadow: none;
+      }
+
+      tooltip,
+      button {
         border-radius: 8px;
       }
 
@@ -277,31 +255,6 @@
       }
 
       #clock {
-        color: #${config.lib.stylix.colors.base08};
-      }
-
-      #custom-quit,
-      #custom-lock,
-      #custom-reboot,
-      #custom-power {
-        margin-left: 7px;
-        margin-right: 12px;
-        font-size: 18px;
-      }
-
-      #custom-quit {
-        color: #${config.lib.stylix.colors.base0A};
-      }
-
-      #custom-lock {
-        color: #${config.lib.stylix.colors.base0D};
-      }
-
-      #custom-reboot {
-        color: #${config.lib.stylix.colors.base09};
-      }
-
-      #custom-power {
         color: #${config.lib.stylix.colors.base08};
       }
 
@@ -344,11 +297,6 @@
         margin-right: 8px;
       }
 
-      #group-audio {
-        margin-left: 8px;
-        margin-right: 6px;
-      }
-
       #language {
         margin-right: 6px;
       }
@@ -358,12 +306,9 @@
       }
 
       #battery {
-        margin-right: 4px;
-      }
-
-      #group-power {
         margin-right: 12px;
       }
+
     '';
   };
 }
