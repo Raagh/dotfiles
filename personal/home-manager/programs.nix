@@ -52,6 +52,7 @@ in
     package = pkgs.google-chrome;
     commandLineArgs = [
       "--enable-features=UseOzonePlatform"
+      "--enable-unsafe-webgpu"
       "--ozone-platform-hint=auto"
       "--ozone-platform=wayland"
     ];
