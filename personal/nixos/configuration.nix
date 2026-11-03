@@ -110,6 +110,7 @@
     stow
     docker-compose
     brightnessctl
+    wsdd # Required by GVfs network discovery; avoids Nautilus cold-start timeouts
     pfetch
   ];
 

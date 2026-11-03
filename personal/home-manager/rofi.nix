@@ -22,6 +22,7 @@ in
       modi = "drun";
       font = "Dejavu Sans 12";
       show-icons = true;
+      icon-theme = "Papirus-Dark";
       disable-history = true;
       hover-select = true;
       click-to-exit = true;

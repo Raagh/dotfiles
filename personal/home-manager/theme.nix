@@ -17,6 +17,13 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus";
+    };
+
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
