@@ -86,6 +86,8 @@ in
       "x-scheme-handler/https" = [ "google-chrome.desktop" ];
       "x-scheme-handler/about" = [ "google-chrome.desktop" ];
       "x-scheme-handler/unknown" = [ "google-chrome.desktop" ];
+      "x-scheme-handler/afirma" = [ "Autofirma.desktop" ];
+      "x-scheme-handler/fnmtcr" = [ "configuradorfnmt.desktop" ];
       "x-scheme-handler/file" = [ "org.gnome.Nautilus.desktop" ];
       "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
 

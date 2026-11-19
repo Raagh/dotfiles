@@ -2,8 +2,37 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
+let
+  createAutofirmaCert = pkgs.writeShellApplication {
+    name = "create-autofirma-cert";
+    runtimeInputs = [ pkgs.openssl ];
+    text = builtins.readFile "${inputs.autofirma-nix}/nix/autofirma/create-autofirma-cert";
+  };
+
+  installAutofirmaChromeCert = pkgs.writeShellApplication {
+    name = "install-autofirma-chrome-cert";
+    runtimeInputs = [ pkgs.nss.tools ];
+    text = ''
+      nss_db="/home/raagh/.pki/nssdb"
+      mkdir -p "$nss_db"
+
+      if [[ ! -f "$nss_db/cert9.db" ]]; then
+        certutil -N --empty-password -d "sql:$nss_db"
+      fi
+
+      certutil -D -d "sql:$nss_db" -n "AutoFirma ROOT" 2>/dev/null || true
+      certutil -A -d "sql:$nss_db" -n "AutoFirma ROOT" -t "C,," \
+        -i /etc/Autofirma/Autofirma_ROOT.cer
+    '';
+  };
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -23,6 +52,20 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+    settings.Policy = {
+      # BlueZ's default reconnect list only contains audio profiles. Include
+      # Bluetooth LE HID so input devices such as the MX Master reconnect
+      # after a dropped link instead of requiring a new pairing.
+      ReconnectUUIDs = builtins.concatStringsSep "," [
+        "00001812-0000-1000-8000-00805f9b34fb" # HID over GATT
+        "00001112-0000-1000-8000-00805f9b34fb"
+        "0000111f-0000-1000-8000-00805f9b34fb"
+        "0000110a-0000-1000-8000-00805f9b34fb"
+        "0000110b-0000-1000-8000-00805f9b34fb"
+      ];
+      ReconnectAttempts = 7;
+      ReconnectIntervals = "1,2,4,8,16,32,64";
+    };
   };
   services.adw-bluetooth.enable = true;
   hardware.keyboard.qmk.enable = true;
@@ -54,6 +97,10 @@
   programs.hyprland.enable = true;
   programs.nix-ld.enable = true;
   programs.dconf.enable = true;
+  programs.autofirma = {
+    enable = true;
+  };
+  programs.configuradorfnmt.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -96,6 +143,10 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+  ];
+  nix.settings.extra-substituters = [ "https://nix-community.cachix.org" ];
+  nix.settings.extra-trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
   # List packages installed in system profile
@@ -149,6 +200,30 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.framework-tool}/bin/framework_tool --charge-limit 80";
+    };
+  };
+
+  systemd.services.create-autofirma-cert = {
+    description = "Create the local certificate used by AutoFirma";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${createAutofirmaCert}/bin/create-autofirma-cert /etc/Autofirma";
+      ExecStartPost = "${pkgs.coreutils}/bin/chown raagh:users /etc/Autofirma/autofirma.pfx";
+      RemainAfterExit = true;
+    };
+  };
+
+  systemd.services.autofirma-chrome-cert = {
+    description = "Trust the AutoFirma certificate in Google Chrome";
+    wantedBy = [ "multi-user.target" ];
+    requires = [ "create-autofirma-cert.service" ];
+    after = [ "create-autofirma-cert.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = "raagh";
+      ExecStart = "${installAutofirmaChromeCert}/bin/install-autofirma-chrome-cert";
+      RemainAfterExit = true;
     };
   };
 

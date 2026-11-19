@@ -12,7 +12,19 @@
     };
 
     stylix.url = "github:danth/stylix/release-26.05";
+
+    autofirma-nix = {
+      url = "github:nix-community/autofirma-nix";
+    };
   };
+
+  nixConfig = {
+    extra-substituters = [ "https://nix-community.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
   outputs =
     inputs@{
       nixos-hardware,
@@ -45,6 +57,8 @@
         };
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
+          inputs.autofirma-nix.nixosModules.autofirma
+          inputs.autofirma-nix.nixosModules.configuradorfnmt
           ./nixos/configuration.nix
 
           home-manager.nixosModules.home-manager
